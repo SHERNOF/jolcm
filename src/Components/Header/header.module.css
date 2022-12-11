@@ -1,0 +1,46 @@
+.logoContainer {
+  margin-left: 2rem;
+  /* border: 1px solid; */
+  margin-top: 8px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate3d(0, 1, 0, 180deg);
+  animation: spinner 5s ease-in-out infinite;
+  flex-direction: column;
+  z-index: 1000;
+}
+.logoContainer:before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  filter: blur(3px);
+  z-index: 2;
+}
+
+.myUl li {
+  margin-right: 1rem;
+  margin-bottom: 20px;
+}
+
+.myUl li .myBtn {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@keyframes spinner {
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-359deg);
+  }
+}
