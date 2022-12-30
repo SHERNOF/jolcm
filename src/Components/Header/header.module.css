@@ -3,8 +3,8 @@
   /* border: 1px solid; */
   padding: 5px;
   margin-top: 8px;
-  width: 75px;
-  height: 75px;
+  width: 45px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,7 @@
 .myImg {
   height: 80%;
   width: 80%;
+  margin-left: auto;
 }
 .myUl li {
   margin-right: 1rem;

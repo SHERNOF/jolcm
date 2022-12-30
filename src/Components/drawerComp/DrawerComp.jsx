@@ -12,26 +12,25 @@ import React, { useState } from "react";
 
 export default function DrawerComp() {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
-  const [openDrawer, setopenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <React.Fragment>
-      <Drawer
-        open={openDrawer}
-        onClose={() => setopenDrawer(false)}
-        sx={{ display: "flex", flexDirection: "column" }}
-      >
+      <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
-          <ListItemButton>
-            <ListItemIcon>
-              {pages.map((page, index) => (
-                <ListItemText key={index}>{page}</ListItemText>
-              ))}
-            </ListItemIcon>
-          </ListItemButton>
+          {pages.map((page, index) => (
+            <ListItemButton key={index}>
+              <ListItemIcon>
+                <ListItemText>{page}</ListItemText>
+              </ListItemIcon>
+            </ListItemButton>
+          ))}
         </List>
       </Drawer>
-      <IconButton onCLick={() => setopenDrawer(!openDrawer)}>
-        <MenuIcon></MenuIcon>
+      <IconButton
+        sx={{ marginLeft: "auto" }}
+        onClick={() => setOpenDrawer(!openDrawer)}
+      >
+        <MenuIcon />
       </IconButton>
     </React.Fragment>
   );
