@@ -9,39 +9,44 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-// import { useTheme } from "@emotion/react";
+
 import DrawerComp from "../drawerComp/DrawerComp";
 
-// import { MyButton } from "../styled/MyButton";
-
 export default function Header({ styleHeader }) {
-  // const theme = useTheme();
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
   const [value, setValue] = useState();
   const theme = useTheme();
-  console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
 
-  // const logo = {
-  //   hidden: {
-  //     opacity: 0,
-  //     y: -60,
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: {
-  //       delay: 0.5,
-  //       duration: 2,
-  //       ease: "easeInOut",
-  //     },
-  //   },
-  // };
-
+  const logo = {
+    hidden: {
+      opacity: 0,
+      y: -60,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+        duration: 2,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <React.Fragment>
-      <AppBar>
+      <AppBar
+        sx={{
+          backgroundColor: styleHeader
+            ? theme.palette.primary.main
+            : theme.palette.primary.dark,
+          transition: "all .2s",
+        }}
+        as={motion.div}
+        variants={logo}
+        initial="hidden"
+        animate="visible"
+      >
         <Toolbar>
           <div className={classes.logoContainer}>
             <img className={classes.myImg} src="../pics/logo.png" alt="img" />
