@@ -16,7 +16,7 @@ export default function JolVideo() {
       }}
     >
       <video
-        src={JOL}
+        // src={JOL}
         // className={classes.vid}
         // src={props.video}
         // ref={videoRef}
@@ -30,7 +30,9 @@ export default function JolVideo() {
           height: "100vh",
           objectFit: "cover",
         }}
-      ></video>
+      >
+        <source src="JOL.mp4" type="video/mp4"></source>
+      </video>
       ;
     </Box>
   );
