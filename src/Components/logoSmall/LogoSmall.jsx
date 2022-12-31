@@ -12,6 +12,7 @@ export default function LogoSmall() {
         height: "170%",
         overflow: "visible",
         // stroke: alpha(theme.text.primary, 1),
+
         stroke: "white",
         fill: alpha(theme.text.primary, 1),
         // fill: "blue",

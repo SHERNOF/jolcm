@@ -70,10 +70,8 @@ function App() {
     }
   };
 
-  console.log(now);
-
   return (
-    <ThemeProvider theme={now >= 7 && now <= 18 ? dark : light}>
+    <ThemeProvider theme={now >= 7 && now <= 18 ? light : dark}>
       <Header styleHeader={styleHeader}></Header>
       <div className="App" onWheel={eventHandler}>
         <Home></Home>

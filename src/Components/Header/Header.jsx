@@ -14,7 +14,8 @@ import DrawerComp from "../drawerComp/DrawerComp";
 
 export default function Header({ styleHeader }) {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(0);
+
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -58,8 +59,8 @@ export default function Header({ styleHeader }) {
             <Tabs
               sx={{ marginLeft: "auto" }}
               textColor="inherit"
-              value={value}
               indicatorColor="secondary"
+              value={value}
               onChange={(e, value) => setValue(value)}
             >
               {pages.map((page, index) => (

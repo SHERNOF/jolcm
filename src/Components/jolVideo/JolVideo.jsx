@@ -15,7 +15,7 @@ export default function JolVideo() {
         autoPlay
         loop
         muted
-        onPlay={console.log("test")}
+        playsInline
         style={{
           width: "100%",
           height: "100vh",

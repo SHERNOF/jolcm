@@ -12,7 +12,6 @@ export default function About() {
   const { ref, inView } = useInView({ threshold: 0.3 });
   const animation = useAnimation();
   useEffect(() => {
-    console.log("use effect hook, inView=", inView);
     if (inView) {
       animation.start({
         opacity: 1,
