@@ -1,14 +1,13 @@
 import { Grid, Paper, Typography } from "@mui/material";
-// import { useTheme } from "@emotion/react";
+
 import React, { useEffect } from "react";
 import { Box } from "@mui/system";
-import { StyledH3, StyledH4, StyledP } from "../styled/StyledTypography";
-import { MyBox } from "../styled/MyBox";
+import { StyledH3, StyledH4, StyledP } from "../styled/1StyledTypography";
+
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 export default function About() {
-  // const theme = useTheme();
   const { ref, inView } = useInView({ threshold: 0.3 });
   const animation = useAnimation();
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function About() {
     }
   }, [inView]);
   return (
-    <MyBox ref={ref}>
+    <Box ref={ref}>
       <Grid
         as={motion.div}
         animate={animation}
@@ -183,6 +182,6 @@ export default function About() {
           </Paper>
         </Grid>
       </Grid>
-    </MyBox>
+    </Box>
   );
 }

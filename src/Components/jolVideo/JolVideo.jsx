@@ -14,26 +14,26 @@ export default function JolVideo() {
         position: "absolute",
         width: "100%",
       }}
+      // dangerouslySetInnerHTML={{
+      //   __html: (
+
+      //   ),
+      // }}
     >
       <video
-        // src={JOL}
-        // className={classes.vid}
-        // src={props.video}
-        // ref={videoRef}
-        // type="video/mp4"
-        autoPlay={true}
-        loop={true}
-        muted={true}
-        playsInline={true}
+        src={JOL}
+        autoPlay
+        loop
+        muted
+        playsInline
         style={{
           width: "100%",
           height: "100vh",
           objectFit: "cover",
         }}
       >
-        <source src="JOL.mp4" type="video/mp4"></source>
+        <source type="video/mp4" />
       </video>
-      ;
     </Box>
   );
 }

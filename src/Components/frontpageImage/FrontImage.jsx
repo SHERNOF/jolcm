@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { StyledH1, StyledH2 } from "../styled/StyledTypography";
 import JolVideo from "../jolVideo/JolVideo";
 
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const entrance = {
   hidden: { opacity: 0 },
@@ -57,11 +57,12 @@ export default function FrontImage() {
   }, 30000);
 
   return (
-    <motion.div
+    <Box
+      as={motion.div}
       variants={entrance}
       initial="hidden"
       animate="visible"
-      style={{
+      sx={{
         width: "100%",
         height: "100vh",
         display: "flex",
@@ -71,17 +72,28 @@ export default function FrontImage() {
       }}
     >
       <Typography></Typography>
-      <div className={classes.overlay}></div>
+      <Box
+        sx={{
+          position: "absolute",
+          top: "0",
+          right: "0",
+          width: "100%",
+          height: "100vh",
+          background: "rgba(0, 0, 0, 0.4)",
+          zIndex: "3",
+        }}
+      ></Box>
 
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo></JolVideo>}
       </div>
 
-      <motion.div
+      <Box
+        as={motion.div}
         variants={container}
         initial="initial"
         animate="show"
-        style={{
+        sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -115,7 +127,7 @@ export default function FrontImage() {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
-    </motion.div>
+      </Box>
+    </Box>
   );
 }

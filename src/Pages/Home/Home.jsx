@@ -10,15 +10,11 @@ import Services2 from "../../Components/services/Services2";
 export default function Home() {
   const theme = useTheme();
   return (
-    <Box
-      sx={{
-        backgroundColor: theme.palette.primary.main,
-      }}
-    >
+    <Box>
       <Frontpage></Frontpage>
-      <About2></About2>
-      <Services2></Services2>
-      <About></About>
+      {/* <About2></About2> */}
+      {/* <Services2></Services2> */}
+      {/* <About></About> */}
     </Box>
   );
 }

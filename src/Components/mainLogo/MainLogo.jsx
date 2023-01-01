@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "@emotion/react";
-import { alpha } from "@mui/material";
+import { alpha, Box } from "@mui/material";
 
 export default function MainLogo() {
   const theme = useTheme();
@@ -9,17 +9,17 @@ export default function MainLogo() {
   const icon = {
     hidden: {
       pathLength: 0,
-      fill: alpha(theme.logo.primary, 0),
+      fill: alpha(theme.logo.fill, 0),
     },
     visible: {
       pathLength: 1,
-      fill: alpha(theme.logo.primary, 1),
+      fill: alpha(theme.logo.fill, 0.8),
       transition: { duration: 3, delay: 0.3 },
       ease: "easeInOut",
     },
   };
   return (
-    <div
+    <Box
       style={{
         width: "800px",
         height: "800px",
@@ -36,7 +36,7 @@ export default function MainLogo() {
           width: "100%",
           height: "100%",
           overflow: "visible",
-          stroke: alpha(theme.palette.primary.main, 1),
+          stroke: alpha(theme.logo.stroke, 1),
           strokeWidth: "1.5",
           strokeLinejoin: "round",
           strokeLinecap: "round",
@@ -1090,6 +1090,6 @@ export default function MainLogo() {
           />
         </g>
       </motion.svg>
-    </div>
+    </Box>
   );
 }

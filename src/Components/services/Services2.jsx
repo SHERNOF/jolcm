@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { MyBoxAbout2 } from "../styled/MyBox";
+
 import {
   MyTitle,
   StyledH4,
@@ -35,7 +35,7 @@ export default function Services2() {
     }
   }, [animation, inView]);
   return (
-    <MyBoxAbout2>
+    <Box>
       <Paper
         ref={ref}
         sx={{
@@ -128,6 +128,6 @@ export default function Services2() {
           </Box>
         </motion.div>
       </Paper>
-    </MyBoxAbout2>
+    </Box>
   );
 }

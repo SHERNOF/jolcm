@@ -1,6 +1,11 @@
-import { useTheme } from "@emotion/react";
-import { Box, createTheme, ThemeProvider } from "@mui/material";
-import { blue, grey, lightBlue, red } from "@mui/material/colors";
+import {
+  createTheme,
+  ThemeProvider,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { blue, grey } from "@mui/material/colors";
+
 import { useState } from "react";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
@@ -8,58 +13,40 @@ import Home from "./Pages/Home/Home";
 // import Home from "./Pages/Home";
 
 const light = createTheme({
-  mode: "light",
   palette: {
+    mode: "light",
     primary: {
-      main: blue["50"],
-      light: blue["100"],
-      dark: blue["200"],
-    },
-  },
-  text: {
-    primary: grey["900"],
-  },
-  strong: {
-    primary: grey["900"],
-  },
-  logo: {
-    primary: grey["900"],
-  },
-  title: {
-    primary: blue["500"],
-  },
-  darker: {
-    primary: blue["500"],
-  },
-});
-const dark = createTheme({
-  mode: "dark",
-  palette: {
-    primary: {
+      light: grey["50"],
       main: grey["700"],
-      light: grey["900"],
       dark: grey["900"],
     },
   },
-  text: {
-    primary: blue["50"],
-  },
-  strong: {
-    primary: blue["100"],
-  },
   logo: {
-    primary: blue["50"],
+    fill: "rgba(0, 0, 0, 0.17)",
+    stroke: "#fff",
   },
-  title: {
-    primary: grey["A500"],
+});
+const dark = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      light: grey["500"],
+      main: grey["50"],
+      dark: "",
+    },
   },
-  darker: {
-    primary: "#000000",
+
+  logo: {
+    fill: "#fff",
+    stroke: "rgba(0, 0, 0, 0.17)",
   },
 });
 
 function App() {
+  const themeMUI = useTheme();
+  const isMatch = useMediaQuery(themeMUI.breakpoints.down("md"));
   const now = new Date().getHours();
+  console.log(now);
   const [styleHeader, setStyleHeader] = useState(true);
   const eventHandler = (e) => {
     const evnt = e.nativeEvent.wheelDelta;
@@ -71,8 +58,8 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={now >= 7 && now <= 18 ? light : dark}>
-      <Header styleHeader={styleHeader}></Header>
+    <ThemeProvider theme={now >= 13 && now <= 18 ? light : dark}>
+      <Header styleHeader={styleHeader} isMatch={isMatch}></Header>
       <div className="App" onWheel={eventHandler}>
         <Home></Home>
       </div>

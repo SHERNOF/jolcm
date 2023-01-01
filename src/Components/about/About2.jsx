@@ -1,8 +1,7 @@
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { MyBoxAbout2 } from "../styled/MyBox";
 import { StyledP, MyTitle } from "../styled/StyledTypography";
 
 export default function About2() {
@@ -29,7 +28,7 @@ export default function About2() {
     }
   }, [animation, inView]);
   return (
-    <MyBoxAbout2 ref={ref}>
+    <Box ref={ref}>
       <Paper
         sx={{
           position: "absolute",
@@ -66,6 +65,6 @@ export default function About2() {
           </StyledP>
         </motion.div>
       </Paper>
-    </MyBoxAbout2>
+    </Box>
   );
 }
