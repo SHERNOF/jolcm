@@ -31,14 +31,14 @@ export default function DrawerComp({ styleHeader }) {
       <IconButton
         sx={{
           marginLeft: "auto",
-
-          color: styleHeader
-            ? theme.palette.primary.light
-            : theme.palette.primary.dark,
         }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
-        <MenuIcon />
+        <MenuIcon
+          sx={{
+            color: styleHeader ? "white" : theme.palette.primary.light,
+          }}
+        />
       </IconButton>
     </React.Fragment>
   );

@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import classes from "./header.module.css";
 import { Toolbar, AppBar, Tabs, Tab, useTheme } from "@mui/material";
 import DrawerComp from "../drawerComp/DrawerComp";
-export default function Header({ styleHeader, isMatch }) {
+
+export default function Header({ styleHeader, isMed }) {
+  console.log(isMed);
   const theme = useTheme();
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
   const [value, setValue] = useState(0);
@@ -28,12 +30,11 @@ export default function Header({ styleHeader, isMatch }) {
       <AppBar
         sx={{
           backgroundColor: styleHeader
-            ? theme.palette.primary.dark
-            : theme.palette.primary.light,
-
-          color: styleHeader
-            ? theme.palette.primary.light
+            ? "transparent"
             : theme.palette.primary.dark,
+
+          color: styleHeader ? "white" : theme.palette.primary.light,
+          width: "100%",
           transition: "all .2s",
         }}
       >
@@ -47,8 +48,11 @@ export default function Header({ styleHeader, isMatch }) {
             <img className={classes.myImg} src="../pics/logo.png" alt="img" />
           </div>
 
-          {isMatch ? (
-            <DrawerComp sx={{ marginLeft: "auto" }}></DrawerComp>
+          {isMed ? (
+            <DrawerComp
+              styleHeader={styleHeader}
+              sx={{ marginLeft: "auto" }}
+            ></DrawerComp>
           ) : (
             <Tabs
               sx={{ marginLeft: "auto" }}
@@ -58,11 +62,7 @@ export default function Header({ styleHeader, isMatch }) {
               onChange={(e, value) => setValue(value)}
             >
               {pages.map((page, index) => (
-                <Tab
-                  key={index}
-                  label={page}
-                  sx={{ color: "theme.palette.text.primary" }}
-                ></Tab>
+                <Tab key={index} label={page}></Tab>
               ))}
             </Tabs>
           )}

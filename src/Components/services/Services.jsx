@@ -2,7 +2,7 @@ import { Grid, Paper, Typography } from "@mui/material";
 
 import React, { useEffect } from "react";
 import { Box } from "@mui/system";
-import { StyledH3, StyledH4, StyledP } from "../styled/1StyledTypography";
+import { StyledH3, StyledH4, StyledP } from "../styled/StyledTypography";
 
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "@emotion/react";
 import { alpha, Box } from "@mui/material";
 
-export default function MainLogo() {
+export default function MainLogo({ isMed }) {
   const theme = useTheme();
 
   const icon = {
@@ -20,21 +20,25 @@ export default function MainLogo() {
   };
   return (
     <Box
-      style={{
-        width: "800px",
-        height: "800px",
+      sx={{
+        width: "100vw",
+        height: "100vh",
         position: "absolute",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 595.28 841.89"
+        // viewBox={["0 -60 595.28 841.89", "0 -70 595.28 841.89"]}
+        viewBox="0 -60 595.28 841.89"
         variants={icon}
         initial="hidden"
         animate="visible"
         style={{
-          width: "100%",
-          height: "100%",
+          width: "90%",
+          height: "90%",
           overflow: "visible",
           stroke: alpha(theme.logo.stroke, 1),
           strokeWidth: "1.5",

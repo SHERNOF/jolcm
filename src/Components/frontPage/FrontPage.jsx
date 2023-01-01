@@ -4,21 +4,21 @@ import React from "react";
 import MainLogo from "../mainLogo/MainLogo";
 import FrontImage from "../frontpageImage/FrontImage";
 
-export default function Frontpage() {
+export default function Frontpage({ isMed }) {
   return (
     <>
       <Box
         sx={{
-          width: "100vw",
-          height: "100vh",
+          maxWidth: "100vw",
+          maxHeight: "100vh",
           position: "relative",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <MainLogo></MainLogo>
-        <FrontImage></FrontImage>
+        <MainLogo isMed={isMed}></MainLogo>
+        <FrontImage isMed={isMed}></FrontImage>
       </Box>
     </>
   );

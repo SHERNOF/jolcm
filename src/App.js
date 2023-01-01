@@ -16,7 +16,7 @@ const light = createTheme({
   palette: {
     mode: "light",
     primary: {
-      light: grey["50"],
+      light: grey["300"],
       main: grey["700"],
       dark: grey["900"],
     },
@@ -44,7 +44,7 @@ const dark = createTheme({
 
 function App() {
   const themeMUI = useTheme();
-  const isMatch = useMediaQuery(themeMUI.breakpoints.down("md"));
+  const isMed = useMediaQuery(themeMUI.breakpoints.down("md"));
   const now = new Date().getHours();
   console.log(now);
   const [styleHeader, setStyleHeader] = useState(true);
@@ -58,10 +58,10 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={now >= 13 && now <= 18 ? light : dark}>
-      <Header styleHeader={styleHeader} isMatch={isMatch}></Header>
+    <ThemeProvider theme={now <= 6 && now >= 18 ? light : dark}>
+      <Header styleHeader={styleHeader} isMed={isMed}></Header>
       <div className="App" onWheel={eventHandler}>
-        <Home></Home>
+        <Home isMed={isMed}></Home>
       </div>
     </ThemeProvider>
   );
