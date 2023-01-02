@@ -15,11 +15,11 @@ import Home from "./Pages/Home/Home";
 const light = createTheme({
   palette: {
     mode: "light",
-    primary: {
-      light: grey["300"],
-      main: grey["700"],
-      dark: grey["900"],
-    },
+    // primary: {
+    //   light: grey["300"],
+    //   main: grey["700"],
+    //   dark: grey["900"],
+    // },
   },
   logo: {
     fill: "rgba(0, 0, 0, 0.17)",
@@ -29,11 +29,11 @@ const light = createTheme({
 const dark = createTheme({
   palette: {
     mode: "dark",
-    primary: {
-      light: grey["500"],
-      main: grey["50"],
-      dark: "",
-    },
+    // primary: {
+    //   light: grey["500"],
+    //   main: grey["50"],
+    //   dark: "",
+    // },
   },
 
   logo: {
@@ -58,7 +58,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={now <= 6 && now >= 18 ? light : dark}>
+    <ThemeProvider theme={now >= 18 && now <= 7 ? light : dark}>
       <Header styleHeader={styleHeader} isMed={isMed}></Header>
       <div className="App" onWheel={eventHandler}>
         <Home isMed={isMed}></Home>

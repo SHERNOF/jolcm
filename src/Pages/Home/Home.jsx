@@ -16,7 +16,7 @@ export default function Home({ isMed }) {
       }}
     >
       <Frontpage isMed={isMed}></Frontpage>
-      <About2></About2>
+      {/* <About2></About2> */}
       {/* <Services2></Services2> */}
       {/* <About></About> */}
     </Box>
