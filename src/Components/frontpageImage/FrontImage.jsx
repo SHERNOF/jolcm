@@ -31,7 +31,7 @@ const item = {
   initial: { opacity: 0, y: 20, scale: 1.9 },
 
   show: {
-    y: 350,
+    y: 300,
     opacity: 1,
     scale: 1,
     transition: {

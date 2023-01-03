@@ -1,0 +1,41 @@
+.container {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid red;
+  position: relative;
+}
+.vision,
+.mission {
+  width: 45%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+  border: 1px solid rgb(116, 115, 115);
+  border-radius: 5px;
+  margin: 2rem;
+}
+.content {
+  padding: 3rem 3rem;
+}
+
+@media (max-width: 1330px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+  }
+  .vision,
+  .mission {
+    width: 90%;
+    height: 45%;
+  }
+}
+
+@media (max-width: 900px) {
+}
