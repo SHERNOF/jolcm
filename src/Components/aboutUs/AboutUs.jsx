@@ -6,7 +6,7 @@ import classes from "./aboutUs.module.css";
 export default function AboutUs() {
   return (
     <Paper className={classes.container}>
-      <Paper>
+      <Paper className={classes.subCont}>
         <Box className={classes.mission}>
           <h3>MISSION</h3>
           <p className={classes.content}>
