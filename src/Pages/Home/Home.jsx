@@ -14,6 +14,7 @@ export default function Home() {
         position: "relative",
         display: "flex",
         flexDirection: "column",
+        overflow: "hidden",
       }}
     >
       <Header></Header>

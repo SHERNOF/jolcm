@@ -4,27 +4,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  border: 1px solid red;
-  position: relative;
+  border: 1px solid rgb(116, 115, 115);
 }
 .vision,
 .mission {
-  width: 45%;
-  height: 80%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #121212;
+  flex-direction: column;
+  margin: 1rem;
   border: 1px solid rgb(116, 115, 115);
-  border-radius: 5px;
-  margin: 2rem;
+  padding: 2em;
 }
 .content {
-  padding: 3rem 3rem;
+}
+p {
+  text-align: justify;
+  margin-top: -1rem;
 }
 
-@media (max-width: 1330px) {
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
     justify-content: space-between;
@@ -32,8 +29,6 @@
   }
   .vision,
   .mission {
-    width: 90%;
-    height: 45%;
   }
 }
 
