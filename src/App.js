@@ -1,7 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import "./App.css";
 import Home from "./Pages/home/Home";
-// shernof
 
 const darkTheme = createTheme({
   shadows: ["none"],
@@ -29,7 +28,7 @@ function App() {
   const now = new Date().getHours();
   return (
     <ThemeProvider theme={now >= 18 ? darkTheme : lightTheme}>
-      <Home />
+      <Home></Home>
     </ThemeProvider>
   );
 }
