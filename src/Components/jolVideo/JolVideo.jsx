@@ -7,7 +7,7 @@ export default function JolVideo() {
     <Paper
       sx={{
         position: "absolute",
-        width: "100%",
+        width: "100vw",
       }}
     >
       <video
