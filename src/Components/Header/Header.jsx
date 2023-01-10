@@ -1,52 +1,42 @@
 import classes from "./header.module.css";
-import React, { useState } from "react";
-import {
-  AppBar,
-  Tab,
-  Tabs,
-  Toolbar,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import DrawerComp from "../drawerComp/DrawerComp";
 
-export default function Header() {
+import { useState } from "react";
+
+export default function Header({ isMed, wheel }) {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
-  const [value, setValue] = useState(0);
-  const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const isMed = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMed);
+  const clickHandler = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  };
 
   return (
-    <React.Fragment>
-      <AppBar>
-        <Toolbar>
-          <Box className={classes.logoContainer}>
-            <img
-              className={classes.myImg}
-              src="../pics/logo.png"
-              alt="img"
-            ></img>
-          </Box>
-          {isMed ? (
-            <DrawerComp></DrawerComp>
-          ) : (
-            <Tabs
-              sx={{ marginLeft: "auto" }}
-              textColor="inherit"
-              indicatorColor="secondary"
-              value={value}
-              onChange={(e, value) => setValue(value)}
-            >
+    <nav>
+      {/* dynamic styling css module  */}
+      <div className={`${classes.container} ${wheel && classes.bgrned}`}>
+        <div className={classes.logoContainer}>
+          <img src="../pics/logo-white.svg" alt="img"></img>
+        </div>
+        {isMed ? (
+          <div
+            className={`${classes.iconContainer} ${isOpen && classes.close}`}
+            onClick={clickHandler}
+          >
+            <span className={classes.line}></span>
+            <span className={classes.line}></span>
+            <span className={classes.line}></span>
+          </div>
+        ) : (
+          <div className={classes.navContent}>
+            <ul>
               {pages.map((page, index) => (
-                <Tab key={index} label={page}></Tab>
+                <li key={index}>{page}</li>
               ))}
-            </Tabs>
-          )}
-        </Toolbar>
-      </AppBar>
-    </React.Fragment>
+            </ul>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }

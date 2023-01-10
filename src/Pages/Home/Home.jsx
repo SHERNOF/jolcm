@@ -1,26 +1,24 @@
-import { Box } from "@mui/material";
 import React from "react";
-import AboutUs from "../../Components/aboutUs/AboutUs";
+// import AboutUs from "../../Components/aboutUs/AboutUs";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
-import Header from "../../Components/header/Header";
+import Header from "../../Components/Header/Header";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 
-export default function Home() {
+export default function Home({ isMed, wheel }) {
   return (
-    <Box
+    <div
       sx={{
         width: "100vw",
-        height: "100%",
+        height: "100vh",
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        overflow: "hidden",
       }}
     >
-      <Header></Header>
+      <Header isMed={isMed} wheel={wheel}></Header>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      <AboutUs></AboutUs>
-    </Box>
+      {/* <AboutUs></AboutUs> */}
+    </div>
   );
 }

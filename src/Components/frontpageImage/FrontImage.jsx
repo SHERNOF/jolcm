@@ -22,16 +22,16 @@ const container = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      delayChildren: 3,
+      delayChildren: 2.5,
       duration: 2,
     },
   },
 };
 const item = {
-  initial: { opacity: 0, y: 20, scale: 1.9 },
+  initial: { opacity: 0, y: 700, scale: 1.4 },
 
   show: {
-    y: 250,
+    y: 0,
     opacity: 1,
     scale: 1,
     transition: {
@@ -61,10 +61,10 @@ export default function FrontImage({ isMed }) {
       animate="visible"
       className={classes.videoContainer}
     >
-      <div className={classes.overlay}></div>
+      {/* <div className={classes.overlay}></div> */}
 
       <div className={classes.imageContainer}>
-        {showVideo && <JolVideo></JolVideo>}
+        {showVideo && <JolVideo autoplay></JolVideo>}
       </div>
 
       <motion.div

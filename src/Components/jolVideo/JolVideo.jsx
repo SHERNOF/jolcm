@@ -1,8 +1,8 @@
 import { Paper } from "@mui/material";
 import React from "react";
-import JOL from "./JOL.mp4";
+import JOLNA from "./JOLNA.mp4";
 
-export default function JolVideo() {
+export default function JolVideo({ embedId }) {
   return (
     <Paper
       sx={{
@@ -11,10 +11,10 @@ export default function JolVideo() {
       }}
     >
       <video
-        src={JOL}
+        src={JOLNA}
+        muted
         autoPlay
         loop
-        muted
         playsInline
         style={{
           width: "100%",

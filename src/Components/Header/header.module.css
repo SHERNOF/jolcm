@@ -1,33 +1,107 @@
-.logoContainer {
-  padding: 5px;
-  margin-top: 8px;
-  width: 45px;
-  height: 60px;
+nav {
+  margin-top: 2.5rem;
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  height: 4rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  transform: rotate3d(0, 1, 0, 180deg);
+  font-size: 0.7rem;
+  color: white;
+  font-weight: bold;
+}
+.container {
+  margin: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.084);
+  animation: all 0.5s ease-in-out;
+}
+.container.bgrned {
+  background-color: rgba(0, 0, 0, 0.281);
+}
+.container .logoContainer {
+  width: 7rem;
+  height: 125%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   animation: spinner 5s ease-in-out infinite;
+  /* border: 1px solid red; */
+}
+.container .logoContainer img {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: flex-start;
+}
+.container .iconContainer {
+  height: 1.5rem;
+  width: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
-  z-index: 1000;
+  margin-right: 2rem;
+  cursor: pointer;
 }
-
-.logoContainer:before {
+.container .iconContainer .line {
+  border: 1px solid white;
+  width: 60%;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: white;
+  transition: all 0.5s ease-out;
+}
+.iconContainer.close {
+  transform: rotate(180deg);
+}
+.iconContainer.close .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.iconContainer.close .line:nth-child(2) {
+  opacity: 0;
+}
+.iconContainer.close .line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+.container .navContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul {
+  list-style: none;
+  display: flex;
+}
+li {
+  margin-left: 0.3rem;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+li:before {
+  /* https://www.csshero.org/how-to-use-css-pseudo-classes-to-build-a-border-hover-animation/ */
+  display: block;
   content: "";
+  border-bottom: 2px solid white;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  bottom: 0;
+  left: 0;
   position: absolute;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  filter: blur(3px);
-  z-index: 2;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
 }
-
-.myImg {
-  height: 80%;
-  width: 80%;
-  margin-left: auto;
+li:hover:before {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+  transition-delay: 0.2s;
 }
-
 @keyframes spinner {
   from {
     -moz-transform: rotateY(0deg);
