@@ -7,8 +7,7 @@ export default function Circle() {
       <div className={`${classes.circle} ${classes.circleRed}`}></div>
       <div className={`${classes.circle} ${classes.circleGreen}`}></div>
       <div className={`${classes.circle} ${classes.circleBlue}`}></div>
-
-      {/* <div className={`${classes.circle} ${classes.circleYellow}`}></div> */}
+      <div className={`${classes.circle} ${classes.circleYellow}`}></div>
     </div>
   );
 }

@@ -3,38 +3,44 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  z-index: -2;
+  /* z-index: -2; */
   opacity: 0.7;
   height: 100%;
   width: 100%;
 }
 .circle {
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   filter: blur(60px);
 }
 .circleRed {
   background: red;
-  transform: translateX(40%);
+  transform: translateX(60%);
   animation: r 5s alternate ease-in-out infinite;
+}
+.circleGreen {
+  background-color: green;
+  animation: g 5s alternate ease-in-out infinite;
+  width: 150px;
+  height: 150px;
 }
 
 .circleBlue {
   background-color: blue;
-  transform: translateX(-40%);
+  transform: translateX(-60%);
   animation: b 5s alternate ease-in-out infinite;
 }
 
-.circleGreen {
-  background-color: green;
-  animation: g 5s alternate ease-in-out infinite;
-}
-
 .circleYellow {
-  background-color: yellow;
-  transform: translateX(-80%);
-  animation: y 5s alternate ease-in-out infinite;
+  background-color: rgba(255, 255, 0, 0.387);
+  /* transform: translateX(-80%); */
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  /* animation: y 5s alternate ease-in-out infinite; */
 }
 
 @keyframes r {
@@ -43,11 +49,13 @@
     background-color: red;
   }
   50% {
-    transform: translateY(-90px);
+    transform: translateY(-50px);
+    transform: translateX(-50px);
     background-color: yellow;
   }
   100% {
-    transform: translateY(90px);
+    transform: translateY(50px);
+    transform: translateX(50px);
     background-color: orange;
   }
 }
@@ -58,11 +66,11 @@
     background-color: green;
   }
   50% {
-    transform: translateX(-90px);
+    transform: translateX(-140px);
     background-color: blue;
   }
   100% {
-    transform: translatex(90px);
+    transform: translatex(140px);
     background-color: red;
   }
 }
@@ -73,11 +81,11 @@
     background-color: blue;
   }
   50% {
-    transform: translateY(90px);
+    transform: translateY(50px);
     background-color: green;
   }
   100% {
-    transform: translateY(-90px);
+    transform: translateY(-50px);
     background-color: red;
   }
 }
@@ -86,5 +94,6 @@
   .circle {
     width: 150px;
     height: 150px;
+    max-width: 100%;
   }
 }
