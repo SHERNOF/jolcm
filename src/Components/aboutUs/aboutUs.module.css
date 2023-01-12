@@ -4,10 +4,9 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 1rem 0;
-  position: absolute;
+  /* padding: 1rem 0; */
+  position: relative;
   height: 55vh;
-  /* background: url(https://i.ibb.co/M9LB3Kq/Glassmorphism-Background.png); */
   /* background-color: #eee; */
 }
 .aboutContainer::before {
@@ -20,64 +19,15 @@
   filter: blur(300px);
   z-index: -2;
 }
-.circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  filter: blur(60px);
-  /* animation: x all 4s ease-in-out; */
-}
-
-.circlebg {
-  display: flex;
-  position: absolute;
-  z-index: -2;
-  opacity: 0.7;
-}
-.circleRed {
-  background: red;
-  transform: translateX(40%);
-  /* animation: x all 4s ease-in-out;
-   */
-  animation-name: r;
-  animation-duration: 2s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-.circleBlue {
-  background-color: blue;
-  transform: translateX(-40%);
-  animation: b 2s alternate ease-in-out infinite;
-}
-
-.circleGreen {
-  background-color: green;
-  animation-name: g;
-  animation-duration: 2s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-.circleYellow {
-  background-color: yellow;
-  transform: translateX(-80%);
-  animation-name: y;
-  animation-duration: 2s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
 .title {
   width: 95%;
-  height: 4rem;
-  /* background-color: rgba(0, 0, 0, 0.05); */
+  height: 2rem;
+  background-color: rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: -1rem;
+  padding: 1rem 0;
 }
 .title h3 {
   margin-left: 1.5rem;
@@ -108,42 +58,16 @@
 }
 
 @media (max-width: 900px) {
+  .aboutContainer {
+    margin-top: 1rem 0;
+    height: 60vh;
+  }
   .content {
     display: flex;
     flex-direction: column;
+    grid-gap: 1rem;
+    /* margin-bottom: 1rem; */
   }
-}
-@keyframes r {
-  from {
-    /* transform: translateY(0px); */
-    background-color: red;
-  }
-  to {
-    /* transform: translateY(-20px); */
-    background-color: yellow;
-  }
-}
-@keyframes y {
-  from {
-    background-color: yellow;
-  }
-  to {
-    background-color: red;
-  }
-}
-@keyframes g {
-  from {
-    background-color: green;
-  }
-  to {
-    background-color: blue;
-  }
-}
-@keyframes b {
-  from {
-    background-color: blue;
-  }
-  to {
-    background-color: green;
+  .title {
   }
 }

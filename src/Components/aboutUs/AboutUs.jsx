@@ -1,15 +1,11 @@
 import React from "react";
+import Circle from "../circles/Circle";
 import classes from "./aboutUs.module.css";
 
 export default function AboutUs() {
   return (
     <div className={classes.aboutContainer}>
-      <div className={classes.circlebg}>
-        <div className={`${classes.circle} ${classes.circleRed}`}></div>
-        <div className={`${classes.circle} ${classes.circleGreen}`}></div>
-        <div className={`${classes.circle} ${classes.circleBlue}`}></div>
-        <div className={`${classes.circle} ${classes.circleYellow}`}></div>
-      </div>
+      <Circle></Circle>
       <div className={classes.title}>
         <h3>ABOUT JOY OF LIFE</h3>
       </div>
