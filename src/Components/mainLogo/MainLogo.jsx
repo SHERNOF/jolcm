@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "@emotion/react";
-import { alpha, Box } from "@mui/material";
+import { alpha } from "@mui/material";
 
 export default function MainLogo({ isMed }) {
   const theme = useTheme();
@@ -19,8 +19,8 @@ export default function MainLogo({ isMed }) {
     },
   };
   return (
-    <Box
-      sx={{
+    <div
+      style={{
         width: "100vw",
         height: "100vh",
         position: "absolute",
@@ -1094,6 +1094,6 @@ export default function MainLogo({ isMed }) {
           />
         </g>
       </motion.svg>
-    </Box>
+    </div>
   );
 }

@@ -61,7 +61,7 @@ export default function FrontImage({ isMed }) {
       animate="visible"
       className={classes.videoContainer}
     >
-      {/* <div className={classes.overlay}></div> */}
+      <div className={classes.overlay}></div>
 
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo autoplay></JolVideo>}

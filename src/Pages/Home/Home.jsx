@@ -1,5 +1,5 @@
 import React from "react";
-// import AboutUs from "../../Components/aboutUs/AboutUs";
+import AboutUs from "../../Components/aboutUs/AboutUs";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import Header from "../../Components/Header/Header";
 import MainLogo from "../../Components/mainLogo/MainLogo";
@@ -18,7 +18,7 @@ export default function Home({ isMed, wheel }) {
       <Header isMed={isMed} wheel={wheel}></Header>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      {/* <AboutUs></AboutUs> */}
+      <AboutUs></AboutUs>
     </div>
   );
 }

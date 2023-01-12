@@ -1,11 +1,10 @@
-import { Paper } from "@mui/material";
 import React from "react";
 import JOLNA from "./JOLNA.mp4";
 
 export default function JolVideo({ embedId }) {
   return (
-    <Paper
-      sx={{
+    <div
+      style={{
         position: "absolute",
         width: "100vw",
       }}
@@ -24,6 +23,6 @@ export default function JolVideo({ embedId }) {
       >
         <source type="video/mp4" />
       </video>
-    </Paper>
+    </div>
   );
 }
