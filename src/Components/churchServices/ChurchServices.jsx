@@ -5,6 +5,7 @@ export default function ChurchServices() {
   return (
     <div className={classes.services}>
       <div className={classes.square1}></div>
+      <div className={classes.square2}></div>
       <div className={classes.servicesContainer}>
         <div className={classes.title}>
           <h3>CHURCH SERVICES</h3>
