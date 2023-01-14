@@ -33,7 +33,7 @@ function App() {
   const [wheel, setWheel] = useState(false);
   const eventHandler = (e) => {
     const ev = e.deltaY;
-    ev > 0 ? setWheel(true) : setWheel(false);
+    ev < 0 ? setWheel(true) : setWheel(false);
   };
   return (
     <ThemeProvider theme={now >= 18 ? darkTheme : lightTheme}>
