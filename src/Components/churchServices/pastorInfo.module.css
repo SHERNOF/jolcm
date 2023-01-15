@@ -1,0 +1,101 @@
+.committeeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 2rem;
+  /* border: 1px solid red; */
+  height: 70vh;
+  max-width: 100vw;
+}
+
+.title {
+  width: 100%;
+  height: 2rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+.pastorInfo {
+  /* background: linear-gradient(
+    to right,
+    #9c9e9f 0%,
+    #9c9e9f 40%,
+    #f6f6f6 40%,
+    #f6f6f6 100%
+  ); */
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.863);
+  max-height: 85%;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  height: 85%;
+  width: 100%;
+}
+/* a */
+.pastorInfoContainer {
+  display: grid;
+  grid-template-rows: 0.7fr 3.3fr;
+  grid-template-areas:
+    "details"
+    "img";
+  width: 100%;
+  height: 95%;
+
+  /* padding: 1rem 2rem; */
+}
+
+.pastorInfoContainer .pastorDetails {
+  grid-area: details;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+  padding: 2rem 2rem;
+}
+.pastorInfoContainer .imgContainer {
+  grid-area: img;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pastorInfoContainer .imgContainer img {
+  height: 70%;
+  width: 80%;
+}
+/* b */
+.pastorInfo .verseContainer {
+  /* display: grid;
+  grid-template-rows: 0.85fr 3.15fr;
+  grid-template-areas:
+    "name"
+    "details"; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 95%;
+  /* border: 1px solid red; */
+}
+.pastorInfo .verseContainer .verseName {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+  padding: 2rem 2rem;
+}
+.pastorInfo .verseContainer .verseDetails {
+  padding: 1rem 2rem;
+}
