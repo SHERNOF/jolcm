@@ -20,9 +20,11 @@ nav {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   animation: all 0.5s ease-in-out;
+  color: rgba(11, 0, 0, 0.633);
 }
 .container.bgrned {
   background-color: rgba(0, 0, 0, 0.281);
+  color: white;
 }
 .container .logoContainer {
   width: 7rem;

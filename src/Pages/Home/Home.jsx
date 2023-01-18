@@ -5,7 +5,7 @@ import FrontImage from "../../Components/frontpageImage/FrontImage";
 import Header from "../../Components/Header/Header";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 
-export default function Home({ isMed, wheel }) {
+export default function Home({ isMed, wheel, data }) {
   return (
     <div
       sx={{
@@ -20,7 +20,7 @@ export default function Home({ isMed, wheel }) {
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
       <AboutUs></AboutUs>
-      <ChurchServices></ChurchServices>
+      <ChurchServices data={data}></ChurchServices>
     </div>
   );
 }
