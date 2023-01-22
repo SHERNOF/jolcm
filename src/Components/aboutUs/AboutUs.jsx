@@ -5,7 +5,7 @@ import classes from "./aboutUs.module.css";
 export default function AboutUs() {
   return (
     <div className={classes.aboutContainer}>
-      <Circle></Circle>
+      {/* <Circle></Circle> */}
       <div className={classes.title}>
         <h3>ABOUT JOY OF LIFE</h3>
       </div>

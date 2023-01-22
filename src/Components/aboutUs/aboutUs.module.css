@@ -1,16 +1,11 @@
-* {
-  margin: 0;
-}
 .aboutContainer {
   width: 100vw;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  /* padding: 1rem 0; */
   position: relative;
-  height: 45vh;
-  /* background-color: #eee; */
+  height: 30vh;
 }
 
 .title {
@@ -30,11 +25,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
-  /* border: 1px solid red; */
   height: 60%;
+
+  align-items: center;
 }
 .content .contentContainer {
-  padding: 1rem;
+  padding: 2rem;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -45,7 +41,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 85%;
+  height: 50%;
 }
 .contentContainer h4 {
   /* text-align: start; */
