@@ -14,7 +14,6 @@ export default function AboutUs() {
           <h4>MISSION</h4>
           <h5>To share life in Christ Jesus with great joy to all.</h5>
         </div>
-
         <div
           className={`${classes.contentContainer} ${classes.contentContainer2}`}
         >

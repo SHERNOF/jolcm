@@ -54,21 +54,18 @@
 
 @media (max-width: 900px) {
   .aboutContainer {
-    justify-content: space-evenly;
-
     height: 23rem;
   }
   .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 90%;
-
-    height: 70%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    height: 80%;
   }
-  .contentContainer2 {
-    margin-top: -1.2rem;
+  .contentContainer {
+    width: 90%;
+    height: 25%;
   }
   .title {
     width: 90%;
