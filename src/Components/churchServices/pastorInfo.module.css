@@ -149,3 +149,33 @@ img {
     font-size: 0.75em;
   }
 }
+
+@media (max-width: 450px) {
+  .committeeContaner {
+    padding: 0;
+    /* border: 1px solid red; */
+    width: 95%;
+    height: 55vh;
+  }
+  .pastorInfoContainer {
+    width: 95%;
+    /* border: 1px solid blue; */
+    justify-content: center;
+  }
+  .pastorDetails {
+    /* border: 1px solid red; */
+    height: 2rem;
+    margin-top: 1rem;
+  }
+  .imgContainer {
+    height: 8rem;
+    width: 6rem;
+  }
+  img {
+    height: 8rem;
+    width: 6rem;
+  }
+  .verseContainer {
+    font-size: 1.2em;
+  }
+}

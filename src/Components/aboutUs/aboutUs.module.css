@@ -56,6 +56,7 @@
   .aboutContainer {
     height: 23rem;
   }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -73,5 +74,27 @@
     height: 10%;
     margin-bottom: 2rem;
     margin-top: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .aboutContainer {
+    height: 18rem;
+    margin-top: 2rem;
+    /* border: 1px solid red; */
+  }
+  .content {
+    margin-top: -1rem;
+  }
+  .contentContainer2 {
+    margin-top: -1rem;
+  }
+
+  .title {
+    width: 95%;
+  }
+  .content .contentContainer {
+    width: 88%;
+    height: 5%;
   }
 }
