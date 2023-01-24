@@ -18,9 +18,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.05);
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  background-color: transparent;
   animation: all 0.5s ease-in-out;
-  color: rgba(11, 0, 0, 0.633);
+  z-index: 5;
 }
 .container.bgrned {
   background-color: rgba(0, 0, 0, 0.281);
@@ -114,5 +115,14 @@ li:hover:before {
     -moz-transform: rotateY(-360deg);
     -ms-transform: rotateY(-360deg);
     transform: rotateY(-359deg);
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    margin: 0;
+  }
+  .container {
+    margin: 0.5rem;
   }
 }
