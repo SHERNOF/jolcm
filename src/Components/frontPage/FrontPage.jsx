@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import classes from "./frontImage.module.css";
+import classes from "./frontPage.module.css";
 import JolVideo from "../jolVideo/JolVideo";
 
 export default function FrontPage() {
