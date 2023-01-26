@@ -152,18 +152,22 @@ img {
 
 @media (max-width: 450px) {
   .committeeContaner {
-    padding: 0;
+    padding: 0.5rem 0.5rem;
     /* border: 1px solid red; */
     width: 95%;
-    height: 55vh;
+    height: 60vh;
   }
   .committee {
-    height: auto;
+    /* height: auto; */
+    width: 95%;
+    /* border: 1px solid red; */
+    justify-self: center;
   }
   .pastorInfoContainer {
     width: 95%;
     /* border: 1px solid blue; */
     justify-content: center;
+    margin-bottom: 1rem;
   }
   .pastorDetails {
     /* border: 1px solid red; */
@@ -182,5 +186,10 @@ img {
   .verseContainer {
     font-size: 1.2em;
     /* border: 1px solid red; */
+  }
+  .title {
+    width: 95%;
+    justify-self: center;
+    margin-top: 0.5rem;
   }
 }
