@@ -90,18 +90,6 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  /* border: 1px solid red; */
-  /* margin-top: 1rem; */
-
-  /* From https://css.glass */
-  /* background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.863); */
-
-  /* max-height: 85%; */
 }
 .serviceContainer .services .servicesInfo .service {
   /* border: 1px solid salmon; */
@@ -137,14 +125,6 @@
   align-items: center;
   justify-content: flex-start;
   padding: 1rem 0;
-
-  /* From https://css.glass */
-  /* background: rgba(255, 255, 255, 0.2); */
-  /* border-radius: 16px; */
-  /* box-shadow: 10px 2px 20px rgba(183, 7, 7, 0.1); */
-  /* backdrop-filter: blur(5px); */
-  /* -webkit-backdrop-filter: blur(5px); */
-  /* border: 1px solid rgba(255, 255, 255, 0.863); */
 }
 
 @media (max-width: 450px) {
@@ -158,12 +138,15 @@
     padding: 1rem 1rem;
     margin-top: -1rem;
   }
-  .services .serviceInfo .service {
-    width: 90%;
-    border: 1px solid red;
+  .servicesInfo {
+  }
+  .serviceContainer .services .servicesInfo .service {
+    /* width: 95%; */
+    /* border: 1px solid red; */
+    height: 5rem;
   }
   .title {
-    width: 95%;
+    width: 92%;
     justify-self: center;
     margin-top: 1rem;
   }
