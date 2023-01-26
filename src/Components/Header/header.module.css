@@ -50,8 +50,8 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   cursor: pointer;
+  margin-right: 1rem;
 }
 .container .iconContainer .line {
   border: 1px solid white;
@@ -60,19 +60,20 @@ nav {
   margin: 0 0 5px 0;
   background: rgb(48, 47, 47);
   transition: all 0.5s ease-out;
-  margin-right: 1rem;
 }
 .iconContainer.close {
   transform: rotate(180deg);
 }
 .iconContainer.close .line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(8px, 9px);
+  /* transform: rotate(45deg) translate(5px, 5px); */
 }
 .iconContainer.close .line:nth-child(2) {
   opacity: 0;
 }
 .iconContainer.close .line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(3px, -3px);
+  /* transform: rotate(-45deg) translate(7px, -6px); */
 }
 .container .navContent {
   display: flex;
@@ -122,8 +123,6 @@ li:hover:before {
 
 @media (max-width: 450px) {
   nav {
-    /* width: 90%; */
-    /* background-color: red; */
   }
   .container {
     margin: 0;

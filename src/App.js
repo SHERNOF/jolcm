@@ -15,8 +15,6 @@ function App() {
   const [wheel, setWheel] = useState(false);
   const eventHandler = (e) => {
     const ev = e.deltaY;
-    console.log(ev);
-
     ev > 0 ? setWheel(true) : setWheel(false);
   };
   return (
