@@ -157,6 +157,9 @@ img {
     width: 95%;
     height: 55vh;
   }
+  .committee {
+    height: auto;
+  }
   .pastorInfoContainer {
     width: 95%;
     /* border: 1px solid blue; */
@@ -170,6 +173,7 @@ img {
   .imgContainer {
     height: 8rem;
     width: 6rem;
+    /* border: 1px solid red; */
   }
   img {
     height: 8rem;
@@ -177,5 +181,6 @@ img {
   }
   .verseContainer {
     font-size: 1.2em;
+    /* border: 1px solid red; */
   }
 }
