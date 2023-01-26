@@ -141,8 +141,6 @@
   .servicesInfo {
   }
   .serviceContainer .services .servicesInfo .service {
-    /* width: 95%; */
-    /* border: 1px solid red; */
     height: 5rem;
   }
   .title {
