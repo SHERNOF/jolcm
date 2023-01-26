@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const entrance = {
-  hidden: { opacity: 0, x: -700 },
+  hidden: { opacity: 0, x: -3000 },
   visible: {
     x: 0,
     opacity: 1,
     transition: {
       ease: "easeInOut",
-      duration: 3,
+      duration: 4,
       delay: 4.5,
     },
   },
