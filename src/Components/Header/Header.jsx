@@ -1,6 +1,20 @@
 import classes from "./header.module.css";
+import { motion } from "framer-motion";
 
 import { useState } from "react";
+
+const entrance = {
+  hidden: { opacity: 0, x: -700 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      ease: "easeInOut",
+      duration: 3,
+      delay: 4.5,
+    },
+  },
+};
 
 export default function Header({ isMed, wheel }) {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
@@ -13,8 +27,12 @@ export default function Header({ isMed, wheel }) {
 
   return (
     <nav>
-      {/* dynamic styling css module  */}
-      <div className={`${classes.container} ${wheel && classes.bgrned}`}>
+      <motion.div
+        variants={entrance}
+        initial="hidden"
+        animate="visible"
+        className={`${classes.container} ${wheel && classes.bgrned}`}
+      >
         <div className={classes.logoContainer}>
           <img src="../pics/logo-white.svg" alt="img"></img>
         </div>
@@ -36,7 +54,7 @@ export default function Header({ isMed, wheel }) {
             </ul>
           </div>
         )}
-      </div>
+      </motion.div>
     </nav>
   );
 }

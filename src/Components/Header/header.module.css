@@ -10,22 +10,21 @@ nav {
   font-size: 0.7rem;
   color: white;
   font-weight: bold;
-  /* background-color: red; */
+  justify-content: center;
 }
 .container {
-  /* margin: 2rem; */
-  width: 100%;
+  width: 90%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.05); */
   background-color: transparent;
   animation: all 0.5s ease-in-out;
   z-index: 5;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .container.bgrned {
-  background-color: rgba(0, 0, 0, 0.281);
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
 }
 .container .logoContainer {
@@ -35,7 +34,6 @@ nav {
   align-items: center;
   justify-content: flex-start;
   animation: spinner 5s ease-in-out infinite;
-  /* border: 1px solid red; */
   margin-left: -1rem;
 }
 .container .logoContainer img {
@@ -49,10 +47,10 @@ nav {
   height: 1.5rem;
   width: 2rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-right: 2rem;
+
   cursor: pointer;
 }
 .container .iconContainer .line {
@@ -60,8 +58,9 @@ nav {
   width: 60%;
   height: 3px;
   margin: 0 0 5px 0;
-  background: white;
+  background: rgb(48, 47, 47);
   transition: all 0.5s ease-out;
+  margin-right: 1rem;
 }
 .iconContainer.close {
   transform: rotate(180deg);
@@ -128,9 +127,13 @@ li:hover:before {
   }
   .container {
     margin: 0;
+    width: 95%;
   }
   .container {
     margin: 0.5rem;
+  }
+  .iconContainer {
+    margin-right: 0;
   }
   .container .logoContainer {
     width: 5rem;

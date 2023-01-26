@@ -9,11 +9,13 @@ export default function MainLogo({ isMed }) {
   const icon = {
     hidden: {
       pathLength: 0,
-      fill: alpha(theme.logo.fill, 0),
+      // fill: alpha(theme.logo.fill, 0),
+      fill: "rgba(0, 0, 0, 0.01)",
     },
     visible: {
       pathLength: 1,
-      fill: alpha(theme.logo.fill, 0.8),
+      // fill: alpha(theme.logo.fill, 0.8),
+      fill: "rgba(0, 0, 0, 0.8)",
       transition: { duration: 3, delay: 0.3 },
       ease: "easeInOut",
     },
@@ -40,7 +42,8 @@ export default function MainLogo({ isMed }) {
           width: "90%",
           height: "90%",
           overflow: "visible",
-          stroke: alpha(theme.logo.stroke, 1),
+          // stroke: alpha(theme.logo.stroke, 1),
+          stroke: "#fff",
           strokeWidth: "1.5",
           strokeLinejoin: "round",
           strokeLinecap: "round",

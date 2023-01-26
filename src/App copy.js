@@ -1,11 +1,33 @@
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { createTheme, ThemeProvider } from "@mui/material";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import React, { useState } from "react";
 import { data } from "./data.js";
 
 const info = data;
+console.log(info);
+
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: "dark",
+//   },
+//   logo: {
+//     fill: "#fff",
+//     stroke: "rgba(0, 0, 0, 0.17)",
+//   },
+// });
+
+// const lightTheme = createTheme({
+//   palette: {
+//     mode: "light",
+//   },
+//   logo: {
+//     fill: "rgba(0, 0, 0, 0.17)",
+//     stroke: "#fff",
+//   },
+// });
 
 function App() {
   const now = new Date().getHours();
@@ -15,14 +37,14 @@ function App() {
   const [wheel, setWheel] = useState(false);
   const eventHandler = (e) => {
     const ev = e.deltaY;
-    console.log(ev);
-
-    ev > 0 ? setWheel(true) : setWheel(false);
+    ev < 0 ? setWheel(true) : setWheel(false);
   };
   return (
+    // <ThemeProvider theme={now >= 18 ? darkTheme : lightTheme}>
     <div className="App" onWheel={eventHandler}>
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>
+    // </ThemeProvider>
   );
 }
 

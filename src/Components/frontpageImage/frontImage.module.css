@@ -43,14 +43,22 @@
 }
 .title {
   color: white;
-  /* font-size: clamp(1.5rem, 75%, 6rem); */
+  /* color: red; */
 }
 
 .subTitle {
   color: white;
-  /* font-size: clamp(1.25rem, 75%, 3rem); */
 }
 
-@media (min-width: 900px) {
+@media (max-width: 900px) {
   /* font-size: clamp(0.75, 50%, 1.5); */
+}
+
+@media (max-width: 450px) {
+  .title {
+    font-size: 1.8em;
+  }
+  .subTitle {
+    font-size: 1.5em;
+  }
 }
