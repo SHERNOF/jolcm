@@ -11,18 +11,17 @@ const entrance = {
     transition: {
       ease: "easeInOut",
       duration: 4,
-      delay: 4.5,
+      delay: 1.5,
     },
   },
 };
 
-export default function Header({ isMed, wheel }) {
+export default function Header({ isMed, wheel, setShowModal, isOpen }) {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [swtch, setSwtch] = useState(isOpen);
   const clickHandler = () => {
-    setIsOpen(!isOpen);
-    console.log(isOpen);
+    setShowModal(true);
+    setSwtch(!isOpen);
   };
 
   return (

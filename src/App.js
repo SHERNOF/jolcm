@@ -4,10 +4,15 @@ import "./App.css";
 import Home from "./Pages/Home/Home";
 import React, { useState } from "react";
 import { data } from "./data.js";
+import Modal from "./Components/modal/Modal";
+import Header from "./Components/Header/Header";
 
 const info = data;
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const now = new Date().getHours();
   const theme = useTheme();
   const isMed = useMediaQuery(theme.breakpoints.down("md"));
@@ -19,6 +24,14 @@ function App() {
   };
   return (
     <div className="App" onWheel={eventHandler}>
+      <Header
+        isOpen={isOpen}
+        setShowModal={setShowModal}
+        isMed={isMed}
+        wheel={wheel}
+      ></Header>
+
+      {showModal && <Modal setIsOpen={setIsOpen} setShowModal={setShowModal} />}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>
   );

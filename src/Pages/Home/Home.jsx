@@ -4,8 +4,9 @@ import ChurchServices from "../../Components/churchServices/ChurchServices";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import Header from "../../Components/Header/Header";
 import MainLogo from "../../Components/mainLogo/MainLogo";
+import Modal from "../../Components/modal/Modal";
 
-export default function Home({ isMed, wheel, info }) {
+export default function Home({ isMed, wheel, info, modalProps }) {
   return (
     <div
       sx={{
@@ -14,9 +15,10 @@ export default function Home({ isMed, wheel, info }) {
         position: "relative",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <Header isMed={isMed} wheel={wheel}></Header>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
       <AboutUs></AboutUs>
