@@ -30,3 +30,9 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 450px) {
+  .modalContent {
+    width: 60%;
+    height: 70%;
+  }
+}
