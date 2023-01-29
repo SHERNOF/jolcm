@@ -52,7 +52,6 @@ nav {
   flex-direction: column;
   cursor: pointer;
   margin-right: 1rem;
-  /* transform: rotate(0deg); */
 }
 .container .iconContainer .line {
   border: 1px solid white;
