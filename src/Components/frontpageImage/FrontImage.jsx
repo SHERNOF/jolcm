@@ -11,7 +11,7 @@ const entrance = {
     transition: {
       ease: "easeInOut",
       duration: 3,
-      delay: 2.5,
+      delay: 2,
     },
   },
 };
@@ -23,7 +23,6 @@ const container = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      // delayChildren: 2.5,
       duration: 2,
       delay: 1,
     },
@@ -36,7 +35,6 @@ const item = {
     y: 0,
     opacity: 1,
     scale: 1,
-    // delay: 2.5,
     transition: {
       ease: "easeInOut",
       duration: 3.2,

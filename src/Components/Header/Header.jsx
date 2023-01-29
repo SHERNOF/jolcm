@@ -16,13 +16,8 @@ const entrance = {
   },
 };
 
-export default function Header({ isMed, wheel, setShowModal, isOpen }) {
+export default function Header({ isMed, wheel, isOpen, isOpenClickHandler }) {
   const pages = ["HOME", "ABOUT US", "MINISTRIES", "CONTACT US", "EVENTS"];
-  const [swtch, setSwtch] = useState(isOpen);
-  const clickHandler = () => {
-    setShowModal(true);
-    setSwtch(!isOpen);
-  };
 
   return (
     <nav>
@@ -38,7 +33,7 @@ export default function Header({ isMed, wheel, setShowModal, isOpen }) {
         {isMed ? (
           <div
             className={`${classes.iconContainer} ${isOpen && classes.close}`}
-            onClick={clickHandler}
+            onClick={isOpenClickHandler}
           >
             <span className={classes.line}></span>
             <span className={classes.line}></span>

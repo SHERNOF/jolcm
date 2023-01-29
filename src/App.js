@@ -9,9 +9,12 @@ import Header from "./Components/Header/Header";
 
 const info = data;
 
-function App() {
-  const [showModal, setShowModal] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+function App({ props }) {
+  const [isOpen, setisOpen] = useState(false);
+
+  const isOpenClickHandler = () => {
+    setisOpen(!isOpen);
+  };
 
   const now = new Date().getHours();
   const theme = useTheme();
@@ -25,13 +28,15 @@ function App() {
   return (
     <div className="App" onWheel={eventHandler}>
       <Header
+        isOpenClickHandler={isOpenClickHandler}
         isOpen={isOpen}
-        setShowModal={setShowModal}
         isMed={isMed}
         wheel={wheel}
       ></Header>
 
-      {showModal && <Modal setIsOpen={setIsOpen} setShowModal={setShowModal} />}
+      {isOpen && (
+        <Modal isOpenClickHandler={isOpenClickHandler} isOpen={isOpen} />
+      )}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>
   );

@@ -52,6 +52,7 @@ nav {
   flex-direction: column;
   cursor: pointer;
   margin-right: 1rem;
+  /* transform: rotate(0deg); */
 }
 .container .iconContainer .line {
   border: 1px solid white;
@@ -66,14 +67,12 @@ nav {
 }
 .iconContainer.close .line:nth-child(1) {
   transform: rotate(45deg) translate(8px, 9px);
-  /* transform: rotate(45deg) translate(5px, 5px); */
 }
 .iconContainer.close .line:nth-child(2) {
   opacity: 0;
 }
 .iconContainer.close .line:nth-child(3) {
   transform: rotate(-45deg) translate(3px, -3px);
-  /* transform: rotate(-45deg) translate(7px, -6px); */
 }
 .container .navContent {
   display: flex;
