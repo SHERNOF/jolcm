@@ -15,8 +15,9 @@ function App({ props }) {
   const isOpenClickHandler = () => {
     setisOpen(!isOpen);
   };
+  console.log(isOpen);
 
-  const now = new Date().getHours();
+  // const now = new Date().getHours();
   const theme = useTheme();
   const isMed = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));

@@ -11,6 +11,10 @@ nav {
   color: white;
   font-weight: bold;
   justify-content: center;
+  /* transform: translateX(0px);
+  transition: all 2s ease-in-out;
+  pointer-events: visible;
+  transition-delay: 2s; */
 }
 .container {
   width: 90%;
@@ -22,6 +26,20 @@ nav {
   animation: all 0.5s ease-in-out;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.6);
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: ent 1s ease-in-out 1s 1 forwards forwards;
+}
+.container.exit {
+  opacity: 0;
+  transform: translateX(-3000px);
+  transition: all 1s 3.2s ease-in-out;
+  pointer-events: none;
+}
+.container.enter {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 1s 3.2s ease-in-out;
+  pointer-events: visible;
 }
 .container.bgrned {
   background-color: rgba(0, 0, 0, 0.2);
@@ -116,6 +134,21 @@ li:hover:before {
     -moz-transform: rotateY(-360deg);
     -ms-transform: rotateY(-360deg);
     transform: rotateY(-359deg);
+  }
+}
+
+@keyframes ent {
+  from {
+    -moz-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    transform: translateX(-3000px);
+    opacity: 0;
+  }
+  to {
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
   }
 }
 

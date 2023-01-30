@@ -9,9 +9,9 @@ const entrance = {
     x: 0,
     opacity: 1,
     transition: {
-      ease: "easeInOut",
-      duration: 4,
-      delay: 1.5,
+      // ease: "easeInOut",
+      // duration: 3.2,
+      // delay: 2.5,
     },
   },
 };
@@ -25,14 +25,17 @@ export default function Header({ isMed, wheel, isOpen, isOpenClickHandler }) {
         variants={entrance}
         initial="hidden"
         animate="visible"
-        className={`${classes.container} ${wheel && classes.bgrned}`}
+        className={`${classes.container} ${wheel && classes.bgrned} 
+        ${isOpen ? classes.exit : classes.enter}
+        
+        `}
       >
         <div className={classes.logoContainer}>
           <img src="../pics/logo-white.svg" alt="img"></img>
         </div>
         {isMed ? (
           <div
-            className={`${classes.iconContainer} ${isOpen && classes.close}`}
+            className={`${classes.iconContainer} ${isOpen && classes.close} `}
             onClick={isOpenClickHandler}
           >
             <span className={classes.line}></span>
@@ -40,7 +43,7 @@ export default function Header({ isMed, wheel, isOpen, isOpenClickHandler }) {
             <span className={classes.line}></span>
           </div>
         ) : (
-          <div className={classes.navContent}>
+          <div className={classes.motion.navContent}>
             <ul>
               {pages.map((page, index) => (
                 <li key={index}>{page}</li>

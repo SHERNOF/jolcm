@@ -10,8 +10,8 @@ const entrance = {
     opacity: 1,
     transition: {
       ease: "easeInOut",
-      duration: 3,
-      delay: 2,
+      duration: 4,
+      delay: 0.5,
     },
   },
 };
@@ -24,7 +24,7 @@ const container = {
     transition: {
       when: "beforeChildren",
       duration: 2,
-      delay: 1,
+      delay: 0.2,
     },
   },
 };
