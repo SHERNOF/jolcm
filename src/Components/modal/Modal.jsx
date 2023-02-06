@@ -5,7 +5,7 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
   return (
     <>
       <div
-        className={`${classes.modalContainer} ${isOpen ? classes.appear : ""}`}
+        className={`${classes.modalContainer} ${isOpen && classes.appear}`}
         onClick={isOpenClickHandler}
       >
         <div

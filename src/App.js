@@ -9,7 +9,7 @@ import Header from "./Components/Header/Header";
 
 const info = data;
 
-function App({ props }) {
+function App() {
   const [isOpen, setisOpen] = useState(false);
 
   const isOpenClickHandler = () => {
