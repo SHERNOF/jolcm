@@ -9,9 +9,14 @@
   z-index: 50;
   align-self: center;
   background-color: rgba(133, 130, 130, 0.4);
+
   opacity: 0;
-  transition: all 3s ease-in-out;
   pointer-events: none;
+  transition: all;
+  transition-delay: 0.1s;
+  transition-duration: 50s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(-2000px);
 }
 
 .modalContent {
@@ -28,10 +33,16 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.863);
 }
+.h1 {
+}
 .modalContainer.appear {
+  /* h1.appear { */
+  /* .modalContent.appear { */
   opacity: 1;
   pointer-events: visible;
+  transform: translateX(0);
 }
+
 @media (max-width: 450px) {
   .modalContent {
     width: 90%;

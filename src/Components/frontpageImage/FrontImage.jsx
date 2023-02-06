@@ -4,13 +4,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import JolVideo from "../jolVideo/JolVideo";
 
 const entrance = {
-  hidden: { opacity: 0, y: 1200 },
+  hidden: { opacity: 0, y: 3200 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
       ease: "easeInOut",
-      duration: 4,
+      duration: 5,
       delay: 0.5,
     },
   },
@@ -29,7 +29,7 @@ const container = {
   },
 };
 const item = {
-  initial: { opacity: 0, y: -1200, scale: 1.2 },
+  initial: { opacity: 0, y: -3200, scale: 1.2 },
 
   show: {
     y: 0,
@@ -37,7 +37,7 @@ const item = {
     scale: 1,
     transition: {
       ease: "easeInOut",
-      duration: 3.2,
+      duration: 4,
     },
   },
 };

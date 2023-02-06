@@ -26,8 +26,7 @@ nav {
   animation: all 0.5s ease-in-out;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.6);
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-  animation: ent 1s ease-in-out 1s 1 forwards forwards;
+  /* animation: ent 1s ease-in-out 1s 1 forwards forwards; */
 }
 .container.exit {
   opacity: 0;
@@ -136,7 +135,7 @@ li:hover:before {
     transform: rotateY(-359deg);
   }
 }
-
+/* 
 @keyframes ent {
   from {
     -moz-transform: translateX(-300px);
@@ -150,7 +149,7 @@ li:hover:before {
     transform: translateX(0px);
     opacity: 1;
   }
-}
+} */
 
 @media (max-width: 450px) {
   nav {

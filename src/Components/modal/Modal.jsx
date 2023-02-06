@@ -9,10 +9,10 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
         onClick={isOpenClickHandler}
       >
         <div
-          className={classes.modalContent}
+          className={`${classes.modalContent} `}
           onClick={(e) => e.stopPropagation()}
         >
-          JESUS IS LORD
+          <h1 className={isOpen ? classes.appear : ""}> JESUS IS LORD</h1>
         </div>
       </div>
     </>
