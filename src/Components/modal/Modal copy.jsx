@@ -7,7 +7,6 @@ const event = events;
 
 export default function Modal({ isOpen, isOpenClickHandler }) {
   const [scroll, setScroll] = useState(false);
-  const [evntId, setevntId] = useState([]);
 
   const evntHandler = (e) => {};
 
@@ -26,46 +25,37 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
               sx={{ marginRight: "2rem", cursor: "pointer" }}
             ></CloseIcon>
           </div>
-
-          <div className={classes.modalBody}>
-            <div
-              className={`${classes.modalEventsContainer} ${
-                scroll && classes.scroll
-              }`}
-              onMouseEnter={() => {
-                setScroll(true);
-                console.log("Enter");
-              }}
-              onMouseLeave={() => {
-                setScroll(false);
-                console.log("Leave");
-              }}
-            >
-              {event.map((evnt) => (
+          {event.map((evnt) => (
+            <div className={classes.modalBody} key={evnt.eventNumber}>
+              <div
+                className={`${classes.modalEventsContainer} ${
+                  scroll && classes.scroll
+                }`}
+                onMouseEnter={() => {
+                  setScroll(true);
+                  console.log("Enter");
+                }}
+                onMouseLeave={() => {
+                  setScroll(false);
+                  console.log("Leave");
+                }}
+              >
                 <div
                   className={classes.modalEvents}
                   style={{
                     backgroundImage: `url(${evnt.pic1})`,
                     size: "cover",
                   }}
-                  key={evnt.eventNumber}
                 >
                   <ul>
-                    <li
-                      style={{ fontSize: "1rem", cursor: "pointer" }}
-                      onClick={() => {
-                        setevntId(evnt.eventNumber);
-                      }}
-                    >
+                    <li style={{ fontSize: "1rem", cursor: "pointer" }}>
                       {evnt.eventTitle}
                     </li>
                   </ul>
                 </div>
-              ))}
-            </div>
+              </div>
 
-            {event.map((evnt) => (
-              <div className={classes.boxesContainer} key={evnt.eventNumber}>
+              <div className={classes.boxesContainer}>
                 <div className={classes.mainBox}>
                   <div className={classes.imgContainer}></div>
                   <img
@@ -76,16 +66,12 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
                 </div>
                 <div className={classes.smallBoxes}>
                   <div className={classes.imgContainerSm}>
-                    <img
-                      src={evnt.pictures[evntId]}
-                      alt="pictures"
-                      className={classes.evntPictures}
-                    ></img>
+                    {/* <img>Test</img> */}Test
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </>

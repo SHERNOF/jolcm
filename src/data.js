@@ -60,3 +60,61 @@ export const data = [
     pic: "../img/Neil.png",
   },
 ];
+
+export const events = [
+  {
+    eventNumber: 1,
+    eventTitle: "Baptism 2022",
+    pictures: {
+      pic1: "../wb/1.jpg",
+      pic2: "../wb/2.jpg",
+      pic3: "../wb/3.jpg",
+      pic4: "../wb/4.jpg",
+      pic5: "../wb/5.jpg",
+    },
+  },
+  {
+    eventNumber: 2,
+    eventTitle: "Celebration 2022",
+    pictures: {
+      pic1: "../wb/6.jpg",
+      pic2: "../wb/7.jpg",
+      pic3: "../wb/8.jpg",
+      pic4: "../wb/9.jpg",
+      pic5: "../wb/10.jpg",
+    },
+  },
+  {
+    eventNumber: 3,
+    eventTitle: "Mid-Year Celebration 2022",
+    pictures: {
+      pic1: "../wb/11.jpg",
+      pic2: "../wb/12.jpg",
+      pic3: "../wb/13.jpg",
+      pic4: "../wb/14.jpg",
+      pic5: "../wb/15.jpg",
+    },
+  },
+  {
+    eventNumber: 4,
+    eventTitle: "Christmas Celebration 2022",
+    pictures: {
+      pic1: "../wb/1.jpg",
+      pic2: "../wb/2.jpg",
+      pic3: "../wb/3.jpg",
+      pic4: "../wb/4.jpg",
+      pic5: "../wb/5.jpg",
+    },
+  },
+  {
+    eventNumber: 5,
+    eventTitle: "New Year Celebration 2022",
+    pictures: {
+      pic1: "../wb/6.jpg",
+      pic2: "../wb/7.jpg",
+      pic3: "../wb/8.jpg",
+      pic4: "../wb/9.jpg",
+      pic5: "../wb/10.jpg",
+    },
+  },
+];

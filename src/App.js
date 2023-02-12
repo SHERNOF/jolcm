@@ -10,7 +10,7 @@ import Header from "./Components/Header/Header";
 const info = data;
 
 function App() {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(true);
 
   const isOpenClickHandler = () => {
     setisOpen(!isOpen);
@@ -35,9 +35,9 @@ function App() {
         wheel={wheel}
       ></Header>
 
-      {isOpen && (
+      {/* {isOpen && (
         <Modal isOpenClickHandler={isOpenClickHandler} isOpen={isOpen} />
-      )}
+      )} */}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>
   );
