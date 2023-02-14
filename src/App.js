@@ -35,9 +35,9 @@ function App() {
         wheel={wheel}
       ></Header>
 
-      {/* {isOpen && (
+      {isOpen && (
         <Modal isOpenClickHandler={isOpenClickHandler} isOpen={isOpen} />
-      )} */}
+      )}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>
   );
