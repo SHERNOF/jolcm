@@ -65,24 +65,24 @@ export const events = [
   {
     eventNumber: 1,
     eventTitle: "Baptism 2022",
-    pictures: {
-      pic1: "../wb/1.jpg",
-      pic2: "../wb/2.jpg",
-      pic3: "../wb/3.jpg",
-      pic4: "../wb/4.jpg",
-      pic5: "../wb/5.jpg",
-    },
+    pictures: [
+      "../wb/1.jpg",
+      "../wb/2.jpg",
+      "../wb/3.jpg",
+      "../wb/4.jpg",
+      "../wb/5.jpg",
+    ],
   },
   {
     eventNumber: 2,
     eventTitle: "Celebration 2022",
-    pictures: {
-      pic1: "../wb/6.jpg",
-      pic2: "../wb/7.jpg",
-      pic3: "../wb/8.jpg",
-      pic4: "../wb/9.jpg",
-      pic5: "../wb/10.jpg",
-    },
+    pictures: [
+      "../wb/6.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/9.jpg",
+      "../wb/10.jpg",
+    ],
   },
   {
     eventNumber: 3,
