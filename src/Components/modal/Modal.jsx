@@ -8,10 +8,9 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
   const event = events;
   const test = event;
 
-  const [scroll, setScroll] = useState(false);
-  const [evntId, setevntId] = useState([]);
+  const [evntId, setevntId] = useState({});
   console.log(typeof evntId);
-  console.log(evntId.pictures);
+  console.log(evntId);
 
   return (
     <>
@@ -59,15 +58,18 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
               </div>
               <div className={classes.smallBoxes}>
                 <ul className={classes.imgContainerSm}>
-                  {evntId.map((evntI, index) => (
-                    <li key={index}>
-                      <img
-                        src={evntI.pictures}
-                        alt="pictures"
-                        className={classes.evntPictures}
-                      ></img>
-                    </li>
-                  ))}
+                  {/* <div src={evntId.pic1} alt="pic">
+                    {evntId.eventNumber}
+                  </div> */}
+                  {/* {evntId.pictures.map((evntI, index) => ( */}
+                  <li>
+                    <img
+                      src={evntId.pictures}
+                      alt="pictures"
+                      className={classes.evntPictures}
+                    ></img>
+                  </li>
+                  {/* ))} */}
                 </ul>
               </div>
             </div>
