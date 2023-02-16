@@ -3,7 +3,6 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  /* z-index: -2; */
   opacity: 0.7;
   height: 100%;
   width: 100%;
@@ -34,7 +33,7 @@
 
 .circleYellow {
   background-color: rgba(255, 255, 0, 0.387);
-  /* transform: translateX(-80%); */
+
   right: 0;
   bottom: 0;
   position: absolute;
@@ -49,13 +48,13 @@
     background-color: red;
   }
   50% {
-    transform: translateY(-50px);
-    transform: translateX(-50px);
+    transform: translateY(-100px);
+    transform: translateX(-100px);
     background-color: yellow;
   }
   100% {
-    transform: translateY(50px);
-    transform: translateX(50px);
+    transform: translateY(100px);
+    transform: translateX(100px);
     background-color: orange;
   }
 }

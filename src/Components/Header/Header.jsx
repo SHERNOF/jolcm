@@ -1,8 +1,6 @@
 import classes from "./header.module.css";
 import { motion } from "framer-motion";
 
-import { useState } from "react";
-
 const entrance = {
   hidden: { opacity: 0, x: -3000 },
   visible: {

@@ -10,7 +10,7 @@ import Header from "./Components/Header/Header";
 const info = data;
 
 function App() {
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
 
   const isOpenClickHandler = () => {
     setisOpen(!isOpen);

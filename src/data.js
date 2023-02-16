@@ -87,34 +87,34 @@ export const events = [
   {
     eventNumber: 3,
     eventTitle: "Mid-Year Celebration 2022",
-    pictures: {
-      pic1: "../wb/11.jpg",
-      pic2: "../wb/12.jpg",
-      pic3: "../wb/13.jpg",
-      pic4: "../wb/14.jpg",
-      pic5: "../wb/15.jpg",
-    },
+    pictures: [
+      "../wb/11.jpg",
+      "../wb/12.jpg",
+      "../wb/13.jpg",
+      "../wb/14.jpg",
+      "../wb/15.jpg",
+    ],
   },
   {
     eventNumber: 4,
     eventTitle: "Christmas Celebration 2022",
-    pictures: {
-      pic1: "../wb/1.jpg",
-      pic2: "../wb/2.jpg",
-      pic3: "../wb/3.jpg",
-      pic4: "../wb/4.jpg",
-      pic5: "../wb/5.jpg",
-    },
+    pictures: [
+      "../wb/1.jpg",
+      "../wb/2.jpg",
+      "../wb/3.jpg",
+      "../wb/4.jpg",
+      "../wb/5.jpg",
+    ],
   },
   {
     eventNumber: 5,
     eventTitle: "New Year Celebration 2022",
-    pictures: {
-      pic1: "../wb/6.jpg",
-      pic2: "../wb/7.jpg",
-      pic3: "../wb/8.jpg",
-      pic4: "../wb/9.jpg",
-      pic5: "../wb/10.jpg",
-    },
+    pictures: [
+      "../wb/6.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/9.jpg",
+      "../wb/10.jpg",
+    ],
   },
 ];

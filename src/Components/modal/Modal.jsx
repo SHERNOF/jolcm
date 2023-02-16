@@ -2,16 +2,11 @@ import classes from "./modal.module.css";
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { events } from "../../data.js";
-import { EventOutlined } from "@mui/icons-material";
 
 export default function Modal({ isOpen, isOpenClickHandler }) {
   const event = events;
-  const test = event;
 
   const [evntId, setevntId] = useState([]);
-  console.log(typeof evntId);
-  console.log(evntId);
-
   return (
     <>
       <div
@@ -32,7 +27,7 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
           <div className={classes.modalBody}>
             <div className={classes.modalEventsContainer}>
               {event.map((evnt) => (
-                <div
+                <ul
                   className={classes.modalEvents}
                   style={{ size: "cover" }}
                   key={evnt.eventNumber}
@@ -40,8 +35,8 @@ export default function Modal({ isOpen, isOpenClickHandler }) {
                     setevntId(evnt.pictures);
                   }}
                 >
-                  {evnt.eventTitle}
-                </div>
+                  <li>{evnt.eventTitle}</li>
+                </ul>
               ))}
             </div>
 
