@@ -56,12 +56,15 @@ nav {
   justify-self: flex-start;
 }
 .iconContainer {
-  width: 10rem;
-  height: 90%;
+  width: 20rem;
+  height: 80%;
   /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-right: 1rem;
+  border-radius: 16px;
 }
 
 .container .openIcon {
