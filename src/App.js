@@ -4,18 +4,21 @@ import "./App.css";
 import Home from "./Pages/Home/Home";
 import React, { useState } from "react";
 import { data } from "./data.js";
+import { event } from "./data.js";
 import Modal from "./Components/modal/Modal";
 import Header from "./Components/Header/Header";
 
 const info = data;
+const eventInitialPic = event[0];
 
 function App() {
   const [isOpen, setisOpen] = useState(false);
+  const [eventSet, seteventSet] = useState([]);
 
   const isOpenClickHandler = () => {
     setisOpen(!isOpen);
+    seteventSet(eventInitialPic);
   };
-  console.log(isOpen);
 
   // const now = new Date().getHours();
   const theme = useTheme();
@@ -36,7 +39,12 @@ function App() {
       ></Header>
 
       {isOpen && (
-        <Modal isOpenClickHandler={isOpenClickHandler} isOpen={isOpen} />
+        <Modal
+          isOpenClickHandler={isOpenClickHandler}
+          isOpen={isOpen}
+          eventSet={eventSet}
+          eventInitialPic={eventInitialPic}
+        />
       )}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
     </div>

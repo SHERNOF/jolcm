@@ -55,7 +55,16 @@ nav {
 
   justify-self: flex-start;
 }
-.container .iconContainer {
+.iconContainer {
+  width: 10rem;
+  height: 90%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .openIcon {
   height: 1.5rem;
   width: 2rem;
   display: flex;
@@ -64,25 +73,26 @@ nav {
   flex-direction: column;
   cursor: pointer;
   margin-right: 1rem;
+  margin-left: 0.25rem;
 }
-.container .iconContainer .line {
+.container .openIcon .line {
   border: 1px solid white;
-  width: 60%;
-  height: 3px;
+  width: 50%;
+  height: 2px;
   margin: 0 0 5px 0;
   background: rgb(48, 47, 47);
   transition: all 0.5s ease-out;
 }
-.iconContainer.close {
+.openIcon.close {
   transform: rotate(180deg);
 }
-.iconContainer.close .line:nth-child(1) {
+.openIcon.close .line:nth-child(1) {
   transform: rotate(45deg) translate(8px, 9px);
 }
-.iconContainer.close .line:nth-child(2) {
+.openIcon.close .line:nth-child(2) {
   opacity: 0;
 }
-.iconContainer.close .line:nth-child(3) {
+.openIcon.close .line:nth-child(3) {
   transform: rotate(-45deg) translate(3px, -3px);
 }
 .container .navContent {

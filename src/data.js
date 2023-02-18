@@ -61,7 +61,7 @@ export const data = [
   },
 ];
 
-export const events = [
+export const event = [
   {
     eventNumber: 1,
     eventTitle: "Baptism 2022",
