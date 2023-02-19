@@ -60,9 +60,9 @@ nav {
   height: 80%;
   /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   margin-right: 1rem;
   border-radius: 16px;
 }
@@ -144,7 +144,7 @@ li:hover:before {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 640px) {
   nav {
   }
   .container {
@@ -160,5 +160,8 @@ li:hover:before {
   .container .logoContainer {
     width: 5rem;
     height: 100%;
+  }
+  .iconContainer {
+    width: 8rem;
   }
 }

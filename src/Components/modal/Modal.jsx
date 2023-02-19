@@ -2,27 +2,33 @@ import classes from "./modal.module.css";
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { event } from "../../data.js";
+import { RiCloseLine } from "react-icons/ri";
 
 const eventContents = event;
 
-export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
+export default function Modal({ isOpen, isOpenClickHandler, eventSet }) {
   const [disp, setDisp] = useState(false);
   const [evntId, setevntId] = useState([]);
-  const [ind, setInd] = useState();
+  const [ind, setInd] = useState(0);
   const [indI, setindI] = useState(true);
-  console.log(evntId);
+  const [eventTitle, seteventTitle] = useState();
+  console.log(eventSet);
+  console.log(eventTitle);
 
   const activePhotoInitial = (
     <img
       className={classes.activePhoto}
-      src={indI ? eventInitialPic.pictures[0] : eventInitialPic.pictures[ind]}
+      src={indI ? eventSet.pictures[0] : eventSet.pictures[ind]}
       alt="photos"
     ></img>
   );
 
+  const activePhotoLoaded = (
+    <img className={classes.activePhoto} src={evntId[ind]} alt="photos"></img>
+  );
   const initial = (
-    <ul>
-      {eventInitialPic.pictures.map((evntI, index) => (
+    <ul style={{ listStyleType: "none", margin: "0", padding: "0" }}>
+      {eventSet.pictures.map((evntI, index) => (
         <li key={index} className={classes.imgContainerSm}>
           <img
             src={evntI}
@@ -39,7 +45,7 @@ export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
   );
 
   const loaded = (
-    <ul>
+    <ul style={{ listStyleType: "none", margin: "0", padding: "0" }}>
       {evntId.map((evntI, index) => (
         <li key={index} className={classes.imgContainerSm}>
           <img
@@ -54,9 +60,24 @@ export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
       ))}
     </ul>
   );
+  const headerLoaded = (
+    <div className={`${classes.modalHeader} `}>
+      <h4 style={{ paddingLeft: "2rem" }}>{eventTitle}</h4>
+      <RiCloseLine
+        style={{ cursor: "pointer", paddingRight: "2rem" }}
+        onClick={isOpenClickHandler}
+      />
+    </div>
+  );
 
-  const activePhotoLoaded = (
-    <img className={classes.activePhoto} src={evntId[ind]} alt="photos"></img>
+  const headerInitial = (
+    <div className={`${classes.modalHeader} `}>
+      <h4 style={{ paddingLeft: "2rem" }}>{eventSet.eventTitle}</h4>
+      <RiCloseLine
+        style={{ cursor: "pointer", paddingRight: "2rem" }}
+        onClick={isOpenClickHandler}
+      />
+    </div>
   );
 
   return (
@@ -66,12 +87,7 @@ export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
           className={`${classes.modalContent} `}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className={`${classes.modalHeader} `}>
-            <CloseIcon
-              sx={{ marginRight: "2rem", cursor: "pointer" }}
-              onClick={isOpenClickHandler}
-            ></CloseIcon>
-          </div>
+          {disp ? headerLoaded : headerInitial}
           {/*  */}
 
           <div className={classes.modalBody}>
@@ -88,10 +104,20 @@ export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
                   onClick={() => {
                     setDisp(true);
                     setevntId(eventContent.pictures);
+                    seteventTitle(eventContent.eventTitle);
                   }}
                 >
                   <li className={classes.eventTitle}>
-                    {eventContent.eventTitle}
+                    <div className={classes.bkg}>
+                      <img
+                        src={eventContent.pictures[0]}
+                        className={classes.eventImage}
+                        alt="eventImage"
+                      />
+                      <h6 className={classes.title}>
+                        {eventContent.eventTitle}
+                      </h6>
+                    </div>
                   </li>
                 </ul>
               ))}
@@ -103,6 +129,7 @@ export default function Modal({ isOpen, isOpenClickHandler, eventInitialPic }) {
               <div className={classes.mainBox}>
                 <div className={classes.imgContainer}></div>
                 {disp ? activePhotoLoaded : activePhotoInitial}
+                {/* {activePhotoInitial} */}
               </div>
               <div className={classes.smallBoxes}>
                 {disp ? loaded : initial}

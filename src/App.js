@@ -7,11 +7,19 @@ import { data } from "./data.js";
 import { event } from "./data.js";
 import Modal from "./Components/modal/Modal";
 import Header from "./Components/Header/Header";
+import LogIn from "./Components/logIn/LogIn";
+import LoginButton from "./Components/logIn/LoginButton";
 
 const info = data;
 const eventInitialPic = event[0];
 
 function App() {
+  const [displayLogin, setdisplayLogin] = useState(false);
+  const logInHandler = () => {
+    setdisplayLogin(!displayLogin);
+    // displayLoginForm(displayLogin);
+  };
+
   const [isOpen, setisOpen] = useState(false);
   const [eventSet, seteventSet] = useState([]);
 
@@ -43,10 +51,11 @@ function App() {
           isOpenClickHandler={isOpenClickHandler}
           isOpen={isOpen}
           eventSet={eventSet}
-          eventInitialPic={eventInitialPic}
         />
       )}
       <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
+      {displayLogin && <LogIn displayLogin={displayLogin}></LogIn>}
+      <LoginButton logInHandler={logInHandler}></LoginButton>
     </div>
   );
 }
