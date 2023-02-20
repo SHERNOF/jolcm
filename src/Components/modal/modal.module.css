@@ -223,8 +223,9 @@ h4 {
 
 @media (max-width: 450px) {
   .modalContent {
-    width: 100%;
-    height: 70%;
+    margin-top: 3rem;
+    width: 95%;
+    height: 75%;
   }
 
   .modalBody {

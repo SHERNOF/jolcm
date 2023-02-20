@@ -17,7 +17,6 @@ function App() {
   const [displayLogin, setdisplayLogin] = useState(false);
   const logInHandler = () => {
     setdisplayLogin(!displayLogin);
-    // displayLoginForm(displayLogin);
   };
 
   const [isOpen, setisOpen] = useState(false);
