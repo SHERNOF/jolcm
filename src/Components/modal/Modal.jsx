@@ -63,22 +63,14 @@ export default function Modal({ isOpen, isOpenClickHandler, eventSet }) {
   const headerLoaded = (
     <div className={`${classes.modalHeader} `}>
       <h4 style={{ paddingLeft: "2rem" }}>{eventTitle}</h4>
-      <RiCloseLine
-        className={classes.icon}
-        // style={{ cursor: "pointer", paddingRight: "2rem" }}
-        onClick={isOpenClickHandler}
-      />
+      <RiCloseLine className={classes.icon} onClick={isOpenClickHandler} />
     </div>
   );
 
   const headerInitial = (
     <div className={`${classes.modalHeader} `}>
       <h4 style={{ paddingLeft: "2rem" }}>{eventSet.eventTitle}</h4>
-      <RiCloseLine
-        className={classes.icon}
-        // style={{ cursor: "pointer", paddingRight: "2rem" }}
-        onClick={isOpenClickHandler}
-      />
+      <RiCloseLine className={classes.icon} onClick={isOpenClickHandler} />
     </div>
   );
 

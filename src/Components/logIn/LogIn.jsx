@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "../UI/button/Button";
+import Card from "../UI/card/Card";
+import Input from "../UI/input/Input";
+import Label from "../UI/label/Label";
 import classes from "./login.module.css";
 
 export default function LogIn({ displayLogin }) {
+  const [aignUpButton, setaignUpButton] = useState(false);
+  const signUp = (
+    <Card className={classes.signUp}>
+      {/* <div className={classes.optionContainer}>
+        <option>Test</option>
+      </div> */}
+      <Label htmlFor="name">Name</Label>
+      <Input type="Text" name="name"></Input>
+
+      <Label htmlFor="lastName">Last Name</Label>
+      <Input type="Text" lastName="lastName"></Input>
+
+      <Label htmlFor="email">email</Label>
+      <Input type="Email" name="email"></Input>
+
+      <Label htmlFor="password">password</Label>
+      <Input type="Text" name="password"></Input>
+
+      <Button type="submit">Sign Up</Button>
+    </Card>
+  );
+  const signIn = (
+    <Card className={classes.signIn}>
+      {/* <div className={classes.optionContainer}>test</div> */}
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" email="email"></Input>
+      <Label htmlFor="password">Password</Label>
+      <Input id="password" type="Text" name="password"></Input>
+
+      <Button type="submit">Sign In</Button>
+    </Card>
+  );
+
   return (
     <>
       <div
@@ -9,44 +46,7 @@ export default function LogIn({ displayLogin }) {
           displayLogin && classes.appear
         }`}
       >
-        <form className={classes.logInContent}>
-          <div className={classes.logInForm}>
-            {/* <div className={classes.email}> */}
-            <label htmlFor="email">Email</label>
-            <input type="Email" email="email"></input>
-            {/* </div> */}
-            {/* <div className={classes.password}> */}
-            <label htmlFor="password">Password</label>
-            <input type="Text" name="password"></input>
-            {/* </div> */}
-            <div className={classes.ssinSsup}>
-              <button type="submit">Sign In</button>
-              <button type="submit">Sign Up</button>
-            </div>
-            {/* 
-          <div className={classes.signInForm}>
-            <div className={classes.name}>
-              <label htmlFor="name">Name</label>
-              <input type='Text' name="name"></input>
-            </div>
-            <div className={classes.lastName}>
-              <label htmlFor="lastName">Last Name</label>
-              <input type='Text' lastName="lastName"></input>
-            </div>
-            <div className={classes.email}>
-              <label htmlFor="email">email</label>
-              <input type='Email' name="email"></input>
-            </div>
-            <div className={classes.password}>
-              <label htmlFor="password">password</label>
-              <input type='Text' name="password"></input>
-            </div>
-            <div className={classes.ssinSsup}>
-              <button type="submit">Sign Up</button>
-            </div>
-          </div> */}
-          </div>
-        </form>
+        <form className={classes.logInContent}>{signUp}</form>
       </div>
     </>
   );
