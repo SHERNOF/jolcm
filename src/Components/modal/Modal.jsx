@@ -12,8 +12,6 @@ export default function Modal({ isOpen, isOpenClickHandler, eventSet }) {
   const [ind, setInd] = useState(0);
   const [indI, setindI] = useState(true);
   const [eventTitle, seteventTitle] = useState();
-  console.log(eventSet);
-  console.log(eventTitle);
 
   const activePhotoInitial = (
     <img
