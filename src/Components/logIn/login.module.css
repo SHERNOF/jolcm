@@ -1,59 +1,77 @@
 .logInContainer {
-  bottom: 2.5rem;
-  right: 2rem;
+  bottom: 7rem;
+  right: 5rem;
   z-index: 10;
-  width: 30vw;
+  width: 25vw;
   position: fixed;
   z-index: 10;
   height: 30rem;
   display: flex;
   align-items: center;
-  font-weight: bold;
   justify-content: center;
   flex-direction: column;
-
   opacity: 0;
   animation: appear 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .logInContainer.appear {
   opacity: 1;
 }
 
-.optionContainer {
+.switchContainer {
+  width: 90%;
   height: 2rem;
-
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-top: 2rem;
 }
 
-.logInContent {
-  width: 100%;
-  height: 90%;
-  display: hidden;
-  justify-content: center;
-  align-items: center;
+.swicthLabel {
+  width: 6rem;
+  height: 2rem;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
 }
+.switchInput {
+  display: none;
+}
+.switchFilled {
+  position: relative;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 5px;
+  background: #f8f6f67d;
+  transition: 1s;
+  font-size: 0.4em;
+}
+.switchFilled:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 3rem;
+  background: #0a97f6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  transition: transform 0.5s;
+  /* transition: 1s; */
+}
+.switchInput:checked {
+  background: #03030378;
+}
+/* .switchInput:checked ~ .switchFilled {
+  background: #03030378;
+} */
 
-.signIn {
-  width: 80%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.switchInput:checked {
+  transform: translateX(3rem);
 }
-.signUp {
-  width: 80%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  bottom: 100%;
-}
-
+/* .switchInput:checked ~ .switchFilled::after {
+  transform: translateX(3rem);
+} */
 @keyframes appear {
   from {
     opacity: 0;

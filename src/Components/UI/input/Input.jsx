@@ -8,7 +8,8 @@ export default function Input(props) {
       type={props.type}
       name={props.name}
       id={props.id || ""}
-      onChange={props.onChane}
+      onChange={props.onChange}
+      value={props.value}
     >
       {props.children}
     </input>
