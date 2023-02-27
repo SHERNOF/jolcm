@@ -27,7 +27,7 @@ export default function LogIn({ displayLogin }) {
               className={classes.switchInput}
             ></input>
             <div className={classes.switchFilled}>
-              {mySwitch ? "Sign In" : "Sign Up"}
+              {/* {mySwitch ? "Sign In" : "Sign Up"} */}
             </div>
           </label>
         </div>

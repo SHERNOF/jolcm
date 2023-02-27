@@ -59,19 +59,14 @@
   transition: transform 0.5s;
   /* transition: 1s; */
 }
-.switchInput:checked {
+.switchInput:checked ~ .switchFilled {
   background: #03030378;
 }
-/* .switchInput:checked ~ .switchFilled {
-  background: #03030378;
-} */
 
-.switchInput:checked {
+.switchInput:checked ~ .switchFilled::after {
   transform: translateX(3rem);
 }
-/* .switchInput:checked ~ .switchFilled::after {
-  transform: translateX(3rem);
-} */
+
 @keyframes appear {
   from {
     opacity: 0;
