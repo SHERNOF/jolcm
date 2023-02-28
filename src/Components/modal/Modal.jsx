@@ -1,6 +1,5 @@
 import classes from "./modal.module.css";
 import React, { useState } from "react";
-import CloseIcon from "@mui/icons-material/Close";
 import { event } from "../../data.js";
 import { RiCloseLine } from "react-icons/ri";
 

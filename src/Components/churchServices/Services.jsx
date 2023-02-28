@@ -1,4 +1,5 @@
 import React from "react";
+import Title from "../title/Title";
 import classes from "./services.module.css";
 
 export default function Services() {
@@ -7,9 +8,9 @@ export default function Services() {
       <div className={classes.square1}></div>
       <div className={classes.square2}></div>
       <div className={classes.serviceContainer}>
-        <div className={classes.title}>
+        <Title className={classes.title}>
           <h3>Services</h3>
-        </div>
+        </Title>
         <div className={classes.services}>
           <div className={classes.servicesInfo}>
             <div className={classes.service}>

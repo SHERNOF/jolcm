@@ -20,18 +20,14 @@ export default function LogIn({ displayLogin }) {
         }`}
       >
         <div className={classes.switchContainer}>
-          <label htmlFor="switch" className={classes.swicthLabel}>
-            <input
-              type="checkbox"
-              id="switch"
-              className={classes.switchInput}
-            ></input>
-            <div className={classes.switchFilled}>
-              {/* {mySwitch ? "Sign In" : "Sign Up"} */}
-            </div>
-          </label>
+          <input
+            type="checkbox"
+            name="switcher"
+            className={classes.switcher}
+            onClick={switchHandler}
+          ></input>
         </div>
-        <SignIn />
+        {mySwitch ? <SignIn /> : <SignUp />}
       </Card>
     </>
   );

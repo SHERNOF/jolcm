@@ -1,5 +1,6 @@
 import React from "react";
 import Circle from "../circles/Circle";
+import Title from "../title/Title";
 import Card from "../UI/card/Card";
 import classes from "./aboutUs.module.css";
 
@@ -7,9 +8,9 @@ export default function AboutUs() {
   return (
     <div className={classes.aboutContainer}>
       <Circle></Circle>
-      <div className={classes.title}>
+      <Title className={classes.title}>
         <h3>ABOUT JOY OF LIFE</h3>
-      </div>
+      </Title>
       <div className={classes.content}>
         <Card className={classes.contentContainer}>
           <h4>MISSION</h4>

@@ -16,18 +16,7 @@
   max-height: 100%;
   /* width: 100%; */
 }
-.title {
-  width: 100%;
-  grid-area: title;
-  background-color: rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1rem 0;
-}
-.title h3 {
-  margin-left: 1rem;
-}
+
 .iconContainer {
   position: absolute;
   width: 100%;

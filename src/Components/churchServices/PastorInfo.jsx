@@ -3,6 +3,7 @@ import classes from "./pastorInfo.module.css";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { Icon } from "@mui/material";
+import Title from "../title/Title";
 
 export default function PastorInfo({ info }) {
   const [current, setCurrent] = useState(0);
@@ -20,9 +21,9 @@ export default function PastorInfo({ info }) {
 
   return (
     <div className={classes.committeeContaner}>
-      <div className={classes.title}>
+      <Title className={classes.title}>
         <h3>Pastoral Committee</h3>
-      </div>
+      </Title>
 
       <div className={classes.committee}>
         <div className={classes.iconContainer}>
