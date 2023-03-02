@@ -18,15 +18,22 @@ export default function Events() {
           {eventContents.map((eventContent) => (
             <ul key={eventContent.eventNumber}>
               <li>
+                <div className={classes.overlay}></div>
                 <div className={classes.imageContainer}>
                   <img
                     className={classes.eventImage}
                     src={eventContent.pictures[0]}
                     alt="events"
                   ></img>
-                  <div className={classes.overlay}></div>
+
                   <div className={classes.eventTitle}>
-                    <h5 style={{ fontWeight: "bold", fontSize: "2rem" }}>
+                    <h5
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "2rem",
+                        color: "white",
+                      }}
+                    >
                       {eventContent.eventTitle}
                     </h5>
                   </div>
