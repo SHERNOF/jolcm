@@ -117,4 +117,48 @@ export const event = [
       "../wb/10.jpg",
     ],
   },
+  {
+    eventNumber: 6,
+    eventTitle: "Baptism 2023 Year Celebration 2022",
+    pictures: [
+      "../wb/9.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/6.jpg",
+      "../wb/10.jpg",
+    ],
+  },
+  {
+    eventNumber: 7,
+    eventTitle: "JOL Anniversary",
+    pictures: [
+      "../wb/10.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/9.jpg",
+      "../wb/6.jpg",
+    ],
+  },
+  {
+    eventNumber: 8,
+    eventTitle: "JOL Anniversary",
+    pictures: [
+      "../wb/10.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/9.jpg",
+      "../wb/6.jpg",
+    ],
+  },
+  {
+    eventNumber: 9,
+    eventTitle: "JOL Anniversary",
+    pictures: [
+      "../wb/10.jpg",
+      "../wb/7.jpg",
+      "../wb/8.jpg",
+      "../wb/9.jpg",
+      "../wb/6.jpg",
+    ],
+  },
 ];

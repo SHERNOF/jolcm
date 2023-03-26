@@ -9,39 +9,36 @@ console.log(eventContents);
 
 export default function Events() {
   return (
-    <Card className={classes.eventsContainer}>
+    <div className={classes.eventsContainer}>
       <Title>
         <h3>Events</h3>
       </Title>
-      <div className={classes.eachEvent}>
-        <Card className={classes.eachEventContainer}>
-          {eventContents.map((eventContent) => (
-            <ul key={eventContent.eventNumber}>
-              <li>
-                <div className={classes.overlay}></div>
-                <div className={classes.eventTitle}>
-                  <h5
-                    style={{
-                      fontWeight: "bold",
-                      fontSize: "2rem",
-                      color: "white",
-                    }}
-                  >
-                    {eventContent.eventTitle}
-                  </h5>
-                </div>
-                <div className={classes.imageContainer}>
-                  <img
-                    className={classes.eventImage}
-                    src={eventContent.pictures[0]}
-                    alt="events"
-                  ></img>
-                </div>
-              </li>
-            </ul>
-          ))}
-        </Card>
+
+      <div className={classes.container}>
+        {eventContents.map((eventContent) => (
+          <div
+            className={classes.imageContainer}
+            key={eventContent.eventNumber}
+          >
+            <img
+              className={classes.eventImages}
+              src={eventContent.pictures[0]}
+              alt="test"
+            />
+            <div className={classes.eventTitle}>
+              <h5
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "2rem",
+                  color: "white",
+                }}
+              >
+                {eventContent.eventTitle}
+              </h5>
+            </div>
+          </div>
+        ))}
       </div>
-    </Card>
+    </div>
   );
 }
