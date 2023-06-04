@@ -3,15 +3,16 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import React, { useState } from "react";
-import { data } from "./data.js";
-import { event } from "./data.js";
-import Modal from "./Components/modal/Modal";
+import { pastorData } from "./data.js";
+import { churchEvents } from "./data.js";
+import Modal from "./Components/common/modal/Modal";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
 import LoginButton from "./Components/logIn/LoginButton";
 
-const info = data;
-const eventInitialPic = event[0];
+const info = pastorData;
+const evs = churchEvents;
+const eventInitialPic = churchEvents[0];
 
 function App() {
   const [displayLogin, setdisplayLogin] = useState(false);
@@ -52,7 +53,13 @@ function App() {
           eventSet={eventSet}
         />
       )}
-      <Home isMed={isMed} info={info} isSmall={isSmall} wheel={wheel}></Home>
+      <Home
+        isMed={isMed}
+        info={info}
+        isSmall={isSmall}
+        evs={evs}
+        wheel={wheel}
+      ></Home>
       {displayLogin && <LogIn displayLogin={displayLogin}></LogIn>}
       <LoginButton logInHandler={logInHandler}></LoginButton>
     </div>

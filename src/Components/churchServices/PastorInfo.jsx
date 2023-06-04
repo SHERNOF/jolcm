@@ -3,7 +3,7 @@ import classes from "./pastorInfo.module.css";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { Icon } from "@mui/material";
-import Title from "../title/Title";
+import Title from "../common/title/Title";
 
 export default function PastorInfo({ info }) {
   const [current, setCurrent] = useState(0);

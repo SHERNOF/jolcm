@@ -1,0 +1,28 @@
+.gf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imgContainer {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.75s;
+}
+
+.front,
+.back {
+  background-size: cover;
+}
+.front {
+  background-image: url("./../../../public/ministry/wf4.jpeg");
+}
+
+.back {
+  background-image: url("./../../../public/ministry/golden1.jpeg");
+}

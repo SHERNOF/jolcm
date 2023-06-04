@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "@emotion/react";
-import { alpha } from "@mui/material";
 
 export default function MainLogo({ isMed }) {
   const theme = useTheme();

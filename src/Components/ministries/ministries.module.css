@@ -1,0 +1,49 @@
+.ministries {
+  height: 70vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.ministryContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.frames {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "ss ss ks"
+    "ss ss tbs"
+    "pm pm pm";
+}
+
+.pm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: pm;
+}
+
+.gf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+.imgContainer {
+  width: 100%;
+  height: 100%;
+}
+img {
+  width: 100%;
+  height: 100%;
+}

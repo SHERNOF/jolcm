@@ -1,0 +1,246 @@
+.modalContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 50;
+  align-self: center;
+  background-color: rgba(133, 130, 130, 0.6);
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.modalContent {
+  width: 90%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.863);
+}
+.modalContainer.appear {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.modalHeader {
+  height: 3rem;
+  width: 80%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  font-size: 1.5em;
+  cursor: pointer;
+  padding-right: 2rem;
+}
+h4 {
+  font-size: 1.4em;
+}
+
+.modalBody {
+  height: 40rem;
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.boxesContainer {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 60%;
+  justify-content: space-around;
+  order: 1;
+}
+
+.mainBox {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.863);
+
+  height: 65%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.imgContainer {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+}
+.activePhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.smallBoxes {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(234, 17, 17, 0.863);
+  height: 30%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.imgContainerSm {
+  width: 16rem;
+  height: 10rem;
+  margin-left: -1rem;
+}
+.imgContainerSm .evntPictures {
+  margin-top: 1rem;
+  height: 85%;
+  width: 100%;
+}
+.modalEventsContainer {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.863);
+  height: 90%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+  order: 2;
+  overflow-y: scroll;
+}
+
+.modalEvents {
+  width: 95%;
+  margin-top: 2rem;
+}
+.eventTitle {
+  border: 1px solid rgba(255, 255, 255, 0.863);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  overflow: hidden;
+}
+
+.eventtitle .bkg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.eventImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.title {
+  position: absolute;
+  z-index: 5;
+
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+@media (max-width: 640px) {
+  .modalContent {
+    width: 90%;
+    height: 60%;
+  }
+
+  .modalBody {
+    height: 35rem;
+    width: 95%;
+    /* border: 1px solid red; */
+  }
+  .modalHeader {
+    height: 3rem;
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+  .icon {
+    font-size: 3em;
+  }
+  h4 {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 450px) {
+  .modalContent {
+    margin-top: 3rem;
+    width: 95%;
+    height: 75%;
+  }
+
+  .modalBody {
+    height: 35rem;
+    width: 95%;
+  }
+  .modalHeader {
+    height: 3rem;
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+  .icon {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.8em;
+  }
+}

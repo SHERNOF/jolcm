@@ -5,8 +5,9 @@ import Events from "../../Components/events/Events";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 
 import MainLogo from "../../Components/mainLogo/MainLogo";
+import Ministries from "../../Components/ministries/Ministries";
 
-export default function Home({ isMed, wheel, info, modalProps }) {
+export default function Home({ isMed, wheel, info, modalProps, evs }) {
   return (
     <div
       sx={{
@@ -22,8 +23,9 @@ export default function Home({ isMed, wheel, info, modalProps }) {
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
       <AboutUs></AboutUs>
-      <ChurchServices info={info}></ChurchServices>
-      <Events></Events>
+      <Events evs={evs}></Events>
+      <Ministries></Ministries>
+      {/* <ChurchServices info={info}></ChurchServices> */}
     </div>
   );
 }

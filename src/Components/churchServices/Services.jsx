@@ -1,6 +1,7 @@
 import React from "react";
-import Title from "../title/Title";
+
 import classes from "./services.module.css";
+import Title from "../common/title/Title";
 
 export default function Services() {
   return (

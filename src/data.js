@@ -1,4 +1,4 @@
-export const data = [
+export const pastorData = [
   {
     userId: 1,
     id: 1,
@@ -61,11 +61,12 @@ export const data = [
   },
 ];
 
-export const event = [
+export const churchEvents = [
   {
     eventNumber: 1,
     eventTitle: "Baptism 2022",
     pictures: [
+      "https://images.unsplash.com/photo-1595434971780-79d5c20c5090?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVsYm91cm5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/1.jpg",
       "../wb/2.jpg",
       "../wb/3.jpg",
@@ -77,6 +78,7 @@ export const event = [
     eventNumber: 2,
     eventTitle: "Celebration 2022",
     pictures: [
+      "https://images.unsplash.com/photo-1514395462725-fb4566210144?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWVsYm91cm5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/6.jpg",
       "../wb/7.jpg",
       "../wb/8.jpg",
@@ -88,6 +90,7 @@ export const event = [
     eventNumber: 3,
     eventTitle: "Mid-Year Celebration 2022",
     pictures: [
+      "https://images.unsplash.com/photo-1505642257289-9f2d7dd73641?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWVsYm91cm5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/11.jpg",
       "../wb/12.jpg",
       "../wb/13.jpg",
@@ -99,6 +102,7 @@ export const event = [
     eventNumber: 4,
     eventTitle: "Christmas Celebration 2022",
     pictures: [
+      "https://images.unsplash.com/photo-1494236472818-d35e50e604cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1lbGJvdXJuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/1.jpg",
       "../wb/2.jpg",
       "../wb/3.jpg",
@@ -110,6 +114,7 @@ export const event = [
     eventNumber: 5,
     eventTitle: "New Year Celebration 2022",
     pictures: [
+      "https://images.unsplash.com/photo-1585217514204-d025f2f1b116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1lbGJvdXJuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/6.jpg",
       "../wb/7.jpg",
       "../wb/8.jpg",
@@ -132,6 +137,7 @@ export const event = [
     eventNumber: 7,
     eventTitle: "JOL Anniversary",
     pictures: [
+      "https://images.unsplash.com/photo-1545405197-2964efafb2c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1lbGJvdXJuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/10.jpg",
       "../wb/7.jpg",
       "../wb/8.jpg",
@@ -143,6 +149,7 @@ export const event = [
     eventNumber: 8,
     eventTitle: "JOL Anniversary",
     pictures: [
+      "https://images.unsplash.com/photo-1622955149909-cad45bb12200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG1lbGJvdXJuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/10.jpg",
       "../wb/7.jpg",
       "../wb/8.jpg",
@@ -154,6 +161,7 @@ export const event = [
     eventNumber: 9,
     eventTitle: "JOL Anniversary",
     pictures: [
+      "https://images.unsplash.com/photo-1558330458-fcebb13ee414?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1lbGJvdXJuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
       "../wb/10.jpg",
       "../wb/7.jpg",
       "../wb/8.jpg",

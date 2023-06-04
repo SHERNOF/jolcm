@@ -1,28 +1,24 @@
 import React from "react";
-import Circle from "../circles/Circle";
-import Title from "../title/Title";
-import Card from "../UI/card/Card";
+import Container from "../common/container/Container";
+import Section from "../common/section/Section";
 import classes from "./aboutUs.module.css";
 
 export default function AboutUs() {
   return (
-    <div className={classes.aboutContainer}>
-      <Circle></Circle>
-      <Title className={classes.title}>
-        <h3>ABOUT JOY OF LIFE</h3>
-      </Title>
-      <div className={classes.content}>
-        <Card className={classes.contentContainer}>
-          <h4>MISSION</h4>
-          <h5>To share life in Christ Jesus with great joy to all.</h5>
-        </Card>
-        <Card
-          className={`${classes.contentContainer} ${classes.contentContainer2}`}
-        >
-          <h4>VISION</h4>
-          <h5>To see Christ-like people living in fullness of joy.</h5>
-        </Card>
-      </div>
-    </div>
+    <Section>
+      <Container>
+        <div className={classes.about}>
+          <p>
+            Joy Of Life Christian Ministries is a community church of imperfect
+            people seeking to know and love{" "}
+            <strong style={{ color: "#3776ff" }}>JESUS </strong>
+            more.
+            <hr></hr>
+            Come and join as we gather and serve every Sunday in Craigieburn,
+            Victoria, Australia.
+          </p>
+        </div>
+      </Container>
+    </Section>
   );
 }
