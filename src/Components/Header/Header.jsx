@@ -1,8 +1,11 @@
 import React from "react";
 import Container from "../common/container/Container";
 import classes from "./header.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
-export default function Header({ wheel }) {
+export default function Header() {
+  const wheel = useSelector((state) => state.setWheel);
+  const dispatch = useDispatch();
   return (
     <nav>
       <Container>
@@ -10,8 +13,6 @@ export default function Header({ wheel }) {
           <div className={classes.logo}>
             <img
               className={classes.navLogo}
-              // src="../pics/logo-white.svg"
-              // src="../pics/JOL3.svg"
               src={wheel ? "../pics/JOL black.svg" : "../pics/JOL3.svg"}
               alt="logo"
             ></img>

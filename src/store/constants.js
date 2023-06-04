@@ -1,0 +1,1 @@
+export const CHANGE_WHEEL_VALUE = "CHANGE_WHEEL_VALUE";

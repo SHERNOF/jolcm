@@ -9,6 +9,7 @@ import Modal from "./Components/common/modal/Modal";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
 import LoginButton from "./Components/logIn/LoginButton";
+import { CHANGE_WHEEL_VALUE } from "./store/actions";
 
 const info = pastorData;
 const evs = churchEvents;

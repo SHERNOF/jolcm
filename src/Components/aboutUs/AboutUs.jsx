@@ -13,7 +13,7 @@ export default function AboutUs() {
             people seeking to know and love{" "}
             <strong style={{ color: "#3776ff" }}>JESUS </strong>
             more.
-            <hr></hr>
+            {/* <hr></hr> */}
             Come and join as we gather and serve every Sunday in Craigieburn,
             Victoria, Australia.
           </p>
