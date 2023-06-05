@@ -9,13 +9,14 @@ import Modal from "./Components/common/modal/Modal";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
 import LoginButton from "./Components/logIn/LoginButton";
-import { CHANGE_WHEEL_VALUE } from "./store/actions";
+import { useDispatch } from "react-redux";
 
 const info = pastorData;
 const evs = churchEvents;
 const eventInitialPic = churchEvents[0];
 
-function App() {
+function App(props) {
+  console.log(props.store);
   const [displayLogin, setdisplayLogin] = useState(false);
   const logInHandler = () => {
     setdisplayLogin(!displayLogin);
@@ -33,10 +34,18 @@ function App() {
   const theme = useTheme();
   const isMed = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const [wheel, setWheel] = useState(false);
-  const eventHandler = (e) => {
-    const ev = e.deltaY;
-    ev > 0 ? setWheel(true) : setWheel(false);
+  // const [wheel, setWheel] = useState(false);
+  // const eventHandler = (e) => {
+  //   const ev = e.deltaY;
+  //   ev > 0 ? setWheel(true) : setWheel(false);
+  // };
+
+  const dispatch = useDispatch();
+
+  const eventHandler = () => {
+    // const ev = e.deltaY ;
+    // ev > 0 ?
+    dispatch({ type: "CHANGE_WHEEL_VALUE" });
   };
   return (
     <div className="App" onWheel={eventHandler}>
@@ -44,7 +53,7 @@ function App() {
         isOpenClickHandler={isOpenClickHandler}
         isOpen={isOpen}
         isMed={isMed}
-        wheel={wheel}
+        // wheel={wheel}
       ></Header>
 
       {isOpen && (
@@ -59,7 +68,7 @@ function App() {
         info={info}
         isSmall={isSmall}
         evs={evs}
-        wheel={wheel}
+        // wheel={wheel}
       ></Home>
       {displayLogin && <LogIn displayLogin={displayLogin}></LogIn>}
       <LoginButton logInHandler={logInHandler}></LoginButton>
