@@ -1,22 +1,15 @@
 import React from "react";
 import Container from "../common/container/Container";
 import classes from "./header.module.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const wheel = useSelector((state) => state.wheel);
-  console.log(wheel);
-  const dispatch = useDispatch();
-  const eventHandler = () => {
-    dispatch({ type: "CHANGE_WHEEL_VALUE" });
-  };
+
   return (
     <nav>
       <Container>
-        <div
-          className={`${classes.navContainer} ${wheel && classes.bgned}`}
-          onClick={eventHandler}
-        >
+        <div className={`${classes.navContainer} ${wheel && classes.bgned}`}>
           <div className={classes.logo}>
             <img
               className={classes.navLogo}

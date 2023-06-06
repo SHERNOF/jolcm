@@ -1,16 +1,26 @@
-import { CHANGE_WHEEL_VALUE } from "./constants.js";
+import { CHANGE_HL } from "./constants.js";
+import { CHANGE_HD } from "./constants.js";
+import { SET_LOGIN } from "./constants.js";
 
 const initialState = {
-  wheel: false,
+  wheel: Boolean,
+  displayLogin: false,
 };
 
-export const setHeaderColor = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
   console.log(action.type);
   switch (action.type) {
-    case CHANGE_WHEEL_VALUE:
+    case CHANGE_HL:
       // return Object.assign({}, state, { wheel: action.payload });
       // return { ...state, wheel: !action.payload };
-      return { wheel: !state.wheel };
+      return { wheel: (state.wheel = false) };
+    case CHANGE_HD:
+      return { wheel: (state.wheel = true) };
+
+    // SET LOGIN REDUCER
+    case SET_LOGIN:
+      return { displayLogin: !state.displayLogin };
+
     default:
       return state;
   }

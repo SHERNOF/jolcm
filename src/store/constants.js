@@ -1,1 +1,3 @@
-export const CHANGE_WHEEL_VALUE = "CHANGE_WHEEL_VALUE";
+export const CHANGE_HL = "CHANGE_HL";
+export const CHANGE_HD = "CHANGE_HD";
+export const SET_LOGIN = "SET_LOGIN";

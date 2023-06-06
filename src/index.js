@@ -1,13 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { setHeaderColor } from "./store/reducers";
+import { rootReducer } from "./store/reducers";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-const store = createStore(setHeaderColor);
+const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
