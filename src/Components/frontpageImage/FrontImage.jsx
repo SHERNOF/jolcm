@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import classes from "./frontImage.module.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import JolVideo from "../jolVideo/JolVideo";
+
+import Overlay from "../UI/overlay/Overlay";
 
 const entrance = {
   hidden: { opacity: 0, y: 3200 },
@@ -32,7 +34,7 @@ const item = {
   initial: { opacity: 0, y: -3200, scale: 1.2 },
 
   show: {
-    y: 0,
+    y: 300,
     opacity: 1,
     scale: 1,
     transition: {
@@ -44,16 +46,16 @@ const item = {
 
 export default function FrontImage({ isMed }) {
   const [showVideo, setShowVideo] = useState(false);
-  const [showTitle, setShowTitle] = useState(true);
+  // const [showTitle, setShowTitle] = useState(true);
   setTimeout(() => {
     setShowVideo(true);
   }, 3000);
 
-  setTimeout(() => {
-    if (showTitle) {
-      setShowTitle(false);
-    }
-  }, 30000);
+  // setTimeout(() => {
+  //   if (showTitle) {
+  //     setShowTitle(false);
+  //   }
+  // }, 30000);
 
   return (
     <motion.div
@@ -62,8 +64,7 @@ export default function FrontImage({ isMed }) {
       animate="visible"
       className={classes.videoContainer}
     >
-      <div className={classes.overlay}></div>
-
+      <Overlay></Overlay>
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo autoplay></JolVideo>}
       </div>
@@ -74,21 +75,33 @@ export default function FrontImage({ isMed }) {
         animate="show"
         className={classes.titleContainer}
       >
-        <AnimatePresence>
-          {showTitle && (
-            <motion.div
-              variants={item}
-              exit={{
-                opacity: 0,
-                y: 1200,
-                transition: { delay: 1, duration: 1 },
+        {/* <AnimatePresence> */}
+        {/* {showTitle && ( */}
+        <motion.div
+          variants={item}
+          // exit={{
+          //   opacity: 0,
+          //   y: 200,
+          //   transition: { delay: 1, duration: 1 },
+          // }}
+        >
+          <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
+          <h5 style={{ color: "white" }}>
+            A church, community of imperfect people seeking to know and love
+            <strong
+              style={{
+                fontWeight: "bold",
+                fontSize: "2rem",
+                color: "#3776ff",
               }}
             >
-              <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
-              <h2 className={classes.subTitle}>WELCOME HOME</h2>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              JESUS
+            </strong>{" "}
+            more.
+          </h5>
+        </motion.div>
+        {/* )} */}
+        {/* </AnimatePresence> */}
       </motion.div>
     </motion.div>
   );

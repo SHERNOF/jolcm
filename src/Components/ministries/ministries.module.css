@@ -4,6 +4,7 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
+  margin-bottom: 10rem;
 }
 
 .ministryContainer {
@@ -37,7 +38,6 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
 }
 .imgContainer {
   width: 100%;

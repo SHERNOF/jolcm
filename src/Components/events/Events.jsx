@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
+import Overlay from "../UI/overlay/Overlay";
 import classes from "./events.module.css";
 
 export default function Events({ evs }) {
@@ -40,14 +41,14 @@ export default function Events({ evs }) {
                             alignItems: "center",
                           }}
                         >
-                          <div
-                            className={classes.imgOverlay}
+                          <Overlay
+                            // className={classes.imgOverlay}
                             onClick={() => {
                               setindexNum(index);
                             }}
                           >
                             {churchEvent.eventTitle}
-                          </div>
+                          </Overlay>
                           <img
                             src={churchEvent.pictures[0]}
                             alt="events"
@@ -79,7 +80,6 @@ export default function Events({ evs }) {
                         padding: "0",
                         marginLeft: "2rem",
                         height: "90%",
-                        // border: "1px solid rgb(85, 83, 83)",
                       }}
                     >
                       <li

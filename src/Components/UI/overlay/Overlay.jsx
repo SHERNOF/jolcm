@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MinistryOverlay(props) {
+export default function Overlay(props) {
   return (
     <div
       style={{
@@ -15,6 +15,8 @@ export default function MinistryOverlay(props) {
         justifyContent: "center",
         color: "white",
         pointer: "cursor",
+        // backgroundColor: "black",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
       }}
     >
       {props.children}

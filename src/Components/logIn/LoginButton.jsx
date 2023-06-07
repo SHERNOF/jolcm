@@ -6,12 +6,9 @@ const style = {
   fontSize: "2em",
   height: "1rem",
   cursor: "pointer",
-  // paddingRight: "-.5rem",
 };
 
-// export default function LoginButton({ logInHandler }) {
 export default function LoginButton() {
-  // const logInHandlerSelector = useSelector((state) => state.displayLogin);
   const dispatch = useDispatch();
   const logInHandler = () => {
     dispatch({ type: "SET_LOGIN" });

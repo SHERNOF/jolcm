@@ -1,11 +1,10 @@
 import React from "react";
-import AboutUs from "../../Components/aboutUs/AboutUs";
-import ChurchServices from "../../Components/churchServices/ChurchServices";
 import Events from "../../Components/events/Events";
+import Footer from "../../Components/footer/Footer";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
-
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
+import OurTeam from "../../Components/ourTeam/OurTeam";
 
 export default function Home({ isMed, wheel, info, modalProps, evs }) {
   return (
@@ -22,10 +21,11 @@ export default function Home({ isMed, wheel, info, modalProps, evs }) {
     >
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      <AboutUs></AboutUs>
+      {/* <AboutUs></AboutUs> */}
       <Events evs={evs}></Events>
       <Ministries></Ministries>
-      {/* <ChurchServices info={info}></ChurchServices> */}
+      <OurTeam></OurTeam>
+      <Footer></Footer>
     </div>
   );
 }

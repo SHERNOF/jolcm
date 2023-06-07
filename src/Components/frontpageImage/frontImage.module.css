@@ -12,7 +12,6 @@
   right: 0;
   width: 100%;
   height: 100vh;
-  /* background: rgba(0, 0, 0, 0.05); */
   z-index: 3;
 }
 .frontpageImage {
@@ -40,10 +39,10 @@
   transform: translate(50% 50%);
   z-index: 3;
   width: 75%;
+  background-color: rgba(0, 0, 0, 0.377);
 }
 .title {
   color: white;
-  /* color: red; */
 }
 
 .subTitle {

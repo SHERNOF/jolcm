@@ -7,7 +7,6 @@ import classes from "./login.module.css";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-// export default function LogIn({ displayLogin }) {
 export default function LogIn() {
   const displayLogin = useSelector((state) => state.displayLogin);
 

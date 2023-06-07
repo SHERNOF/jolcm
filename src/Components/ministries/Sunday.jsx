@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./sunday.module.css";
 import { useSpring, a } from "@react-spring/web";
-import MinistryOverlay from "./MinistryOverlay";
+import Overlay from "../UI/overlay/Overlay";
 
 export default function Sunday() {
   const [flipped, set] = useState(false);
@@ -17,7 +17,7 @@ export default function Sunday() {
       onMouseEnter={() => set((state) => !state)}
       onMouseLeave={() => set((state) => !state)}
     >
-      <MinistryOverlay>Sunday Worship and Service</MinistryOverlay>
+      <Overlay>Sunday Worship and Service</Overlay>
 
       <a.div
         className={`${classes.imgContainer}  ${classes.back}`}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./gf.module.css";
-import MinistryOverlay from "./MinistryOverlay";
 import { useSpring, a } from "@react-spring/web";
+import Overlay from "../UI/overlay/Overlay";
 
 export default function Gf() {
   const [flipped, set] = useState(false);
@@ -16,7 +16,7 @@ export default function Gf() {
       onMouseEnter={() => set((state) => !state)}
       onMouseLeave={() => set((state) => !state)}
     >
-      <MinistryOverlay>Golden Fellowship</MinistryOverlay>
+      <Overlay>Golden Fellowship</Overlay>
       <a.div
         className={`${classes.imgContainer}  ${classes.back}`}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}

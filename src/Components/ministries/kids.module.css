@@ -11,7 +11,7 @@
   height: 100%;
   cursor: pointer;
   position: absolute;
-  transition: all 0.75s;
+  /* transition: all 0.75s; */
 }
 
 .front,

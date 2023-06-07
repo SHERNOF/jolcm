@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../common/container/Container";
 import classes from "./header.module.css";
 import { useSelector } from "react-redux";
 
 export default function Header() {
   const wheel = useSelector((state) => state.wheel);
+  const [hamburger, sethamburger] = useState(false);
+  const test = () => {
+    sethamburger(!hamburger);
+  };
 
   return (
     <nav>
@@ -17,7 +21,10 @@ export default function Header() {
               alt="logo"
             ></img>
           </div>
-          <div className={`${classes.hamburger} `}>
+          <div
+            className={`${classes.hamburger} ${hamburger && classes.close}`}
+            onClick={test}
+          >
             <span className={`${wheel && classes.spanned}`}></span>
             <span className={`${wheel && classes.spanned}`}></span>
             <span className={`${wheel && classes.spanned}`}></span>

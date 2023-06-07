@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
-  console.log(action.type);
+  // console.log(action.type);
   switch (action.type) {
     case CHANGE_HL:
       // return Object.assign({}, state, { wheel: action.payload });

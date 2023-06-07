@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./kids.module.css";
-import MinistryOverlay from "./MinistryOverlay";
 import { useSpring, a } from "@react-spring/web";
+import Overlay from "../UI/overlay/Overlay";
 
 export default function Kids() {
   const [flipped, set] = useState(false);
@@ -17,7 +17,7 @@ export default function Kids() {
       onMouseEnter={() => set((state) => !state)}
       onMouseLeave={() => set((state) => !state)}
     >
-      <MinistryOverlay>Sunday Kids School</MinistryOverlay>
+      <Overlay>Sunday Kids School</Overlay>
       <a.div
         className={`${classes.imgContainer}  ${classes.back}`}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}

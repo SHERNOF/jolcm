@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import MinistryOverlay from "./MinistryOverlay";
 import classes from "./tbs.module.css";
 import { useSpring, a } from "@react-spring/web";
+import Overlay from "../UI/overlay/Overlay";
 
 export default function Tbs() {
   const [flipped, set] = useState(false);
@@ -17,7 +17,7 @@ export default function Tbs() {
       onMouseEnter={() => set((state) => !state)}
       onMouseLeave={() => set((state) => !state)}
     >
-      <MinistryOverlay>Thursday Bible Study</MinistryOverlay>
+      <Overlay>Thursday Bible Study</Overlay>
       <a.div
         className={`${classes.imgContainer}  ${classes.back}`}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}

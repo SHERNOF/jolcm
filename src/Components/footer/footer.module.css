@@ -1,0 +1,28 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "contact ministries ministries email email";
+}
+.contact,
+.ministries,
+.email {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  grid-area: contact;
+}
+.ministries {
+  grid-area: ministries;
+}
+
+.email {
+  grid-area: email;
+}
+.footerContainer {
+  height: 75%;
+  width: 100%;
+}

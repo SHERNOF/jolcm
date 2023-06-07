@@ -1,0 +1,9 @@
+.ourTeam {
+  height: 30vh;
+  border: 1px solid rgb(83, 83, 85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
