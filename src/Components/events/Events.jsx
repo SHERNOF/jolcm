@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
-import Overlay from "../UI/overlay/Overlay";
 import classes from "./events.module.css";
+import Overlay from "../UI/overlay/Overlay";
 
 export default function Events({ evs }) {
   const churchEvents = evs;
@@ -31,6 +31,7 @@ export default function Events({ evs }) {
                   >
                     {churchEvents.map((churchEvent, index) => (
                       <li key={churchEvent.eventNumber}>
+                        <Overlay></Overlay>
                         <div
                           style={{
                             position: "relative",
@@ -41,14 +42,14 @@ export default function Events({ evs }) {
                             alignItems: "center",
                           }}
                         >
-                          <Overlay
-                            // className={classes.imgOverlay}
+                          <div
+                            className={classes.imgOverlay}
                             onClick={() => {
                               setindexNum(index);
                             }}
                           >
                             {churchEvent.eventTitle}
-                          </Overlay>
+                          </div>
                           <img
                             src={churchEvent.pictures[0]}
                             alt="events"
@@ -74,6 +75,7 @@ export default function Events({ evs }) {
                 <div className={classes.picSlider}>
                   {churchEvents[indexNum].pictures.map((picture, index) => (
                     <ul
+                      key={index}
                       style={{
                         listStyleType: "none",
                         margin: "0",
@@ -84,7 +86,6 @@ export default function Events({ evs }) {
                     >
                       <li
                         className={classes.picSliderPictures}
-                        key={picture.index}
                         onClick={() => setbigPicFromSlider(index)}
                         style={{ cursor: "pointer" }}
                       >

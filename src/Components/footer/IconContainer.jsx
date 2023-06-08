@@ -5,8 +5,8 @@ export default function IconContainer(props) {
     <div
       style={{
         borderRadius: "50%",
-        width: "4rem",
-        height: "4rem",
+        width: "3rem",
+        height: "3rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

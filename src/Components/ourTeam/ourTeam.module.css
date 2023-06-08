@@ -7,3 +7,35 @@
   margin-bottom: 2rem;
   border-radius: 10px;
 }
+/* <div
+              style={{
+                height: "20%",
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+              }}
+            >
+              <ul style={{ fontSize: ".5em", listStyle: "none" }}>
+                <li>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      flexDirection: "column",
+                      padding: "1rem",
+                      border: "1px solid red",
+                    }}
+                  >
+                    <p>
+                      <strong>JOL Young Couples</strong>
+                    </p>
+                    <p>Every Thursday 7pm</p>
+                    <p>
+                      Bro. Neil{" "}
+                      <PhoneEnabledIcon style={{ fontSize: ".5em" }} />{" "}
+                      0488071230
+                    </p>
+                  </div></li>
+                  </ul>
+                </div> */

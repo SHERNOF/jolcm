@@ -39,23 +39,33 @@ export default function SignUp() {
     setemailEntered("");
     setpasswordEntered("");
   };
+
+  // const signUpHandler = (e) => {
+  //   e.preventDefault();
+  //   const signUpData = {
+  //     usernameEntered,
+  //     nameEntered,
+  //     emailEntered,
+  //     passwordEntered,
+  //   };
+  //   console.log(signUpData);
+  //   setusernameEntered("");
+  //   setnameEntered("");
+  //   setemailEntered("");
+  //   setpasswordEntered("");
+  // };
+
   return (
     <form onSubmit={signUpHandler} className={classes.logInContent}>
       <div className={classes.signUp}>
-        <Label htmlFor="username">Last Name</Label>
-        <Input
-          onChange={userNameEnteredHandler}
-          type="text"
-          name="username"
-          value={usernameEntered}
-        ></Input>
-
         <Label htmlFor="name">Name</Label>
         <Input
           value={nameEntered}
           onChange={nameEnteredHandler}
-          type="Text"
+          type="text"
           name="name"
+          required
+          id="name"
         ></Input>
 
         <Label htmlFor="email">email</Label>
@@ -64,14 +74,18 @@ export default function SignUp() {
           onChange={emailEnteredHandler}
           type="Email"
           name="email"
+          required
+          id="email"
         ></Input>
 
         <Label htmlFor="password">password</Label>
         <Input
+          id="password"
           value={passwordEntered}
           onChange={passwordEnteredHandler}
-          type="Text"
+          type="password"
           name="password"
+          required
         ></Input>
 
         <Button type="submit">Sign Up</Button>
