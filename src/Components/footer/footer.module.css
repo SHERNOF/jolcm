@@ -4,22 +4,73 @@
   grid-template-areas: "ministries ministries ministries email email";
 }
 
-.ministries,
-.email {
-  border: 1px solid white;
+.column1,
+.column2 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.ministries {
+.column1 {
   grid-area: ministries;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-areas: "icons ministries1 ministries2";
+}
+.icons {
+  grid-area: icons;
+}
+.ministries1 {
+  grid-area: ministries1;
+}
+.ministries2 {
+  grid-area: ministries2;
 }
 
-.email {
+.icons,
+.ministries1,
+.ministries2 {
+  height: 100%;
+  font-size: 0.65em;
+}
+
+.iconContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.iconContainer > * {
+  margin-right: 1rem;
+}
+
+.column2 {
   grid-area: email;
 }
 .footerContainer {
   height: 75%;
   width: 100%;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.content ul:nth-child(1) {
+  margin-left: 1rem;
+}
+
+.content ul li {
+  margin-bottom: 1rem;
+}
+.content ul li h3 {
+  font-size: 0.9em;
+}
+.content ul li h6 {
+  /* margin-left: 0.8rem; */
+  font-size: 0.65em;
 }

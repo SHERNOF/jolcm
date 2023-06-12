@@ -14,10 +14,10 @@ export default function Events({ evs }) {
     <Section>
       <Container>
         <div className={classes.events}>
+          <Title>
+            <h5>Events</h5>
+          </Title>
           <div className={classes.eventsContainer}>
-            <Title>
-              <h3>Events</h3>
-            </Title>
             <div className={classes.eventBody}>
               <div className={classes.eventSelections}>
                 <div className={classes.imgContainer}>

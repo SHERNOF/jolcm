@@ -16,11 +16,11 @@ export default function Ministries() {
   return (
     <Section>
       <Container>
+        <Title className={classes.title}>
+          <h5>Ministries</h5>
+        </Title>
         <div className={classes.ministries}>
           <div className={classes.ministryContainer}>
-            <Title className={classes.title}>
-              <h3>Ministries</h3>
-            </Title>
             <div className={classes.frames}>
               <Sunday />
               <Kids />

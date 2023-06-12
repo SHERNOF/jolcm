@@ -14,3 +14,24 @@
   align-items: center;
   flex-direction: column;
 }
+.input {
+  border-radius: 5px;
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin: 4px 0;
+  padding: 10px 20px;
+  background-color: transparent;
+  /* color: #3776ff; */
+  border: 1px solid rgb(85, 83, 83);
+}
+p {
+  text-align: left;
+  display: inline-block;
+  width: 90%;
+  font-size: 0.6em;
+  margin-top: 0.5rem;
+  color: orange;
+}

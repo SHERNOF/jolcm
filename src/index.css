@@ -19,3 +19,8 @@ code {
 * {
   margin: 0;
 }
+ul {
+  list-style: none;
+}
+li {
+}

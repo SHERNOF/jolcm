@@ -13,6 +13,7 @@ export default function IconContainer(props) {
         padding: "2rem, 2rem",
         border: "2px solid rgb(83, 83, 85)",
         boxShadow: "0px 0px 2px white",
+        cusrsor: "pointer",
       }}
     >
       {props.children}

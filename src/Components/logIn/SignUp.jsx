@@ -5,88 +5,180 @@ import Label from "../UI/label/Label";
 import classes from "./signUp.module.css";
 
 export default function SignUp() {
-  const [usernameEntered, setusernameEntered] = useState("");
-  const userNameEnteredHandler = (event) => {
-    setusernameEntered(event.target.value);
+  const [name, setname] = useState("");
+  const [nameInValid, setnameInValid] = useState(false);
+  const [logInEmail, setlogInEmail] = useState("");
+  const [logInEmailInValid, setlogInEmailInValid] = useState(false);
+  const [logInPassword, setlogInPassword] = useState("");
+  const [logInPasswordInValid, setlogInPasswordInValid] = useState(false);
+  const [confirmPassword, setconfirmPassword] = useState("");
+  const [confirmPasswordInValid, setconfirmPasswordInValid] = useState(false);
+
+  const nameOnBlur = () => {
+    if (name.trim().length === 0) {
+      setnameInValid(true);
+    }
   };
-  const [nameEntered, setnameEntered] = useState("");
-  const nameEnteredHandler = (event) => {
-    setnameEntered(event.target.value);
+  const nameOnFocus = () => {
+    setnameInValid(false);
   };
-  const [emailEntered, setemailEntered] = useState("");
-  const emailEnteredHandler = (event) => {
-    setemailEntered(event.target.value);
+  const logInEmailOnBlur = () => {
+    if (logInEmail.trim().length === 0) {
+      setlogInEmailInValid(true);
+    }
+  };
+  const logInEmailOnFocus = () => {
+    setlogInEmailInValid(false);
+  };
+  const logInPasswordOnBlur = () => {
+    if (logInPassword.trim().length === 0) {
+      setlogInPasswordInValid(true);
+    }
+  };
+  const logInPasswordOnFocus = () => {
+    setlogInPasswordInValid(false);
   };
 
-  const [passwordEntered, setpasswordEntered] = useState("");
-  const passwordEnteredHandler = (event) => {
-    setpasswordEntered(event.target.value);
+  const confirmPasswordOnBlur = () => {
+    if (confirmPassword.trim().length === 0) {
+      setconfirmPasswordInValid(true);
+    }
+  };
+  const confirmPasswordOnFocus = () => {
+    setconfirmPasswordInValid(false);
   };
 
   const signUpHandler = (event) => {
     event.preventDefault();
     if (
-      usernameEntered.trim().length === 0 ||
-      nameEntered.trim().length === 0 ||
-      emailEntered.trim().length === 0 ||
-      passwordEntered.trim().length === 0
-    ) {
+      name.trim().length === 0 ||
+      logInEmail.trim().length === 0 ||
+      logInPassword.trim().length === 0 ||
+      confirmPassword.trim().length === 0
+    )
       return;
-    }
 
-    setusernameEntered("");
-    setnameEntered("");
-    setemailEntered("");
-    setpasswordEntered("");
+    const signUpData = {
+      name,
+      logInEmail,
+      logInPassword,
+      confirmPassword,
+    };
+    setname("");
+    setlogInEmail("");
+    setlogInPassword("");
+    setconfirmPassword("");
+    console.log(signUpData);
   };
-
-  // const signUpHandler = (e) => {
-  //   e.preventDefault();
-  //   const signUpData = {
-  //     usernameEntered,
-  //     nameEntered,
-  //     emailEntered,
-  //     passwordEntered,
-  //   };
-  //   console.log(signUpData);
-  //   setusernameEntered("");
-  //   setnameEntered("");
-  //   setemailEntered("");
-  //   setpasswordEntered("");
-  // };
 
   return (
     <form onSubmit={signUpHandler} className={classes.logInContent}>
       <div className={classes.signUp}>
         <Label htmlFor="name">Name</Label>
-        <Input
-          value={nameEntered}
-          onChange={nameEnteredHandler}
+        <input
+          className={classes.input}
+          value={name}
+          onChange={(e) => setname(e.target.value)}
+          onBlur={nameOnBlur}
+          onFocus={nameOnFocus}
           type="text"
           name="name"
           required
           id="name"
-        ></Input>
+        ></input>
+        <p
+          style={{
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !nameInValid ? "transparent" : "orange",
+            transition: "all .5s",
+          }}
+        >
+          Please enter a valid name
+        </p>
 
-        <Label htmlFor="email">email</Label>
-        <Input
-          value={emailEntered}
-          onChange={emailEnteredHandler}
-          type="Email"
+        <Label htmlFor="email">Email</Label>
+        <input
+          className={classes.input}
+          value={logInEmail}
+          onChange={(e) => setlogInEmail(e.target.value)}
+          onBlur={logInEmailOnBlur}
+          onFocus={logInEmailOnFocus}
+          type="email"
           name="email"
           required
           id="email"
-        ></Input>
+        ></input>
+        <p
+          style={{
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !logInEmailInValid ? "transparent" : "orange",
 
-        <Label htmlFor="password">password</Label>
-        <Input
+            transition: "all .5s",
+          }}
+        >
+          Please enter a valid email
+        </p>
+
+        <Label htmlFor="password">Password</Label>
+        <input
+          className={classes.input}
           id="password"
-          value={passwordEntered}
-          onChange={passwordEnteredHandler}
+          value={logInPassword}
+          onChange={(e) => setlogInPassword(e.target.value)}
+          onBlur={logInPasswordOnBlur}
+          onFocus={logInPasswordOnFocus}
           type="password"
           name="password"
           required
-        ></Input>
+        ></input>
+        <p
+          style={{
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !logInPasswordInValid ? "transparent" : "orange",
+
+            transition: "all .5s",
+          }}
+        >
+          Please enter a valid password
+        </p>
+
+        <Label htmlFor="confirmPassword">Confirm Password</Label>
+        <input
+          id="confirmPassword"
+          className={classes.input}
+          value={confirmPassword}
+          onChange={(e) => setconfirmPassword(e.target.value)}
+          onBlur={confirmPasswordOnBlur}
+          onFocus={confirmPasswordOnFocus}
+          type="password"
+          name="confirmPassword"
+          required
+        ></input>
+        <p
+          style={{
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !confirmPasswordInValid ? "transparent" : "orange",
+            transition: "all .5s",
+          }}
+        >
+          Password should match
+        </p>
 
         <Button type="submit">Sign Up</Button>
       </div>

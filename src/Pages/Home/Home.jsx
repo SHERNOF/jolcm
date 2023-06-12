@@ -21,10 +21,9 @@ export default function Home({ isMed, wheel, info, modalProps, evs }) {
     >
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      {/* <AboutUs></AboutUs> */}
       <Events evs={evs}></Events>
       <Ministries></Ministries>
-      <OurTeam></OurTeam>
+      <OurTeam info={info}></OurTeam>
       <Footer></Footer>
     </div>
   );

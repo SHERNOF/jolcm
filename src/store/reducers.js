@@ -1,6 +1,7 @@
 import { CHANGE_HL } from "./constants.js";
 import { CHANGE_HD } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
+import { OUR_TEAM } from "./constants.js";
 
 const initialState = {
   wheel: Boolean,
@@ -20,6 +21,9 @@ export const rootReducer = (state = initialState, action) => {
     // SET LOGIN REDUCER
     case SET_LOGIN:
       return { displayLogin: !state.displayLogin };
+
+    case OUR_TEAM:
+      return {};
 
     default:
       return state;

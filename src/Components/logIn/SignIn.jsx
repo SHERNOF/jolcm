@@ -1,101 +1,96 @@
 import React, { useState } from "react";
 import Button from "../UI/button/Button";
-import Input from "../UI/input/Input";
 import Label from "../UI/label/Label";
 import classes from "./signIn.module.css";
 
 export default function SignIn() {
   const [email, setemail] = useState("");
+  const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
-  const [enteredEmail, setenteredEmail] = useState(false);
-  const [enteredPassword, setenteredpassword] = useState(false);
+  const [passwordInValid, setpasswordInValid] = useState(false);
 
+  const onBlurHandler = () => {
+    if (email.trim().length === 0) {
+      setemailInValid(true);
+    }
+  };
+
+  const passwordonBlurHandler = () => {
+    if (password.trim().length === 0) {
+      setpasswordInValid(true);
+    }
+  };
+
+  const onFocusHandler = () => {
+    setemailInValid(false);
+  };
+  const passwordonFocusHandler = () => {
+    setpasswordInValid(false);
+  };
   const signInHandler = (e) => {
     e.preventDefault();
-    if (email.trim().length === 0) {
-      console.log("testing");
-      setenteredEmail(true);
-    } else if (email.trim().length !== 0) {
-      setenteredEmail(false);
-    } else {
-      const signInData = {
-        email,
-      };
-      console.log(signInData);
-      setemail("");
+    if (email.trim().length !== 0 && password.trim().length !== 0) {
     }
-
-    //   if (email.trim().length === 0 || password.trim().length === 0) {
-    //     setenteredEmail(true);
-    //     setenteredpassword(true);
-    //   } else {
-    //     const signInData = {
-    //       email,
-    //       password,
-    //     };
-    //     console.log(signInData);
-    //     setemail("");
-    //     setpassword("");
-    //   }
-    // };
-    // const passwordFocusHandler = () => {
-    //   console.log("focus");
-    //   setenteredEmail(false);
+    const logInData = {
+      email,
+      password,
+    };
+    setemail("");
+    setpassword("");
   };
+
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
       <div className={classes.signIn}>
         <Label htmlFor="email">Email</Label>
-        <Input
+        <input
+          className={classes.input}
           id="email"
           type="email"
-          email="email"
-          required
+          onBlur={onBlurHandler}
+          onFocus={onFocusHandler}
           onChange={(e) => setemail(e.target.value)}
           value={email}
+          required
+        ></input>
+        <p
           style={{
-            backGround: enteredEmail ? "red" : "green",
-            zIndex: "1",
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !emailInValid ? "transparent" : "orange",
+            transition: "all .5s",
           }}
-        ></Input>
-        {enteredEmail && (
-          <p
-            style={{
-              textAlign: "left",
-              display: "inline-block",
-              width: "90%",
-              fontSize: ".6em",
-              marginTop: ".5rem",
-              color: "orange",
-            }}
-          >
-            Please enter a valid email
-          </p>
-        )}
+        >
+          Please enter a valid email
+        </p>
         <Label htmlFor="password">Password</Label>
-        <Input
-          // onFocus={passwordFocusHandler}
+        <input
+          className={classes.input}
           id="password"
-          type="Text"
+          type="password"
           name="password"
           required
+          onBlur={passwordonBlurHandler}
+          onFocus={passwordonFocusHandler}
           onChange={(e) => setpassword(e.target.value)}
           value={password}
-        ></Input>
-        {enteredPassword && (
-          <p
-            style={{
-              textAlign: "left",
-              display: "inline-block",
-              width: "90%",
-              fontSize: ".6em",
-              marginTop: ".5rem",
-              color: "orange",
-            }}
-          >
-            Please enter a valid email
-          </p>
-        )}
+        ></input>
+        <p
+          style={{
+            textAlign: "left",
+            display: "inline-block",
+            width: "90%",
+            fontSize: "0.6em",
+            marginTop: "0.5rem",
+            color: !passwordInValid ? "transparent" : "orange",
+            transition: "all .5s",
+          }}
+        >
+          Please enter a valid password
+        </p>
 
         <Button type="submit">Sign In</Button>
       </div>

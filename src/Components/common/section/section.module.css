@@ -1,6 +1,8 @@
 .section {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100vw;
+  /* margin-bottom: 2rem; */
+  /* border: 1px solid red; */
 }
