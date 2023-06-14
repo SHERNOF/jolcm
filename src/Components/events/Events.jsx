@@ -7,6 +7,7 @@ import Overlay from "../UI/overlay/Overlay";
 
 export default function Events({ evs }) {
   const churchEvents = evs;
+
   const [indexNum, setindexNum] = useState(0);
   const [bigPicFromSlider, setbigPicFromSlider] = useState(0);
 

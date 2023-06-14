@@ -16,6 +16,10 @@
   align-items: center;
   overflow-y: hidden;
   overflow-x: scroll;
+  scrollbar-width: none;
+}
+.teamContainer::-webkit-scrollbar {
+  display: none;
 }
 .teamMember {
   height: 14rem;

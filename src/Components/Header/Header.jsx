@@ -17,7 +17,7 @@ export default function Header() {
           <div className={classes.logo}>
             <img
               className={classes.navLogo}
-              src={wheel ? "../pics/JOL black.svg" : "../pics/JOL3.svg"}
+              src={wheel ? "../pics/JOLblack.svg" : "../pics/JOL3.svg"}
               alt="logo"
             ></img>
           </div>

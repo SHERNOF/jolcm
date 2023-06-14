@@ -60,6 +60,10 @@
   align-items: center;
   justify-content: flex-start;
   overflow-x: scroll;
+  scrollbar-width: none;
+}
+.picSlider::-webkit-scrollbar {
+  display: none;
 }
 
 .picSliderPictures {
