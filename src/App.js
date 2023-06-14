@@ -14,10 +14,6 @@ const info = pastorData;
 // const eventInitialPic = churchEvents[0];
 
 function App() {
-  const [churchEvents, setchurchEvents] = useState([]);
-  console.log(churchEvents);
-
-  console.log(test);
   useEffect(() => {
     const fetchChurchEvents = async () => {
       const result = await axios.get("/church-events");
@@ -25,6 +21,8 @@ function App() {
     };
     fetchChurchEvents();
   }, []);
+  const [churchEvents, setchurchEvents] = useState([]);
+  console.log(churchEvents);
 
   const displayLogin = useSelector((state) => state.displayLogin);
 
