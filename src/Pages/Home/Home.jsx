@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import logger from "use-reducer-logger";
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
