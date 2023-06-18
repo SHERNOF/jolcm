@@ -1,15 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
 import classes from "./events.module.css";
 import Overlay from "../UI/overlay/Overlay";
+import axios from "axios";
+import logger from "use-reducer-logger";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_REQUEST":
+      return { ...state };
+    case "FETCH_SUCCESS":
+      return { ...state, data: action.payload };
+    case "FETCH_FAIL":
+      return { ...state, error: action.payload };
+    default:
+      return state;
+  }
+};
 export default function Events({ evs }) {
-  const churchEvents = evs;
+  // const churchEvents = evs;
 
   const [indexNum, setindexNum] = useState(0);
   const [bigPicFromSlider, setbigPicFromSlider] = useState(0);
+
+  // const [churchEvents, setchurchEvents] = useState([]);
+
+  const [{ churchEvents, error, loading }, dispatch] = useReducer(
+    logger(reducer),
+    {
+      churchEvents: [],
+      error: "",
+    }
+  );
+
+  // console.log(churchEvents);
+  useEffect(() => {
+    const fetches = async () => {
+      dispatch({ type: "FETCH_REQUEST" });
+      try {
+        const r = await axios.get("/churchevents");
+        dispatch({ type: "FETCH_SUCCESS", payload: r.churchEvents });
+      } catch (err) {
+        dispatch({ type: "FETCH_FAIL", payload: err.message });
+      }
+
+      // setchurchEvents(r.data);
+    };
+    fetches();
+  }, []);
+
   return (
     <Section>
       <Container>

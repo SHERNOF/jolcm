@@ -1,10 +1,8 @@
 .ministries {
-  height: 70vh;
+  height: 45rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  position: relative;
-  margin-bottom: 5rem;
 }
 
 .ministryContainer {
@@ -46,4 +44,11 @@
 img {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 750px) {
+  .ministries {
+    height: 20vh;
+    margin-bottom: 0;
+  }
 }

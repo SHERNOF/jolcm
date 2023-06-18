@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../UI/button/Button";
-import Input from "../UI/input/Input";
+
 import Label from "../UI/label/Label";
 import classes from "./signUp.module.css";
 

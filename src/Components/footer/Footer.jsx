@@ -5,7 +5,6 @@ import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import IconContainer from "./IconContainer";
-import P from "../UI/p/P";
 
 export default function Footer() {
   return (
@@ -35,20 +34,28 @@ export default function Footer() {
           <div
             className={classes.iconContainer}
             style={{
-              marginTop: "2rem",
+              marginTop: "4rem",
             }}
           >
             <IconContainer>
-              <FacebookIcon style={{ color: "#1DA1F2" }}></FacebookIcon>
+              <FacebookIcon
+                style={{ color: "#1DA1F2", fontSize: "1.5rem" }}
+              ></FacebookIcon>
             </IconContainer>
             <IconContainer>
-              <PhoneEnabledIcon style={{ color: "#075e54" }}></PhoneEnabledIcon>
+              <PhoneEnabledIcon
+                style={{ color: "#075e54", fontSize: "1.5rem" }}
+              ></PhoneEnabledIcon>
             </IconContainer>
             <IconContainer>
-              <TwitterIcon style={{ color: "#00ACEE" }}></TwitterIcon>
+              <TwitterIcon
+                style={{ color: "#00ACEE", fontSize: "1.5rem" }}
+              ></TwitterIcon>
             </IconContainer>
             <IconContainer>
-              <InstagramIcon style={{ color: "#E4405F" }}></InstagramIcon>
+              <InstagramIcon
+                style={{ color: "#E4405F", fontSize: "1.5rem" }}
+              ></InstagramIcon>
             </IconContainer>
           </div>
         </div>

@@ -5,14 +5,14 @@ export default function IconContainer(props) {
     <div
       style={{
         borderRadius: "50%",
-        width: "3rem",
-        height: "3rem",
+        width: "2.5rem",
+        height: "2.5rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         padding: "2rem, 2rem",
-        border: "2px solid rgb(83, 83, 85)",
-        boxShadow: "0px 0px 2px white",
+        border: "1px solid rgb(83, 83, 85)",
+        boxShadow: "0px 0px 15px #3776ff",
         cusrsor: "pointer",
       }}
     >

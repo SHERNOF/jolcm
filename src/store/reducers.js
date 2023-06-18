@@ -1,11 +1,17 @@
 import { CHANGE_HL } from "./constants.js";
 import { CHANGE_HD } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
-import { OUR_TEAM } from "./constants.js";
+export const FETCH_DATA_REQUEST = "./constants.js";
+export const FETCH_DATA_SUCCESS = "./constants.js";
+export const FETCH_DATA_FAILED = "./constants.js";
 
 const initialState = {
   wheel: Boolean,
   displayLogin: false,
+  churchEvents: [],
+  team: [],
+  error: "",
+  loading: true,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -22,8 +28,16 @@ export const rootReducer = (state = initialState, action) => {
     case SET_LOGIN:
       return { displayLogin: !state.displayLogin };
 
-    case OUR_TEAM:
-      return {};
+    // FOR HOME PAGE (Team and Events)
+
+    case "FETCH_DATA_REQUEST":
+      return { ...state, loading: true };
+    case "FETCH_DATA_SUCCESS":
+      return { ...state, churchEvents: action.payload, loading: false };
+    case "FETCH_DATAT_SUCCESS":
+      return { ...state, team: action.payload, loading: false };
+    case "FETCH_DATA_FAIL":
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

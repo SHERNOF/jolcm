@@ -1,4 +1,7 @@
 export const CHANGE_HL = "CHANGE_HL";
 export const CHANGE_HD = "CHANGE_HD";
 export const SET_LOGIN = "SET_LOGIN";
-export const OUR_TEAM = "SET_LOGIN";
+export const FETCH_DATA_REQUEST = "FETCH_DATA_REQUEST";
+export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
+export const FETCH_DATA_FAILED = "FETCH_DATA_FAILED";
+export const FETCH_DATAT_FAILED = "FETCH_DATA_FAILED";
