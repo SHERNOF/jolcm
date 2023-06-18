@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 
 export default function Home() {
   const [{ churchEvents, team, error, loading }, dispatch] = useReducer(
-    logger(reducer),
+    reducer,
     {
       churchEvents: [],
       team: [],
