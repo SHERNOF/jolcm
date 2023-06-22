@@ -3,8 +3,10 @@ import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
 import classes from "./ourTeam.module.css";
+import teamData from "./team.js";
 
-export default function OurTeam({ info }) {
+export default function OurTeam() {
+  const info = teamData.teamInfo;
   return (
     <Section>
       <Container>
