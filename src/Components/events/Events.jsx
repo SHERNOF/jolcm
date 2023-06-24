@@ -30,7 +30,7 @@ export default function Events({ evs }) {
                     }}
                   >
                     {churchEvents.map((churchEvent, index) => (
-                      <li key={churchEvent.eventNumber}>
+                      <li key={churchEvent._id}>
                         <Overlay></Overlay>
                         <div
                           style={{

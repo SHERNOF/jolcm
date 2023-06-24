@@ -5,6 +5,8 @@ import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import IconContainer from "./IconContainer";
+import Label from "../UI/label/Label";
+import Button from "../UI/button/Button";
 
 export default function Footer() {
   return (
@@ -146,7 +148,74 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className={classes.column2}>EMAIL</div>
+      <div className={classes.column2}>
+        <div className={classes.emailContainer}>
+          <form className={classes.emailUsContent}>
+            <div className={classes.emaillUs}>
+              <Label htmlFor="name">Name</Label>
+              <input
+                className={classes.input}
+                // value={name}
+                // onChange={(e) => setname(e.target.value)}
+                // onBlur={nameOnBlur}
+                // onFocus={nameOnFocus}
+                type="text"
+                name="name"
+                required
+                id="name"
+              ></input>
+
+              <Label htmlFor="email">Email</Label>
+              <input
+                className={classes.input}
+                // value={name}
+                // onChange={(e) => setname(e.target.value)}
+                // onBlur={nameOnBlur}
+                // onFocus={nameOnFocus}
+                type="text"
+                name="email"
+                required
+                id="email"
+              ></input>
+
+              <Label htmlFor="phone">Phone</Label>
+              <input
+                className={classes.input}
+                // value={name}
+                // onChange={(e) => setname(e.target.value)}
+                // onBlur={nameOnBlur}
+                // onFocus={nameOnFocus}
+                type="text"
+                name="phone"
+                required
+                id="phone"
+              ></input>
+
+              <Label htmlFor="message">Message Us</Label>
+              <textarea
+                className={classes.input}
+                style={{
+                  height: "10rem",
+                }}
+                // value={name}
+                // onChange={(e) => setname(e.target.value)}
+                // onBlur={nameOnBlur}
+                // onFocus={nameOnFocus}
+                type="text"
+                name="message"
+                required
+                id="message"
+              ></textarea>
+              <Button
+                type="submit"
+                style={{ height: "2rem", marginTop: "2rem" }}
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

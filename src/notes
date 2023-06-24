@@ -1,0 +1,73 @@
+Plans
+
+Front End
+Plot the Major Pages which are the Home and Admin.
+used css modules
+react spring and framer motions for the animations.
+used material UI for the icons and for some UI
+
+1. Header
+   a. used redux to handle the state of changing the color of header background and logo color
+2. Front Page
+   a. used framer motion to animate the JOL logo
+   b. used framer motion to load the video after set time
+3. Chuch Events
+   a. used useReducer to handle the complexity of the state
+   b. create the data.js for the church events.
+   c. This will eventually go to mongoDB and will be the resting place of the events posted by the Admin
+   d. created a seedRouter to post the static data used for development to mongoDb
+4. Ministries
+   a. used react-spring
+   b. to flip the pictures on hover
+5. Footer
+   a. used MUI icons
+   b. will use email function
+6. Log In component
+   a. used the glass morphism
+   b. implemented form validation principles
+   c. implementation of bcrypt \*
+
+Future implementations for Pages \*
+a. React-router-dom
+b. helmet
+
+BackEnd Development
+used express
+
+1. Create the server.js, mongooose, dotenv, cors, body-parser
+2. set localhost:7000 as the proxy to get the content of data.js
+3. create the churchEvents router and send the local data
+   app.get("/jol", (req, res) => {
+   res.send(data);
+   }); >>> this will eventually be replcae by churchEventsRoute.js in which the data will be coming form mongoDb. See 2. replace the local data
+
+4. After connection to MongoDB (outlined below) create the model schemas and routers
+
+> > > Connection to Mongo DB
+
+1.  Create an atlas mongoDb
+2.  install local mongoDb
+3.  implement mongoose
+4.  connect to mongo Db
+5.  create new project
+6.  in daTABASe click on collections --- add my own data
+7.  in databses click connect >>> connect to application >>> drivers >>> then copy the code provided
+8.  mongodb+srv:shernof:<password>@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority >>> replace password
+9.  create a .env file in the backend; set a variable name MONGODB_URI and pase the link provided by the mongodb;
+10. IGNORE THE .ENV IN THE MAIN GIT >>> npm i dotenv
+11. install npm i mongoose in the server folder
+12. configure the server.js
+13. see 1. a connection to mongoDB at server js
+
+- optional running local - https://www.mongodb.com/docs/manual/administration/install-community/
+- https://www.mongodb.com/products/compass <<< installer
+
+seeding the data.js to mongoDB
+
+1.  Create events, team and users model
+2.  create it inside a model folder inside the server folder
+3.  see ChurchEvents.js
+4.  Create the seed route -
+5.  create routes folder inside the server folder, can name it as routes; create the seedRoutes.js
+6.  use the route in server.js
+7.  seed sample events

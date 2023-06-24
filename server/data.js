@@ -1,4 +1,4 @@
-export const data = {
+export const test = {
   churchEvents: [
     {
       eventNumber: 13,
@@ -85,4 +85,4 @@ export const data = {
     },
   ],
 };
-export default data;
+export default test;

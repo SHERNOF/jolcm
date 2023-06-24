@@ -25,7 +25,6 @@ function App() {
   return (
     <div className="App" onWheel={eventHandler}>
       <Header></Header>
-      {/* <Home info={info} evs={evs}></Home> */}
       <Home></Home>
       {displayLogin && <LogIn></LogIn>}
       <LoginButton></LoginButton>

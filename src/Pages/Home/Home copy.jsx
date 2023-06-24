@@ -11,6 +11,21 @@ import Ministries from "../../Components/ministries/Ministries";
 import OurTeam from "../../Components/ourTeam/OurTeam";
 import { rootReducer } from "../../store/reducers";
 
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "FETCH_DATA_REQUEST":
+//       return { ...state, loading: true };
+//     case "FETCH_DATA_SUCCESS":
+//       return { ...state, churchEvents: action.payload, loading: false };
+//     case "FETCH_DATAT_SUCCESS":
+//       return { ...state, team: action.payload, loading: false };
+//     case "FETCH_DATA_FAIL":
+//       return { ...state, loading: false, error: action.payload };
+//     default:
+//       return state;
+//   }
+// };
+
 export default function Home() {
   const [{ churchEvents, error, loading }, dispatch] = useReducer(
     logger(rootReducer),
@@ -20,6 +35,11 @@ export default function Home() {
       loading: true,
     }
   );
+
+  // const churchEvents = useSelector((state) => state.churchEvents);
+  // const error = useSelector((state) => state.error);
+  // const loading = useSelector((state) => state.loading);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchchurchEvents = async () => {
@@ -31,9 +51,25 @@ export default function Home() {
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
       }
+
+      // setchurchEvents(r.data);
     };
     fetchchurchEvents();
   }, []);
+
+  // useEffect(() => {
+  //   const fetches = async () => {
+  //     dispatch({ type: "FETCH_DATA_REQUEST" });
+  //     try {
+  //       const r = await axios.get("/jol");
+  //       dispatch({ type: "FETCH_DATA_SUCCESS", payload: r.data.churchEents });
+  //       dispatch({ type: "FETCH_DATAT_SUCCESS", payload: r.data.team });
+  //     } catch (err) {
+  //       dispatch({ type: "FETCH_DATA_FAIL", payload: err.message });
+  //     }
+  //   };
+  //   fetches();
+  // }, []);
 
   return (
     <div
