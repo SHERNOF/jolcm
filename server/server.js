@@ -1,5 +1,5 @@
 import express from "express";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parsser";
 import cors from "cors";
 // import data from "./data.js";
 import dotenv from "dotenv";
@@ -20,8 +20,8 @@ mongoose
   });
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/jol/seed", seedRouter); //from seedRouter.js
@@ -33,7 +33,7 @@ app.use("/jol/churchEvents", churchEventsRoute);
 // app.get("/jol/users", (req, res) => {
 //   res.send(data.users);
 // });
-app.get("/jol/users", usersRoute);
+app.use("/jol/users", usersRoute);
 
 // *from userRoutes.js
 app.use((err, req, res, next) => {

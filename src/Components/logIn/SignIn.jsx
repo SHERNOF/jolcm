@@ -6,8 +6,12 @@ import classes from "./signIn.module.css";
 import { rootReducer } from "../../store/reducers";
 import logger from "use-reducer-logger";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
@@ -31,14 +35,24 @@ export default function SignIn() {
   const passwordonFocusHandler = () => {
     setpasswordInValid(false);
   };
-  const signInHandler = (e) => {
+  const signInHandler = async (e) => {
     e.preventDefault();
-    if (email.trim().length !== 0 && password.trim().length !== 0) {
+    try {
+      if (email.trim().length !== 0 && password.trim().length !== 0) {
+        const { data } = await axios.post("/jol/users/signin", {
+          email,
+          password,
+        });
+        dispatch({ type: "USERS_SIGNIN", payload: data });
+        localStorage.setItem("users", JSON.stringify(data));
+        navigate(redirect || "/");
+        console.log(data);
+      }
+    } catch (err) {
+      // <p>Invalid username or password</p>;
+      alert("Invalid username or password");
     }
-    const logInData = {
-      email,
-      password,
-    };
+
     setemail("");
     setpassword("");
   };

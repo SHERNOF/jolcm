@@ -11,27 +11,29 @@ import OurTeam from "../../Components/ourTeam/OurTeam";
 import { rootReducer } from "../../store/reducers";
 
 export default function Home() {
-  const [{ churchEvents, error, loading }, dispatch] = useReducer(
+  const [{ churchEvents, error, loading, users }, dispatch] = useReducer(
     logger(rootReducer),
     {
       churchEvents: [],
       error: "",
       loading: true,
+      users: [],
     }
   );
-
+  console.log(users);
   useEffect(() => {
     const fetchchurchEvents = async () => {
       dispatch({ type: "FETCH_DATA_REQUEST" });
       try {
         const churchEvents = await axios.get("/jol/churchEvents");
         dispatch({ type: "FETCH_DATA_SUCCESS", payload: churchEvents.data });
+        // dispatch({ type: "FETCH_USERS_SUCCESS", payload: users });
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
       }
     };
     fetchchurchEvents();
-  }, []);
+  }, [users]);
 
   return (
     <div

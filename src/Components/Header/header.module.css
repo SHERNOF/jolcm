@@ -46,6 +46,7 @@ nav {
   justify-content: space-evenly;
   flex-direction: column;
   cursor: pointer;
+  border: 1px solid white;
 }
 .hamburger.close {
   transform: rotate(180deg);

@@ -12,30 +12,31 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 export default function LogIn() {
-  const [{ users, loading, error }, dispatch] = useReducer(
-    logger(rootReducer),
-    {
-      users: [],
-    }
-  );
+  // const [{ users, loading, error }, dispatch] = useReducer(
+  //   logger(rootReducer),
+  //   {
+  //     users: [],
+  //   }
+  // );
 
-  console.log(typeof users);
+  // console.log(typeof users);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      dispatch({ type: "FETCH_USERS_REQUEST" });
-      try {
-        const users = await axios.get("jol/users");
-        dispatch({ type: "FETCH_USERS_SUCCESS", payload: users });
-      } catch (error) {
-        dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
-      }
-    };
-    fetchUsers();
-  }, []);
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     dispatch({ type: "FETCH_USERS_REQUEST" });
+  //     try {
+  //       const users = await axios.get("jol/users");
+  //       dispatch({ type: "FETCH_USERS_SUCCESS", payload: users });
+  //     } catch (error) {
+  //       dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
+  //     }
+  //   };
+  //   fetchUsers();
+  // }, []);
 
   const displayLogin = useSelector((state) => state.displayLogin);
-
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
   const [mySwitch, setmySwitch] = useState(false);
   const switchHandler = () => {
     setmySwitch(!mySwitch);
@@ -55,7 +56,7 @@ export default function LogIn() {
             onClick={switchHandler}
           ></input>
         </div>
-        {/* {mySwitch ? (
+        {mySwitch ? (
           loading ? (
             <Loading />
           ) : error ? (
@@ -65,15 +66,15 @@ export default function LogIn() {
           )
         ) : (
           <SignIn />
-        )} */}
+        )}
 
-        {loading ? (
+        {/* {loading ? (
           <Loading users={users} />
         ) : error ? (
           <div>{error}</div>
         ) : (
           <SignUp />
-        )}
+        )} */}
       </Card>
     </>
   );
@@ -100,11 +101,17 @@ III. Implementation of JSON Web token
 3. set up the JWT_SECRET in .env
 4. implement generateToken userRoutes.js
 5. instead of users, use the content of the object (_id, name, email and password in utils.js)
-6. export default userRoutes and use it in server.js
+6. export default userRoutes and use it in server.js 
 7. implement the following in server.js for POST purposes
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+8. test localhost:7000/jol/users/signin in Postman
+
+
+
+
+
 
 
 */

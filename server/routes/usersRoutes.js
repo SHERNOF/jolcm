@@ -10,7 +10,9 @@ usersRoute.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
     const users = await Users.findOne({ email: req.body.email });
+    console.log(users);
     if (users) {
+      console.log("found");
       if (bcrypt.compareSync(req.body.password, users.password)) {
         res.send({
           _id: users._id,
@@ -22,7 +24,7 @@ usersRoute.post(
         return;
       }
     }
-    res.status(400).send({ message: "Invalid Email or Password" });
+    res.status(401).send({ message: "Invalid Email or Password" });
   })
 );
 

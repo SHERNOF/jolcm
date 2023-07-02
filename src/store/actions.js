@@ -1,9 +1,4 @@
-import {
-  CHANGE_HL,
-  FETCH_USERS_FAILED,
-  FETCH_USERS_REQUEST,
-  FETCH_USERS_SUCCESS,
-} from "./constants.js";
+import { CHANGE_HL, USERS_SIGNIN } from "./constants.js";
 import { CHANGE_HD } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
 import { FETCH_DATA_REQUEST } from "./constants.js";
@@ -33,12 +28,7 @@ export const success = () => ({
 export const failed = () => ({
   type: FETCH_DATA_FAILED,
 });
-export const usersREQUEST = () => ({
-  type: FETCH_USERS_REQUEST,
-});
-export const usersSuccess = () => ({
-  type: FETCH_USERS_SUCCESS,
-});
-export const usersFAILED = () => ({
-  type: FETCH_USERS_FAILED,
+
+export const signIn = () => ({
+  type: USERS_SIGNIN,
 });
