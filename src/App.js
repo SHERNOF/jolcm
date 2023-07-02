@@ -6,6 +6,8 @@ import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
 import LoginButton from "./Components/logIn/LoginButton";
 import { useDispatch, useSelector } from "react-redux";
+import Admin from "./Pages/admin/Admin";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -24,10 +26,15 @@ function App() {
 
   return (
     <div className="App" onWheel={eventHandler}>
-      <Header></Header>
-      <Home></Home>
-      {displayLogin && <LogIn></LogIn>}
-      <LoginButton></LoginButton>
+      <BrowserRouter>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+        {displayLogin && <LogIn></LogIn>}
+        <LoginButton></LoginButton>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import { Link } from "@mui/material";
+import React, { useEffect, useReducer, useState } from "react";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
 import classes from "./signIn.module.css";
+import { rootReducer } from "../../store/reducers";
+import logger from "use-reducer-logger";
+import axios from "axios";
 
 export default function SignIn() {
   const [email, setemail] = useState("");
@@ -41,6 +45,7 @@ export default function SignIn() {
 
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
+      <Link to={`/jol/`}></Link>
       <div className={classes.signIn}>
         <Label htmlFor="email">Email</Label>
         <input
@@ -92,7 +97,9 @@ export default function SignIn() {
           Please enter a valid password
         </p>
 
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">
+          {/* <Link to={`/jol/${users.data[0]._id}`}>Sign In</Link> */}TEST
+        </Button>
       </div>
     </form>
   );

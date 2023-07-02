@@ -16,13 +16,47 @@ used material UI for the icons and for some UI
    b. create the data.js for the church events.
    c. This will eventually go to mongoDB and will be the resting place of the events posted by the Admin
    d. created a seedRouter to post the static data used for development to mongoDb
+
+   // learnt - big lesson for asynchronous JS. this is where I experienced and resolve issues when getting data from a BE serer. Initially the component is working fine when the churchEvents data is in local. However, it changes and throw an error looking for the array because it needs to load the component first before the aailability of the array. The issue was resolved after below code was treated asynchronously by using a reducer and use the loading state as a initial state to load so that the array can be imported to the app.
+
+   const [churchEvents, setchurchEvents] = useState([]);
+   useEffect(()=>{
+   const fetchData = async () => {
+   const result = await axios.get('/church-events')
+   setChurchEvent(result.data)
+   }
+   fetchData()
+   }, [])
+
+   const [{ churchEvents, error, loading }, dispatch] = useReducer(
+   logger(reducer),
+   {
+   churchEvents: [],
+   error: "",
+   loading: true,
+   }
+   );
+
+   useEffect(() => {
+   const fetches = async () => {
+   dispatch({ type: "FETCH_CHURCHEVENTS_REQUEST" });
+   try {
+   const r = await axios.get("/church-events");
+   dispatch({ type: "FETCH_CHURCHEVENTS_SUCCESS", payload: r.data });
+   } catch (err) {
+   dispatch({ type: "FETCH_CHURCHEVENTS_FAIL", payload: err.message });
+   }
+
+   setchurchEvents(r.data);
+   };
+   fetches();
+   }, []);
+
 4. Ministries
    a. used react-spring
-   b. to flip the pictures on hover
-5. Footer
+   b. to flip the pictures on hover 5. Footer
    a. used MUI icons
-   b. will use email function
-6. Log In component
+   b. will use email function 6. Log In component
    a. used the glass morphism
    b. implemented form validation principles
    c. implementation of bcrypt \*
@@ -42,6 +76,15 @@ used express
    }); >>> this will eventually be replcae by churchEventsRoute.js in which the data will be coming form mongoDb. See 2. replace the local data
 
 4. After connection to MongoDB (outlined below) create the model schemas and routers
+
+> > > Implementation of Routing
+
+1. plan is to create routing and shift the view from home to admin page upon successful sign in
+2. Implement a dependency called helmet to display the route name in the browser
+3. npm i react-router-dom
+4. after installation:
+   a. wrap the App and the components that needs the routing by <BrowserRouter /> >>> <Routes />
+   b. Define the elements route ie; <Route path='/' element={<Home />}/>
 
 > > > Connection to Mongo DB
 

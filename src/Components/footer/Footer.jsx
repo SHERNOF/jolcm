@@ -185,7 +185,7 @@ export default function Footer() {
                 // onChange={(e) => setname(e.target.value)}
                 // onBlur={nameOnBlur}
                 // onFocus={nameOnFocus}
-                type="text"
+                type="number"
                 name="phone"
                 required
                 id="phone"

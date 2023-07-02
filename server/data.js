@@ -1,4 +1,35 @@
-export const test = {
+import bcrypt from "bcryptjs";
+
+export const data = {
+  users: [
+    {
+      id: "1",
+      userName: "shernof",
+      email: "shernof@gmail.com",
+      name: "Sherwin",
+      joined: new Date(),
+      isAdmin: true,
+      password: bcrypt.hashSync("test"),
+    },
+    {
+      id: 2,
+      userName: "jedi",
+      name: "Jedidiah",
+      email: "jedi@gmail.com",
+      password: bcrypt.hashSync("test1"),
+      joined: new Date(),
+      isAdmin: false,
+    },
+    {
+      id: 3,
+      userName: "angie",
+      name: "Angelyn",
+      email: "angie@gmail.com",
+      password: bcrypt.hashSync("test2"),
+      joined: new Date(),
+      isAdmin: false,
+    },
+  ],
   churchEvents: [
     {
       eventNumber: 13,
@@ -85,4 +116,4 @@ export const test = {
     },
   ],
 };
-export default test;
+export default data;

@@ -12,6 +12,7 @@ const initialState = {
   team: [],
   error: "",
   loading: true,
+  users: [],
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -37,6 +38,15 @@ export const rootReducer = (state = initialState, action) => {
     case "FETCH_DATAT_SUCCESS":
       return { ...state, team: action.payload, loading: false };
     case "FETCH_DATA_FAIL":
+      return { ...state, loading: false, error: action.payload };
+
+    case "FETCH_USERS_REQUEST":
+      return { ...state, loading: true };
+
+    case "FETCH_USERS_SUCCESS":
+      return { ...state, users: action.payload, loading: false };
+
+    case "FETCH_USERS_FAILED":
       return { ...state, loading: false, error: action.payload };
 
     default:
