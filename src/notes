@@ -149,6 +149,12 @@ seeding the data.js to mongoDB
 - settings >>> Reveal Coding Vars >>> above settings will be visible
 
 12. commit the changes to git repo and push it to heroku repo
-13.
-14. Set db connection in env
-15. commit and push
+
+- on the fork icon >>> enter comment like "publish to heroku"
+
+13. in the terminal >>> git push heroku
+
+14. In server.js, app.use(express.static(path.join(\_\_dirname, '/')))
+
+15. Set db connection in env
+16. commit and push
