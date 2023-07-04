@@ -2,6 +2,7 @@ import express from "express";
 // import bodyParser from "body-parsser";
 import cors from "cors";
 // import data from "./data.js";
+import path from "path";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoutes.js";
@@ -38,6 +39,12 @@ app.use("/jol/users", usersRoute);
 // *from userRoutes.js
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
+});
+const dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build/index.html"));
 });
 
 const port = process.env.PORT || 7000;
