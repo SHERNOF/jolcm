@@ -92,6 +92,7 @@ II. Create API for signin
 1. localhost:7000/jol/users/signin
 2. implementation of json web token
 3. implementyation of expressAsyncHandler with (req, res) to catch the error npm i express-async-handler in server.js. See *from userRoutes.js
+4. use findOne(), a command from mongoDb to find similar user from the collection
 4. check the existense of a user in the userRoute (if conditions) as well as the correctness ogf password with bcrypt functions
 5. if connditions are met then send/ return the objkect containin email, id isAdmin and name
 

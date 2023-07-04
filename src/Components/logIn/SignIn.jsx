@@ -6,12 +6,25 @@ import classes from "./signIn.module.css";
 import { rootReducer } from "../../store/reducers";
 import logger from "use-reducer-logger";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const { search } = useLocation();
+
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/admin";
+  console.log(redirect);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userInfo = useSelector((state) => state.userInfo);
+  console.log(userInfo);
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, navigate, redirect]);
+
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
@@ -45,8 +58,7 @@ export default function SignIn() {
         });
         dispatch({ type: "USERS_SIGNIN", payload: data });
         localStorage.setItem("users", JSON.stringify(data));
-        navigate(redirect || "/");
-        console.log(data);
+        navigate(redirect || "/admin");
       }
     } catch (err) {
       // <p>Invalid username or password</p>;
@@ -112,7 +124,9 @@ export default function SignIn() {
         </p>
 
         <Button type="submit">
-          {/* <Link to={`/jol/${users.data[0]._id}`}>Sign In</Link> */}TEST
+          {/* <Link to={`/admin'}`}>Sign In</Link> */}
+          {/* TEST */}
+          Sign In
         </Button>
       </div>
     </form>

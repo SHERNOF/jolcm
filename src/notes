@@ -154,7 +154,10 @@ seeding the data.js to mongoDB
 
 13. in the terminal >>> git push heroku
 
-14. In server.js, app.use(express.static(path.join(\_\_dirname, '/')))
+14. In server.js, app.use(express.static(path.join(**dirname, '/build')))
+    app.get('\*', (req, res)=>{
+    res.sendFile(path.join(**dirname, '/build/index.html'))
+    })
 
 15. Set db connection in env
 16. commit and push
