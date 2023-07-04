@@ -40,7 +40,7 @@ app.use("/jol/users", usersRoute);
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
-const dirname = path.resolve();
+const __dirname = path.resolve();
 
 app.use(express.static(path.join(__dirname, "/build")));
 app.get("*", (req, res) => {
