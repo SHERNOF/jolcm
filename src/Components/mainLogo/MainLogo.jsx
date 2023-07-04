@@ -1,10 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@emotion/react";
 
 export default function MainLogo({ isMed }) {
-  const theme = useTheme();
-
   const icon = {
     hidden: {
       pathLength: 0,

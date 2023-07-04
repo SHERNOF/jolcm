@@ -1,12 +1,12 @@
 import { Link } from "@mui/material";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
 import classes from "./signIn.module.css";
-import { rootReducer } from "../../store/reducers";
+
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const { search } = useLocation();
