@@ -114,3 +114,41 @@ seeding the data.js to mongoDB
 5.  create routes folder inside the server folder, can name it as routes; create the seedRoutes.js
 6.  use the route in server.js
 7.  seed sample events
+
+> > > Deployment to Heroku
+
+1. create GIT repo and .gitignore at the root directory
+2. Create Heroku acct >>> ok
+3. INstall heroku CLI
+   install brew and run this in the terminal >>> brew tap heroku/brew && brew install heroku
+   https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
+4. heroku login >>> in the terminal >>> then login
+
+5. heroku apps:create joyoflife >>> heroku will then issue an  
+   acknowledgement page of the app created
+
+6. move the localhost:7000 to joyoflife
+7. edit package.json in the root directory for build script >>>
+   "script": "cd jolcm && npm install && pm run build"
+8. Set the "engines": {"node": "12.4.0", "npm": "6.9.0"} >>> this is to
+   set the version of node and npm to this versions in the heroku
+9. Create ProcFile in the root directory
+   This is to set the initial command to run the website
+   it will run after the installation of all package and will launch the app
+10. Create cloud mongoDb atlas >>> https://cloud.mongodb.com
+    - setup the network access
+    - allow access anywhere 0.0.0.0/0
+    - at database access >>> add new database user set the username and pw
+    - create the name of the app
+    - in COnnect >>> select connect your application and copy the code provided. input
+      the username and password
+    - in the terminal >>> heroku config:set MONGODB_URL="mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority"
+    - heroku config:set SKIP_PREFLIGHT_CHECK=true
+11. refresh the heroku dashboard to see the app
+
+- settings >>> Reveal Coding Vars >>> above settings will be visible
+
+12. commit the changes to git repo and push it to heroku repo
+13.
+14. Set db connection in env
+15. commit and push
