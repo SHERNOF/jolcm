@@ -1,7 +1,7 @@
 import React from "react";
 import JOLNA from "./JOLNA.mp4";
 
-export default function JolVideo({ embedId }) {
+export default function JolVideo() {
   return (
     <div
       style={{

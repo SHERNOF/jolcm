@@ -1,8 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import logger from "use-reducer-logger";
-import { rootReducer } from "../../store/reducers";
+
 import Loading from "../common/loading/Loading";
 
 import Card from "../UI/card/Card";
@@ -13,7 +11,7 @@ import SignUp from "./SignUp";
 
 export default function LogIn() {
   // const [{ users, loading, error }, dispatch] = useReducer(
-  //   logger(rootReducer),
+  // rootReducer,
   //   {
   //     users: [],
   //   }

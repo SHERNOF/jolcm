@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import logger from "use-reducer-logger";
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
@@ -27,14 +25,11 @@ import { rootReducer } from "../../store/reducers";
 // };
 
 export default function Home() {
-  const [{ churchEvents, error, loading }, dispatch] = useReducer(
-    logger(rootReducer),
-    {
-      churchEvents: [],
-      error: "",
-      loading: true,
-    }
-  );
+  const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
+    churchEvents: [],
+    error: "",
+    loading: true,
+  });
 
   // const churchEvents = useSelector((state) => state.churchEvents);
   // const error = useSelector((state) => state.error);
@@ -120,7 +115,7 @@ export default function Home() {
 // }, [])
 
 // const [{ churchEvents, error, loading }, dispatch] = useReducer(
-//   logger(reducer),
+//   reducer,
 //   {
 //     churchEvents: [],
 //     error: "",
