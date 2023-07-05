@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
 import usersRoute from "./routes/usersRoutes.js";
+
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
 dotenv.config();
