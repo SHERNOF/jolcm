@@ -25,9 +25,6 @@
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -55,5 +52,8 @@
   "engines": {
     "node": "16.14.2",
     "npm": "9.7.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
