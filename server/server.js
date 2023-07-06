@@ -17,12 +17,7 @@ import usersRoute from "./routes/usersRoutes.js";
 // )
 dotenv.config();
 mongoose
-  .connect(
-    process.env.MONGODB_URI,
-    // .connect(
-    //   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("connected top mongoDB");
   })
