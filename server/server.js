@@ -12,9 +12,9 @@ import usersRoute from "./routes/usersRoutes.js";
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
 
-dotenv.config({ path: "./config.env" });
+dotenv.config();
 mongoose
-  .connect("process.env.MONGODB_URI", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
