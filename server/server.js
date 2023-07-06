@@ -12,10 +12,10 @@ import usersRoute from "./routes/usersRoutes.js";
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
 
-// dotenv.config();
+dotenv.config();
 mongoose
   // .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
-  .Connection(
+  .connect(
     "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
     { useNewUrlParser: true }
   )
