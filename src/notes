@@ -161,3 +161,14 @@ seeding the data.js to mongoDB
 
 15. Set db connection in env
 16. commit and push
+
+Issues encountered in deployment
+
+1. at=error code=H10 desc="App crashed" method=GET path="/" host=joyoflife-e41eff580354.
+   herokuapp.com request_id=741c1e0e-5057-4ff0-b06b-17fdd73b2322 fwd="124.187.246.230" dyno= connect= service= status=503 bytes= protocol=https
+
+   resolved by installing the backend app in the main directories and reflected in main's package.json
+
+2. babel warning - added it as a dependency
+3. he `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first
+   parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
