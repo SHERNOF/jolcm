@@ -15,7 +15,7 @@ import usersRoute from "./routes/usersRoutes.js";
 //   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
 //   { useNewUrlParser: true }
 // )
-dotenv.config();
+dotenv.config({ path: "../.env" });
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
