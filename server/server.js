@@ -14,7 +14,10 @@ import usersRoute from "./routes/usersRoutes.js";
 
 dotenv.config();
 mongoose
-  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+  .connect(`${process.env.MONGODB_URI}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   // .connect(
   //   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
   //   { useNewUrlParser: true }
