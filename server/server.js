@@ -14,7 +14,7 @@ import usersRoute from "./routes/usersRoutes.js";
 
 dotenv.config({ path: "./config.env" });
 mongoose
-  .connect(`${process.env.MONGODB_URI}`, {
+  .connect("process.env.MONGODB_URI", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
