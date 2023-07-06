@@ -11,17 +11,17 @@ import usersRoute from "./routes/usersRoutes.js";
 
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
-
+// .connect(
+//   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
+//   { useNewUrlParser: true }
+// )
 dotenv.config();
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  // .connect(
-  //   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
-  //   { useNewUrlParser: true }
-  // )
+  // .connect(process.env.MONGODB_URI, {
+  .connect(
+    "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
   .then(() => {
     console.log("connected top mongoDB");
   })
