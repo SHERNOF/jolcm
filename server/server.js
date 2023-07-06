@@ -12,7 +12,7 @@ import usersRoute from "./routes/usersRoutes.js";
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
 
-dotenv.config();
+dotenv.config({ path: "./config.env" });
 mongoose
   .connect(`${process.env.MONGODB_URI}`, {
     useNewUrlParser: true,
