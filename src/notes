@@ -172,3 +172,7 @@ Issues encountered in deployment
 2. babel warning - added it as a dependency
 3. he `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first
    parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+
+   mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority
+
+   mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority
