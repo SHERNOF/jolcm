@@ -11,7 +11,7 @@ import usersRoute from "./routes/usersRoutes.js";
 
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
-dotenv.config();
+
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
@@ -20,6 +20,7 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
+dotenv.config();
 
 const app = express();
 app.use(express.json());
