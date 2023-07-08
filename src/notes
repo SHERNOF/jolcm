@@ -176,3 +176,7 @@ Issues encountered in deployment
    mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority
 
    mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority
+
+   resolved the issue by: heroku config:set MONGODB_URI="mongodb+srv://shernof:GodisGood78\*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority"
+
+   should be MONGODB_URI and not MONGODB_URL as the server.js and .env variable - MONGODB_URI
