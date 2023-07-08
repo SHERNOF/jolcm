@@ -1,6 +1,6 @@
 import express from "express";
 // import bodyParser from "body-parsser";
-// import cors from "cors";
+import cors from "cors";
 // import data from "./data.js";
 import path from "path";
 import dotenv from "dotenv";
@@ -11,8 +11,8 @@ import usersRoute from "./routes/usersRoutes.js";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
