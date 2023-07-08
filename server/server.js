@@ -21,13 +21,16 @@ app.use(cors());
 //   { useNewUrlParser: true }
 // )
 // dotenv.config({ path: "./.env" });
-dotenv.config({ path: "./.env" });
+dotenv.config();
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("connected top mongoDB");
   })
