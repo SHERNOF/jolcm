@@ -19,12 +19,12 @@ import usersRoute from "./routes/usersRoutes.js";
 dotenv.config();
 mongoose
   .connect(
-    // process.env.MONGODB_URI
-    "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
+    process.env.MONGODB_URI,
+    // "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
-      useCreateIndex: true,
-      //   useUnifiedTopology: true,
+      // useCreateIndex: true,
+      useUnifiedTopology: true,
     }
   )
   .then(() => {
