@@ -9,6 +9,11 @@ import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
 import usersRoute from "./routes/usersRoutes.js";
 
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
+
 // console.log(users[1]._id);
 // 1. a connection to mongoDB
 // .connect(
@@ -29,11 +34,6 @@ mongoose
   .catch((err) => {
     console.log(err.message);
   });
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
 
 app.use("/jol/seed", seedRouter); //from seedRouter.js
 
