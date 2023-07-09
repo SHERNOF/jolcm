@@ -19,7 +19,7 @@ import usersRoute from "./routes/usersRoutes.js";
 dotenv.config();
 mongoose
   .connect(process.env.MONGODB_URI, {
-    // useNewUrlParser: true,
+    useNewUrlParser: true,
     // useCreateIndex: true,
     // useUnifiedTopology: true,
   })
