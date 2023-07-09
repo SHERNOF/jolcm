@@ -1,23 +1,21 @@
-import { Link } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
 import classes from "./signIn.module.css";
-
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const { search } = useLocation();
+  const userInfo = useSelector((state) => state.userInfo);
 
   const redirectInUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectInUrl ? redirectInUrl : "/admin";
   console.log(redirect);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userInfo = useSelector((state) => state.userInfo);
-  console.log(userInfo);
+
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
@@ -60,7 +58,6 @@ export default function SignIn() {
         navigate(redirect || "/admin");
       }
     } catch (err) {
-      // <p>Invalid username or password</p>;
       alert("Invalid username or password");
     }
 
@@ -70,7 +67,6 @@ export default function SignIn() {
 
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
-      <Link to={`/jol/`}></Link>
       <div className={classes.signIn}>
         <Label htmlFor="email">Email</Label>
         <input
@@ -122,11 +118,7 @@ export default function SignIn() {
           Please enter a valid password
         </p>
 
-        <Button type="submit">
-          {/* <Link to={`/admin'}`}>Sign In</Link> */}
-          {/* TEST */}
-          Sign In
-        </Button>
+        <Button type="submit">Sign In</Button>
       </div>
     </form>
   );

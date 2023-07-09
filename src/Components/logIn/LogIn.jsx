@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import Home from "../../Pages/Home/Home";
 import Loading from "../common/loading/Loading";
 import Card from "../UI/card/Card";
 import classes from "./login.module.css";
@@ -30,6 +31,7 @@ export default function LogIn() {
   // }, []);
 
   const displayLogin = useSelector((state) => state.displayLogin);
+  const userInfo = useSelector((state) => state.userInfo);
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
   const [mySwitch, setmySwitch] = useState(false);
@@ -38,39 +40,43 @@ export default function LogIn() {
   };
   return (
     <>
-      <Card
-        className={`${classes.logInContainer} ${
-          displayLogin && classes.appear
-        }`}
-      >
-        <div className={classes.switchContainer}>
-          <input
-            type="checkbox"
-            name="switcher"
-            className={classes.switcher}
-            onClick={switchHandler}
-          ></input>
-        </div>
-        {mySwitch ? (
-          loading ? (
-            <Loading />
-          ) : error ? (
-            <div>{error}</div>
+      {userInfo ? (
+        ""
+      ) : (
+        <Card
+          className={`${classes.logInContainer} ${
+            displayLogin && classes.appear
+          }`}
+        >
+          <div className={classes.switchContainer}>
+            <input
+              type="checkbox"
+              name="switcher"
+              className={classes.switcher}
+              onClick={switchHandler}
+            ></input>
+          </div>
+          {mySwitch ? (
+            loading ? (
+              <Loading />
+            ) : error ? (
+              <div>{error}</div>
+            ) : (
+              <SignUp />
+            )
           ) : (
-            <SignUp />
-          )
-        ) : (
-          <SignIn />
-        )}
+            <SignIn />
+          )}
 
-        {/* {loading ? (
+          {/* {loading ? (
           <Loading users={users} />
         ) : error ? (
           <div>{error}</div>
         ) : (
           <SignUp />
         )} */}
-      </Card>
+        </Card>
+      )}
     </>
   );
 }

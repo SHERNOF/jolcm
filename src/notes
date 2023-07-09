@@ -182,3 +182,4 @@ Issues encountered in deployment
    should be MONGODB_URI and not MONGODB_URL as the server.js and .env variable - MONGODB_URI
 
 4. 'secretOrPrivateKey must have a value after heroku deploy' issue
+   used `${process.env.JWT_SECRET}` instead of process.env.JWT_SECRET
