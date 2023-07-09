@@ -9,13 +9,8 @@ import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
 import usersRoute from "./routes/usersRoutes.js";
 
-// console.log(users[1]._id);
 // 1. a connection to mongoDB
-// .connect(
-//   "mongodb+srv://shernof:GodisGood78*@cluster0.ilwymnp.mongodb.net/JoyOfLife?retryWrites=true&w=majority"
-//   { useNewUrlParser: true }
-// )
-// dotenv.config({ path: "./.env" });
+
 dotenv.config();
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -32,7 +27,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/jol/seed", seedRouter); //from seedRouter.js
