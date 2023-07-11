@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./Pages/Home/Home";
-import React from "react";
+import React, { useEffect } from "react";
 // import data from "./data.js";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
+  useEffect(() => {}, []);
 
   const dispatch = useDispatch();
   const eventHandler = (e) => {

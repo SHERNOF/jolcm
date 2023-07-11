@@ -20,14 +20,12 @@ export default function Home() {
       users: [],
     }
   );
-  console.log(users);
   useEffect(() => {
     const fetchchurchEvents = async () => {
       dispatch({ type: "FETCH_DATA_REQUEST" });
       try {
         const churchEvents = await axios.get("/jol/churchEvents");
         dispatch({ type: "FETCH_DATA_SUCCESS", payload: churchEvents.data });
-        // dispatch({ type: "FETCH_USERS_SUCCESS", payload: users });
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
       }

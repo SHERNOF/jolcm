@@ -1,18 +1,8 @@
-// import { createStore } from "redux";
+import { createStore } from "redux";
+import { rootReducer } from "./reducers";
 
-// // const initialState = 0
+// const initialState = 0;
 
-// const mainReducer = ( state = {wheel:0}, action ) => {
-//     if(action.type === 'wheel'){
-//         return {
-//             wheel: state.(e) => {
-//                 const ev = e.deltaY;
-//                 ev > 0 ? setWheel(true) : setWheel(false);
-//               };
-//         }
-//     }
-// }
+const store = createStore(rootReducer);
 
-// const store = createStore();
-
-// export default store;
+export default store;

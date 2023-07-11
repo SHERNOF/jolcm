@@ -9,18 +9,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function SignIn() {
   const { search } = useLocation();
   const userInfo = useSelector((state) => state.userInfo);
-
-  const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/admin";
-  console.log(redirect);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-    }
-  }, [userInfo, navigate, redirect]);
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/admin";
 
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);
@@ -45,6 +37,7 @@ export default function SignIn() {
   const passwordonFocusHandler = () => {
     setpasswordInValid(false);
   };
+
   const signInHandler = async (e) => {
     e.preventDefault();
     try {
@@ -54,8 +47,8 @@ export default function SignIn() {
           password,
         });
         dispatch({ type: "USERS_SIGNIN", payload: data });
-        localStorage.setItem("users", JSON.stringify(data));
-        navigate(redirect || "/admin");
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate(redirect || "/");
       }
     } catch (err) {
       alert("Invalid username or password");
@@ -64,6 +57,12 @@ export default function SignIn() {
     setemail("");
     setpassword("");
   };
+
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate(redirect);
+  //   }
+  // }, [navigate, userInfo, redirect]);
 
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
@@ -123,3 +122,14 @@ export default function SignIn() {
     </form>
   );
 }
+
+/*
+I. create the sign In Component
+2. define the submitHandler. This is to post the email and password to /jol/users/signin api.
+3. dispathch the USERS_SIGN with the oayload of data which is from mongoDB
+4. save the data to localStorage
+5. use useNavigate (react-router-dom) to redirect to Admin page if login is successful
+6. 
+
+
+*/

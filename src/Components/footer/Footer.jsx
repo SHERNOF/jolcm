@@ -155,10 +155,6 @@ export default function Footer() {
               <Label htmlFor="name">Name</Label>
               <input
                 className={classes.input}
-                // value={name}
-                // onChange={(e) => setname(e.target.value)}
-                // onBlur={nameOnBlur}
-                // onFocus={nameOnFocus}
                 type="text"
                 name="name"
                 required
@@ -168,23 +164,15 @@ export default function Footer() {
               <Label htmlFor="email">Email</Label>
               <input
                 className={classes.input}
-                // value={name}
-                // onChange={(e) => setname(e.target.value)}
-                // onBlur={nameOnBlur}
-                // onFocus={nameOnFocus}
                 type="text"
-                name="email"
+                name="emailUs"
                 required
-                id="email"
+                id="emailUs"
               ></input>
 
               <Label htmlFor="phone">Phone</Label>
               <input
                 className={classes.input}
-                // value={name}
-                // onChange={(e) => setname(e.target.value)}
-                // onBlur={nameOnBlur}
-                // onFocus={nameOnFocus}
                 type="number"
                 name="phone"
                 required
@@ -197,10 +185,6 @@ export default function Footer() {
                 style={{
                   height: "10rem",
                 }}
-                // value={name}
-                // onChange={(e) => setname(e.target.value)}
-                // onBlur={nameOnBlur}
-                // onFocus={nameOnFocus}
                 type="text"
                 name="message"
                 required

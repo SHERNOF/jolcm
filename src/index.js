@@ -8,6 +8,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const store = createStore(rootReducer);
+console.log(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

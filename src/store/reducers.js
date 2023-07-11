@@ -34,7 +34,11 @@ export const rootReducer = (state = initialState, action) => {
     case "FETCH_DATA_REQUEST":
       return { ...state, loading: true };
     case "FETCH_DATA_SUCCESS":
-      return { ...state, churchEvents: action.payload, loading: false };
+      return {
+        ...state,
+        churchEvents: action.payload,
+        loading: false,
+      };
     // case "FETCH_DATAT_SUCCESS":
     //   return { ...state, team: action.payload, loading: false };
     case "FETCH_DATA_FAIL":
