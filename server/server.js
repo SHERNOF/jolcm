@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
-import usersRoute from "./routes/usersRoutes.js";
+import userRoute from "./routes/usersRoutes.js";
 
 // 1. a connection to mongoDB
 
@@ -39,7 +39,7 @@ app.use("/jol/churchEvents", churchEventsRoute);
 // app.get("/jol/users", (req, res) => {
 //   res.send(data.users);
 // });
-app.use("/jol/users", usersRoute);
+app.use("/jol/users", userRoute);
 
 // *from userRoutes.js
 app.use((err, req, res, next) => {

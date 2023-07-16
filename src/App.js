@@ -4,15 +4,15 @@ import React, { useEffect } from "react";
 // import data from "./data.js";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
-import LoginButton from "./Components/logIn/LoginButton";
+// import LoginButton from "./Components/logIn/LoginButton";
 import { useDispatch, useSelector } from "react-redux";
 import Admin from "./Pages/admin/Admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Signin from "./Components/signin/Signin";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
-  useEffect(() => {}, []);
-
+  const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const eventHandler = (e) => {
     const ev = e.deltaY;
@@ -31,10 +31,11 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
+          {userInfo && <Route path="/admin" element={<Admin />} />}
+          <Route path="/signin-page" element={<Signin />} />
         </Routes>
         {displayLogin && <LogIn></LogIn>}
-        <LoginButton></LoginButton>
+        {/* <LoginButton></LoginButton> */}
       </BrowserRouter>
     </div>
   );

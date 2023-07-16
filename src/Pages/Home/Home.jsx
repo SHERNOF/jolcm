@@ -8,16 +8,17 @@ import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
 import OurTeam from "../../Components/ourTeam/OurTeam";
+import Signin from "../../Components/signin/Signin";
 import { rootReducer } from "../../store/reducers";
 
 export default function Home() {
-  const [{ churchEvents, error, loading, users }, dispatch] = useReducer(
+  const [{ churchEvents, error, loading, userInfo }, dispatch] = useReducer(
     rootReducer,
     {
       churchEvents: [],
       error: "",
       loading: true,
-      users: [],
+      userInfo: [],
     }
   );
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function Home() {
       }
     };
     fetchchurchEvents();
-  }, [users]);
+  }, []);
 
   return (
     <div

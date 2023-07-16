@@ -1,25 +1,23 @@
 import express from "express";
-import Users from "../models/usersModel.js";
+import User from "../models/usersModel.js";
 import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../utils.js";
 
-const usersRoute = express.Router();
+const userRoute = express.Router();
 
-usersRoute.post(
+userRoute.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
-    const users = await Users.findOne({ email: req.body.email });
-    console.log(users);
-    if (users) {
-      console.log("found");
-      if (bcrypt.compareSync(req.body.password, users.password)) {
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
-          _id: users._id,
-          name: users.name,
-          email: users.email,
-          isAdmin: users.isAdmin,
-          token: generateToken(users),
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken(user),
         });
         return;
       }
@@ -28,4 +26,4 @@ usersRoute.post(
   })
 );
 
-export default usersRoute;
+export default userRoute;

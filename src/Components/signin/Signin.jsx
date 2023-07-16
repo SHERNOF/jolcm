@@ -1,18 +1,19 @@
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { USER_SIGNIN_FAIL, USER_SIGNIN_SUCCESS } from "../../store/constants";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
-import classes from "./signIn.module.css";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import classes from "./signin.module.css";
 
-export default function SignIn() {
-  const { search } = useLocation();
-  const dispatch = useDispatch();
+export default function Signin() {
   const navigate = useNavigate();
+  const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/admin";
+  const redirect = redirectInUrl ? redirectInUrl : "/";
 
+  const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
@@ -41,28 +42,29 @@ export default function SignIn() {
     e.preventDefault();
     try {
       if (email.trim().length !== 0 && password.trim().length !== 0) {
-        const { data } = await axios.post("/jol/users/signin", {
+        const { data } = await Axios.post("/jol/users/signin", {
           email,
           password,
         });
         console.log(data);
-        dispatch({ type: "USERS_SIGNIN", payload: data });
+        dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
         navigate(redirect || "/");
       }
     } catch (err) {
+      dispatch({ type: USER_SIGNIN_FAIL, payload: err.message });
       alert("Invalid username or password");
     }
-    setemail("");
-    setpassword("");
+    // setemail("");
+    // setpassword("");
   };
-
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigate(redirect);
-  //   }
-  // }, [navigate, userInfo, redirect]);
-
+  const userInfo = useSelector((state) => state.userInfo);
+  console.log(userInfo);
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
       <div className={classes.signIn}>
@@ -116,26 +118,12 @@ export default function SignIn() {
           Please enter a valid password
         </p>
 
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">SIGN IN</Button>
+      </div>
+      <div className="mb-3">
+        New customer?{" "}
+        <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
       </div>
     </form>
   );
 }
-
-/*
-I. create the sign In Component
-2. define the submitHandler. This is to post the email and password to /jol/users/signin api.
-3. dispathch the USERS_SIGN with the oayload of data which is from mongoDB
-4. save the data to localStorage
-5. use useNavigate (react-router-dom) to redirect to Admin page if login is successful
-6. 
-
-
-Issue Encountered
-- Sign in is succesful. it can get the userInfo and can be save to local storage. However the Admin page immediately unmounted in a ery first scroll of the mouse.
-
-Solution
-- the userInfo was set to an empty object {} in the store. having an empty object = 
-
-
-*/

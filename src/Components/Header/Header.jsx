@@ -1,17 +1,23 @@
-import React from "react";
+import * as React from "react";
 import Container from "../common/container/Container";
 import classes from "./header.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const userInfo = useSelector((state) => state.userInfo);
+  const dispatch = useDispatch();
   const wheel = useSelector((state) => state.wheel);
 
   // const [hamburger, sethamburger] = useState(false);
   // const test = () => {
   //   sethamburger(!hamburger);
   // };
+
+  const logOutHandler = () => {
+    dispatch({ type: "USER_LOGOUT" });
+    localStorage.removeItem("userInfo");
+  };
 
   return (
     <nav>
@@ -29,7 +35,16 @@ export default function Header() {
               width: "10rem",
             }}
           >
-            {userInfo ? <p>Good day {userInfo.name}</p> : <p>no user</p>}
+            {userInfo ? (
+              <div style={{ display: "flex" }}>
+                <p>{userInfo.name}</p>
+                <Link to="/" onClick={logOutHandler}>
+                  LOGOUT
+                </Link>
+              </div>
+            ) : (
+              <Link to="/signin-page">LOGIN</Link>
+            )}
           </div>
         </div>
       </Container>
