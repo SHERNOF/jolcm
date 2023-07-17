@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 import {
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
