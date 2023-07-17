@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
-import logger from "use-reducer-logger";
+// import logger from "use-reducer-logger";
 // import logger from "use-reducer-logger"
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
@@ -12,14 +12,11 @@ import OurTeam from "../../Components/ourTeam/OurTeam";
 import { rootReducer } from "../../store/reducers";
 
 export default function Home() {
-  const [{ churchEvents, error, loading }, dispatch] = useReducer(
-    logger(rootReducer),
-    {
-      churchEvents: [],
-      error: "",
-      loading: true,
-    }
-  );
+  const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
+    churchEvents: [],
+    error: "",
+    loading: true,
+  });
   useEffect(() => {
     const fetchchurchEvents = async () => {
       dispatch({ type: "FETCH_DATA_REQUEST" });
