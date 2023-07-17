@@ -1,8 +1,13 @@
 import Axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { USER_SIGNIN_FAIL, USER_SIGNIN_SUCCESS } from "../../store/constants";
+import logger from "use-reducer-logger";
+import {
+  USER_SIGNIN_FAIL,
+  USER_SIGNIN_REQUEST,
+  USER_SIGNIN_SUCCESS,
+} from "../../store/constants";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
 import classes from "./signin.module.css";
@@ -11,9 +16,12 @@ export default function Signin() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/";
+  const redirect = redirectInUrl ? redirectInUrl : "/admin";
 
   const dispatch = useDispatch();
+
+  const userInfo = useSelector((state) => state.userInfo);
+
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
@@ -24,13 +32,11 @@ export default function Signin() {
       setemailInValid(true);
     }
   };
-
   const passwordonBlurHandler = () => {
     if (password.trim().length === 0) {
       setpasswordInValid(true);
     }
   };
-
   const onFocusHandler = () => {
     setemailInValid(false);
   };
@@ -42,6 +48,7 @@ export default function Signin() {
     e.preventDefault();
     try {
       if (email.trim().length !== 0 && password.trim().length !== 0) {
+        dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
         const { data } = await Axios.post("/jol/users/signin", {
           email,
           password,
@@ -51,14 +58,14 @@ export default function Signin() {
         localStorage.setItem("userInfo", JSON.stringify(data));
         navigate(redirect || "/");
       }
-    } catch (err) {
-      dispatch({ type: USER_SIGNIN_FAIL, payload: err.message });
+    } catch (error) {
+      dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
       alert("Invalid username or password");
     }
     // setemail("");
     // setpassword("");
   };
-  const userInfo = useSelector((state) => state.userInfo);
+
   console.log(userInfo);
   useEffect(() => {
     if (userInfo) {
