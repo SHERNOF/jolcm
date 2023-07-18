@@ -1,16 +1,13 @@
 import {
-  CHANGE_HL,
+  CHANGE_MOUSEUP,
+  MOUSE_DISABLE,
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
 } from "./constants.js";
-import { CHANGE_HD } from "./constants.js";
+import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
-import { USER_SIGNIN } from "./constants.js";
 import { USER_LOGOUT } from "./constants.js";
-// export const FETCH_DATA_REQUEST = "./constants.js";
-// export const FETCH_DATA_SUCCESS = "./constants.js";
-// export const FETCH_DATA_FAILED = "./constants.js";
 
 import { FETCH_DATA_REQUEST } from "./constants.js";
 import { FETCH_DATA_SUCCESS } from "./constants.js";
@@ -31,11 +28,11 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
   // console.log(action.type);
   switch (action.type) {
-    case CHANGE_HL:
+    case CHANGE_MOUSEUP:
       // return Object.assign({}, state, { wheel: action.payload });
       // return { ...state, wheel: !action.payload };
       return { wheel: (state.wheel = false) };
-    case CHANGE_HD:
+    case CHANGE_MOUSEDOWN:
       return { wheel: (state.wheel = true) };
 
     // SET LOGIN REDUCER

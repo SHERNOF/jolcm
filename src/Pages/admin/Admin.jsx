@@ -11,11 +11,7 @@ export default function Admin() {
   return (
     <Section>
       <Container>
-        {userInfo ? (
-          <div className={classes.admin}>Hi {userInfo.name}!!!</div>
-        ) : (
-          console.log(userInfo)
-        )}
+        {userInfo && <div className={classes.admin}>Hi {userInfo.name}!!!</div>}
       </Container>
     </Section>
   );

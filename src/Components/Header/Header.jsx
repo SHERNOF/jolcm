@@ -3,6 +3,7 @@ import Container from "../common/container/Container";
 import classes from "./header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import LoginButton from "../logIn/LoginButton";
 
 export default function Header() {
   const userInfo = useSelector((state) => state.userInfo);
@@ -22,7 +23,10 @@ export default function Header() {
   return (
     <nav>
       <Container>
-        <div className={`${classes.navContainer} ${wheel && classes.bgned}`}>
+        <div
+          className={`${classes.navContainer} ${wheel && classes.bgned}
+         `}
+        >
           <Link to="/" className={classes.logo}>
             <img
               className={classes.navLogo}
@@ -32,18 +36,22 @@ export default function Header() {
           </Link>
           <div
             style={{
-              width: "10rem",
+              width: "20rem",
+              border: "1px solid red",
             }}
           >
             {userInfo ? (
               <div style={{ display: "flex" }}>
                 <p>{userInfo.name}</p>
+
                 <Link to="/" onClick={logOutHandler}>
-                  LOGOUT
+                  <p>SIGN OUT</p>
                 </Link>
               </div>
             ) : (
-              <Link to="/signin-page">LOGIN</Link>
+              <Link to="/signin-page">
+                <p>SIGN IN</p>
+              </Link>
             )}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
+import { useSelector } from "react-redux";
 // import logger from "use-reducer-logger";
 // import logger from "use-reducer-logger"
 import Loading from "../../Components/common/loading/Loading";
@@ -9,9 +10,11 @@ import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
 import OurTeam from "../../Components/ourTeam/OurTeam";
+import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "../../store/constants";
 import { rootReducer } from "../../store/reducers";
 
 export default function Home() {
+  const userInfo = useSelector((state) => state.userInfo);
   const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
     churchEvents: [],
     error: "",

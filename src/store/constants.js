@@ -1,5 +1,6 @@
-export const CHANGE_HL = "CHANGE_HL";
-export const CHANGE_HD = "CHANGE_HD";
+export const CHANGE_MOUSEUP = "CHANGE_MOUSEUP";
+export const CHANGE_MOUSEDOWN = "CHANGE_MOUSEDOWN";
+
 export const SET_LOGIN = "SET_LOGIN";
 export const FETCH_DATA_REQUEST = "FETCH_DATA_REQUEST";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";

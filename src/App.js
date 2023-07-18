@@ -9,29 +9,29 @@ import { useDispatch, useSelector } from "react-redux";
 import Admin from "./Pages/admin/Admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signin from "./Components/signin/Signin";
+import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "./store/constants";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const eventHandler = (e) => {
-    const ev = e.deltaY;
-    if (ev > 0) {
-      dispatch({ type: "CHANGE_HL" });
-    } else {
-      dispatch({ type: "CHANGE_HD" });
+    if (!userInfo) {
+      const ev = e.deltaY;
+      if (ev > 0) {
+        dispatch({ type: CHANGE_MOUSEUP });
+      } else {
+        dispatch({ type: CHANGE_MOUSEDOWN });
+      }
     }
   };
-
-  // const info = data.pastorData;
-
   return (
     <div className="App" onWheel={eventHandler}>
       <BrowserRouter>
         <Header></Header>
         <Routes>
           <Route path="/" element={<Home />} />
-          {userInfo && <Route path="/admin" element={<Admin />} />}
+          <Route path="/admin" element={<Admin />} />
           <Route path="/signin-page" element={<Signin />} />
         </Routes>
         {displayLogin && <LogIn></LogIn>}

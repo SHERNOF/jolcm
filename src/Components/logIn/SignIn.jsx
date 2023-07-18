@@ -125,17 +125,19 @@ export default function SignIn() {
 /*
 I. create the sign In Component
 2. define the submitHandler. This is to post the email and password to /jol/users/signin api.
-3. dispathch the USERS_SIGN with the oayload of data which is from mongoDB
-4. save the data to localStorage
-5. use useNavigate (react-router-dom) to redirect to Admin page if login is successful
-6. 
+2a. dispathch the USERS_SIGNIN_REQUEST with the payload of email and password posted to /jol/users/signin api and checked if present in mongo DB
+2b. dispatch the USERS_SIGNIN_SUCCESS after the request. This dispatch will save the data found from mongoDB to local storage 
+2c. use useNavigate (react-router-dom) to redirect to Admin page if login is successful
+2d. USER_SIGNIN_FAIL, if there's wrong password or error in connection 
 
 
 Issue Encountered
-- Sign in is succesful. it can get the userInfo and can be save to local storage. However the Admin page immediately unmounted in a ery first scroll of the mouse.
+- SignIn is succesful. it can get the userInfo and can be save to local storage. However the Admin page immediately unmounted in a very first scroll of the mouse.
+- it was later found out that the cause of the issue is the CHANGE_HL and CHANGE_HD state. this is the state that defines the logo and background color of the header.
 
 Solution
-- the userInfo was set to an empty object {} in the store. having an empty object = 
+- I ended up adding an if statement in eventHandler(). if !userInfo then don't execute the eventHandler(). the SIGNIN functionality persist then
+- Another solution is to transfer the eventhandler() in the <Home /> as I only needed the changing of colors of Header in the <Home />
 
 
 */

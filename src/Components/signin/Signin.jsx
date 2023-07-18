@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import logger from "use-reducer-logger";
 import {
+  MOUSE_DISABLE,
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
@@ -53,7 +54,7 @@ export default function Signin() {
           email,
           password,
         });
-        console.log(data);
+
         dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
         navigate(redirect || "/");
@@ -66,7 +67,7 @@ export default function Signin() {
     // setpassword("");
   };
 
-  console.log(userInfo);
+  // console.log(userInfo);
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
