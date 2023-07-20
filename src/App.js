@@ -8,8 +8,9 @@ import LogIn from "./Components/logIn/LogIn";
 import { useDispatch, useSelector } from "react-redux";
 import Admin from "./Pages/admin/Admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Signin from "./Components/signin/Signin";
+
 import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "./store/constants";
+import LoginButton from "./Components/logIn/LoginButton";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -32,10 +33,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/signin-page" element={<Signin />} />
         </Routes>
+        <LoginButton></LoginButton>
         {displayLogin && <LogIn></LogIn>}
-        {/* <LoginButton></LoginButton> */}
       </BrowserRouter>
     </div>
   );

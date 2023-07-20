@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import Button from "../UI/button/Button";
 import Label from "../UI/label/Label";
 import classes from "./signIn.module.css";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import Axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  USER_SIGNIN_FAIL,
+  USER_SIGNIN_REQUEST,
+  USER_SIGNIN_SUCCESS,
+} from "../../store/constants";
 
 export default function SignIn() {
   const { search } = useLocation();
+  const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -41,27 +47,29 @@ export default function SignIn() {
     e.preventDefault();
     try {
       if (email.trim().length !== 0 && password.trim().length !== 0) {
-        const { data } = await axios.post("/jol/users/signin", {
+        dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
+        const { data } = await Axios.post("/jol/users/signin", {
           email,
           password,
         });
-        console.log(data);
-        dispatch({ type: "USERS_SIGNIN", payload: data });
+
+        dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
         navigate(redirect || "/");
       }
-    } catch (err) {
+    } catch (error) {
+      dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
       alert("Invalid username or password");
     }
     setemail("");
     setpassword("");
   };
 
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigate(redirect);
-  //   }
-  // }, [navigate, userInfo, redirect]);
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
 
   return (
     <form onSubmit={signInHandler} className={classes.logInContent}>
@@ -129,6 +137,8 @@ I. create the sign In Component
 2b. dispatch the USERS_SIGNIN_SUCCESS after the request. This dispatch will save the data found from mongoDB to local storage 
 2c. use useNavigate (react-router-dom) to redirect to Admin page if login is successful
 2d. USER_SIGNIN_FAIL, if there's wrong password or error in connection 
+3. installed redux-thunk for async request
+4. implemented the const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose. This is to see the redux and state movemnet for debuggng purposes
 
 
 Issue Encountered

@@ -26,4 +26,15 @@ userRoute.post(
   })
 );
 
+userRoute.post(
+  "/register",
+  expressAsyncHandler(async (req, res) => {
+    const userRegister = await User.insertOne({
+      logInEmail: req.body.email,
+      name: req.body.name,
+      logInPassword: req.body.password,
+    });
+  })
+);
+
 export default userRoute;

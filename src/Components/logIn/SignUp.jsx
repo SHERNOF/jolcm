@@ -185,3 +185,9 @@ export default function SignUp() {
     </form>
   );
 }
+
+/*
+1. create the validations
+2. create the model and router for posting the signup data at userRouter.js
+
+*/

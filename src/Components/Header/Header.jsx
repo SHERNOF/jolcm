@@ -15,10 +15,10 @@ export default function Header() {
   //   sethamburger(!hamburger);
   // };
 
-  const logOutHandler = () => {
-    dispatch({ type: "USER_LOGOUT" });
-    localStorage.removeItem("userInfo");
-  };
+  // const logOutHandler = () => {
+  //   dispatch({ type: "USER_LOGOUT" });
+  //   localStorage.removeItem("userInfo");
+  // };
 
   return (
     <nav>
@@ -34,7 +34,7 @@ export default function Header() {
               alt="logo"
             ></img>
           </Link>
-          <div
+          {/* <div
             style={{
               width: "20rem",
               border: "1px solid red",
@@ -53,7 +53,7 @@ export default function Header() {
                 <p>SIGN IN</p>
               </Link>
             )}
-          </div>
+          </div> */}
         </div>
       </Container>
     </nav>

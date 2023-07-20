@@ -63,8 +63,8 @@ export default function Signin() {
       dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
       alert("Invalid username or password");
     }
-    // setemail("");
-    // setpassword("");
+    setemail("");
+    setpassword("");
   };
 
   // console.log(userInfo);
