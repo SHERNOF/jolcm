@@ -4,6 +4,9 @@ import {
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
+  USER_SIGNUP_FAIL,
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -60,6 +63,14 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, loading: false, userInfo: action.payload };
     case USER_SIGNIN_FAIL:
       return { ...state, loading: false, error: action.payload };
+
+    case USER_SIGNUP_REQUEST:
+      return { ...state, loading: true };
+    case USER_SIGNUP_SUCCESS:
+      return { ...state, loading: false, userInfo: action.payload };
+    case USER_SIGNUP_FAIL:
+      return { ...state, loading: false, error: action.payload };
+
     case USER_LOGOUT:
       return { ...state, userInfo: null };
 

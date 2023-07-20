@@ -3,6 +3,9 @@ import {
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_FAIL,
   USER_LOGOUT,
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
+  USER_SIGNUP_FAIL,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -43,6 +46,17 @@ export const signInSuccess = () => ({
 export const signInFail = () => ({
   type: USER_SIGNIN_FAIL,
 });
+
+export const signUpRequest = () => ({
+  type: USER_SIGNUP_REQUEST,
+});
+export const signUpSuccess = () => ({
+  type: USER_SIGNUP_SUCCESS,
+});
+export const signUpFail = () => ({
+  type: USER_SIGNUP_FAIL,
+});
+
 export const logOut = () => ({
   type: USER_LOGOUT,
 });

@@ -27,12 +27,20 @@ userRoute.post(
 );
 
 userRoute.post(
-  "/register",
+  "/signup",
   expressAsyncHandler(async (req, res) => {
-    const userRegister = await User.insertOne({
-      logInEmail: req.body.email,
+    const user = new User({
+      email: req.body.logInEmail,
       name: req.body.name,
-      logInPassword: req.body.password,
+      password: bcrypt.hashSync(req.body.logInPassword, 8),
+    });
+    const createdUser = await user.save();
+    res.send({
+      _id: createdUser._id,
+      name: createdUser.name,
+      email: createdUser.email,
+      isAdmin: createdUser.isAdmin,
+      token: generateToken(createdUser),
     });
   })
 );

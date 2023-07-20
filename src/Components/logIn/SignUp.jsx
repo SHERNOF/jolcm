@@ -1,4 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+  USER_SIGNUP_FAIL,
+  USER_SIGNUP_REQUEST,
+  USER_SIGNUP_SUCCESS,
+} from "../../store/constants";
 import Button from "../UI/button/Button";
 
 import Label from "../UI/label/Label";
@@ -48,27 +56,38 @@ export default function SignUp() {
     setconfirmPasswordInValid(false);
   };
 
-  const signUpHandler = (event) => {
-    event.preventDefault();
-    if (
-      name.trim().length === 0 ||
-      logInEmail.trim().length === 0 ||
-      logInPassword.trim().length === 0 ||
-      confirmPassword.trim().length === 0
-    )
-      return;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get("redirect");
+  const redirect = redirectInUrl ? redirectInUrl : "/admin";
 
-    const signUpData = {
-      name,
-      logInEmail,
-      logInPassword,
-      confirmPassword,
-    };
+  const signUpHandler = async (event) => {
+    event.preventDefault();
+    try {
+      if (logInEmail.trim().length !== 0 && logInPassword.trim().length !== 0) {
+        dispatch({
+          type: USER_SIGNUP_REQUEST,
+          payload: { name, logInEmail, logInPassword },
+        });
+        const { data } = await axios.post("/jol/users/signup", {
+          name,
+          logInEmail,
+          logInPassword,
+        });
+
+        dispatch({ type: USER_SIGNUP_SUCCESS, payload: data });
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate(redirect || "/");
+      }
+    } catch (error) {
+      dispatch({ type: USER_SIGNUP_FAIL, payload: error.message });
+      alert("Invalid username or password");
+    }
     setname("");
     setlogInEmail("");
     setlogInPassword("");
     setconfirmPassword("");
-    console.log(signUpData);
   };
 
   return (
@@ -189,5 +208,9 @@ export default function SignUp() {
 /*
 1. create the validations
 2. create the model and router for posting the signup data at userRouter.js
+  2a. const createdUser = await user.save() >>> this will save the regiestered user to createdUser
+
+  3. setup the reducer
+
 
 */
