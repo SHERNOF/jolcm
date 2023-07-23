@@ -183,3 +183,27 @@ Issues encountered in deployment
 
 4. 'secretOrPrivateKey must have a value after heroku deploy' issue
    used `${process.env.JWT_SECRET}` instead of process.env.JWT_SECRET
+
+   upload post image
+
+   1. npm i multer
+
+   Uploading Image files to AWS S#
+
+   1. create AWS acct https://s3.console.aws.amazon.com
+   2. create public bucket as jolcm - select Sydney as access point.  
+      uncheck all the blocks public access options
+   3. create api key and secret
+      click name then security credentials
+      select access keys and create new
+   4. paste it into .env as accessKeyId and secretAccessKey
+   5. move .env to config.js
+   6. add accessKeyId and secretAccessKey to config.js
+   7. npm i aws-sdk multer-s3
+   8. routes/uploadRoute.js
+   9. set aws.config.update to nfig values
+   10. create s3 from new awss3()
+   11. create storageS3 from multerS3
+   12. et uploadS3as multer({storage: storages3})
+   13. router.post('/s3', uploads3.ingle('image'))
+   14. check result on website and s3

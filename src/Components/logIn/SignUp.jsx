@@ -206,8 +206,11 @@ export default function SignUp() {
 }
 
 /*
-1. create the validations
-2. create the model and router for posting the signup data at userRouter.js
+1. create the component and its FE validations. 
+  1a. it features pre sign up validations
+  2a. check each field if valid upon clicking the signup button
+  3a. 
+2. create the model and router for posting the signup data at userRouter.js. this is almost similar to SignIn.js function
   2a. const createdUser = await user.save() >>> this will save the regiestered user to createdUser
 
   3. setup the reducer

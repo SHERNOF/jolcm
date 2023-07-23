@@ -6,6 +6,13 @@ import {
   USER_SIGNUP_REQUEST,
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAIL,
+  CREATE_EVENT_REQUEST,
+  CREATE_EVENT_SUCCESS,
+  CREATE_EVENT_FAIL,
+  CREATE_EVENT_RESET,
+  DETAILS_USER_REQUEST,
+  DETAILS_USER_FAIL,
+  DETAILS_USER_SUCCESS,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -55,6 +62,29 @@ export const signUpSuccess = () => ({
 });
 export const signUpFail = () => ({
   type: USER_SIGNUP_FAIL,
+});
+
+export const createEventRequest = () => ({
+  type: CREATE_EVENT_REQUEST,
+});
+export const createEventSuccess = () => ({
+  type: CREATE_EVENT_SUCCESS,
+});
+export const createEventFail = () => ({
+  type: CREATE_EVENT_FAIL,
+});
+export const createEventReset = () => ({
+  type: CREATE_EVENT_RESET,
+});
+
+export const detailsUserSuccess = () => ({
+  type: DETAILS_USER_SUCCESS,
+});
+export const detailsUserFail = () => ({
+  type: DETAILS_USER_FAIL,
+});
+export const detailsUserRequest = () => ({
+  type: DETAILS_USER_REQUEST,
 });
 
 export const logOut = () => ({

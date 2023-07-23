@@ -25,7 +25,7 @@ export default function Header() {
       <Container>
         <div
           className={`${classes.navContainer} ${wheel && classes.bgned}
-         `}
+         ${classes.logged}`}
         >
           <Link to="/" className={classes.logo}>
             <img
@@ -34,26 +34,12 @@ export default function Header() {
               alt="logo"
             ></img>
           </Link>
-          {/* <div
-            style={{
-              width: "20rem",
-              border: "1px solid red",
-            }}
-          >
-            {userInfo ? (
-              <div style={{ display: "flex" }}>
-                <p>{userInfo.name}</p>
-
-                <Link to="/" onClick={logOutHandler}>
-                  <p>SIGN OUT</p>
-                </Link>
-              </div>
-            ) : (
-              <Link to="/signin-page">
-                <p>SIGN IN</p>
-              </Link>
-            )}
-          </div> */}
+          <div></div>
+          {userInfo && (
+            <h6 style={{ color: "#3776ff", fontSize: "1em" }}>
+              Good morning {userInfo.name}
+            </h6>
+          )}
         </div>
       </Container>
     </nav>

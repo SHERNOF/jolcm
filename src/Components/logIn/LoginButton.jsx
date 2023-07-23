@@ -14,7 +14,7 @@ export default function LoginButton() {
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const logInHandler = () => {
-    dispatch({ type: "SET_LOGIN" });
+    dispatch({ type: SET_LOGIN });
   };
   const logOutHandler = () => {
     dispatch({ type: USER_LOGOUT });
@@ -26,7 +26,7 @@ export default function LoginButton() {
       <div className={classes.iconContainer}>
         <div className={classes.logInIcon}>
           {userInfo ? (
-            <Link to="/">
+            <Link to={"/"} style={{ color: "white" }}>
               <RxExit style={style} onClick={logOutHandler} />
             </Link>
           ) : (

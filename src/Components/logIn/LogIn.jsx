@@ -67,14 +67,6 @@ export default function LogIn() {
           ) : (
             <SignIn />
           )}
-
-          {/* {loading ? (
-          <Loading users={users} />
-        ) : error ? (
-          <div>{error}</div>
-        ) : (
-          <SignUp />
-        )} */}
         </Card>
       )}
     </>

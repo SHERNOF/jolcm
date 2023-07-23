@@ -1,5 +1,8 @@
 import {
   CHANGE_MOUSEUP,
+  DETAILS_USER_FAIL,
+  DETAILS_USER_REQUEST,
+  DETAILS_USER_SUCCESS,
   MOUSE_DISABLE,
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
@@ -26,6 +29,9 @@ const initialState = {
   userInfo: localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
     : null,
+  churchEvent: {},
+  detailsUser: {},
+  isAuth: true,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -69,6 +75,13 @@ export const rootReducer = (state = initialState, action) => {
     case USER_SIGNUP_SUCCESS:
       return { ...state, loading: false, userInfo: action.payload };
     case USER_SIGNUP_FAIL:
+      return { ...state, loading: false, error: action.payload };
+
+    case DETAILS_USER_REQUEST:
+      return { ...state, loading: true };
+    case DETAILS_USER_SUCCESS:
+      return { ...state, loading: false, detailsUser: action.payload };
+    case DETAILS_USER_FAIL:
       return { ...state, loading: false, error: action.payload };
 
     case USER_LOGOUT:

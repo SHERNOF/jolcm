@@ -10,18 +10,11 @@ import Button from "../UI/button/Button";
 
 export default function Footer() {
   return (
-    <div
-      className={classes.footer}
-      style={{
-        height: "60vh",
-        width: "100%",
-        background: "black",
-        color: "white",
-      }}
-    >
+    <div className={classes.footer}>
       <div className={classes.column1}>
         <div className={classes.icons}>
           <div
+            className={classes.iconTitle}
             style={{
               height: "20%",
               display: "flex",
@@ -63,14 +56,17 @@ export default function Footer() {
         </div>
         <div className={classes.ministries1}>
           <div
-            style={{
-              height: "20%",
-
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              fontSize: "1.5em",
-            }}
+            className={classes.min1Title}
+            style={
+              {
+                // height: "20%",
+                // display: "flex",
+                // justifyContent: "flex-start",
+                // alignItems: "flex-end",
+                // fontSize: "1.5em",
+                // textAlign: "left",
+              }
+            }
           >
             Bible Study Groups
           </div>

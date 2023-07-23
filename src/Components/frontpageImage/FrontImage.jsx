@@ -31,10 +31,10 @@ const container = {
   },
 };
 const item = {
-  initial: { opacity: 0, y: -3200, scale: 1.2 },
+  initial: { opacity: 0, y: -2200, scale: 1.2 },
 
   show: {
-    y: 300,
+    y: 200,
     opacity: 1,
     scale: 1,
     transition: {
@@ -86,18 +86,18 @@ export default function FrontImage({ isMed }) {
           // }}
         >
           <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
-          <h5 style={{ color: "white" }}>
-            A church, community of imperfect people seeking to know and love
-            <strong
+          <h5 className={classes.subTitle}>
+            A church and a community of imperfect people seeking to know and
+            love
+            {/* <strong
               style={{
                 fontWeight: "bold",
                 fontSize: "2rem",
                 color: "#3776ff",
               }}
-            >
-              JESUS
-            </strong>{" "}
-            more.
+            > */}
+            JESUS more.
+            {/* </strong>{" "} */}
           </h5>
         </motion.div>
         {/* )} */}

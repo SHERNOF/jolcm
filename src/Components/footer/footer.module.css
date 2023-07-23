@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "ministries ministries ministries email email";
+  height: 60vh;
+  width: 100%;
+  background: black;
+  color: white;
 }
 
 .column1,
@@ -15,7 +19,6 @@
   grid-area: ministries;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   grid-template-areas: "icons ministries1 ministries2";
   margin-left: 2rem;
 }
@@ -24,6 +27,15 @@
 }
 .ministries1 {
   grid-area: ministries1;
+}
+.min1Title {
+  font-size: 1.2em;
+  height: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 1.5em;
+  text-align: left;
 }
 .ministries2 {
   grid-area: ministries2;
@@ -122,4 +134,58 @@
   /* color: #3776ff; */
   border: 1px solid rgb(85, 83, 83);
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 450px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .column1 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      "icons icons"
+      "ministries1 ministries2";
+    height: auto;
+  }
+  .icons {
+    grid-area: icons;
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .iconContainer {
+    margin-left: 0rem;
+  }
+  .ministries1 {
+    grid-area: ministries1;
+    font-size: 1.1em;
+  }
+  .ministries2 {
+    grid-area: ministries2;
+    font-size: 1.1em;
+  }
+  .iconTitle {
+    margin-left: 0rem;
+  }
+  .column2 {
+    margin-top: 3.5rem;
+    padding: 1rem 0rem;
+  }
+  .emailUsContent {
+    height: 50%;
+    /* border: 1px solid red; */
+  }
+  .emailContainer {
+    height: 80%;
+  }
+  .emaillUs:nth-child(1) {
+    margin-top: 1.5rem;
+  }
+  .min1Title {
+    font-size: 1.2em;
+  }
 }

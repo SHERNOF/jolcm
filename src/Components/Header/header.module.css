@@ -14,13 +14,16 @@ nav {
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.3);
   align-items: center;
-  padding: 0 4rem;
   color: white;
   transition: all 0.5s;
 }
+
 .bgned {
   background-color: transparent;
   transition: all 0.5s;
+}
+.logged {
+  background-color: transparent;
 }
 .logo {
   width: 15rem;
@@ -75,15 +78,11 @@ span {
   border: 1px solid #3776ff;
   box-shadow: 1px 0.5px 1px white;
 }
-/* @keyframes spinner {
-  from {
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
+
+@media (max-width: 450px) {
+  .navContainer {
   }
-  to {
-    -moz-transform: rotateY(-360deg);
-    -ms-transform: rotateY(-360deg);
-    transform: rotateY(-359deg);
+  h6 {
+    margin-right: 1rem;
   }
-} */
+}
