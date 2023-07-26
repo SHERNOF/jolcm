@@ -21,7 +21,7 @@ export default function Footer() {
               justifyContent: "flex-start",
               alignItems: "flex-end",
               fontSize: "1.5em",
-              marginLeft: "1rem",
+              // marginLeft: "1rem",
             }}
           >
             Joy of Life
@@ -55,21 +55,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={classes.ministries1}>
-          <div
-            className={classes.min1Title}
-            style={
-              {
-                // height: "20%",
-                // display: "flex",
-                // justifyContent: "flex-start",
-                // alignItems: "flex-end",
-                // fontSize: "1.5em",
-                // textAlign: "left",
-              }
-            }
-          >
-            Bible Study Groups
-          </div>
+          <div className={classes.min1Title}>Bible Study Groups</div>
           <div className={classes.content} style={{ marginTop: "2rem" }}>
             <ul>
               <li>

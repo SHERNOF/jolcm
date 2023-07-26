@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "icons ministries1 ministries2";
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
 }
 .icons {
   grid-area: icons;
@@ -49,11 +49,11 @@
 }
 
 .iconContainer {
-  margin-top: 2rem;
+  margin-top: -2rem;
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 
 .iconContainer > * {
@@ -187,5 +187,32 @@
   }
   .min1Title {
     font-size: 1.2em;
+  }
+}
+@media (max-width: 450px) {
+  .column1 {
+    margin-left: 1rem;
+  }
+  .column2 {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+  }
+  .icons {
+    /* border: 1px solid wheat; */
+    height: 9rem;
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .iconTitle {
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+  .iconContainer {
+    /* border: 1px solid red; */
+  }
+  .ministries1 {
+    margin-top: -3rem;
   }
 }

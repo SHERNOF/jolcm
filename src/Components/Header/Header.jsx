@@ -30,7 +30,7 @@ export default function Header() {
           <Link to="/" className={classes.logo}>
             <img
               className={classes.navLogo}
-              src={wheel ? "../pics/JOLblack.svg" : "../pics/JOL3.svg"}
+              src={wheel ? "../pics/JOL3.svg" : "../pics/JOLblack.svg"}
               alt="logo"
             ></img>
           </Link>

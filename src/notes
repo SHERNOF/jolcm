@@ -207,3 +207,7 @@ Issues encountered in deployment
    12. et uploadS3as multer({storage: storages3})
    13. router.post('/s3', uploads3.ingle('image'))
    14. check result on website and s3
+
+Adding the app to custom domain via heroku
+
+https://imranhsayed.medium.com/adding-your-custom-domain-to-heroku-app-cdd68d2db67f
