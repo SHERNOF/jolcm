@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 // import logger from "use-reducer-logger";
 // import logger from "use-reducer-logger"
@@ -45,6 +46,9 @@ export default function Home() {
         justifyContent: "center",
       }}
     >
+      <Helmet>
+        <title>Joy of Life</title>
+      </Helmet>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
       {loading ? (

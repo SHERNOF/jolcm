@@ -3,22 +3,11 @@ import Container from "../common/container/Container";
 import classes from "./header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoginButton from "../logIn/LoginButton";
 
 export default function Header() {
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const wheel = useSelector((state) => state.wheel);
-
-  // const [hamburger, sethamburger] = useState(false);
-  // const test = () => {
-  //   sethamburger(!hamburger);
-  // };
-
-  // const logOutHandler = () => {
-  //   dispatch({ type: "USER_LOGOUT" });
-  //   localStorage.removeItem("userInfo");
-  // };
 
   return (
     <nav>
@@ -30,7 +19,8 @@ export default function Header() {
           <Link to="/" className={classes.logo}>
             <img
               className={classes.navLogo}
-              src={wheel ? "../pics/JOL3.svg" : "../pics/JOLblack.svg"}
+              src= "../pics/JOL3.svg"
+              // src={wheel ? "../pics/JOL3.svg" : "../pics/JOLblack.svg"}
               alt="logo"
             ></img>
           </Link>

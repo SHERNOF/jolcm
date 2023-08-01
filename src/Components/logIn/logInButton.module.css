@@ -1,6 +1,6 @@
 .logInButton {
-  bottom: 2.5rem;
-  width: 100vw;
+  bottom: 4.5rem;
+  left:95%;
   z-index: 10;
   height: 4rem;
   display: flex;
@@ -9,6 +9,7 @@
   position: fixed;
   animation: all 0.5s ease-in-out;
   color: white;
+  
 }
 
 .iconContainer {

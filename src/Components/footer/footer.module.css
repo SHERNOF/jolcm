@@ -134,6 +134,7 @@
   /* color: #3776ff; */
   border: 1px solid rgb(85, 83, 83);
   margin-bottom: 0.5rem;
+  /* color: white; */
 }
 
 @media (max-width: 450px) {

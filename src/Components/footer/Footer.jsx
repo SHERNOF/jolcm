@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import classes from "./footer.module.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
@@ -7,8 +7,27 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import IconContainer from "./IconContainer";
 import Label from "../UI/label/Label";
 import Button from "../UI/button/Button";
+import emailjs from '@emailjs/browser';
+
 
 export default function Footer() {
+   
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log('sherwin')
+
+    emailjs.sendForm('service_js763ib', 'template_wwgnrpj', form.current, 'KX4fv-a94i59I1Ewy')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
+
   return (
     <div className={classes.footer}>
       <div className={classes.column1}>
@@ -132,13 +151,13 @@ export default function Footer() {
       </div>
       <div className={classes.column2}>
         <div className={classes.emailContainer}>
-          <form className={classes.emailUsContent}>
+          <form className={classes.emailUsContent} ref={form} onSubmit={sendEmail}>
             <div className={classes.emaillUs}>
               <Label htmlFor="name">Name</Label>
               <input
                 className={classes.input}
                 type="text"
-                name="name"
+                name="user_name"
                 required
                 id="name"
               ></input>
@@ -146,8 +165,9 @@ export default function Footer() {
               <Label htmlFor="email">Email</Label>
               <input
                 className={classes.input}
-                type="text"
-                name="emailUs"
+                // type="text"
+                type="email" 
+                name="user_email"
                 required
                 id="emailUs"
               ></input>
@@ -156,7 +176,7 @@ export default function Footer() {
               <input
                 className={classes.input}
                 type="number"
-                name="phone"
+                name="user_phone"
                 required
                 id="phone"
               ></input>
@@ -171,13 +191,16 @@ export default function Footer() {
                 name="message"
                 required
                 id="message"
-              ></textarea>
-              <Button
+              />
+              <div style={{display:'grid', width:'90%', }}>
+              <input
                 type="submit"
+                value="Send"
                 style={{ height: "2rem", marginTop: "2rem" }}
-              >
-                Submit
-              </Button>
+              >  
+              </input>
+              </div>
+              
             </div>
           </form>
         </div>
@@ -185,3 +208,33 @@ export default function Footer() {
     </div>
   );
 }
+
+
+
+
+/* 
+Implementation of EmailJS
+
+1. create the emailjs account
+2. at the UI press, Add New Service
+3. connect the email address to the service
+4. create email template
+5. go to docs >>> Examples >>> React
+6. copy the form html from site
+
+
+   <form ref={form} onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </form>
+
+  7. get and implement the service ID, template id and public id
+  
+  8. public id is inside the account tab
+
+*/
