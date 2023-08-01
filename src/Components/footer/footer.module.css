@@ -20,13 +20,32 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "icons ministries1 ministries2";
-  /* margin-left: 2rem; */
+  
 }
 .icons {
   grid-area: icons;
+  margin-left: 3rem;
+}
+.individualIcon{
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .25rem .25rem;
+  border: 1px solid rgb(83, 83, 85);
+  transition: all .5s;
+}
+.individualIcon:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+  
+  box-shadow: 1px 1px 20px #3776ff
 }
 .ministries1 {
   grid-area: ministries1;
+  margin-left: 3rem;
 }
 .min1Title {
   font-size: 1.2em;
@@ -53,7 +72,6 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  /* margin-left: 1rem; */
 }
 
 .iconContainer > * {
@@ -124,6 +142,7 @@
 .input {
   border-radius: 5px;
   width: 90%;
+  height: 2rem;
   box-sizing: border-box;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -131,10 +150,9 @@
   margin: 4px 0;
   padding: 10px 20px;
   background-color: transparent;
-  /* color: #3776ff; */
   border: 1px solid rgb(85, 83, 83);
   margin-bottom: 0.5rem;
-  /* color: white; */
+  color: white;
 }
 
 @media (max-width: 450px) {
@@ -150,6 +168,7 @@
       "icons icons"
       "ministries1 ministries2";
     height: auto;
+    margin-left: 1rem;
   }
   .icons {
     grid-area: icons;
@@ -164,6 +183,8 @@
   .ministries1 {
     grid-area: ministries1;
     font-size: 1.1em;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
   }
   .ministries2 {
     grid-area: ministries2;
@@ -189,8 +210,12 @@
   .min1Title {
     font-size: 1.2em;
   }
+  .column2{
+    height:auto;
+    margin-bottom: 2rem;
+  }
 }
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
   .column1 {
     margin-left: 1rem;
   }
@@ -199,21 +224,21 @@
     margin-bottom: 2rem;
   }
   .icons {
-    /* border: 1px solid wheat; */
+    
     height: 9rem;
     display: flex;
-    /* justify-content: space-evenly; */
+    
     align-items: flex-start;
     flex-direction: column;
   }
   .iconTitle {
-    /* border: 1px solid red; */
+    
     width: 100%;
   }
   .iconContainer {
-    /* border: 1px solid red; */
+    
   }
   .ministries1 {
     margin-top: -3rem;
   }
-}
+} */

@@ -6,3 +6,9 @@
   margin-top: 0.3rem;
   color: white;
 }
+
+@media(max-width:450px){
+  .label{
+    font-size: .8em;
+  }
+}

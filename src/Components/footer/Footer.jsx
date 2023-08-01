@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import classes from "./footer.module.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
@@ -6,25 +6,30 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import IconContainer from "./IconContainer";
 import Label from "../UI/label/Label";
-import Button from "../UI/button/Button";
 import emailjs from '@emailjs/browser';
 
 
+
 export default function Footer() {
-   
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
+  const [phone, setphone] = useState('')
+  const [message, setmessage] = useState('')
 
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log('sherwin')
-
     emailjs.sendForm('service_js763ib', 'template_wwgnrpj', form.current, 'KX4fv-a94i59I1Ewy')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
           console.log(error.text);
       });
+    setname('')
+    setemail('')
+    setphone('')
+    setmessage('')
   };
 
 
@@ -40,7 +45,6 @@ export default function Footer() {
               justifyContent: "flex-start",
               alignItems: "flex-end",
               fontSize: "1.5em",
-              // marginLeft: "1rem",
             }}
           >
             Joy of Life
@@ -51,9 +55,9 @@ export default function Footer() {
               marginTop: "4rem",
             }}
           >
-            <IconContainer>
-              <FacebookIcon
-                style={{ color: "#1DA1F2", fontSize: "1.5rem" }}
+            <IconContainer >
+              <FacebookIcon   
+                style={{ color: "#1DA1F2", fontSize: "1.5rem",  }}
               ></FacebookIcon>
             </IconContainer>
             <IconContainer>
@@ -160,16 +164,19 @@ export default function Footer() {
                 name="user_name"
                 required
                 id="name"
+                value={name}
+                onChange={e=>setname(e.target.value)}
               ></input>
 
               <Label htmlFor="email">Email</Label>
               <input
                 className={classes.input}
-                // type="text"
                 type="email" 
                 name="user_email"
                 required
                 id="emailUs"
+                value={email}
+                onChange={e=>setemail(e.target.value)}
               ></input>
 
               <Label htmlFor="phone">Phone</Label>
@@ -179,6 +186,8 @@ export default function Footer() {
                 name="user_phone"
                 required
                 id="phone"
+                value={phone}
+                onChange={e=>setphone(e.target.value)}
               ></input>
 
               <Label htmlFor="message">Message Us</Label>
@@ -191,16 +200,17 @@ export default function Footer() {
                 name="message"
                 required
                 id="message"
+                value={message}
+                onChange={e=>setmessage(e.target.value)}
               />
               <div style={{display:'grid', width:'90%', }}>
               <input
                 type="submit"
                 value="Send"
-                style={{ height: "2rem", marginTop: "2rem" }}
+                style={{ height: "2rem", marginBottom: "2rem", marginTop: "1rem" }}
               >  
               </input>
               </div>
-              
             </div>
           </form>
         </div>
