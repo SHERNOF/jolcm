@@ -7,8 +7,8 @@
   color: white;
 }
 
-@media(max-width:450px){
-  .label{
-    font-size: .8em;
+@media (max-width: 768px) {
+  .label {
+    font-size: 0.7em;
   }
 }

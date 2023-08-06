@@ -53,14 +53,9 @@ img {
   height: 100%;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .ministries {
     height: 35vh;
     margin-bottom: 0;
-  }
-  @media (max-width: 450px) {
-    .ministries {
-      height: 30vh;
-    }
   }
 }

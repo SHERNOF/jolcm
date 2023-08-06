@@ -139,7 +139,7 @@ img {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .committeeContaner {
     padding: 0.5rem 0.5rem;
     /* border: 1px solid red; */

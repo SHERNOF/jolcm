@@ -116,7 +116,7 @@
   padding: 1rem 0;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .serviceContainer {
     padding: 0;
     width: 95%;

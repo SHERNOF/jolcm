@@ -11,19 +11,10 @@
   position: relative;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .churchServices {
     display: flex;
     flex-direction: column;
     height: auto;
-  }
-}
-
-@media (max-width: 450px) {
-  .churchServices {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
