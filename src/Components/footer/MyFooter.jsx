@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Label from "../UI/label/Label";
 import emailjs from "@emailjs/browser";
 
-export default function Footer() {
+export default function MyFooter() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
