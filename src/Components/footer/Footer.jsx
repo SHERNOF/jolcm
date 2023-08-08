@@ -165,7 +165,7 @@ export default function Footer() {
                   onChange={(e) => setphone(e.target.value)}
                 ></input>
 
-                <Label htmlFor="message">Message Us</Label>
+                <Label htmlFor="message">Message Use</Label>
                 <textarea
                   className={classes.input}
                   style={{
