@@ -165,11 +165,11 @@ export default function Footer() {
                   onChange={(e) => setphone(e.target.value)}
                 ></input>
 
-                <Label htmlFor="message">Message Use</Label>
+                <Label htmlFor="message">Message Us</Label>
                 <textarea
                   className={classes.input}
                   style={{
-                    height: "10rem",
+                    height: "8rem",
                   }}
                   type="text"
                   name="message"
@@ -178,7 +178,7 @@ export default function Footer() {
                   value={message}
                   onChange={(e) => setmessage(e.target.value)}
                 />
-                <div style={{ display: "grid", width: "90%" }}>
+                <div style={{ display: "flex", width: "90%" }}>
                   <input
                     type="submit"
                     value="Send"
