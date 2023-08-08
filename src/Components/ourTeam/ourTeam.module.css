@@ -1,15 +1,19 @@
 .ourTeam {
-  height: 15rem;
-  border: 1px solid rgb(83, 83, 85);
+  height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
   border-radius: 10px;
+  flex-direction: column;
+  margin-top: -1rem;
+  width: 100%;
 }
 .teamContainer {
-  height: 95%;
-  width: 90%;
+  border: 1px solid rgb(83, 83, 85);
+  /* height: 0%; */
+  width: 87%;
+  padding: 2rem 4rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -64,6 +68,11 @@
 }
 @media (max-width: 380px) {
   .ourTeam {
-    margin-top: -2rem;
+    margin-top: 1rem;
+  }
+  .teamContainer {
+    /* height: 0%; */
+    width: 80%;
+    padding: 2rem;
   }
 }

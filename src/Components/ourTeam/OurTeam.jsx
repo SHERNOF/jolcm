@@ -10,13 +10,13 @@ export default function OurTeam() {
   return (
     <Section>
       <Container>
-        <Title>
-          <h5>Our Team</h5>
-        </Title>
         <div className={classes.ourTeam}>
-          <ul className={classes.teamContainer}>
+          <Title>
+            <h5>Our Team</h5>
+          </Title>
+          <div className={classes.teamContainer}>
             {info.map((inf) => (
-              <li key={inf.userId} style={{ margin: "0 1rem" }}>
+              <div key={inf.userId} style={{ margin: "0 1rem" }}>
                 <div className={classes.teamMember}>
                   <div
                     className={classes.nickname}
@@ -38,9 +38,9 @@ export default function OurTeam() {
                     {inf.position}
                   </div>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </Container>
     </Section>
