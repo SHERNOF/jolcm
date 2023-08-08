@@ -62,7 +62,7 @@ export default function Home() {
       <Ministries></Ministries>
       <OurTeam />
 
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }
