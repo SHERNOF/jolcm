@@ -1,6 +1,5 @@
 .ourTeam {
   height: 15rem;
-  /* width: 70%; */
   border: 1px solid rgb(83, 83, 85);
   display: flex;
   justify-content: center;
@@ -62,4 +61,9 @@
 .position {
   margin-top: 1rem;
   grid-area: position;
+}
+@media (max-width: 380px) {
+  .ourTeam {
+    margin-top: -2rem;
+  }
 }

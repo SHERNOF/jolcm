@@ -16,10 +16,10 @@ export default function Ministries() {
   return (
     <Section>
       <Container>
-        <Title className={classes.title}>
-          <h5>Ministries</h5>
-        </Title>
         <div className={classes.ministries}>
+          <Title className={classes.title}>
+            <h5>Ministries</h5>
+          </Title>
           <div className={classes.ministryContainer}>
             <div className={classes.frames}>
               <Sunday />
