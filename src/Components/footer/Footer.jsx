@@ -178,15 +178,15 @@ export default function Footer() {
                   value={message}
                   onChange={(e) => setmessage(e.target.value)}
                 />
-                <div style={{ display: "flex", width: "90%" }}>
+                <div style={{ display: "grid", width: "90%" }}>
                   <input
                     type="submit"
                     value="Send"
-                    style={{
-                      height: "2rem",
-                      marginBottom: "2rem",
-                      marginTop: "1rem",
-                    }}
+                    // style={{
+                    //   height: "2rem",
+                    //   marginBottom: "2rem",
+                    //   marginTop: "1rem",
+                    // }}
                   ></input>
                 </div>
               </div>
