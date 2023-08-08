@@ -1,82 +1,122 @@
 .footer {
-  padding: 2rem 2rem;
-  background: black;
-}
-.footerContents {
-  width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "ministries ministries ministries email email";
   height: 60vh;
+  width: 100%;
+  background: black;
   color: white;
 }
-.footerColumnTitle {
-  text-align: left;
-  padding: 1rem 2rem;
-  border-bottom: none;
+
+.column1,
+.column2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.firstColumn .iconContainer .iconHolder {
+
+.column1 {
+  grid-area: ministries;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "icons ministries1 ministries2";
+}
+.icons {
+  grid-area: icons;
+  margin-left: 3rem;
+}
+.individualIcon {
+  border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  justify-content: center;
+  padding: 0.25rem 0.25rem;
   border: 1px solid rgb(83, 83, 85);
-}
-
-.firstColumn .iconContainer .iconHolder:hover {
-  box-shadow: 0 0 3px 1px #3776ff, inset 0 0 3px 1px rgb(255, 255, 255);
-  transform: scale(1.3);
-  cursor: pointer;
   transition: all 0.5s;
 }
-.firstColumn .iconContainer {
+.individualIcon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+
+  box-shadow: 1px 1px 20px #3776ff;
+}
+.ministries1 {
+  grid-area: ministries1;
+  margin-left: 3rem;
+}
+.min1Title {
+  font-size: 1.2em;
+  height: 20%;
   display: flex;
   justify-content: flex-start;
-  padding: 2rem 1rem;
+  align-items: flex-end;
+  font-size: 1.5em;
+  text-align: left;
 }
-.firstColumn .iconContainer > * {
+.ministries2 {
+  grid-area: ministries2;
+}
+
+.icons,
+.ministries1,
+.ministries2 {
+  height: 100%;
+  font-size: 0.65em;
+}
+
+.iconContainer {
+  margin-top: -2rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.iconContainer > * {
+  margin-right: 1rem;
+}
+
+.column2 {
+  grid-area: email;
+}
+.footerContainer {
+  height: 75%;
+  width: 100%;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.content ul:nth-child(1) {
   margin-left: 1rem;
 }
-.secondColumn .secondColumnContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 50vh;
+
+.content ul li {
+  margin-bottom: 1rem;
 }
-.secondColumn .secondColumnContent .studyContainer {
-  width: 45%;
-  margin-left: 0.5rem;
-  text-align: left;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
+.content ul li h3 {
+  font-size: 0.9em;
 }
-.secondColumn .secondColumnContent .studyContainer h3 {
-  font-size: 0.7em;
-  margin-bottom: 0.2rem;
+.content ul li h6 {
+  /* margin-left: 0.8rem; */
+  font-size: 0.65em;
 }
-.secondColumn .secondColumnContent .studyContainer h6 {
-  font-size: 0.5em;
-}
-.thirdColumn {
-  border: 1px solid red;
+
+.column2 {
+  /* border: 1px solid red; */
 }
 .emailContainer {
-  border: 1px solid red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 90%;
-  height: 80%;
-  padding: 1rem 2rem;
+  height: 90%;
+  /* border: 1px solid blue; */
+  /* padding: 2rem 2rem; */
 }
 .emailUsContent {
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,6 +135,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  bottom: 100%;
 }
 
 .input {
@@ -112,49 +153,64 @@
   margin-bottom: 0.5rem;
   color: white;
 }
+
 @media (max-width: 768px) {
-  .footerContents {
+  .footer {
     display: flex;
     flex-direction: column;
     height: auto;
-    justify-content: center;
-    /* align-items: center; */
   }
-  .footerColumnTitle {
-    font-size: larger;
-    padding: 0 0;
+  .column1 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      "icons icons"
+      "ministries1 ministries2";
+    height: auto;
+    margin-left: 1rem;
   }
-  .secondColumn .secondColumnContent .studyContainer h3 {
-    font-size: 1em;
-  }
-  .secondColumn .secondColumnContent .studyContainer h6 {
-    font-size: 0.8em;
-  }
-  .emaillUs {
+  .icons {
+    grid-area: icons;
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: column;
     margin-top: 1rem;
   }
-  .thirdColumn {
-    margin-top: 1rem;
+  .iconContainer {
+    margin-left: 0rem;
   }
-}
-
-@media (max-width: 380px) {
-  .footerColumnTitle {
-    margin-bottom: 1rem;
-  }
-  .firstColumn .iconContainer {
+  .ministries1 {
+    grid-area: ministries1;
+    font-size: 1.1em;
+    margin-top: -4rem;
     margin-bottom: 2rem;
-    padding: 0 0;
   }
-  .thirdColumnContent {
-    margin-top: 3rem;
+  .ministries2 {
+    grid-area: ministries2;
+    font-size: 1.1em;
+  }
+  .iconTitle {
+    margin-left: 0rem;
+  }
+  .column2 {
+    margin-top: 5rem;
+    padding: 1rem 0rem;
+  }
+  .emailUsContent {
+    height: 50%;
+    /* border: 1px solid red; */
   }
   .emailContainer {
-    width: 95%;
-    margin-top: 1rem;
-    padding: 0 0;
+    height: 80%;
   }
-  .thirdColumn {
-    margin-top: 2rem;
+  .emaillUs:nth-child(1) {
+    margin-top: 1.5rem;
+  }
+  .min1Title {
+    font-size: 1.2em;
+  }
+  .column2 {
+    height: auto;
+    margin-bottom: 2rem;
   }
 }
