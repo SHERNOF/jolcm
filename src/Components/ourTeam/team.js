@@ -56,17 +56,6 @@ const teamData = {
         "For the wages of sin is death, but the free gift of God is eternal life through Christ Jesus our Lord",
       pic: "../img/Neil.png",
     },
-    {
-      userId: 6,
-      id: 6,
-      name: "Sister Carol",
-      nickname: "Carol",
-      position: "Pastor",
-      verseName: "Isaiah 40:31",
-      verse:
-        "The grass withers and the flowers fall, but the word of our God endures forever.",
-      pic: "../img/Carol.png",
-    },
   ],
 };
 

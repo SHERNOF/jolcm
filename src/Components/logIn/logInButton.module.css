@@ -1,6 +1,6 @@
 .logInButton {
   bottom: 4.5rem;
-  left:95%;
+  left: 95%;
   z-index: 10;
   height: 4rem;
   display: flex;
@@ -9,7 +9,6 @@
   position: fixed;
   animation: all 0.5s ease-in-out;
   color: white;
-  
 }
 
 .iconContainer {
@@ -29,4 +28,9 @@
   justify-content: center;
   align-items: center;
   color: wheat;
+}
+@media (max-width: 380px) {
+  .logInButton {
+    left: 90%;
+  }
 }

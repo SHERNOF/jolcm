@@ -10,18 +10,10 @@
   height: 60vh;
   color: white;
 }
-.firstColumn,
-.secondColumn,
-.thirdColumn {
-  /* border: 1px solid white; */
-}
 .footerColumnTitle {
   text-align: left;
   padding: 1rem 2rem;
-  /* border: 1px solid white; */
   border-bottom: none;
-}
-.firstColumn .iconContainer {
 }
 .firstColumn .iconContainer .iconHolder {
   width: 2.5rem;
@@ -46,19 +38,15 @@
 }
 .firstColumn .iconContainer > * {
   margin-left: 1rem;
-  /* padding: 1rem 1rem; */
 }
 .secondColumn .secondColumnContent {
-  /* flex-direction: column; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* border: 1px solid red; */
   height: 50vh;
 }
 .secondColumn .secondColumnContent .studyContainer {
   width: 45%;
-  /* border: 1px solid red; */
   margin-left: 0.5rem;
   text-align: left;
   margin-bottom: 0.5rem;
@@ -74,7 +62,6 @@
 .secondColumn .secondColumnContent .studyContainer h6 {
   font-size: 0.5em;
 }
-
 .thirdColumn {
 }
 .emailContainer {
@@ -134,6 +121,7 @@
   }
   .footerColumnTitle {
     font-size: larger;
+    padding: 0 0;
   }
   .secondColumn .secondColumnContent .studyContainer h3 {
     font-size: 1em;
@@ -143,5 +131,29 @@
   }
   .emaillUs {
     margin-top: 1rem;
+  }
+  .thirdColumn {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .footerColumnTitle {
+    margin-bottom: 1rem;
+  }
+  .firstColumn .iconContainer {
+    margin-bottom: 2rem;
+    padding: 0 0;
+  }
+  .thirdColumnContent {
+    margin-top: 3rem;
+  }
+  .emailContainer {
+    width: 95%;
+    margin-top: 1rem;
+    padding: 0 0;
+  }
+  .thirdColumn {
+    margin-top: 2rem;
   }
 }
