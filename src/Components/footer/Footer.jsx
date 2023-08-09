@@ -4,7 +4,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import IconContainer from "./IconContainer";
 import Label from "../UI/label/Label";
 import emailjs from "@emailjs/browser";
 
@@ -41,193 +40,160 @@ export default function Footer() {
 
   return (
     <div className={classes.footer}>
-      <div className={classes.column1}>
-        <div className={classes.icons}>
-          <div
-            className={classes.iconTitle}
-            style={
-              {
-                // height: "20%",
-                // display: "flex",
-                // justifyContent: "flex-start",
-                // alignItems: "flex-end",
-                // fontSize: "1.5em",
-              }
-            }
-          >
-            Joy of Life
-          </div>
-          <div
-          // className={classes.iconContainer}
-          // style={{
-          //   marginTop: "4rem",
-          // }}
-          >
-            <IconContainer>
+      <div className={classes.footerContents}>
+        <div className={classes.firstColumn}>
+          <div className={classes.footerColumnTitle}>Joy of Life</div>
+          <div className={classes.iconContainer}>
+            <div className={classes.iconHolder}>
               <FacebookIcon
-                style={{ color: "#1DA1F2", fontSize: "1.5rem" }}
+                style={{ color: "#1DA1F2", fontSize: "1.2rem" }}
               ></FacebookIcon>
-            </IconContainer>
-            <IconContainer>
-              <PhoneEnabledIcon
-                style={{ color: "#075e54", fontSize: "1.5rem" }}
-              ></PhoneEnabledIcon>
-            </IconContainer>
-            <IconContainer>
-              <TwitterIcon
-                style={{ color: "#00ACEE", fontSize: "1.5rem" }}
-              ></TwitterIcon>
-            </IconContainer>
-            <IconContainer>
-              <InstagramIcon
-                style={{ color: "#E4405F", fontSize: "1.5rem" }}
-              ></InstagramIcon>
-            </IconContainer>
-          </div>
-        </div>
-        <div className={classes.ministries1}>
-          <div className={classes.min1Title}>Bible Study Groups</div>
-          <div className={classes.content} style={{ marginTop: "2rem" }}>
-            <ul>
-              <li>
-                <h3>Couples</h3>
-                <h6>Every first Saturday of the month</h6>
-                <h6>Contact Joseph and Michelle</h6>
-              </li>
-              <li>
-                <h3>ELEOS</h3>
-                <h6>Every second Saturday of the month</h6>
-                <h6>Contact Joseph and Michelle</h6>
-              </li>
-              <li>
-                <h3>Endurance by Faith @Coolaroo</h3>
-                <h6>Saturday - fortnightly @7pm</h6>
-                <h6>Contact Sarah</h6>
-              </li>
-              <li>
-                <h3>Broady / Craigie / Greenvale</h3>
-                <h6>Sunday - fortnightly @7pm</h6>
-                <h6>Contact Nomer</h6>
-              </li>
-              <li>
-                <h3>Golden Life Bible Study</h3>
-                <h6>Sunday - @8pm</h6>
-                <h6>Contact Gloria</h6>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={classes.ministries2}>
-          {" "}
-          <div
-            style={{
-              height: "20%",
-
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              fontSize: "1.5em",
-            }}
-          ></div>
-          <div className={classes.content} style={{ marginTop: "2rem" }}>
-            {" "}
-            <ul>
-              <li>
-                <h3>Men's Bible Study</h3>
-                <h6>Every 3rd Sunday of the month</h6>
-                <h6>Contact Sam</h6>
-              </li>
-              <li>
-                <h3>Young Couples</h3>
-                <h6>Every month</h6>
-                <h6>Contact Neil and Brenda</h6>
-              </li>
-              <li>
-                <h3>JOL Youth</h3>
-                <h6>Friday - fortnightly </h6>
-                <h6>Contact Sarena</h6>
-              </li>
-              <li>
-                <h3>Craigieburn Highlands</h3>
-                <h6>Fortnightly - Monthly</h6>
-                <h6>Contact Liezel</h6>
-              </li>
-              <li>
-                <h3>Young Adults</h3>
-                <h6>Tuesday - Fortnightly</h6>
-                <h6>Contact Kath</h6>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div className={classes.column2}>
-        <div className={classes.emailContainer}>
-          <form
-            className={classes.emailUsContent}
-            ref={form}
-            onSubmit={sendEmail}
-          >
-            <div className={classes.emaillUs}>
-              <Label htmlFor="name">Name</Label>
-              <input
-                className={classes.input}
-                type="text"
-                name="user_name"
-                required
-                id="name"
-                value={name}
-                onChange={(e) => setname(e.target.value)}
-              ></input>
-
-              <Label htmlFor="email">Email</Label>
-              <input
-                className={classes.input}
-                type="email"
-                name="user_email"
-                required
-                id="emailUs"
-                value={email}
-                onChange={(e) => setemail(e.target.value)}
-              ></input>
-
-              <Label htmlFor="phone">Phone</Label>
-              <input
-                className={classes.input}
-                type="number"
-                name="user_phone"
-                required
-                id="phone"
-                value={phone}
-                onChange={(e) => setphone(e.target.value)}
-              ></input>
-
-              <Label htmlFor="message">Message Us</Label>
-              <textarea
-                className={classes.input}
-                style={{
-                  height: "10rem",
-                }}
-                type="text"
-                name="message"
-                required
-                id="message"
-                value={message}
-                onChange={(e) => setmessage(e.target.value)}
-              />
-              <div style={{ display: "grid", width: "90%" }}>
-                <input
-                  type="submit"
-                  value="Send"
-                  style={{
-                    height: "2rem",
-                    marginBottom: "2rem",
-                    marginTop: "1rem",
-                  }}
-                ></input>
-              </div>
             </div>
-          </form>
+            <div className={classes.iconHolder}>
+              <PhoneEnabledIcon
+                style={{ color: "#075e54", fontSize: "1.2rem" }}
+              ></PhoneEnabledIcon>
+            </div>
+            <div className={classes.iconHolder}>
+              <TwitterIcon
+                style={{ color: "#00ACEE", fontSize: "1.2rem" }}
+              ></TwitterIcon>
+            </div>
+            <div className={classes.iconHolder}>
+              <InstagramIcon
+                style={{ color: "#E4405F", fontSize: "1.2rem" }}
+              ></InstagramIcon>
+            </div>
+          </div>
+        </div>
+        <div className={classes.secondColumn}>
+          <div className={classes.footerColumnTitle}>Bible Study Groups</div>
+          <div className={classes.secondColumnContent}>
+            {/* <ul> */}
+            <div className={classes.studyContainer}>
+              <h3>Couples</h3>
+              <h6>Every first Saturday of the month</h6>
+              <h6>Contact Joseph and Michelle</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>ELEOS</h3>
+              <h6>Every second Saturday of the month</h6>
+              <h6>Contact Joseph and Michelle</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Endurance by Faith @Coolaroo</h3>
+              <h6>Saturday - fortnightly @7pm</h6>
+              <h6>Contact Sarah</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Broady / Craigie / Greenvale</h3>
+              <h6>Sunday - fortnightly @7pm</h6>
+              <h6>Contact Nomer</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Golden Life Bible Study</h3>
+              <h6>Sunday - @8pm</h6>
+              <h6>Contact Gloria</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Men's Bible Study</h3>
+              <h6>Every 3rd Sunday of the month</h6>
+              <h6>Contact Sam</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Young Couples</h3>
+              <h6>Every month</h6>
+              <h6>Contact Neil and Brenda</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>JOL Youth</h3>
+              <h6>Friday - fortnightly </h6>
+              <h6>Contact Sarena</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Craigieburn Highlands</h3>
+              <h6>Fortnightly - Monthly</h6>
+              <h6>Contact Liezel</h6>
+            </div>
+            <div className={classes.studyContainer}>
+              <h3>Young Adults</h3>
+              <h6>Tuesday - Fortnightly</h6>
+              <h6>Contact Kath</h6>
+            </div>
+            {/* </ul> */}
+          </div>
+        </div>
+        <div className={classes.thirdColumn}>
+          <div className={classes.footerColumnTitle}>Contact Us</div>
+          <div className={classes.emailContainer}>
+            <form
+              className={classes.emailUsContent}
+              ref={form}
+              onSubmit={sendEmail}
+            >
+              <div className={classes.emaillUs}>
+                <Label htmlFor="name">Name</Label>
+                <input
+                  className={classes.input}
+                  type="text"
+                  name="user_name"
+                  required
+                  id="name"
+                  value={name}
+                  onChange={(e) => setname(e.target.value)}
+                ></input>
+
+                <Label htmlFor="email">Email</Label>
+                <input
+                  className={classes.input}
+                  type="email"
+                  name="user_email"
+                  required
+                  id="emailUs"
+                  value={email}
+                  onChange={(e) => setemail(e.target.value)}
+                ></input>
+
+                <Label htmlFor="phone">Phone</Label>
+                <input
+                  className={classes.input}
+                  type="number"
+                  name="user_phone"
+                  required
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setphone(e.target.value)}
+                ></input>
+
+                <Label htmlFor="message">Message Use</Label>
+                <textarea
+                  className={classes.input}
+                  style={{
+                    height: "8rem",
+                  }}
+                  type="text"
+                  name="message"
+                  required
+                  id="message"
+                  value={message}
+                  onChange={(e) => setmessage(e.target.value)}
+                />
+                <div style={{ display: "grid", width: "90%" }}>
+                  <input
+                    type="submit"
+                    value="Send"
+                    style={{
+                      height: "2rem",
+                      marginBottom: "2rem",
+                      marginTop: "1rem",
+                      border: "1px solid rgb(85, 83, 83)",
+                      // color: "white",
+                    }}
+                  ></input>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
-import Footer2 from "../../Components/footer/Footer2";
+
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
@@ -61,7 +61,6 @@ export default function Home() {
       <Ministries></Ministries>
       <OurTeam />
 
-      <Footer2></Footer2>
       <Footer></Footer>
     </div>
   );
