@@ -136,7 +136,7 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 390px) {
   .footerColumnTitle {
     margin-bottom: 1rem;
   }
@@ -153,6 +153,6 @@
     padding: 0 0;
   }
   .thirdColumn {
-    margin-top: 2rem;
+    margin-top: 10rem;
   }
 }
