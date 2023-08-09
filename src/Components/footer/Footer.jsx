@@ -210,7 +210,6 @@ Implementation of EmailJS
 5. go to docs >>> Examples >>> React
 6. copy the form html from site
 
-
    <form ref={form} onSubmit={sendEmail}>
       <label>Name</label>
       <input type="text" name="user_name" />

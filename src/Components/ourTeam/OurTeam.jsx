@@ -11,35 +11,27 @@ export default function OurTeam() {
     <Section>
       <Container>
         <div className={classes.ourTeam}>
-          <Title>
-            <h5>Our Team</h5>
-          </Title>
           <div className={classes.teamContainer}>
-            {info.map((inf) => (
-              <div key={inf.userId} style={{ margin: "0 1rem" }}>
-                <div className={classes.teamMember}>
-                  <div
-                    className={classes.nickname}
-                    style={{ fontSize: ".65em" }}
-                  >
-                    {inf.nickname}
-                  </div>
-                  <div className={classes.imgContainer}>
-                    <img
-                      className={classes.imgSize}
-                      src={inf.pic}
-                      alt={inf.nickname}
-                    ></img>
-                  </div>
-                  <div
-                    className={classes.position}
-                    style={{ fontSize: ".65em" }}
-                  >
-                    {inf.position}
+            <Title>
+              <h5>Our Team</h5>
+            </Title>
+            <div className={classes.teamLineUp}>
+              {info.map((inf) => (
+                <div key={inf.userId} style={{ margin: "0 1rem" }}>
+                  <div className={classes.teamMember}>
+                    <div className={classes.nickname}>{inf.nickname}</div>
+                    <div className={classes.imgContainer}>
+                      <img
+                        className={classes.imgSize}
+                        src={inf.pic}
+                        alt={inf.nickname}
+                      ></img>
+                    </div>
+                    <div className={classes.position}>{inf.position}</div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Container>
