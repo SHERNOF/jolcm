@@ -2,17 +2,15 @@ import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
-// import logger from "use-reducer-logger";
-// import logger from "use-reducer-logger"
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
-import MyFooter from "../../Components/footer/MyFooter";
+import Footer2 from "../../Components/footer/Footer2";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
 import OurTeam from "../../Components/ourTeam/OurTeam";
-import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "../../store/constants";
+
 import { rootReducer } from "../../store/reducers";
 
 export default function Home() {
@@ -63,7 +61,7 @@ export default function Home() {
       <Ministries></Ministries>
       <OurTeam />
 
-      {/* <MyFooter></MyFooter> */}
+      <Footer2></Footer2>
       <Footer></Footer>
     </div>
   );

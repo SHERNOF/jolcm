@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import classes from "./footer.module.css";
+import classes from "./footer2.module.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Label from "../UI/label/Label";
 import emailjs from "@emailjs/browser";
 
-export default function Footer() {
+export default function Footer2() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
