@@ -69,6 +69,9 @@
   grid-area: position;
 }
 @media (max-width: 390px) {
+  .ourTeam {
+    margin-top: 1rem;
+  }
   .teamLineUp .teamMember .nickname {
     font-size: 1.2em;
   }

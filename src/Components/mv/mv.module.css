@@ -1,0 +1,10 @@
+.mv {
+  border: 1px solid red;
+  height: 20vh;
+  display: flex;
+}
+.m {
+  width: 45%;
+}
+.v {
+}

@@ -6,7 +6,16 @@ export default function Mv() {
   return (
     <Section>
       <Container>
-        <div>JESUS IS LORD</div>
+        <div className={classes.mv}>
+          <div className={classes.m}>
+            <h3>Mission</h3>
+            <p>To share life in Christ Jesus with great joy to all.</p>
+          </div>
+          <div className={classes.v}>
+            <h3>Mission</h3>
+            <p>To see Christ-like people living in fullness of joy.</p>
+          </div>
+        </div>
       </Container>
     </Section>
   );
