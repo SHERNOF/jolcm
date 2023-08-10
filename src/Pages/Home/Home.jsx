@@ -52,7 +52,7 @@ export default function Home() {
       </Helmet>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      <Mv></Mv>
+      {/* <Mv></Mv> */}
       {loading ? (
         <Loading></Loading>
       ) : error ? (

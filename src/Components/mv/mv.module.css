@@ -1,10 +1,33 @@
 .mv {
-  border: 1px solid red;
   height: 20vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  border: 1px solid green;
+}
+.m,
+.v {
+  width: 50%;
+  height: 80%;
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  /* margin: 1rem 1rem; */
 }
 .m {
-  width: 45%;
+  clip-path: polygon(25% 25%, 75% 25%, 65% 75%, 25% 75%);
+  background-color: #000000;
+  border: 1px solid black;
 }
-.v {
+.m * {
+  margin-left: 2rem;
+  /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%); */
+  z-index: 20;
+}
+.v * {
+  margin-left: 2rem;
 }

@@ -9,11 +9,11 @@ export default function Mv() {
         <div className={classes.mv}>
           <div className={classes.m}>
             <h3>Mission</h3>
-            <p>To share life in Christ Jesus with great joy to all.</p>
+            <h6>To share life in Christ Jesus with great joy to all.</h6>
           </div>
           <div className={classes.v}>
-            <h3>Mission</h3>
-            <p>To see Christ-like people living in fullness of joy.</p>
+            <h3>Vision</h3>
+            <h6>To see Christ-like people living in fullness of joy.</h6>
           </div>
         </div>
       </Container>
