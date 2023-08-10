@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import Loading from "../../Components/common/loading/Loading";
 import Events from "../../Components/events/Events";
+import Events2 from "../../Components/events/Events2";
 import Footer from "../../Components/footer/Footer";
 
 import FrontImage from "../../Components/frontpageImage/FrontImage";
@@ -55,7 +56,7 @@ export default function Home() {
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <Events evs={churchEvents}></Events>
+        <Events2 evs={churchEvents}></Events2>
       )}
 
       <Ministries></Ministries>
