@@ -10,6 +10,7 @@ import Footer from "../../Components/footer/Footer";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
+import Mv from "../../Components/mv/Mv";
 import OurTeam from "../../Components/ourTeam/OurTeam";
 
 import { rootReducer } from "../../store/reducers";
@@ -51,6 +52,7 @@ export default function Home() {
       </Helmet>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
+      <Mv></Mv>
       {loading ? (
         <Loading></Loading>
       ) : error ? (
