@@ -3,7 +3,6 @@ import {
   DETAILS_USER_FAIL,
   DETAILS_USER_REQUEST,
   DETAILS_USER_SUCCESS,
-  MOUSE_DISABLE,
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
@@ -14,7 +13,6 @@ import {
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
 import { USER_LOGOUT } from "./constants.js";
-
 import { FETCH_DATA_REQUEST } from "./constants.js";
 import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
