@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./tbs.module.css";
 import { useSpring, a } from "@react-spring/web";
-import Overlay from "../UI/overlay/Overlay";
+import Overlay from "../../UI/overlay/Overlay";
 
 export default function Tbs() {
   const [flipped, set] = useState(false);

@@ -3,7 +3,7 @@ import classes from "./frontImage.module.css";
 import { motion } from "framer-motion";
 import JolVideo from "../jolVideo/JolVideo";
 
-import Overlay from "../UI/overlay/Overlay";
+import Overlay from "../../UI/overlay/Overlay";
 
 const entrance = {
   hidden: { opacity: 0, y: 3200 },

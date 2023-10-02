@@ -7,9 +7,9 @@ import {
   USER_SIGNUP_REQUEST,
   USER_SIGNUP_SUCCESS,
 } from "../../store/constants";
-import Button from "../UI/button/Button";
+import Button from "../../UI/button/Button";
 
-import Label from "../UI/label/Label";
+import Label from "../../UI/label/Label";
 import classes from "./signUp.module.css";
 
 export default function SignUp() {

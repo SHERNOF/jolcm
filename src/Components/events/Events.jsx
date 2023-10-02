@@ -3,7 +3,7 @@ import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
 import classes from "./events.module.css";
-import Overlay from "../UI/overlay/Overlay";
+import Overlay from "../../UI/overlay/Overlay";
 
 export default function Events({ evs }) {
   const churchEvents = evs;
@@ -52,6 +52,7 @@ export default function Events({ evs }) {
                               {churchEvent.eventTitle}
                             </div>
                             <img
+                              loading="lazy"
                               src={churchEvent.pictures[0]}
                               alt="events"
                               className={classes.eventImage}

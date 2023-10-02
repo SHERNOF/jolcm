@@ -4,7 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Label from "../UI/label/Label";
+import Label from "../../UI/label/Label";
 import emailjs from "@emailjs/browser";
 
 export default function Footer() {

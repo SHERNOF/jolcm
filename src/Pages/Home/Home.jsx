@@ -2,15 +2,14 @@ import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
+import AboutUs from "../../Components/aboutUs/AboutUs";
 import Loading from "../../Components/common/loading/Loading";
-import Events from "../../Components/events/Events";
 import Events2 from "../../Components/events/Events2";
 import Footer from "../../Components/footer/Footer";
-
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
-import Mv from "../../Components/mv/Mv";
+
 import OurTeam from "../../Components/ourTeam/OurTeam";
 
 import { rootReducer } from "../../store/reducers";
@@ -39,7 +38,6 @@ export default function Home() {
     <div
       sx={{
         width: "100vw",
-        height: "100vh",
         position: "relative",
         display: "flex",
         flexDirection: "column",
@@ -52,7 +50,7 @@ export default function Home() {
       </Helmet>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      {/* <Mv></Mv> */}
+      <AboutUs></AboutUs>
       {loading ? (
         <Loading></Loading>
       ) : error ? (
@@ -60,10 +58,8 @@ export default function Home() {
       ) : (
         <Events2 evs={churchEvents}></Events2>
       )}
-
       <Ministries></Ministries>
       <OurTeam />
-
       <Footer></Footer>
     </div>
   );

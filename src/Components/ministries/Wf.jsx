@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./wf.module.css";
 import { useSpring, a } from "@react-spring/web";
-import Overlay from "../UI/overlay/Overlay";
+import Overlay from "../../UI/overlay/Overlay";
 
 export default function Wf() {
   const [flipped, set] = useState(false);

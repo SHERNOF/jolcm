@@ -1,25 +1,53 @@
 .about {
-  height: 20vh;
+  height: 40vh;
+  margin-top: 4rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 4rem;
-  flex-direction: column;
+  justify-content: space-between;
+
+  /* border: 1px solid blue; */
 }
-.about p {
-  font-size: 1.5em;
+.mv,
+.bible {
+  width: 48%;
+  height: 100%;
+  text-align: left;
 }
-.about {
-  height: 30vh;
+.mv {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
-.about p {
-  font-size: 0.9em;
-}
-.about hr {
-  margin-top: 1.1rem;
+.mv div > div {
   margin-bottom: 1rem;
+}
+.content {
+  color: black;
+  font-size: 1.1em;
+}
+.bibleContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bibleContainer > img {
+  object-fit: cover;
+}
+
+@media (max-width: 390px) {
+  .about {
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: auto;
+  }
+  .mv,
+  .bible {
+    width: 100%;
+  }
+  .mv div > div {
+    margin-bottom: 0.5rem;
+  }
 }

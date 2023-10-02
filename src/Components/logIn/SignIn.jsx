@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Button from "../UI/button/Button";
-import Label from "../UI/label/Label";
+import Button from "../../UI/button/Button";
+import Label from "../../UI/label/Label";
 import classes from "./signIn.module.css";
 import Axios from "axios";
 import { useDispatch, useSelector } from "react-redux";

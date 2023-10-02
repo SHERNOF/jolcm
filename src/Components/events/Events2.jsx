@@ -3,7 +3,7 @@ import Container from "../common/container/Container";
 import Section from "../common/section/Section";
 import Title from "../common/title/Title";
 import classes from "./events2.module.css";
-import Overlay from "../UI/overlay/Overlay";
+import Overlay from "../../UI/overlay/Overlay";
 
 export default function Events2({ evs }) {
   const churchEvents = evs;
@@ -51,6 +51,7 @@ export default function Events2({ evs }) {
                             {churchEvent.eventTitle}
                           </div>
                           <img
+                            loading="lazy"
                             src={churchEvent.pictures[0]}
                             alt="events"
                             className={classes.eventImage}
@@ -69,6 +70,7 @@ export default function Events2({ evs }) {
                     alt="event header"
                     src={churchEvents[indexNum].pictures[bigPicFromSlider]}
                     className={classes.bigPicImg}
+                    loading="lazy"
                   ></img>
                 </div>
 
@@ -90,6 +92,7 @@ export default function Events2({ evs }) {
                         style={{ cursor: "pointer" }}
                       >
                         <img
+                          loading="lazy"
                           alt="each event photos"
                           src={picture}
                           className={classes.picSliderPicturesImg}
