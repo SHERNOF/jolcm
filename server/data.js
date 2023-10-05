@@ -81,5 +81,12 @@ export const data = {
       ],
     },
   ],
+  testimonials: [
+    {
+      testimonialNumber: 1,
+      testimony: "Let's worship Jesus our Lord",
+      name: "Jedi",
+    },
+  ],
 };
 export default data;

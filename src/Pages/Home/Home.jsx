@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import AboutUs from "../../Components/aboutUs/AboutUs";
 import Loading from "../../Components/common/loading/Loading";
-import Events2 from "../../Components/events/Events2";
+import Events2 from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Home from "../../Pages/Home/Home";
 import Loading from "../common/loading/Loading";
 import Card from "../../UI/card/Card";
 import classes from "./login.module.css";
@@ -8,28 +7,6 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 export default function LogIn() {
-  // const [{ users, loading, error }, dispatch] = useReducer(
-  // rootReducer,
-  //   {
-  //     users: [],
-  //   }
-  // );
-
-  // console.log(typeof users);
-
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     dispatch({ type: "FETCH_USERS_REQUEST" });
-  //     try {
-  //       const users = await axios.get("jol/users");
-  //       dispatch({ type: "FETCH_USERS_SUCCESS", payload: users });
-  //     } catch (error) {
-  //       dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
-  //     }
-  //   };
-  //   fetchUsers();
-  // }, []);
-
   const displayLogin = useSelector((state) => state.displayLogin);
   const userInfo = useSelector((state) => state.userInfo);
   const loading = useSelector((state) => state.loading);

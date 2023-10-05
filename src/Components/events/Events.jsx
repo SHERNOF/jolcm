@@ -14,92 +14,92 @@ export default function Events({ evs }) {
     <Section>
       <Container>
         <div className={classes.events}>
-          <div className={classes.eventContainer}>
-            <Title>
-              <h5>Events</h5>
-            </Title>
-            <div className={classes.eventsLineUp}>
-              <div className={classes.eventBody}>
-                <div className={classes.eventSelections}>
-                  <div className={classes.imgContainer}>
+          <Title>
+            <h5>Events</h5>
+          </Title>
+          <div className={classes.eventsLineUp}>
+            <div className={classes.eventBody}>
+              <div className={classes.eventSelections}>
+                <div className={classes.imgContainer}>
+                  <ul
+                    style={{
+                      listStyleType: "none",
+                      margin: "0",
+                      padding: "0",
+                      marginTop: "2rem",
+                    }}
+                  >
+                    {churchEvents.map((churchEvent, index) => (
+                      <li key={churchEvent._id}>
+                        <Overlay></Overlay>
+                        <div
+                          style={{
+                            position: "relative",
+                            marginBottom: "1rem",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            className={classes.imgOverlay}
+                            onClick={() => {
+                              setindexNum(index);
+                            }}
+                          >
+                            {churchEvent.eventTitle}
+                          </div>
+                          <img
+                            loading="lazy"
+                            src={churchEvent.pictures[0]}
+                            alt="events"
+                            className={classes.eventImage}
+                          ></img>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                ;
+              </div>
+              ;{/* order reversed */}
+              <div className={classes.picBox}>
+                <div className={classes.bigPic}>
+                  <img
+                    alt="event header"
+                    src={churchEvents[indexNum].pictures[bigPicFromSlider]}
+                    className={classes.bigPicImg}
+                    loading="lazy"
+                  ></img>
+                </div>
+
+                <div className={classes.picSlider}>
+                  {churchEvents[indexNum].pictures.map((picture, index) => (
                     <ul
+                      key={index}
                       style={{
                         listStyleType: "none",
                         margin: "0",
                         padding: "0",
-                        marginTop: "2rem",
+                        marginLeft: "2rem",
+                        height: "90%",
                       }}
                     >
-                      {churchEvents.map((churchEvent, index) => (
-                        <li key={churchEvent._id}>
-                          <Overlay></Overlay>
-                          <div
-                            style={{
-                              position: "relative",
-                              marginBottom: "1rem",
-                              overflow: "hidden",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <div
-                              className={classes.imgOverlay}
-                              onClick={() => {
-                                setindexNum(index);
-                              }}
-                            >
-                              {churchEvent.eventTitle}
-                            </div>
-                            <img
-                              loading="lazy"
-                              src={churchEvent.pictures[0]}
-                              alt="events"
-                              className={classes.eventImage}
-                            ></img>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  ;
-                </div>
-                ;{/* order reversed */}
-                <div className={classes.picBox}>
-                  <div className={classes.bigPic}>
-                    <img
-                      alt="event header"
-                      src={churchEvents[indexNum].pictures[bigPicFromSlider]}
-                      className={classes.bigPicImg}
-                    ></img>
-                  </div>
-
-                  <div className={classes.picSlider}>
-                    {churchEvents[indexNum].pictures.map((picture, index) => (
-                      <ul
-                        key={index}
-                        style={{
-                          listStyleType: "none",
-                          margin: "0",
-                          padding: "0",
-                          marginLeft: "2rem",
-                          height: "90%",
-                        }}
+                      <li
+                        className={classes.picSliderPictures}
+                        onClick={() => setbigPicFromSlider(index)}
+                        style={{ cursor: "pointer" }}
                       >
-                        <li
-                          className={classes.picSliderPictures}
-                          onClick={() => setbigPicFromSlider(index)}
-                          style={{ cursor: "pointer" }}
-                        >
-                          <img
-                            alt="each event photos"
-                            src={picture}
-                            className={classes.picSliderPicturesImg}
-                          ></img>
-                        </li>
-                      </ul>
-                    ))}
-                  </div>
+                        <img
+                          loading="lazy"
+                          alt="each event photos"
+                          src={picture}
+                          className={classes.picSliderPicturesImg}
+                        ></img>
+                      </li>
+                    </ul>
+                  ))}
                 </div>
               </div>
             </div>

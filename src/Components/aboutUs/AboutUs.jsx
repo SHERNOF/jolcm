@@ -27,13 +27,13 @@ export default function AboutUs() {
                 </p>
               </div>
               <div>
-                <h5>Mission</h5>
+                <h4>Mission</h4>
                 <p className={classes.content}>
                   To share life in Christ Jesus with great joy to all
                 </p>
               </div>
               <div>
-                <h5>Vision</h5>
+                <h4>Vision</h4>
                 <p className={classes.content}>
                   To see Christ-like people living in fullness of joy
                 </p>
