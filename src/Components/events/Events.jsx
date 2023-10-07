@@ -20,13 +20,16 @@ export default function Events({ evs }) {
           <div className={classes.eventsLineUp}>
             <div className={classes.eventBody}>
               <div className={classes.eventSelections}>
-                <div className={classes.imgContainer}>
+                <div
+                  className={classes.imgContainer}
+                  style={{ border: "1px solid red" }}
+                >
                   <ul
                     style={{
                       listStyleType: "none",
                       margin: "0",
                       padding: "0",
-                      marginTop: "2rem",
+                      // marginTop: "2rem",
                     }}
                   >
                     {churchEvents.map((churchEvent, index) => (
