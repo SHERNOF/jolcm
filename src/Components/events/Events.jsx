@@ -19,54 +19,8 @@ export default function Events({ evs }) {
           </Title>
           <div className={classes.eventsLineUp}>
             <div className={classes.eventBody}>
-              <div className={classes.eventSelections}>
-                <div
-                  className={classes.imgContainer}
-                  style={{ border: "1px solid red" }}
-                >
-                  <ul
-                    style={{
-                      listStyleType: "none",
-                      margin: "0",
-                      padding: "0",
-                      // marginTop: "2rem",
-                    }}
-                  >
-                    {churchEvents.map((churchEvent, index) => (
-                      <li key={churchEvent._id}>
-                        <Overlay></Overlay>
-                        <div
-                          style={{
-                            position: "relative",
-                            marginBottom: "1rem",
-                            overflow: "hidden",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                        >
-                          <div
-                            className={classes.imgOverlay}
-                            onClick={() => {
-                              setindexNum(index);
-                            }}
-                          >
-                            {churchEvent.eventTitle}
-                          </div>
-                          <img
-                            loading="lazy"
-                            src={churchEvent.pictures[0]}
-                            alt="events"
-                            className={classes.eventImage}
-                          ></img>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                ;
-              </div>
-              ;{/* order reversed */}
+      
+              {/* order reversed */}
               <div className={classes.picBox}>
                 <div className={classes.bigPic}>
                   <img
@@ -105,10 +59,58 @@ export default function Events({ evs }) {
                   ))}
                 </div>
               </div>
+
+              <div className={classes.eventSelections}>
+                <div
+                  className={classes.imgContainer}
+                  // style={{ border: "1px solid red" }}
+                >
+                  <ul
+                    style={{
+                      listStyleType: "none",
+                      margin: "0",
+                      padding: "0",
+                      // marginTop: "2rem",
+                    }}
+                  >
+                    {churchEvents.map((churchEvent, index) => (
+                      <li key={churchEvent._id}>
+                        <Overlay></Overlay>
+                        <div
+                          style={{
+                            position: "relative",
+                            marginBottom: "1rem",
+                            overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            className={classes.imgOverlay}
+                            onClick={() => {
+                              setindexNum(index)
+                            }}
+                          >
+                            {churchEvent.eventTitle}
+                          </div>
+                          <img
+                            loading="lazy"
+                            src={churchEvent.pictures[0]}
+                            alt="events"
+                            className={classes.eventImage}
+                          ></img>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
       </Container>
     </Section>
-  );
+  )
 }

@@ -16,6 +16,7 @@ export default function OurTeam() {
               <h5>Our Team</h5>
             </Title>
             <div className={classes.teamLineUp}>
+              <div className={classes.imagesContainer} >
               {info.map((inf) => (
                 <div key={inf.userId} style={{ margin: "0 1rem" }}>
                   <div className={classes.teamMember}>
@@ -31,6 +32,7 @@ export default function OurTeam() {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>
