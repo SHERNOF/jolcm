@@ -18,7 +18,7 @@ export default function OurTeam() {
             <div className={classes.teamLineUp}>
               <div className={classes.imagesContainer} >
               {info.map((inf) => (
-                <div key={inf.userId} style={{ margin: "0 1rem" }}>
+                <div className={classes.effect} key={inf.userId} >
                   <div className={classes.teamMember}>
                     <div className={classes.nickname}>{inf.nickname}</div>
                     <div className={classes.imgContainer}>
