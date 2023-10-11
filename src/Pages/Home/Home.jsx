@@ -3,7 +3,9 @@ import React, { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import AboutUs from "../../Components/aboutUs/AboutUs";
-import Loading from "../../Components/common/loading/Loading";
+
+import Loading from "../../UI/loading/Loading";
+
 import Events2 from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
@@ -13,6 +15,7 @@ import Ministries from "../../Components/ministries/Ministries";
 import OurTeam from "../../Components/ourTeam/OurTeam";
 
 import { rootReducer } from "../../store/reducers";
+import Container from "../../UI/container/Container";
 
 export default function Home() {
   const userInfo = useSelector((state) => state.userInfo);
@@ -35,32 +38,25 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      sx={{
-        width: "100vw",
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <>
       <Helmet>
         <title>Joy of Life</title>
       </Helmet>
       <MainLogo></MainLogo>
       <FrontImage></FrontImage>
-      <AboutUs></AboutUs>
-      {loading ? (
-        <Loading></Loading>
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
-        <Events2 evs={churchEvents}></Events2>
-      )}
-      <Ministries></Ministries>
-      <OurTeam />
+      <Container>
+        <AboutUs></AboutUs>
+        {loading ? (
+          <Loading></Loading>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          <Events2 evs={churchEvents}></Events2>
+        )}
+        <Ministries></Ministries>
+        <OurTeam />
+      </Container>
       <Footer></Footer>
-    </div>
+    </>
   );
 }

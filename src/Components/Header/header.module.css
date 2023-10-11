@@ -31,7 +31,6 @@ nav {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  animation: spinner 5s ease-in-out infinite;
   margin-left: -6rem;
 }
 .logo .navLogo {
@@ -40,45 +39,9 @@ nav {
   align-self: center;
   justify-self: center;
   margin-bottom: 1rem;
+  background-size: cover;
+  margin-right: 3rem;
 }
-.hamburger {
-  width: 2rem;
-  height: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  cursor: pointer;
-  border: 1px solid white;
-}
-.hamburger.close {
-  transform: rotate(180deg);
-  transition: all 1s;
-}
-.hamburger.close span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-  transition: all 1s;
-}
-.hamburger.close span:nth-child(2) {
-  opacity: 0;
-  transition: all 1s;
-}
-.hamburger.close span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-  transition: all 1s;
-}
-
-span {
-  width: 60%;
-  border: 1px solid white;
-  box-shadow: 1px 0.5px 1px #3776ff;
-}
-.spanned {
-  width: 60%;
-  border: 1px solid #3776ff;
-  box-shadow: 1px 0.5px 1px white;
-}
-
 @media (max-width: 768px) {
   .navContainer {
   }

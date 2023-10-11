@@ -2,15 +2,14 @@ import { Button } from "@mui/base";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Container from "../../Components/common/container/Container";
-import Section from "../../Components/common/section/Section";
-import Title from "../../Components/common/title/Title";
+
 import {
   CREATE_EVENT_FAIL,
   CREATE_EVENT_REQUEST,
   DETAILS_USER_FAIL,
   DETAILS_USER_REQUEST,
 } from "../../store/constants";
+import Title from "../../UI/title/Title";
 import classes from "./admin.module.css";
 
 export default function Admin() {
@@ -47,14 +46,10 @@ export default function Admin() {
   // );
 
   return (
-    <Section>
-      <Container>
-        <div className={classes.admin}>
-          <Title>Create Event</Title>
-          <Button onClick={createHandler}>Create Event</Button>
-        </div>
-      </Container>
-    </Section>
+    <div className={classes.admin}>
+      <Title>Create Event</Title>
+      <Button onClick={createHandler}>Create Event</Button>
+    </div>
   );
 }
 

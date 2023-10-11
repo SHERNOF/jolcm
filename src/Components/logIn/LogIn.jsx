@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Loading from "../common/loading/Loading";
+import Loading from "../../UI/loading/Loading";
+
 import Card from "../../UI/card/Card";
 import classes from "./login.module.css";
 import SignIn from "./SignIn";

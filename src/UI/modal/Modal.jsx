@@ -1,6 +1,6 @@
 import classes from "./modal.module.css";
 import React, { useState } from "react";
-import { churchEvents } from "../../../data.js";
+import { churchEvents } from "../../data.js";
 import { RiCloseLine } from "react-icons/ri";
 
 const eventContents = churchEvents;
