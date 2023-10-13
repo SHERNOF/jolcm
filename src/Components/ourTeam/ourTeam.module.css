@@ -1,5 +1,6 @@
 .ourTeam {
   margin-bottom: 3rem;
+  margin-top: 5rem;
 }
 .team {
   width: 100%;
@@ -22,13 +23,15 @@
 }
 
 .teamDetails {
-  margin: 0 1rem;
+  margin: 0 2rem;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
   /* border: 1px solid rgb(83, 83, 85); */
   height: auto;
   cursor: pointer;
-  z-index: 1;
+
+  border-radius: 5px;
 }
 .front {
   transition: all 1s;
@@ -36,12 +39,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* z-index: 1; */
+  transition: all 1.5s linear;
+  opacity: 1;
+  box-shadow: 5px 5px 10px rgb(94, 93, 93);
 }
 .front.frontFlip {
   transform: rotateY(180deg);
   cursor: pointer;
   opacity: 0;
+  box-shadow:0;
 }
 .imgContainer {
   width: 15rem;
@@ -50,8 +56,10 @@
   overflow: hidden;
   margin: 1rem 1rem;
   border: 1px solid rgb(83, 83, 85);
+
 }
 .verseContainer {
+  box-shadow:0;
   position: absolute;
   transition: all 1s;
   width: 100%;
@@ -60,13 +68,17 @@
   align-items: flex-start;
   justify-content: center;
   opacity: 0;
-  border: 1px solid rgb(83, 83, 85);
+  /* border: 1px solid rgb(83, 83, 85); */
   transform: rotateY(180deg);
-  /* cursor: pointer; */
+  left: -250px;
+  transition: all 1.5s linear;
+  border-radius: 5px;
 }
 .verseContainer.verseFlip {
   transform: rotateY(0deg);
   opacity: 1;
+  left: 0;
+  box-shadow: 5px 5px 10px rgb(94, 93, 93);
 }
 
 .teamContainer::-webkit-scrollbar {

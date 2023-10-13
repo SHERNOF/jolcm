@@ -10,10 +10,9 @@ export default function OurTeam() {
   const [flip, setflip] = useState(false);
   const flipPage = (e) => {
     setflip(!flip);
+    console.log(info.userId)
   };
-  const theId = (e) => {
-    console.log(e.target.value);
-  };
+
   return (
     <div className={classes.ourTeam}>
       <Title>
@@ -24,28 +23,31 @@ export default function OurTeam() {
           {info.map((inf) => (
             <div
               className={classes.teamDetails}
-              key={inf.id}
+              key={inf.userId}
               // onMouseEnter={flipPage}
               // onMouseLeave={flipPage}
-              onClick={flipPage}
-            >
-              <div
+              onClick={()=> {
+                setflip(!flip)
+                console.log(inf.userId)
+                }}>
+              
+
+            <div
                 className={`${classes.verseContainer} ${
                   flip && classes.verseFlip
                 }`}
               >
-                {/* <div> */}
                 <p
                   style={{
                     color: "red",
-                    fontSize: ".3em",
-                    padding: "2rem 2rem",
+                    fontSize: ".4em",
+                    padding: "1rem 1rem",
                   }}
                 >
                   {inf.verse}
                 </p>
               </div>
-
+      
               <div className={`${classes.front} ${flip && classes.frontFlip}`}>
                 <p style={{ textAlign: "center" }}>{inf.nickname}</p>
                 <div className={classes.imgContainer}>
@@ -56,6 +58,9 @@ export default function OurTeam() {
                   />
                 </div>
               </div>
+
+
+
             </div>
           ))}
         </div>
