@@ -24,16 +24,17 @@
   transition: all 1s linear;
 } */
 .hide {
-  /* transform: translateX(-300px); */
+  transform: translateX(-300px);
   left: -300px;
   opacity: 0;
   /* transition: all 1s linear; */
 }
 .show {
-  /* transform: translateX(0); */
-  left: 0;
+  transform: translateX(0);
+  /* left: 0; */
   opacity: 1;
-  animation: animate 2s ease-in-out forwards;
+  /* animation: animate 2s ease-in-out forwards; */
+  transition: all 2s ease-in-out;
 }
 .mv div > div {
   margin-bottom: 1rem;
@@ -56,8 +57,7 @@
 @keyframes animate {
   0% {
     /* transition: all 0.5s linear; */
-    transform: translateX(-500px);
-
+    transform: translateX(-300px);
     opacity: 0;
   }
   100% {
