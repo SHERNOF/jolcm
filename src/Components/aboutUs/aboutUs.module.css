@@ -16,6 +16,25 @@
   flex-direction: column;
   justify-content: center;
 }
+/* .jol,
+.mission,
+.vision {
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: all 1s linear;
+} */
+.hide {
+  /* transform: translateX(-300px); */
+  left: -300px;
+  opacity: 0;
+  /* transition: all 1s linear; */
+}
+.show {
+  /* transform: translateX(0); */
+  left: 0;
+  opacity: 1;
+  animation: animate 2s ease-in-out forwards;
+}
 .mv div > div {
   margin-bottom: 1rem;
 }
@@ -23,6 +42,32 @@
   color: black;
   margin-left: 0.5rem;
 }
+/* animation */
+
+.jol {
+  animation-delay: 0.15s;
+}
+.mission {
+  animation-delay: 0.3s;
+}
+.vision {
+  animation-delay: 0.45s;
+}
+@keyframes animate {
+  0% {
+    /* transition: all 0.5s linear; */
+    transform: translateX(-500px);
+
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* animation */
+
 .bibleContainer {
   width: 100%;
   height: 100%;

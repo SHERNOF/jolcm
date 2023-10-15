@@ -8,13 +8,10 @@ export default function OurTeam() {
   const info = teamData.teamInfo;
   const pref = useRef();
   const [count, setcount] = useState(Number);
-  // useEffect(() => {
-  //   setcount(pref.current.innerHTML.split(" ").length);
-  // }, [info.id]);
+
   const countWords = () => {
     setcount(pref.innerHTML.split(" ").length);
   };
-  console.log(count);
 
   const [flip, setflip] = useState(false);
   const flipPage = () => {
@@ -39,7 +36,6 @@ export default function OurTeam() {
                 <p
                   ref={pref}
                   style={{
-                    // color: "red",
                     fontSize: ".9em",
                     padding: "1rem 1rem",
                   }}
