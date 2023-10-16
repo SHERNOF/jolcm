@@ -17,49 +17,66 @@ export default function AboutUs() {
   return (
     <div className={classes.about}>
       <div className={`${classes.mv} `} ref={mv}>
-        <div style={{ margin: "1rem 1rem" }}>
-          <div
-            className={`
-              ${classes.jol}  ${elVisible ? classes.show : classes.hide}
-          `}
-          >
-            <h4>About Joy of Life</h4>
-            <p className={classes.content}>
-              Is a church and a community of imperfect people seeking to know
-              and love JESUS more.
-            </p>
+        
+          <div  className={classes.jol}>
+            <div className={`${classes.amvContainer} ${elVisible ? classes.show : classes.hide}`}>
+              <h5>About Joy of Life</h5>
+              <p className={classes.content}>
+                Is a church and a community of imperfect people seeking to know
+                and love JESUS more.
+              </p>
+            </div>
+            
+            <div className={classes.imageContainer}>
+              <img
+                className={`${classes.imageContained} ${elVisible ? classes.imgShow : classes.imgHide}`}
+                src="../img/bible2.png"
+                alt="bible"
+              ></img>
+            </div>
           </div>
-          <div
-            className={`${classes.mission}  ${
-              elVisible ? classes.show : classes.hide
-            }`}
-          >
-            <h4>Mission</h4>
-            <p className={classes.content}>
+
+          <div  className={classes.mission}>
+          <div className={classes.imageContainer}>
+              <img
+                className={`${classes.imageContained} ${elVisible ? classes.imgShow : classes.imgHide}`}
+                src="../img/share.png"
+                alt="bible"
+              ></img>
+            </div>
+
+            <div className={`${classes.amvContainer} ${elVisible ? classes.show : classes.hide}`}>
+              <h5>Mission</h5>
+              <p className={classes.content}>
               To share life in Christ Jesus with great joy to all
-            </p>
+              </p>
+            </div>
+            
+       
           </div>
-          <div
-            className={`${classes.vision}  ${
-              elVisible ? classes.show : classes.hide
-            }`}
-          >
-            <h4>Vision</h4>
-            <p className={classes.content}>
+
+
+          
+          <div  className={classes.vision}>
+            <div className={`${classes.amvContainer} ${elVisible ? classes.show : classes.hide}`}>
+              <h5>Vision</h5>
+              <p className={classes.content}>
               To see Christ-like people living in fullness of joy
-            </p>
+              </p>
+            </div>
+            
+            <div className={classes.imageContainer}>
+              <img
+                className={`${classes.imageContained} ${elVisible ? classes.imgShow : classes.imgHide}`}
+                src="../img/fullness.png"
+                alt="bible"
+              ></img>
+            </div>
           </div>
+
         </div>
-      </div>
-      <div className={classes.bible}>
-        <div className={classes.bibleContainer}>
-          <img
-            className={classes.test}
-            src="../img/bible2.png"
-            alt="bible"
-          ></img>
-        </div>
-      </div>
+      
+
     </div>
   );
 }

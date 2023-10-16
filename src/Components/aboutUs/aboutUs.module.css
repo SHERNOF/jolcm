@@ -1,53 +1,88 @@
 .about {
-  height: 40vh;
-  margin-top: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
+  margin: 2rem 0;
 }
-.mv,
-.bible {
-  width: 48%;
-  height: 100%;
-  text-align: left;
-}
-.mv {
+
+.mv
+ {
+  width: 75%;
+  /* text-align: left; */
   display: flex;
+  align-items: center;
+  /* justify-content:space-evenly; */
   flex-direction: column;
-  justify-content: center;
+
 }
-/* .jol,
-.mission,
-.vision {
-  transform: translateX(-300px);
+.amvContainer, .imageContainer{
+  width: 50%;
+  height: 25vh;
+/* border: 1px solid red; */
+/* position: relative; */
+margin-bottom: 1rem;
+
+
+}
+.amvContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imageContainer {
+
+}
+.imageContained{
+  /* width: 80%; */
+  
+  background-size: cover;
+}
+.jol, .mission,.vision {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition-delay: 0.15s;
+  /* border: 1px solid red; */
+}
+
+.imgHide {
+  transform: translatey(500px);
+  left: -500px;
   opacity: 0;
-  transition: all 1s linear;
-} */
+
+}
+.imgShow {
+  transform: translatey(0);
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+
 .hide {
-  transform: translateX(-300px);
-  left: -300px;
+  transform: translateX(-500px);
+  left: -500px;
   opacity: 0;
-  /* transition: all 1s linear; */
+
 }
 .show {
   transform: translateX(0);
-  /* left: 0; */
   opacity: 1;
-  /* animation: animate 2s ease-in-out forwards; */
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
-.mv div > div {
-  margin-bottom: 1rem;
-}
+
 .content {
   color: black;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
+}
+h5{
+  align-self: flex-start;
+  margin-left: 1.6rem;
 }
 /* animation */
 
-.jol {
-  transition-delay: 0.15s;
-}
+
 .mission {
   transition-delay: 0.3s;
 }
@@ -57,7 +92,7 @@
 @keyframes animate {
   0% {
     /* transition: all 0.5s linear; */
-    transform: translateX(-300px);
+    transform: translateX(-500px);
     opacity: 0;
   }
   100% {
@@ -68,16 +103,7 @@
 
 /* animation */
 
-.bibleContainer {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-}
 
-.bibleContainer > img {
-  object-fit: cover;
-}
 
 @media (max-width: 390px) {
   .about {
