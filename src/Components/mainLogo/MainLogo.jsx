@@ -1,16 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function MainLogo({ isMed }) {
+export default function MainLogo() {
   const icon = {
     hidden: {
       pathLength: 0,
-      // fill: alpha(theme.logo.fill, 0),
       fill: "rgba(0, 0, 0, 0.01)",
     },
     visible: {
       pathLength: 1,
-      // fill: alpha(theme.logo.fill, 0.8),
       fill: "rgba(0, 0, 0, 0.8)",
       transition: { duration: 3, delay: 0.3 },
       ease: "easeInOut",
@@ -20,11 +18,12 @@ export default function MainLogo({ isMed }) {
     <div
       style={{
         width: "100vw",
-        height: "100vh",
+        height: "100%",
         position: "absolute",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        objectFit: "cover",
       }}
     >
       <motion.svg

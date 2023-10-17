@@ -46,14 +46,14 @@ export default function Home() {
       <FrontImage></FrontImage>
       <Container>
         <AboutUs></AboutUs>
-        {/* {loading ? (
+        {loading ? (
           <Loading></Loading>
         ) : error ? (
           <div>{error}</div>
         ) : (
           <Events2 evs={churchEvents}></Events2>
-        )} */}
-        {/* <Ministries></Ministries> */}
+        )}
+        <Ministries></Ministries>
         <OurTeam />
       </Container>
       <Footer></Footer>

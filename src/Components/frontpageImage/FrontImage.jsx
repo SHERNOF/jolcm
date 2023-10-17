@@ -44,18 +44,11 @@ const item = {
   },
 };
 
-export default function FrontImage({ isMed }) {
+export default function FrontImage() {
   const [showVideo, setShowVideo] = useState(false);
-  // const [showTitle, setShowTitle] = useState(true);
   setTimeout(() => {
     setShowVideo(true);
   }, 3000);
-
-  // setTimeout(() => {
-  //   if (showTitle) {
-  //     setShowTitle(false);
-  //   }
-  // }, 30000);
 
   return (
     <motion.div
@@ -63,8 +56,9 @@ export default function FrontImage({ isMed }) {
       initial="hidden"
       animate="visible"
       className={classes.videoContainer}
+      style={{ background: "brown" }}
     >
-      <Overlay></Overlay>
+      {/* <Overlay></Overlay> */}
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo autoplay></JolVideo>}
       </div>
@@ -75,33 +69,13 @@ export default function FrontImage({ isMed }) {
         animate="show"
         className={classes.titleContainer}
       >
-        {/* <AnimatePresence> */}
-        {/* {showTitle && ( */}
-        <motion.div
-          variants={item}
-          // exit={{
-          //   opacity: 0,
-          //   y: 200,
-          //   transition: { delay: 1, duration: 1 },
-          // }}
-        >
+        <motion.div variants={item}>
           <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
           <h5 className={classes.subTitle}>
             A church and a community of imperfect people seeking to know and
-            love
-            {/* <strong
-              style={{
-                fontWeight: "bold",
-                fontSize: "2rem",
-                color: "#3776ff",
-              }}
-            > */}
-            JESUS more.
-            {/* </strong>{" "} */}
+            love JESUS more.
           </h5>
         </motion.div>
-        {/* )} */}
-        {/* </AnimatePresence> */}
       </motion.div>
     </motion.div>
   );

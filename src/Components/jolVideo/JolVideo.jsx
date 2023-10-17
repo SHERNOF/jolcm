@@ -6,7 +6,11 @@ export default function JolVideo() {
     <div
       style={{
         position: "absolute",
-        width: "100vw",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <video
@@ -16,9 +20,8 @@ export default function JolVideo() {
         loop
         playsInline
         style={{
-          width: "100%",
-          height: "100vh",
-          objectFit: "cover",
+          width: "98%",
+          height: "98%",
         }}
       >
         <source type="video/mp4" />
