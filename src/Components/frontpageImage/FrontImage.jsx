@@ -58,7 +58,7 @@ export default function FrontImage() {
       className={classes.videoContainer}
       style={{ background: "brown" }}
     >
-      {/* <Overlay></Overlay> */}
+      <Overlay></Overlay>
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo autoplay></JolVideo>}
       </div>

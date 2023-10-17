@@ -34,8 +34,8 @@ export default function MainLogo() {
         initial="hidden"
         animate="visible"
         style={{
-          width: "90%",
-          height: "90%",
+          width: "100%",
+          height: "100%",
           overflow: "visible",
           // stroke: alpha(theme.logo.stroke, 1),
           stroke: "#fff",
