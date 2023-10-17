@@ -20,8 +20,8 @@ export default function JolVideo() {
         loop
         playsInline
         style={{
-          width: "98%",
-          height: "98%",
+          width: "100%",
+          height: "100%",
         }}
       >
         <source type="video/mp4" />

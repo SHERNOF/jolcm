@@ -4,62 +4,66 @@ import classes from "./aboutUs.module.css";
 export default function AboutUs() {
   const one = useRef(null);
   const two = useRef(null);
-  const three = useRef(null);
-  const [oneVisible, setoneVisible] = useState(false);
+  // const three = useRef(null);
+  const [isIntersecting, setisIntersecting] = useState(false);
+  // const [oneVisible, setoneVisible] = useState(false);
   const [twoVisible, settwoVisible] = useState(false);
-  const [threeVisible, setthreeVisible] = useState(false);
+  // const [threeVisible, setthreeVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setoneVisible(entry.isIntersecting);
+      ([entry]) => {
+        setisIntersecting(entry.isIntersecting);
       },
-      { rootMargin: "-100px" }
+      { rootMargin: "-65px" }
     );
+    console.log(isIntersecting);
     observer.observe(one.current);
-  }, []);
+    return () => observer.disconnect();
+  }, [isIntersecting]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+      ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
-      { rootMargin: "-200px" }
+      { rootMargin: "-70px" }
     );
+    console.log(isIntersecting);
     observer.observe(two.current);
-  }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        settwoVisible(entry.isIntersecting);
-      },
-      { rootMargin: "-200px" }
-    );
-    observer.observe(two.current);
-  }, []);
+    return () => observer.disconnect();
+  }, [twoVisible]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setthreeVisible(entry.isIntersecting);
-      },
-      { rootMargin: "-200px" }
-    );
-    observer.observe(three.current);
-  }, []);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setisIntersecting(entry.isIntersecting);
+  //     },
+  //     { rootMargin: "-200px" }
+  //   );
+  //   observer.observe(two.current);
+  //   return () => observer.disconnect();
+  // }, [isIntersecting]);
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setthreeVisible(entry.isIntersecting);
+  //     },
+  //     { rootMargin: "-200px" }
+  //   );
+  //   observer.observe(three.current);
+  //   return () => observer.disconnect();
+  // }, [isIntersecting]);
 
   return (
     <div className={classes.about}>
       <div className={`${classes.mv} `}>
         <div className={classes.jol} ref={one}>
           <div
-            className={`${classes.amvContainer} ${
-              oneVisible ? classes.show : classes.hide
-            }`}
+            className={`${classes.amvContainer} 
+            
+            ${isIntersecting && classes.slideIn}`}
           >
             <h5>About Joy of Life</h5>
             <p className={classes.content}>
@@ -68,10 +72,12 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className={classes.imageContainer}>
+          <div
+            className={`${classes.imageContainer} 
+               ${isIntersecting && classes.slideIn}`}
+          >
             <img
               className={`${classes.imageContained} 
-               ${oneVisible ? classes.imgShow : classes.imgHide}
               `}
               src="../img/bible2.png"
               alt="bible"
@@ -87,7 +93,7 @@ export default function AboutUs() {
           <div className={classes.imageContainer}>
             <img
               className={`${classes.imageContained} 
-               ${twoVisible ? classes.show : classes.hide}
+              ${twoVisible && classes.slideIn}
               `}
               src="../img/share.png"
               alt="bible"
@@ -96,7 +102,7 @@ export default function AboutUs() {
 
           <div
             className={`${classes.amvContainer} 
-            ${twoVisible ? classes.imgShow : classes.imgHide}
+            ${twoVisible && classes.slideIn}
             `}
           >
             <h5>Mission</h5>
@@ -106,7 +112,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className={classes.vision} ref={three}>
+        {/* <div className={classes.vision} ref={three}>
           <div
             className={`${classes.amvContainer} 
             ${threeVisible ? classes.show : classes.hide}
@@ -128,7 +134,7 @@ export default function AboutUs() {
               alt="bible"
             ></img>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

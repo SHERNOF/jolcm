@@ -3,20 +3,23 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  /* border: 1px solid red; */
-  width: 100%;
+
+  border: 1px solid red;
 }
 
 .mv {
-  width: 75%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid blue;
 }
 
-.mv > div div {
+/* .mv > div div {
   margin-bottom: 3rem;
-}
+} */
 .amvContainer,
 .imageContainer {
   width: 50%;
@@ -28,13 +31,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  transition: all ease-in 1s;
+  opacity: 0;
+  transform: translateX(150%);
 }
 
 .imageContainer {
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: all ease-in 1s;
 }
-.imageContained {
-  /* width: 80%; */
 
+.imageContained {
   background-size: cover;
 }
 .jol,
@@ -45,65 +54,22 @@
   justify-content: center;
   width: 100%;
   transition-delay: 0.15s;
-  /* border: 1px solid red; */
-}
-.jol {
-  /* border: 1px solid blue; */
-}
-.mission {
-  /* border: 1px solid green; */
-}
-.imgHide {
-  transform: translateX(500px);
-  left: -500px;
-  opacity: 0;
-}
-.imgShow {
-  transform: translateX(0);
-  opacity: 1;
-  transition: all 1s ease-in-out;
+  padding: 10px;
+  gap: 10px;
 }
 
-.hide {
-  transform: translateX(-500px);
-  left: -500px;
-  opacity: 0;
-}
-.show {
+.slideIn {
   transform: translateX(0);
   opacity: 1;
-  transition: all 1s ease-in-out;
 }
 
 .content {
   color: black;
-  /* margin-left: 0.5rem; */
 }
 h5 {
   align-self: flex-start;
   margin-left: 1.6rem;
 }
-/* animation */
-
-.mission {
-  transition-delay: 0.3s;
-}
-.vision {
-  transition-delay: 0.45s;
-}
-@keyframes animate {
-  0% {
-    /* transition: all 0.5s linear; */
-    transform: translateX(-500px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* animation */
 
 @media (max-width: 390px) {
   .about {
@@ -112,14 +78,42 @@ h5 {
     margin-bottom: 1rem;
     height: auto;
   }
-  .mv,
-  .bible {
+  .mv {
     width: 100%;
   }
-  .mv div > div {
-    margin-bottom: 0.5rem;
+  .amvContainer,
+  .imageContainer {
+    width: 50%;
+    height: 15vh;
+    margin-bottom: 1rem;
   }
   .content {
-    font-size: 1.1em;
+    margin-top: -1rem;
+    font-size: 0.9em;
+  }
+  h5 {
+    margin-left: 0.6rem;
+  }
+
+  .imgHide {
+    /* transform: translateX(50px); */
+    left: -50px;
+    opacity: 0;
+  }
+  .imgShow {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 1s ease-in-out;
+  }
+
+  .hide {
+    /* transform: translateX(-50px); */
+    left: -50px;
+    opacity: 0;
+  }
+  .show {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 1s ease-in-out;
   }
 }
