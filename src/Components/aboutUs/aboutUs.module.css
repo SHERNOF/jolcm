@@ -2,9 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-
-  border: 1px solid red;
+  margin-top: 5rem;
 }
 
 .mv {
@@ -13,39 +11,15 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-  border: 1px solid blue;
 }
 
-/* .mv > div div {
-  margin-bottom: 3rem;
-} */
-.amvContainer,
-.imageContainer {
+.leftDiv,
+.rightDiv {
   width: 50%;
   height: 25vh;
   margin-bottom: 1rem;
 }
-.amvContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 
-  transition: all ease-in 1s;
-  opacity: 0;
-  transform: translateX(150%);
-}
-
-.imageContainer {
-  transform: translateX(-150px);
-  opacity: 0;
-  transition: all ease-in 1s;
-}
-
-.imageContained {
-  background-size: cover;
-}
 .jol,
 .mission,
 .vision {
@@ -55,13 +29,34 @@
   width: 100%;
   transition-delay: 0.15s;
   padding: 10px;
-  gap: 10px;
+  gap: 20px;
 }
 
+.leftDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all ease-in 1s;
+  opacity: 0;
+  transform: translateX(150%);
+}
+
+.rightDiv{
+  transform: translateX(-150%);
+  opacity: 0;
+  transition: all ease-in 1s;
+}
 .slideIn {
   transform: translateX(0);
   opacity: 1;
 }
+
+.imageContained {
+  background-size: cover;
+}
+
+
 
 .content {
   color: black;
@@ -81,11 +76,13 @@ h5 {
   .mv {
     width: 100%;
   }
-  .amvContainer,
-  .imageContainer {
+  .mv{    margin-bottom: 2rem;
+    margin-top: 2rem;}
+  .leftDiv,
+  .rightDiv {
     width: 50%;
     height: 15vh;
-    margin-bottom: 1rem;
+
   }
   .content {
     margin-top: -1rem;

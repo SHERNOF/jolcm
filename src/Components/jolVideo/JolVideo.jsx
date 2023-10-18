@@ -1,16 +1,12 @@
 import React from "react";
 import JOLNA from "./JOLNA.mp4";
 
-export default function JolVideo() {
+export default function JolVideo({ embedId }) {
   return (
     <div
       style={{
         position: "absolute",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: "100vw",
       }}
     >
       <video
@@ -21,7 +17,8 @@ export default function JolVideo() {
         playsInline
         style={{
           width: "100%",
-          height: "100%",
+          height: "100vh",
+          objectFit: "cover",
         }}
       >
         <source type="video/mp4" />

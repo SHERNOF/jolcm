@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 100vw;
+  max-width: 100%;
   /* margin-top: 1rem; */
 }
 .container {
@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 390px) {
   .container {
     width: 95vw;
     height: 75%;

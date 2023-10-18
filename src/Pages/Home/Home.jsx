@@ -56,7 +56,7 @@ export default function Home() {
         <Ministries></Ministries>
         <OurTeam />
       </Container>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 }

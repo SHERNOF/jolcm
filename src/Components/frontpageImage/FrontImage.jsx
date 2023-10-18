@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import classes from "./frontImage.module.css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import JolVideo from "../jolVideo/JolVideo";
-
-import Overlay from "../../UI/overlay/Overlay";
 
 const entrance = {
   hidden: { opacity: 0, y: 3200 },
@@ -31,10 +29,10 @@ const container = {
   },
 };
 const item = {
-  initial: { opacity: 0, y: -2200, scale: 1.2 },
+  initial: { opacity: 0, y: -3200, scale: 1.2 },
 
   show: {
-    y: 200,
+    y: 0,
     opacity: 1,
     scale: 1,
     transition: {
@@ -44,11 +42,18 @@ const item = {
   },
 };
 
-export default function FrontImage() {
+export default function FrontImage({ isMed }) {
   const [showVideo, setShowVideo] = useState(false);
+  const [showTitle, setShowTitle] = useState(true);
   setTimeout(() => {
     setShowVideo(true);
   }, 3000);
+
+  setTimeout(() => {
+    if (showTitle) {
+      setShowTitle(false);
+    }
+  }, 30000);
 
   return (
     <motion.div
@@ -56,9 +61,9 @@ export default function FrontImage() {
       initial="hidden"
       animate="visible"
       className={classes.videoContainer}
-      style={{ background: "brown" }}
     >
-      <Overlay></Overlay>
+      <div className={classes.overlay}></div>
+
       <div className={classes.imageContainer}>
         {showVideo && <JolVideo autoplay></JolVideo>}
       </div>
@@ -69,13 +74,21 @@ export default function FrontImage() {
         animate="show"
         className={classes.titleContainer}
       >
-        <motion.div variants={item}>
-          <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
-          <h5 className={classes.subTitle}>
-            A church and a community of imperfect people seeking to know and
-            love JESUS more.
-          </h5>
-        </motion.div>
+        <AnimatePresence>
+          {showTitle && (
+            <motion.div
+              variants={item}
+              exit={{
+                opacity: 0,
+                y: 1200,
+                transition: { delay: 1, duration: 1 },
+              }}
+            >
+              <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
+              <h2 className={classes.subTitle}>WELCOME HOME</h2>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </motion.div>
   );

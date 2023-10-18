@@ -12,7 +12,8 @@ export default function Events({ evs }) {
   return (
     <div className={classes.events}>
       <Title>
-        <h5>Events</h5>
+        {/* <h5>Events</h5> */}
+        Events
       </Title>
       <div className={classes.eventsLineUp}>
         <div className={classes.eventBody}>

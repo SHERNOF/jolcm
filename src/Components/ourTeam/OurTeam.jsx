@@ -22,7 +22,7 @@ export default function OurTeam() {
   return (
     <div className={classes.ourTeam}>
       <Title>
-        <h5>Our Team</h5>
+      Our Team
       </Title>
       <div className={classes.team}>
         <div className={classes.teamContainer}>
