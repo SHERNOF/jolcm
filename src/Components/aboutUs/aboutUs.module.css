@@ -16,7 +16,7 @@
 .leftDiv,
 .rightDiv {
   width: 50%;
-  height: 25vh;
+  height: 20vh;
   margin-bottom: 1rem;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   transition-delay: 0.15s;
   padding: 10px;
   gap: 20px;
@@ -37,15 +37,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transition: all ease-in 1s;
+  transition: all ease-in 0.5s;
   opacity: 0;
-  transform: translateX(150%);
+  transform: translateX(-200px);
 }
 
-.rightDiv{
-  transform: translateX(-150%);
+.rightDiv {
+  transform: translateX(200px);
   opacity: 0;
-  transition: all ease-in 1s;
+  transition: all ease-in 0.5s;
 }
 .slideIn {
   transform: translateX(0);
@@ -55,8 +55,6 @@
 .imageContained {
   background-size: cover;
 }
-
-
 
 .content {
   color: black;
@@ -76,41 +74,37 @@ h5 {
   .mv {
     width: 100%;
   }
-  .mv{    margin-bottom: 2rem;
-    margin-top: 2rem;}
+  .mv {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  .jol,
+  .mission,
+  .vision {
+    width: 90%;
+    transition-delay: 0.15s;
+    padding: 5px;
+    gap: 5px;
+  }
   .leftDiv,
   .rightDiv {
-    width: 50%;
+    width: 100%;
     height: 15vh;
-
   }
   .content {
     margin-top: -1rem;
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   h5 {
     margin-left: 0.6rem;
+    font-size: 1em;
   }
 
-  .imgHide {
-    /* transform: translateX(50px); */
-    left: -50px;
-    opacity: 0;
-  }
-  .imgShow {
-    transform: translateX(0);
-    opacity: 1;
-    transition: all 1s ease-in-out;
-  }
-
-  .hide {
-    /* transform: translateX(-50px); */
-    left: -50px;
-    opacity: 0;
-  }
-  .show {
-    transform: translateX(0);
-    opacity: 1;
-    transition: all 1s ease-in-out;
+  .leftDiv,
+  .rightDiv {
+    width: 50%;
+    height: 12vh;
+    margin-bottom: 1rem;
   }
 }

@@ -31,7 +31,7 @@ export default function AboutUs() {
     console.log(isIntersecting);
     observer.observe(two.current);
     return () => observer.disconnect();
-  }, [twoVisible]);
+  }, [isIntersecting]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,10 +43,7 @@ export default function AboutUs() {
     console.log(isIntersecting);
     observer.observe(three.current);
     return () => observer.disconnect();
-  }, [threeVisible]);
-
-
-
+  }, [isIntersecting]);
 
   return (
     <div className={classes.about}>
@@ -77,16 +74,15 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div
-          className={classes.mission}
-          ref={two}
-        >
-          <div className={`${classes.rightDiv} ${twoVisible && classes.slideIn}`}>
+        <div className={classes.mission} ref={two}>
+          <div
+            className={`${classes.rightDiv} ${twoVisible && classes.slideIn}`}
+          >
             <img
               className={`${classes.imageContained} 
               ${twoVisible && classes.slideIn}
               `}
-              src="../img/share.png"
+              src="../img/share.PNG"
               alt="share"
             ></img>
           </div>
@@ -115,7 +111,9 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div className={`${classes.rightDiv} ${threeVisible && classes.slideIn}`}>
+          <div
+            className={`${classes.rightDiv} ${threeVisible && classes.slideIn}`}
+          >
             <img
               className={`${classes.imageContained} 
               

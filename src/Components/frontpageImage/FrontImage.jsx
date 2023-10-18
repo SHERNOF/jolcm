@@ -68,7 +68,7 @@ export default function FrontImage({ isMed }) {
         {showVideo && <JolVideo autoplay></JolVideo>}
       </div>
 
-      <motion.div
+      {/* <motion.div
         variants={container}
         initial="initial"
         animate="show"
@@ -89,7 +89,7 @@ export default function FrontImage({ isMed }) {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }
