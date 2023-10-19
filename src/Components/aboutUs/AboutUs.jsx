@@ -1,8 +1,5 @@
-
-
 import React, { useEffect, useRef, useState } from "react";
 import classes from "./aboutUs.module.css";
-
 
 export default function AboutUs() {
   const one = useRef(null);
@@ -17,7 +14,7 @@ export default function AboutUs() {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { rootMargin: "-25px", threshold: '.5' }
+      { threshold: ".55" }
     );
     console.log(isIntersecting);
     observer.observe(one.current);
@@ -29,7 +26,7 @@ export default function AboutUs() {
       ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
-      { rootMargin: "-25px", threshold: '.5' }
+      { threshold: ".25", rootMargin: "-5px" }
     );
     console.log(isIntersecting);
     observer.observe(two.current);
@@ -41,21 +38,21 @@ export default function AboutUs() {
       ([entry]) => {
         setthreeVisible(entry.isIntersecting);
       },
-      { rootMargin: "-50px", threshold: '.5' }
+      { rootMargin: "-10px", threshold: ".5" }
     );
     console.log(isIntersecting);
     observer.observe(three.current);
     return () => observer.disconnect();
-  }, [threeVisible]);
+  }, [isIntersecting]);
 
   return (
     <div className={classes.about}>
       <div className={`${classes.mv} `}>
-        <div className={classes.jol} >
+        <div className={classes.jol}>
           <div
             className={`${classes.leftDiv} 
-            
             ${isIntersecting && classes.slideIn}`}
+            ref={one}
           >
             <h5>About Joy of Life</h5>
             <p className={classes.content}>
@@ -66,7 +63,7 @@ export default function AboutUs() {
 
           <div
             className={`${classes.rightDiv} 
-               ${isIntersecting && classes.slideIn}` } ref={one}
+               ${isIntersecting && classes.slideIn}`}
           >
             <img
               className={`${classes.imageContained} 
@@ -77,8 +74,9 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className={classes.mission} >
-          <div ref={two}
+        <div className={classes.mission}>
+          <div
+            ref={two}
             className={`${classes.rightDiv} ${twoVisible && classes.slideIn}`}
           >
             <img
@@ -102,7 +100,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className={classes.vision} >
+        <div className={classes.vision}>
           <div
             className={`${classes.leftDiv} 
             ${threeVisible && classes.slideIn}
@@ -114,7 +112,8 @@ export default function AboutUs() {
             </p>
           </div>
 
-          <div  ref={three}
+          <div
+            ref={three}
             className={`${classes.rightDiv} ${threeVisible && classes.slideIn}`}
           >
             <img
