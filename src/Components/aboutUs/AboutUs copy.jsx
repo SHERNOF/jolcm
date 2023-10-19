@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-// import classes from "./aboutUs.module.css";
-import './aboutUs.css'
+import classes from "./aboutUs.module.css";
 
 
 export default function AboutUs() {
@@ -16,7 +15,7 @@ export default function AboutUs() {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { rootMargin: "-100px", threshold: '.25' }
+      { rootMargin: "-50px", threshold: '.25' }
     );
     console.log(isIntersecting);
     observer.observe(one.current);
@@ -28,7 +27,7 @@ export default function AboutUs() {
       ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
-      { rootMargin: "-100px", threshold: '.25' }
+      { rootMargin: "-50px", threshold: '.25' }
     );
     console.log(isIntersecting);
     observer.observe(two.current);
@@ -40,7 +39,7 @@ export default function AboutUs() {
       ([entry]) => {
         setthreeVisible(entry.isIntersecting);
       },
-      { rootMargin: "-100px", threshold: '.25' }
+      { rootMargin: "-50px", threshold: '.25' }
     );
     console.log(isIntersecting);
     observer.observe(three.current);
@@ -48,73 +47,78 @@ export default function AboutUs() {
   }, [isIntersecting]);
 
   return (
-    <div className='about'>
-      <div className='mv'>
-        <div className='jol' ref={one}>
+    <div className={classes.about}>
+      <div className={`${classes.mv} `}>
+        <div className={classes.jol} ref={one}>
           <div
+            className={`${classes.leftDiv} 
             
-            className={`${'leftDiv'} ${isIntersecting && 'slideIn'}`}
+            ${isIntersecting && classes.slideIn}`}
           >
             <h5>About Joy of Life</h5>
-            <p className='content'>
+            <p className={classes.content}>
               Is a church and a community of imperfect people seeking to know
               and love JESUS more.
             </p>
           </div>
 
           <div
-            className={` ${'rightDiv'}
-               ${isIntersecting && 'slideIn'}`}
+            className={`${classes.rightDiv} 
+               ${isIntersecting && classes.slideIn}`}
           >
             <img
-              className='imageContained'
+              className={`${classes.imageContained} 
+              `}
               src="../img/bible2.png"
               alt="bible"
             ></img>
           </div>
         </div>
 
-        <div className='mission' ref={two}>
+        <div className={classes.mission} ref={two}>
           <div
-            // className={`'rightDiv ${twoVisible && 'slideIn'}`}
-            className={`${'rightDiv'} ${twoVisible && 'slideIn'}`}
+            className={`${classes.rightDiv} ${twoVisible && classes.slideIn}`}
           >
             <img
-              className='imageContained'
+              className={`${classes.imageContained} 
+              ${twoVisible && classes.slideIn}
+              `}
               src="../img/share.PNG"
               alt="share"
             ></img>
           </div>
 
           <div
-            className={`${'leftDiv'} 
-            ${twoVisible && 'slideIn'}
+            className={`${classes.leftDiv} 
+            ${twoVisible && classes.slideIn}
             `}
           >
             <h5>Mission</h5>
-            <p className='content'>
+            <p className={classes.content}>
               To share life in Christ Jesus with great joy to all
             </p>
           </div>
         </div>
 
-        <div className='vision' ref={three}>
+        <div className={classes.vision} ref={three}>
           <div
-            
-            className={`${'leftDiv'} ${threeVisible && 'slideIn'}`}
-            
+            className={`${classes.leftDiv} 
+            ${threeVisible && classes.slideIn}
+            `}
           >
             <h5>Vision</h5>
-            <p className='content'>
+            <p className={classes.content}>
               To see Christ-like people living in fullness of joy
             </p>
           </div>
 
           <div
-            className={`${'rightDiv'} ${threeVisible && 'slideIn'}`}
+            className={`${classes.rightDiv} ${threeVisible && classes.slideIn}`}
           >
             <img
-              className='imageContained'
+              className={`${classes.imageContained} 
+              
+              `}
               src="../img/fullness.png"
               alt="bible"
             ></img>

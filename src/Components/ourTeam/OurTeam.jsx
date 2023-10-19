@@ -47,7 +47,6 @@ export default function OurTeam() {
 
               <div className={`${classes.front} ${flip && classes.frontFlip}`}>
                 <p style={{ textAlign: "center" }}>{inf.nickname}</p>
-
                 <div className={classes.imgContainer}>
                   <img
                     style={{ width: "100%", height: "100%" }}
