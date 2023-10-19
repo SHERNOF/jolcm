@@ -21,9 +21,7 @@ export default function OurTeam() {
 
   return (
     <div className={classes.ourTeam}>
-      <Title>
-      Our Team
-      </Title>
+      <Title>Our Team</Title>
       <div className={classes.team}>
         <div className={classes.teamContainer}>
           {info.map((inf) => (
@@ -33,11 +31,13 @@ export default function OurTeam() {
                   flip && classes.verseFlip
                 }`}
               >
+                <h6 style={{ width: "100%" }}>{inf.verseName}</h6>
                 <p
                   ref={pref}
                   style={{
-                    fontSize: ".9em",
-                    padding: "1rem 1rem",
+                    fontSize: ".6em",
+                    padding: "0 1rem",
+                    // marginTop: "-2rem",
                   }}
                   onLoad={countWords}
                 >

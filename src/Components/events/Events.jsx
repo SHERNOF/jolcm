@@ -11,13 +11,9 @@ export default function Events({ evs }) {
   const [bigPicFromSlider, setbigPicFromSlider] = useState(0);
   return (
     <div className={classes.events}>
-      <Title>
-        {/* <h5>Events</h5> */}
-        Events
-      </Title>
+      <Title>Events</Title>
       <div className={classes.eventsLineUp}>
         <div className={classes.eventBody}>
-          {/* order reversed */}
           <div className={classes.picBox}>
             <div className={classes.bigPic}>
               <img

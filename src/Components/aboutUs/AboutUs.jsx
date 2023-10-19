@@ -128,3 +128,9 @@ export default function AboutUs() {
     </div>
   );
 }
+
+/* encountered issue in the implementation of the intersection observer.
+  1. the animation fired up simultaneously. solved by creating two more useState, useRef and useEffect
+
+  2. the content is not appearing in the mobile view (iphone11 pro). Resolved by fine tuning the threshold and rootMargin of rach div
+*/

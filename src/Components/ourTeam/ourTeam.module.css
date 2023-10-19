@@ -1,8 +1,10 @@
 .ourTeam {
   /* margin-bottom: 3rem;
   margin-top: 5rem; */
+  margin: 5rem 0;
 }
 .team {
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -18,7 +20,7 @@
   justify-content: flex-start;
   align-items: center;
   scrollbar-width: none;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: scroll;
   transition: all 1s;
 }
@@ -56,8 +58,8 @@
   z-index: -1;
 }
 .imgContainer {
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   overflow: hidden;
   margin: 1rem 1rem;
@@ -89,6 +91,11 @@
   /* box-shadow: 5px 5px 10px rgb(94, 93, 93); */
   /* border: 1px solid rgb(94, 93, 93); */
   animation: verse 1s forwards 0.5s ease-in-out;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @keyframes verse {
