@@ -14,7 +14,7 @@ export default function AboutUs() {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { threshold: ".55" }
+      { rootMargin: "-20px", threshold: ".5" }
     );
     console.log(isIntersecting);
     observer.observe(one.current);
@@ -26,7 +26,7 @@ export default function AboutUs() {
       ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
-      { threshold: ".25", rootMargin: "-5px" }
+      { threshold: ".9", rootMargin: "0px" }
     );
     console.log(isIntersecting);
     observer.observe(two.current);
@@ -38,7 +38,7 @@ export default function AboutUs() {
       ([entry]) => {
         setthreeVisible(entry.isIntersecting);
       },
-      { rootMargin: "-10px", threshold: ".5" }
+      { rootMargin: "30px", threshold: ".5" }
     );
     console.log(isIntersecting);
     observer.observe(three.current);
@@ -48,11 +48,10 @@ export default function AboutUs() {
   return (
     <div className={classes.about}>
       <div className={`${classes.mv} `}>
-        <div className={classes.jol}>
+        <div className={classes.jol} ref={one}>
           <div
             className={`${classes.leftDiv} 
             ${isIntersecting && classes.slideIn}`}
-            ref={one}
           >
             <h5>About Joy of Life</h5>
             <p className={classes.content}>
