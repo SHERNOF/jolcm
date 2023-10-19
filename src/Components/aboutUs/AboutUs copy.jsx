@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import classes from "./aboutUs.module.css";
+// import classes from "./aboutUs.module.css";
+import './aboutUs.css'
 
 
 export default function AboutUs() {
-  const one = useRef(null);
   const two = useRef(null);
   const three = useRef(null);
   const [isIntersecting, setisIntersecting] = useState(false);
+  const one = useRef(null);
   const [twoVisible, settwoVisible] = useState(false);
   const [threeVisible, setthreeVisible] = useState(false);
 
@@ -15,116 +16,129 @@ export default function AboutUs() {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { rootMargin: "-50px", threshold: '.25' }
+      { rootMargin: "-50px",
+      //  threshold: '.5' 
+      }
+
     );
     console.log(isIntersecting);
     observer.observe(one.current);
     return () => observer.disconnect();
   }, [isIntersecting]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        settwoVisible(entry.isIntersecting);
-      },
-      { rootMargin: "-50px", threshold: '.25' }
-    );
-    console.log(isIntersecting);
-    observer.observe(two.current);
-    return () => observer.disconnect();
-  }, [isIntersecting]);
+  useRef(()=>{
+    // if(isIntersecting){
+    //   one.current.querySelectorAll('.leftDiv').forEach((el)=>{
+    //     el.classList.add('slideIn')
+        
+    //   })
+    // }
+    // if(isIntersecting){
+    //   one.current.querySelector('rightDiv').forEach((el)=>{
+    //     el.classList.add('.slideIn')
+    //   })
+    // }
+  },[])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setthreeVisible(entry.isIntersecting);
-      },
-      { rootMargin: "-50px", threshold: '.25' }
-    );
-    console.log(isIntersecting);
-    observer.observe(three.current);
-    return () => observer.disconnect();
-  }, [isIntersecting]);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       settwoVisible(entry.isIntersecting);
+  //     },
+  //     { rootMargin: "-100px", threshold: '.25' }
+  //   );
+  //   console.log(isIntersecting);
+  //   observer.observe(two.current);
+  //   return () => observer.disconnect();
+  // }, [isIntersecting]);
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setthreeVisible(entry.isIntersecting);
+  //     },
+  //     { rootMargin: "-100px", threshold: '.25' }
+  //   );
+  //   console.log(isIntersecting);
+  //   observer.observe(three.current);
+  //   return () => observer.disconnect();
+  // }, [isIntersecting]);
 
   return (
-    <div className={classes.about}>
-      <div className={`${classes.mv} `}>
-        <div className={classes.jol} ref={one}>
+    <div className='about'>
+      <div className='mv'>
+        <div className='jol'    ref={one}>
           <div
-            className={`${classes.leftDiv} 
-            
-            ${isIntersecting && classes.slideIn}`}
+            className={`${'leftDiv'} ${isIntersecting && 'slideIn'}` }
+            // className='leftDiv'
           >
             <h5>About Joy of Life</h5>
-            <p className={classes.content}>
+            <p className='content'>
               Is a church and a community of imperfect people seeking to know
               and love JESUS more.
             </p>
           </div>
 
           <div
-            className={`${classes.rightDiv} 
-               ${isIntersecting && classes.slideIn}`}
+            // className={` ${'rightDiv'} ${isIntersecting && 'slideIn'}`}
+            className='rightDiv'
           >
             <img
-              className={`${classes.imageContained} 
-              `}
+              className='imageContained'
               src="../img/bible2.png"
               alt="bible"
             ></img>
           </div>
         </div>
 
-        <div className={classes.mission} ref={two}>
+        {/* <div className='mission' ref={two}>
           <div
-            className={`${classes.rightDiv} ${twoVisible && classes.slideIn}`}
+            // className={`'rightDiv ${twoVisible && 'slideIn'}`}
+            className={`${'rightDiv'} ${twoVisible && 'slideIn'}`}
           >
             <img
-              className={`${classes.imageContained} 
-              ${twoVisible && classes.slideIn}
-              `}
+              className='imageContained'
               src="../img/share.PNG"
               alt="share"
             ></img>
           </div>
 
           <div
-            className={`${classes.leftDiv} 
-            ${twoVisible && classes.slideIn}
+            className={`${'leftDiv'} 
+            ${twoVisible && 'slideIn'}
             `}
           >
             <h5>Mission</h5>
-            <p className={classes.content}>
+            <p className='content'>
               To share life in Christ Jesus with great joy to all
             </p>
           </div>
         </div>
 
-        <div className={classes.vision} ref={three}>
+        <div className='vision' ref={three}>
           <div
-            className={`${classes.leftDiv} 
-            ${threeVisible && classes.slideIn}
-            `}
+            
+            className={`${'leftDiv'} ${threeVisible && 'slideIn'}`}
+            
           >
             <h5>Vision</h5>
-            <p className={classes.content}>
+            <p className='content'>
               To see Christ-like people living in fullness of joy
             </p>
           </div>
 
           <div
-            className={`${classes.rightDiv} ${threeVisible && classes.slideIn}`}
+            className={`${'rightDiv'} ${threeVisible && 'slideIn'}`}
           >
             <img
-              className={`${classes.imageContained} 
-              
-              `}
+              className='imageContained'
               src="../img/fullness.png"
               alt="bible"
             ></img>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
+

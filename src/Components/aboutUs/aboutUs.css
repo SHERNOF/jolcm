@@ -45,17 +45,17 @@
     flex-direction: column;
     transition: all ease-in 0.5s;
     opacity: 0;
-    transform: translateX(-200px);
+    transform: translateX(-100px);
   }
   
   .rightDiv {
-    transform: translateX(200px);
+    transform: translateX(100px);
     opacity: 0;
     transition: all ease-in 0.5s;
   }
   .slideIn {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
   }
   
   .imageContained {
