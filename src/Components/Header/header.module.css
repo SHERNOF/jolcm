@@ -7,6 +7,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border: 1px solid red; */
 }
 .navContainer {
   height: 100%;
@@ -16,6 +17,8 @@ nav {
   align-items: center;
   color: white;
   transition: all 0.5s;
+  /* border: 1px solid blue; */
+  width: 70vw;
 }
 
 .bgned {
@@ -32,6 +35,7 @@ nav {
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: -6rem;
+  /* border: 1px solid red; */
 }
 .logo .navLogo {
   width: 110%;
@@ -40,7 +44,7 @@ nav {
   justify-self: center;
   margin-bottom: 1rem;
   background-size: cover;
-  margin-right: 3rem;
+  /* margin-right: 3rem; */
 }
 @media (max-width: 768px) {
   .navContainer {
@@ -50,6 +54,29 @@ nav {
   }
   .navLogo img {
     background-image: url("../../../public/pics/JOLblack.svg");
+  }
+}
+@media (max-width: 390px) {
+  .logo {
+    width: 10rem;
+    height: 100%;
+
+    margin-left: -3rem;
+  }
+  .logo .navLogo {
+    width: 110%;
+    height: 150%;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 1rem;
+    background-size: cover;
+    margin-right: 3rem;
+  }
+  .navContainer {
+    height: 100%;
+
+    /* border: 1px solid blue; */
+    width: 90vw;
   }
 }
 

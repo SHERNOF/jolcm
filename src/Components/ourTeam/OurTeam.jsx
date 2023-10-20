@@ -31,13 +31,13 @@ export default function OurTeam() {
                   flip && classes.verseFlip
                 }`}
               >
-                <h6 style={{ width: "100%" }}>{inf.verseName}</h6>
+                <p style={{ width: "100%" }}>{inf.verseName}</p>
                 <p
-                  ref={pref}
+                  // ref={pref}
                   style={{
                     fontSize: ".6em",
                     padding: "0 1rem",
-                    // marginTop: "-2rem",
+                    textAlign: "justify",
                   }}
                   onLoad={countWords}
                 >

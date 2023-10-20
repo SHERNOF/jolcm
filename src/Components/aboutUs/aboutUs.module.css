@@ -41,11 +41,11 @@
   flex-direction: column;
   transition: all ease-in 0.5s;
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateY(60px);
 }
 
 .rightDiv {
-  transform: translateX(100px);
+  transform: translateY(60px);
   opacity: 0;
   transition: all ease-in 0.5s;
 }

@@ -10,26 +10,26 @@ export default function Header() {
 
   return (
     <nav>
-      <div style={{ width: "70vw", height: "100%" }}>
-        <div
-          className={`${classes.navContainer} ${wheel && classes.bgned}
+      {/* <div style={{ width: "70vw", height: "100%" }}> */}
+      <div
+        className={`${classes.navContainer} ${wheel && classes.bgned}
          ${classes.logged}`}
-        >
-          <Link to="/" className={classes.logo}>
-            <img
-              className={classes.navLogo}
-              src="../pics/JOL3.svg"
-              alt="logo"
-            ></img>
-          </Link>
+      >
+        <Link to="/" className={classes.logo}>
+          <img
+            className={classes.navLogo}
+            src="../pics/JOL3.svg"
+            alt="logo"
+          ></img>
+        </Link>
 
-          {userInfo && (
-            <h6 style={{ color: "#3776ff", fontSize: "1em" }}>
-              Good morning {userInfo.name}
-            </h6>
-          )}
-        </div>
+        {userInfo && (
+          <h6 style={{ color: "#3776ff", fontSize: "1em" }}>
+            Good morning {userInfo.name}
+          </h6>
+        )}
       </div>
+      {/* </div> */}
     </nav>
   );
 }

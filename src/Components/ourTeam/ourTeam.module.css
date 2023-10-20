@@ -1,7 +1,8 @@
 .ourTeam {
-  /* margin-bottom: 3rem;
-  margin-top: 5rem; */
-  margin: 5rem 0;
+  /* margin: 5rem 0; */
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  /* border: 1px solid blue; */
 }
 .team {
   overflow: hidden;
@@ -86,10 +87,6 @@
 }
 
 .teamDetails:hover .verseContainer {
-  /* transform: translateY(0); */
-  /* opacity: 1; */
-  /* box-shadow: 5px 5px 10px rgb(94, 93, 93); */
-  /* border: 1px solid rgb(94, 93, 93); */
   animation: verse 1s forwards 0.5s ease-in-out;
   overflow-y: scroll;
   display: flex;

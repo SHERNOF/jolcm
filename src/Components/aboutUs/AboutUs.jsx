@@ -14,7 +14,8 @@ export default function AboutUs() {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { rootMargin: "-20px", threshold: ".5" }
+      // { rootMargin: "-20px", threshold: ".5" }
+      { rootMargin: "-100px", threshold: "1" }
     );
     console.log(isIntersecting);
     observer.observe(one.current);
@@ -26,7 +27,7 @@ export default function AboutUs() {
       ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
-      { rootMargin: "-50px", threshold: ".5" }
+      { rootMargin: "-100px", threshold: ".75" }
     );
     console.log(isIntersecting);
     observer.observe(two.current);
@@ -38,7 +39,7 @@ export default function AboutUs() {
       ([entry]) => {
         setthreeVisible(entry.isIntersecting);
       },
-      { rootMargin: "10px", threshold: ".5" }
+      { rootMargin: "-100px", threshold: ".7" }
     );
     console.log(isIntersecting);
     observer.observe(three.current);
