@@ -33,11 +33,10 @@ export default function OurTeam() {
               >
                 <p style={{ width: "100%" }}>{inf.verseName}</p>
                 <p
-                  // ref={pref}
                   style={{
                     fontSize: ".6em",
-                    padding: "0 1rem",
-                    textAlign: "justify",
+                    // padding: "0 1rem",
+                    // textAlign: "justify",
                   }}
                   onLoad={countWords}
                 >
