@@ -16,6 +16,7 @@ import OurTeam from "../../Components/ourTeam/OurTeam";
 
 import { rootReducer } from "../../store/reducers";
 import Container from "../../UI/container/Container";
+import MyFooter from "../../Components/footer/MyFooter";
 
 export default function Home() {
   const userInfo = useSelector((state) => state.userInfo);

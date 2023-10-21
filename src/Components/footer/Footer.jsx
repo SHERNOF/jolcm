@@ -43,6 +43,7 @@ export default function Footer() {
       <div className={classes.footerContents}>
         <div className={classes.firstColumn}>
           <div className={classes.footerColumnTitle}>Joy of Life</div>
+
           <div className={classes.iconContainer}>
             <div className={classes.iconHolder}>
               <FacebookIcon
@@ -72,53 +73,73 @@ export default function Footer() {
             {/* <ul> */}
             <div className={classes.studyContainer}>
               <h3>Couples</h3>
-              <h6>Every first Saturday of the month</h6>
-              <h6>Contact Joseph and Michelle</h6>
+              <div className={classes.pContainer}>
+                <p>Every first Saturday of the month</p>
+                <p>Contact Joseph and Michelle</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>ELEOS</h3>
-              <h6>Every second Saturday of the month</h6>
-              <h6>Contact Joseph and Michelle</h6>
+              <div className={classes.pContainer}>
+                <p>Every second Saturday of the month</p>
+                <p>Contact Joseph and Michelle</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Endurance by Faith @Coolaroo</h3>
-              <h6>Saturday - fortnightly @7pm</h6>
-              <h6>Contact Sarah</h6>
+              <div className={classes.pContainer}>
+                <p>Saturday - fortnightly @7pm</p>
+                <p>Contact Sarah</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Broady / Craigie / Greenvale</h3>
-              <h6>Sunday - fortnightly @7pm</h6>
-              <h6>Contact Nomer</h6>
+              <div className={classes.pContainer}>
+                <p>Sunday - fortnightly @7pm</p>
+                <p>Contact Nomer</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Golden Life Bible Study</h3>
-              <h6>Sunday - @8pm</h6>
-              <h6>Contact Gloria</h6>
+              <div className={classes.pContainer}>
+                <p>Sunday - @8pm</p>
+                <p>Contact Gloria</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Men's Bible Study</h3>
-              <h6>Every 3rd Sunday of the month</h6>
-              <h6>Contact Sam</h6>
+              <div className={classes.pContainer}>
+                <p>Every 3rd Sunday of the month</p>
+                <p>Contact Sam</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Young Couples</h3>
-              <h6>Every month</h6>
-              <h6>Contact Neil and Brenda</h6>
+              <div className={classes.pContainer}>
+                <p>Every month</p>
+                <p>Contact Neil and Brenda</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>JOL Youth</h3>
-              <h6>Friday - fortnightly </h6>
-              <h6>Contact Sarena</h6>
+              <div className={classes.pContainer}>
+                <p>Friday - fortnightly </p>
+                <p>Contact Sarena</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Craigieburn Highlands</h3>
-              <h6>Fortnightly - Monthly</h6>
-              <h6>Contact Liezel</h6>
+              <div className={classes.pContainer}>
+                <p>Fortnightly - Monthly</p>
+                <p>Contact Liezel</p>
+              </div>
             </div>
             <div className={classes.studyContainer}>
               <h3>Young Adults</h3>
-              <h6>Tuesday - Fortnightly</h6>
-              <h6>Contact Kath</h6>
+              <div className={classes.pContainer}>
+                <p>Tuesday - Fortnightly</p>
+                <p>Contact Kath</p>
+              </div>
             </div>
             {/* </ul> */}
           </div>
@@ -165,7 +186,7 @@ export default function Footer() {
                   onChange={(e) => setphone(e.target.value)}
                 ></input>
 
-                <Label htmlFor="message">Message Use</Label>
+                <Label htmlFor="message">Message Us</Label>
                 <textarea
                   className={classes.input}
                   style={{

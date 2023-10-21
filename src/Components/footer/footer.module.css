@@ -2,22 +2,20 @@
   padding: 2rem 2rem;
   background: black;
   max-width: 100vw;
-  /* border: 1px solid red; */
-  overflow: hidden;
 }
 .footerContents {
   max-width: 100%;
-  /* height: 100%; */
   display: grid;
   grid-template-columns: 0.8fr 1.2fr 1fr;
   height: 60vh;
   color: white;
   overflow-x: hidden;
 }
-.footerColumnTitle {
-  text-align: left;
-  padding: 1rem 2rem;
-  border-bottom: none;
+/* .footerColumnTitle {
+  align-self: flex-start;
+} */
+.firstColumn .iconContainer {
+  /* border: 1px solid red; */
 }
 
 .firstColumn .iconContainer .iconHolder {
@@ -46,9 +44,8 @@
   margin-left: 1rem;
 }
 .secondColumn {
-  /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
@@ -67,15 +64,18 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 .secondColumn .secondColumnContent .studyContainer h3 {
   font-size: 0.7em;
-  /* margin-bottom: 0.2rem; */
 }
-.secondColumn .secondColumnContent .studyContainer h6 {
+.secondColumn .secondColumnContent .studyContainer .pContainer {
+  margin-top: -1rem;
+  width: 100%;
+}
+.secondColumn .secondColumnContent .studyContainer p {
   font-size: 0.5em;
-  line-height: -2rem;
+  /* line-height: -2rem; */
+  margin-bottom: -2px;
 }
 .thirdColumn {
   display: flex;
@@ -99,10 +99,10 @@
   align-items: center;
   background: linear-gradient(0deg, #333, #000);
   outline: none;
-  border-radius: 20px;
-  box-shadow: 0 0 0 3px #353535, 0 0 0 4px #3e3e3e,
-    inset 0 0 5px rgba(0, 0, 0, 1), 0 3px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px #353535, 0 0 0 4px #3e3e3e;
+  /* inset 0 0 5px rgba(0, 0, 0, 1), 0 3px 10px rgba(0, 0, 0, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 .emaillUs {
   margin-top: -1rem;
@@ -162,6 +162,17 @@
   .firstColumn .iconContainer {
     margin-bottom: 2rem;
     padding: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .secondColumn {
+    justify-content: center;
+  }
+  .secondColumn .secondColumnContent .studyContainer p {
+    font-size: 0.65em;
+    /* line-height: -2rem; */
+    margin-bottom: -3px;
   }
   .thirdColumnContent {
     margin-top: 3rem;
