@@ -27,6 +27,7 @@ export default function AboutUs() {
       ([entry]) => {
         settwoVisible(entry.isIntersecting);
       },
+      // { rootMargin: "-10px", threshold: ".5" }
       { rootMargin: "-10px", threshold: ".5" }
     );
     console.log(isIntersecting);
