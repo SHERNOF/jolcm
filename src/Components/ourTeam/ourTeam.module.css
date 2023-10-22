@@ -124,7 +124,7 @@
   }
   .verseContainer {
     width: 85%;
-    /* height: 60%; */
+    height: auto;
     padding: 1rem 0.5rem;
   }
   .verseContainer p {
