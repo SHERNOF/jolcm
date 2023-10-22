@@ -14,12 +14,11 @@
 .teamContainer {
   margin: 1rem 0;
   width: 95%;
-  height: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   scrollbar-width: none;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: scroll;
   transition: all 1s;
 }
@@ -29,7 +28,7 @@
   position: relative;
   margin-bottom: 3rem;
   margin-top: 2rem;
-  height: auto;
+  /* height: auto; */
   cursor: pointer;
   border-radius: 5px;
   border-radius: 5px;
@@ -50,13 +49,13 @@
   /* border: 1px solid red; */
 }
 
-.teamDetails:hover .front {
+/* .teamDetails:hover .front {
   transform: translateY(-300px);
   cursor: pointer;
   opacity: 0;
   box-shadow: 0;
   z-index: -1;
-}
+} */
 .imgContainer {
   width: 10rem;
   height: 10rem;
@@ -67,31 +66,18 @@
 
   /* padding: 1rem 1rem; */
 }
-.verseContainer {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  box-shadow: 0;
-  height: 10rem;
-  position: absolute;
-  transition: all 1s;
-  width: 100%;
-  min-height: 100%;
-  /* display: flex;
-  align-items: flex-start;
-  justify-content: center; */
-  opacity: 0;
-  border-radius: 5px;
-  /* animation: verse 1s linear; */
-  transform: translateY(-300px);
-}
 
-.teamDetails:hover .verseContainer {
-  animation: verse 1s forwards 0.5s ease-in-out;
-  overflow-y: scroll;
+.verseContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 50%;
+  height: 50%;
+  border: 1px solid rgb(88, 87, 87);
+  box-shadow: 1px 1px 20px rgba(88, 87, 87, 0.462);
+  border-radius: 5px;
+  animation: verse 1s ease-in-out;
 }
 
 @keyframes verse {
@@ -135,5 +121,13 @@
   }
   .teamDetails {
     margin-bottom: 5rem;
+  }
+  .verseContainer {
+    width: 85%;
+    /* height: 60%; */
+    padding: 1rem 0.5rem;
+  }
+  .verseContainer p {
+    font-size: 1.1em;
   }
 }

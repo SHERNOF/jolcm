@@ -20,6 +20,7 @@ import { SET_LOGIN } from "./constants.js";
 import { FETCH_DATA_REQUEST } from "./constants.js";
 import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
+import { SET_BACKDROP } from "./constants.js";
 
 export const wheel = () => ({
   type: CHANGE_MOUSEDOWN,
@@ -85,6 +86,9 @@ export const detailsUserFail = () => ({
 });
 export const detailsUserRequest = () => ({
   type: DETAILS_USER_REQUEST,
+});
+export const setBackdrop = () => ({
+  type: SET_BACKDROP,
 });
 
 export const logOut = () => ({

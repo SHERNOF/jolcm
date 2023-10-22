@@ -17,7 +17,7 @@ export default function AboutUs() {
       { rootMargin: "-20px", threshold: ".5" }
       // { rootMargin: "-100px", threshold: "1" }
     );
-    console.log(isIntersecting);
+
     observer.observe(one.current);
     return () => observer.disconnect();
   }, [isIntersecting]);
@@ -30,7 +30,7 @@ export default function AboutUs() {
       // { rootMargin: "-10px", threshold: ".5" }
       { rootMargin: "-10px", threshold: ".5" }
     );
-    console.log(isIntersecting);
+
     observer.observe(two.current);
     return () => observer.disconnect();
   }, [isIntersecting]);
@@ -42,7 +42,7 @@ export default function AboutUs() {
       },
       { rootMargin: "-10px", threshold: ".5" }
     );
-    console.log(isIntersecting);
+
     observer.observe(three.current);
     return () => observer.disconnect();
   }, [isIntersecting]);

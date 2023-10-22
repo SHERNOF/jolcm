@@ -10,7 +10,6 @@ export default function Header() {
 
   return (
     <nav>
-      {/* <div style={{ width: "70vw", height: "100%" }}> */}
       <div
         className={`${classes.navContainer} ${wheel && classes.bgned}
          ${classes.logged}`}
@@ -29,7 +28,6 @@ export default function Header() {
           </h6>
         )}
       </div>
-      {/* </div> */}
     </nav>
   );
 }

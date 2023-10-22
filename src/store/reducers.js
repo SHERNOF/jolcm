@@ -3,6 +3,7 @@ import {
   DETAILS_USER_FAIL,
   DETAILS_USER_REQUEST,
   DETAILS_USER_SUCCESS,
+  SET_BACKDROP,
   USER_SIGNIN_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
@@ -18,6 +19,7 @@ import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
 
 const initialState = {
+  setBackdrop: false,
   wheel: Boolean,
   displayLogin: false,
   churchEvents: [],
@@ -84,6 +86,9 @@ export const rootReducer = (state = initialState, action) => {
 
     case USER_LOGOUT:
       return { ...state, userInfo: null };
+
+    case SET_BACKDROP:
+      return { setBackdrop: !state.setBackdrop };
 
     default:
       return state;
