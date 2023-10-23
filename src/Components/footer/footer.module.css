@@ -168,9 +168,7 @@
     align-items: center;
     justify-content: center;
   }
-  .secondColumn {
-    justify-content: center;
-  }
+  
   .secondColumn .secondColumnContent .studyContainer p {
     font-size: 0.65em;
     margin-bottom: -3px;

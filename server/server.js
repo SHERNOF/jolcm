@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
 import userRoute from "./routes/usersRoutes.js";
+import messagesRoute from "./routes/messagesRoutes.js";
 
 // 1. a connection to mongoDB
 
@@ -40,6 +41,8 @@ app.use("/jol/churchEvents", churchEventsRoute);
 //   res.send(data.users);
 // });
 app.use("/jol/users", userRoute);
+
+app.use("/jol/", messagesRoute);
 
 // *from userRoutes.js
 app.use((err, req, res, next) => {

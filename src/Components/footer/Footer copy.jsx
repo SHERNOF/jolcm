@@ -7,12 +7,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Label from "../../UI/label/Label";
 import emailjs from "@emailjs/browser";
 import { useDispatch } from "react-redux";
-import {
-  SEND_MESSAGE_FAIL,
-  SEND_MESSAGE_REQUEST,
-  SEND_MESSAGE_SUCCESS,
-} from "../../store/constants";
-import axios from "axios";
 
 export default function Footer() {
   const [name, setname] = useState("");
@@ -22,23 +16,13 @@ export default function Footer() {
 
   const form = useRef();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch
 
-  const sendEmail = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     try{
       if(email.trim().length !== 0 && name.trim().length !== 0 && phone.trim().length !== 0  && message.trim().length !== 0 ){
-        dispatch({
-          type: SEND_MESSAGE_REQUEST,
-          payload: { name, phone, message, email}
-        })
-        const data = await axios.post('/jol/message',{
-          name,
-          phone,
-          email,
-          message
-        })
-        dispatch({type: SEND_MESSAGE_SUCCESS, payload: data})
+
 
         emailjs
       .sendForm(
@@ -59,10 +43,7 @@ export default function Footer() {
     setemail("");
     setphone("");
     setmessage("");
-      } 
-    } catch(error) {
-      dispatch({ type: SEND_MESSAGE_FAIL, payload: error.message })
-      alert('Pls complete the message')
+      }
     }
     
   };

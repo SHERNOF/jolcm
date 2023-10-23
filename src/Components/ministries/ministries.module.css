@@ -1,10 +1,12 @@
 .ministries {
-  height: 50rem;
+  /* height: 50rem; */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -10rem;
+  /* margin-top: -10rem; */
   flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .ministryContainer {
   width: 100%;

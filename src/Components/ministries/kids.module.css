@@ -4,6 +4,8 @@
   justify-content: center;
   grid-area: ks;
   position: relative;
+  border-top-right-radius: 10px;
+  overflow: hidden;
 }
 
 .imgContainer {

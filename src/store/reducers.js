@@ -10,6 +10,9 @@ import {
   USER_SIGNUP_FAIL,
   USER_SIGNUP_REQUEST,
   USER_SIGNUP_SUCCESS,
+  SEND_MESSAGE_FAIL,
+  SEND_MESSAGE_REQUEST,
+  SEND_MESSAGE_SUCCESS,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -32,6 +35,7 @@ const initialState = {
   churchEvent: {},
   detailsUser: {},
   isAuth: true,
+  message:{}
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -89,6 +93,13 @@ export const rootReducer = (state = initialState, action) => {
 
     case SET_BACKDROP:
       return { setBackdrop: !state.setBackdrop };
+
+      case SEND_MESSAGE_REQUEST:
+        return { ...state, loading: true };
+      case SEND_MESSAGE_SUCCESS:
+        return { ...state, loading: false, message: action.payload };
+      case SEND_MESSAGE_FAIL:
+        return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

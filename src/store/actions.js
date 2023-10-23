@@ -13,6 +13,9 @@ import {
   DETAILS_USER_REQUEST,
   DETAILS_USER_FAIL,
   DETAILS_USER_SUCCESS,
+  SEND_MESSAGE_SUCCESS,
+  SEND_MESSAGE_REQUEST,
+  SEND_MESSAGE_FAIL,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -89,6 +92,16 @@ export const detailsUserRequest = () => ({
 });
 export const setBackdrop = () => ({
   type: SET_BACKDROP,
+});
+
+export const sendMessageRequest = () => ({
+  type: SEND_MESSAGE_REQUEST,
+});
+export const sendMessageSuccess = () => ({
+  type: SEND_MESSAGE_SUCCESS,
+});
+export const sendMessageFail = () => ({
+  type: SEND_MESSAGE_FAIL,
 });
 
 export const logOut = () => ({
