@@ -15,7 +15,7 @@
   height: 50vh;
   width: 100%;
   gap: 20px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   background-color: #4b5659;
 }
 .column1 {
@@ -24,7 +24,7 @@
   justify-content: center;
   width: 30%;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .column1Container {
   width: 100%;
@@ -68,20 +68,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   position: relative;
 }
 .column2Container {
   height: 95%;
   width: 100%;
   border: 1px solid black;
-  overflow: scroll;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
   border-radius: 10px;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
+.mainPic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.bigImages {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
 .arrowRight {
   position: absolute;
   top: 50%;
@@ -98,20 +115,6 @@
   color: yellow;
   cursor: pointer;
 }
-
-.mainPic {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  display: none;
-}
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
 @keyframes fade {
   from {
     opacity: 0.4;

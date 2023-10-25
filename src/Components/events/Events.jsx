@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./events.module.css";
 import Overlay from "../../UI/overlay/Overlay";
 import Title from "../../UI/title/Title";
@@ -51,7 +51,11 @@ export default function Events({ evs }) {
               <KeyboardArrowLeftIcon />
             </div>
             {churchEvents[indexNum].pictures.map((pics, index) => (
-              <div className={classes.mainPic} key={index}>
+              <div
+                // ref={divRef}
+                className={`${classes.mainPic} ${classes.fade}`}
+                key={index}
+              >
                 <img src={pics} alt="events" className={classes.bigImages} />
                 {/* <Overlay></Overlay> */}
               </div>
