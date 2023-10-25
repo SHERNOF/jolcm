@@ -1,53 +1,54 @@
-.events{
+.events {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   margin: 4rem 0;
-  
+  height: 60vh;
 }
-.eventsContainer{
+.eventsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  height: 50vh;
   width: 100%;
-  gap:10px;
+  gap: 20px;
   border: 1px solid blue;
+  background-color: #4b5659;
 }
-.column1{
+.column1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30%;
-
+  height: 100%;
+  border: 1px solid red;
 }
-.column1Container{
+.column1Container {
   width: 100%;
-  height: 55vh;
+  height: 95%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
+  /* border: 1px solid green; */
 }
-.eventsLineup{
-position: relative;
-width: 85%;
-height: 85%;
-margin-bottom: 2rem;
-/* margin-top: 2rem; */
-
-}
-.eachEvent{
-
-}
-.column2{
-  width: 70%;
-  border: 1px solid blue;
+.eventsLineup {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
-.imgOverlay{
+.eventImage {
+}
+
+.imgOverlay {
   position: absolute;
   top: 0;
   width: 100%;
@@ -59,4 +60,68 @@ margin-bottom: 2rem;
   justify-content: center;
   color: white;
   background: rgba(145, 142, 142, 0.078);
+}
+
+.column2 {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  position: relative;
+}
+.column2Container {
+  height: 95%;
+  width: 100%;
+  border: 1px solid black;
+  overflow: scroll;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  border-radius: 10px;
+}
+
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  z-index: 5;
+  color: red;
+  cursor: pointer;
+}
+.arrowLeft {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  z-index: 5;
+  color: yellow;
+  cursor: pointer;
+}
+
+.mainPic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.bigImages {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }

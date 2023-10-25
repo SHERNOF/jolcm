@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./events.module.css";
 import Overlay from "../../UI/overlay/Overlay";
 import Title from "../../UI/title/Title";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 export default function Events({ evs }) {
   const churchEvents = evs;
   console.log(churchEvents);
@@ -27,36 +25,29 @@ export default function Events({ evs }) {
                   setindexNum(index);
                 }}
               >
-                <Overlay></Overlay>
+                <div className={classes.eachEvent}>
+                  <Overlay></Overlay>
 
-                <div className={classes.imgOverlay}>
-                  {churchEvent.eventTitle}
+                  <div className={classes.imgOverlay}>
+                    {churchEvent.eventTitle}
+                  </div>
+                  <img
+                    loading="lazy"
+                    src={churchEvent.pictures[0]}
+                    alt="events"
+                    className={classes.eventImage}
+                  ></img>
                 </div>
-                <img
-                  loading="lazy"
-                  src={churchEvent.pictures[0]}
-                  alt="events"
-                  className={classes.eventImage}
-                ></img>
               </div>
             ))}
           </div>
         </div>
         <div className={classes.column2}>
-          <div className={classes.column2Container}>
-            <div className={classes.arrowRight}>
-              <KeyboardArrowRightIcon />
+          {churchEvents[indexNum].pictures.map((pics, index) => (
+            <div className={classes.column2ImageContainer} key={index}>
+              <img src={pics} alt="events" />
             </div>
-            <div className={classes.arrowLeft}>
-              <KeyboardArrowLeftIcon />
-            </div>
-            {churchEvents[indexNum].pictures.map((pics, index) => (
-              <div className={classes.mainPic} key={index}>
-                <img src={pics} alt="events" className={classes.bigImages} />
-                {/* <Overlay></Overlay> */}
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </div>
