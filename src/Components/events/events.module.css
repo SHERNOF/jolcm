@@ -84,12 +84,22 @@
   transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.mainPic {
+/* .imageSlider {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin: 0 auto;
+} */
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
 }
 .bigImages {
   height: 100%;
@@ -105,16 +115,26 @@
   top: 50%;
   right: 5%;
   z-index: 5;
-  color: red;
+  color: white;
   cursor: pointer;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .arrowLeft {
   position: absolute;
   top: 50%;
   left: 5%;
   z-index: 5;
-  color: yellow;
+  color: white;
   cursor: pointer;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @keyframes fade {
   from {
