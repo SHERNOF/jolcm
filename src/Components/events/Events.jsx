@@ -5,6 +5,7 @@ import Title from "../../UI/title/Title";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import ImageSlider from "./ImageSlider";
 
 export default function Events({ evs }) {
   const churchEvents = evs;
@@ -14,8 +15,8 @@ export default function Events({ evs }) {
 
   const slides = churchEvents[indexNum].pictures.length;
   const pics = churchEvents[indexNum].pictures;
-  console.log(typeof slides);
-  console.log(pics);
+  console.log(slides);
+  console.log(typeof pics);
 
   const previous = () => {
     const isSlide1 = indexNum === 0;
@@ -59,17 +60,17 @@ export default function Events({ evs }) {
         </div>
         <div className={classes.column2}>
           <div className={classes.column2Container}>
-            <div className={classes.arrowRight} onClick={next}>
+            {/* <div className={classes.arrowRight} onClick={next}>
               <KeyboardArrowRightIcon />
             </div>
             <div className={classes.arrowLeft} onClick={previous}>
               <KeyboardArrowLeftIcon />
-            </div>
+            </div> */}
 
             {/* {churchEvents[indexNum].pictures.map((pic, index) => ( */}
-            <div
+            {/* <div
               className={`${classes.sliderContainer} ${classes.fade}`}
-              // key={index}
+              key={index}
             >
               {pics.map((pic, index) => (
                 <img
@@ -79,6 +80,9 @@ export default function Events({ evs }) {
                   className={classes.bigImages}
                 />
               ))}
+            </div> */}
+            <div className={classes.containerStyles}>
+            <ImageSlider slides={pics} />
             </div>
           </div>
         </div>
@@ -95,4 +99,4 @@ export default function Events({ evs }) {
                 ></div> */
 }
 
-https://www.youtube.com/watch?v=SK9AlIbexOE&list=LL&index=3
+// https://www.youtube.com/watch?v=SK9AlIbexOE&list=LL&index=3
