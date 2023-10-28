@@ -3,11 +3,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* border: 1px solid red; */
   width: 100%;
-  margin: 4rem 0;
+  margin-bottom: 2rem;
   height: 60vh;
-  
 }
 .eventsContainer {
   display: flex;
@@ -15,10 +13,7 @@
   justify-content: center;
   height: 50vh;
   width: 100%;
-  /* gap: 10px; */
-  /* border: 1px solid blue; */
   background-color: #4b5659;
-  
 }
 .column1 {
   display: flex;
@@ -26,7 +21,6 @@
   justify-content: center;
   width: 30%;
   height: 100%;
-  /* border: 1px solid red; */
 }
 .column1Container {
   width: 100%;
@@ -37,7 +31,6 @@
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* border: 1px solid green; */
 }
 .eventsLineup {
   position: relative;
@@ -45,9 +38,16 @@
   height: 85%;
   margin-bottom: 1rem;
   border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid red;
 }
 
 .eventImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .imgOverlay {
@@ -70,38 +70,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
-  position: relative;
   margin-right: 1rem;
-
 }
 .column2Container {
   height: 95%;
   width: 100%;
   border: 1px solid black;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
   flex-wrap: nowrap;
-  overflow: scroll;
+  border-radius: 5px;
   transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
-  
-}
-.containerStyles{
-  width: 100%;
-  height: 90%;
   margin: 0 auto;
-  
 }
-
-/* .imageSlider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-} */
 
 .sliderContainer {
   display: flex;
@@ -111,41 +91,7 @@
   width: 100%;
   margin: 0 auto;
 }
-.bigImages {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-.arrowRight {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  z-index: 5;
-  color: white;
-  cursor: pointer;
-  background: rgb(0, 0, 0);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.arrowLeft {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  z-index: 5;
-  color: white;
-  cursor: pointer;
-  background: rgb(0, 0, 0);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 @keyframes fade {
   from {
     opacity: 0.4;
