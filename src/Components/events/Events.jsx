@@ -28,7 +28,7 @@ export default function Events({ evs }) {
                 <Overlay></Overlay>
 
                 <div className={classes.imgOverlay}>
-                  {churchEvent.eventTitle}
+                  <h6>{churchEvent.eventTitle}</h6>
                 </div>
                 <img
                   loading="lazy"

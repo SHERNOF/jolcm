@@ -39,7 +39,6 @@
   margin-bottom: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .eventImage {
@@ -104,4 +103,10 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 390px) {
+  .imgOverlay > * {
+    font-size: 0.7em;
+  }
 }

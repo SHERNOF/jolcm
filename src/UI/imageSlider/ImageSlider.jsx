@@ -17,7 +17,7 @@ const slideContainer = {
 
 const RightArrowStyles = styled("div")`
   all: unset;
-  display: block;
+  /* display: block; */
   position: absolute;
   cursor: pointer;
   display: flex;
@@ -30,10 +30,12 @@ const RightArrowStyles = styled("div")`
   font-size: 25px;
   top: 50%;
   transform: translate(0, -50%);
-
-  transition: all 0.5s;
   background: none;
   transition: background-color 200ms ease-in-out;
+  @media only screen and (max-width: 390px) {
+    padding: 0;
+    font-size: 1em;
+  }
 
   &:hover {
     color: white;
@@ -73,6 +75,9 @@ const Button = styled.button`
   font-size: 1rem;
   transition: all 0.25s;
   margin-left: 0.25rem;
+  @media only screen and (max-width: 390px) {
+    font-size: 0.6em;
+  }
 
   & {
     cursor: pointer;
