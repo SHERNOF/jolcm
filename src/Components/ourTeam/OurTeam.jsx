@@ -50,11 +50,16 @@ export default function OurTeam() {
 
                   {showBackdrop && (
                     <Backdrop
-                      onClick={backdropHandler}
+                      // onClick={backdropHandler}
                       showBackdrop={showBackdrop}
                     >
-                      <div className={classes.verseContainer}>
-                        <p style={{ color: "white" }}>{info[Id].verseName}</p>
+                      <div
+                        className={classes.verseContainer}
+                        onClick={backdropHandler}
+                      >
+                        <p style={{ color: "white", zIndex: "1" }}>
+                          {info[Id].verseName}
+                        </p>
                         <hr
                           style={{
                             border: "1px solid rgba(255, 255, 255, 0.25)",

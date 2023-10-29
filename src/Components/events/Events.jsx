@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./events.module.css";
 import Overlay from "../../UI/overlay/Overlay";
 import Title from "../../UI/title/Title";
 import ImageSlider from "../../UI/imageSlider/ImageSlider";
 
 export default function Events({ evs }) {
+  const events = useRef(null);
+
+  const [isIntersecting, setisIntersecting] = useState(false);
+  console.log(isIntersecting);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setisIntersecting(entry.isIntersecting);
+      },
+      { threshold: ".2" }
+    );
+    observer.observe(events.current);
+    return () => observer.disconnect();
+  }, []);
+
   const churchEvents = evs;
 
   const [indexNum, setindexNum] = useState(0);
@@ -12,7 +27,16 @@ export default function Events({ evs }) {
   const pics = churchEvents[indexNum].pictures;
 
   return (
-    <div className={classes.events}>
+    <div
+      className={classes.events}
+      style={{
+        transform: `${
+          isIntersecting ? "translateX(0px)" : "translateX(100px)"
+        }`,
+        opacity: `${isIntersecting ? "1" : "0"}`,
+      }}
+      ref={events}
+    >
       <Title>EVENTS</Title>
       <div className={classes.eventsContainer}>
         <div className={classes.column1}>

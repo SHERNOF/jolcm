@@ -121,7 +121,6 @@ export default function Modal({ isOpen, isOpenClickHandler, eventSet }) {
               <div className={classes.mainBox}>
                 <div className={classes.imgContainer}></div>
                 {disp ? activePhotoLoaded : activePhotoInitial}
-                {/* {activePhotoInitial} */}
               </div>
               <div className={classes.smallBoxes}>
                 {disp ? loaded : initial}

@@ -15,9 +15,7 @@ export default function AboutUs() {
         setisIntersecting(entry.isIntersecting);
       },
       { rootMargin: "-20px", threshold: ".5" }
-      // { rootMargin: "-100px", threshold: "1" }
     );
-
     observer.observe(one.current);
     return () => observer.disconnect();
   }, [isIntersecting]);

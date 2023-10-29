@@ -4,7 +4,7 @@
   justify-content: center;
   grid-area: ks;
   position: relative;
-  border-top-right-radius: 10px;
+  border-top-right-radius: 5px;
   overflow: hidden;
 }
 

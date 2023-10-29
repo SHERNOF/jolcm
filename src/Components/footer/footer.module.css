@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: 80%;
+  max-height: 80%;
   padding: 1rem 2rem;
 }
 .emailUsContent {
@@ -101,8 +101,6 @@
   outline: none;
   border-radius: 10px;
   box-shadow: 0 0 0 3px #353535, 0 0 0 4px #3e3e3e;
-  /* inset 0 0 5px rgba(0, 0, 0, 1), 0 3px 10px rgba(0, 0, 0, 0.5),
-    inset 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 .emaillUs {
   margin-top: -1rem;
@@ -168,7 +166,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .secondColumn .secondColumnContent .studyContainer p {
     font-size: 0.65em;
     margin-bottom: -3px;

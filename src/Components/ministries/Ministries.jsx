@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Title from "../../UI/title/Title";
 
 import Kids from "./Kids";
@@ -9,11 +9,31 @@ import Tbs from "./Tbs";
 import Wf from "./Wf";
 
 export default function Ministries() {
+  const ministries = useRef();
+  const [isIntersecting, setisIntersecting] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setisIntersecting(entry.isIntersecting);
+      },
+      { threshold: ".1" }
+    );
+    observer.observe(ministries.current);
+    return () => observer.disconnect();
+  }, [isIntersecting]);
+
   return (
-    <div className={classes.ministries}>
-      <Title className={classes.title}>
-      Ministries
-      </Title>
+    <div
+      className={classes.ministries}
+      style={{
+        transform: `${
+          isIntersecting ? "translateX(0px)" : "translateX(-300px)"
+        }`,
+        opacity: `${isIntersecting ? "1" : "0"}`,
+      }}
+      ref={ministries}
+    >
+      <Title className={classes.title}>Ministries</Title>
       <div className={classes.ministryContainer}>
         <div className={classes.frames}>
           <Sunday />

@@ -3,10 +3,9 @@
   align-items: center;
   justify-content: center;
   grid-area: ss;
-  border-top-left-radius: 10px;
+  border-top-left-radius: 5px;
   will-change: transform, opacity;
   position: relative;
-  border-top-left-radius: 10px;
   overflow: hidden;
 }
 

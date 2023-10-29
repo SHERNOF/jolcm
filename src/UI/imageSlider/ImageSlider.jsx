@@ -17,7 +17,6 @@ const slideContainer = {
 
 const RightArrowStyles = styled("div")`
   all: unset;
-  /* display: block; */
   position: absolute;
   cursor: pointer;
   display: flex;
@@ -132,6 +131,8 @@ const ImageSlider = ({ slides }) => {
           width: "100%",
           height: "100%",
           position: "relative",
+          borderRadius: "5px",
+          overflow: "hidden",
         }}
       >
         <div
