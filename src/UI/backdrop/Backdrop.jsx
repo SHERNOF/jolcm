@@ -18,3 +18,7 @@ export default function Backdrop(props) {
     </>
   );
 }
+
+/* 
+1. fixed the whitescreen issue when the translateX is used by putting an overflow:hidden in the parent div
+*/

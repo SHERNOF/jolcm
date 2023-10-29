@@ -27,18 +27,18 @@ export default function Events({ evs }) {
   const pics = churchEvents[indexNum].pictures;
 
   return (
-    <div
-      className={classes.events}
-      style={{
-        transform: `${
-          isIntersecting ? "translateX(0px)" : "translateX(100px)"
-        }`,
-        opacity: `${isIntersecting ? "1" : "0"}`,
-      }}
-      ref={events}
-    >
+    <div className={classes.events}>
       <Title>EVENTS</Title>
-      <div className={classes.eventsContainer}>
+      <div
+        className={classes.eventsContainer}
+        style={{
+          transform: `${
+            isIntersecting ? "translateX(0px)" : "translateX(300px)"
+          }`,
+          opacity: `${isIntersecting ? "1" : "0"}`,
+        }}
+        ref={events}
+      >
         <div className={classes.column1}>
           <div className={classes.column1Container}>
             {churchEvents.map((churchEvent, index) => (

@@ -23,18 +23,18 @@ export default function Ministries() {
   }, [isIntersecting]);
 
   return (
-    <div
-      className={classes.ministries}
-      style={{
-        transform: `${
-          isIntersecting ? "translateX(0px)" : "translateX(-300px)"
-        }`,
-        opacity: `${isIntersecting ? "1" : "0"}`,
-      }}
-      ref={ministries}
-    >
+    <div className={classes.ministries}>
       <Title className={classes.title}>Ministries</Title>
-      <div className={classes.ministryContainer}>
+      <div
+        className={classes.ministryContainer}
+        style={{
+          transform: `${
+            isIntersecting ? "translateX(0px)" : "translateX(-300px)"
+          }`,
+          opacity: `${isIntersecting ? "1" : "0"}`,
+        }}
+        ref={ministries}
+      >
         <div className={classes.frames}>
           <Sunday />
           <Kids />
