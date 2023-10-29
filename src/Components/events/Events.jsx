@@ -28,11 +28,11 @@ export default function Events({ evs }) {
                 <Overlay></Overlay>
 
                 <div className={classes.imgOverlay}>
-                  <h6>{churchEvent.eventTitle}</h6>
+                  {churchEvent.eventTitle}
                 </div>
                 <img
                   loading="lazy"
-                  src={churchEvent.pictures[2]}
+                  src={churchEvent.pictures[0]}
                   alt="events"
                   className={classes.eventImage}
                 ></img>

@@ -5,7 +5,7 @@
   justify-content: center;
   flex-direction: column;
   margin-bottom: 8rem;
-  margin-top: -2rem;
+  /* margin-top: -2rem; */
 }
 .eventsLineUp {
   height: 85%;
@@ -136,7 +136,7 @@
 }
 @media (max-width: 390px) {
   .events {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   .eventsLineUp {
     /* margin-top: 2srem; */

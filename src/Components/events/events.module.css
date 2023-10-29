@@ -29,18 +29,18 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 .eventsLineup {
   position: relative;
   width: 85%;
-  height: 85%;
+  height: 13rem;
   margin-bottom: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  border: 1px solid red;
 }
-
 .eventImage {
   height: 100%;
   width: 100%;
@@ -99,13 +99,44 @@
     opacity: 1;
   }
 }
-.bigImages {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
 
 @media only screen and (max-width: 390px) {
+  .events {
+    margin-bottom: 3rem;
+  }
+  .eventsContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .column1,
+  .column2 {
+    width: 100%;
+  }
+  .column1 {
+    height: 30%;
+    width: 100%;
+    order: 2;
+  }
+  .column1Container {
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 30rem;
+    gap: 10px;
+  }
+  .eventsLineup {
+    width: 10rem;
+    height: 90%;
+  }
+  .column2 {
+    margin-right: 0;
+    height: 70%;
+    order: 1;
+  }
   .imgOverlay > * {
     font-size: 0.7em;
   }

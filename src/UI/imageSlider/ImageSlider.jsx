@@ -34,7 +34,7 @@ const RightArrowStyles = styled("div")`
   transition: background-color 200ms ease-in-out;
   @media only screen and (max-width: 390px) {
     padding: 0;
-    font-size: 1em;
+    font-size: 2em;
   }
 
   &:hover {
