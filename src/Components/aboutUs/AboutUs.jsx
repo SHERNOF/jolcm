@@ -38,7 +38,7 @@ export default function AboutUs() {
       ([entry]) => {
         setthreeVisible(entry.isIntersecting);
       },
-      { rootMargin: "-10px", threshold: ".5" }
+      { threshold: ".4" }
     );
 
     observer.observe(three.current);

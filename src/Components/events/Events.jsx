@@ -14,7 +14,7 @@ export default function Events({ evs }) {
       ([entry]) => {
         setisIntersecting(entry.isIntersecting);
       },
-      { threshold: ".2" }
+      { threshold: ".1" }
     );
     observer.observe(events.current);
     return () => observer.disconnect();

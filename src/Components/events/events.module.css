@@ -6,12 +6,7 @@
   width: 100%;
   margin-bottom: 2rem;
   height: 60vh;
-
   overflow: hidden;
-}
-.slideIn {
-  transform: translateY(0) !important;
-  opacity: 1 !important;
 }
 
 .eventsContainer {
@@ -20,7 +15,6 @@
   justify-content: center;
   height: 50vh;
   width: 100%;
-  /* border: 1px solid black; */
   border-radius: 5px;
   transform: translateX(300px);
   opacity: 0;
