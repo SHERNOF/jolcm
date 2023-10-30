@@ -237,7 +237,6 @@ export default function Footer() {
                       marginBottom: "2rem",
                       marginTop: "1rem",
                       border: "1px solid rgb(85, 83, 83)",
-                      // color: "white",
                     }}
                   ></input>
                 </div>
