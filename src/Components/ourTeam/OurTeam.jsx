@@ -1,5 +1,5 @@
-import { set } from "mongoose";
-import React, { useEffect, useRef, useState } from "react";
+
+import React, {  useState } from "react";
 import { useSelector } from "react-redux";
 import Backdrop from "../../UI/backdrop/Backdrop";
 import Title from "../../UI/title/Title";
@@ -8,9 +8,11 @@ import classes from "./ourTeam.module.css";
 import teamData from "./team.js";
 
 export default function OurTeam() {
-  const setBackdrop = useSelector((state) => state.setBackdrop);
+  // const setBackdrop = useSelector((state) => state.setBackdrop);
+  // console.log(setBackdrop)
   const info = teamData.teamInfo;
-  const [showBackdrop, setshowBackdrop] = useState(setBackdrop);
+  const [showBackdrop, setshowBackdrop] = useState(false);
+  console.log(showBackdrop)
   const [Id, setId] = useState();
 
   const [flip, setflip] = useState(false);
@@ -20,6 +22,8 @@ export default function OurTeam() {
 
   const backdropHandler = () => {
     setshowBackdrop(!showBackdrop);
+    // setshowBackdrop(false);
+    console.log('test')
   };
 
   return (
@@ -50,12 +54,12 @@ export default function OurTeam() {
 
                   {showBackdrop && (
                     <Backdrop
-                      // onClick={backdropHandler}
                       showBackdrop={showBackdrop}
+                      onConfirm={backdropHandler}
                     >
                       <div
                         className={classes.verseContainer}
-                        onClick={backdropHandler}
+                        // onClick={backdropHandler}
                       >
                         <p style={{ color: "white", zIndex: "1" }}>
                           {info[Id].verseName}
@@ -90,3 +94,4 @@ Alternate fix is not to use a javascript function but it was corrected in the cs
 appeared great after all.
 
 */
+
