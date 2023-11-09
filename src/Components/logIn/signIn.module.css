@@ -27,6 +27,12 @@
   /* color: #3776ff; */
   border: 1px solid rgb(85, 83, 83);
 }
+.emailInput {
+}
+.input.focused {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
 p {
   text-align: left;
   display: inline-block;
