@@ -9,7 +9,7 @@ export default function Backdrop(props) {
           className={`${classes.backdrop} ${
             props.showBackdrop && classes.backdropIn
           }`}
-        onClick={props.onConfirm}
+        onClick={props.onClick}
         >
           {props.children}
         </div>,

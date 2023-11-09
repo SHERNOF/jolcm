@@ -1,6 +1,6 @@
 
 import React, {  useState } from "react";
-import { useSelector } from "react-redux";
+
 import Backdrop from "../../UI/backdrop/Backdrop";
 import Title from "../../UI/title/Title";
 
@@ -8,22 +8,19 @@ import classes from "./ourTeam.module.css";
 import teamData from "./team.js";
 
 export default function OurTeam() {
-  // const setBackdrop = useSelector((state) => state.setBackdrop);
-  // console.log(setBackdrop)
+
   const info = teamData.teamInfo;
   const [showBackdrop, setshowBackdrop] = useState(false);
   console.log(showBackdrop)
   const [Id, setId] = useState();
 
-  const [flip, setflip] = useState(false);
-  const flipPage = () => {
-    setflip(!flip);
-  };
+
 
   const backdropHandler = () => {
+    // setshowBackdrop(!showBackdrop);
     setshowBackdrop(!showBackdrop);
-    // setshowBackdrop(false);
-    console.log('test')
+    // setshowBackdrop(null);
+    console.log('backdrop container clicked')
   };
 
   return (
@@ -36,7 +33,7 @@ export default function OurTeam() {
               <div key={inf.id} className={classes.teamDetails}>
                 <div
                   className={`${classes.front} 
-                  ${flip && classes.frontFlip}
+         
               `}
                   onClick={() => {
                     setId(index);
@@ -54,12 +51,13 @@ export default function OurTeam() {
 
                   {showBackdrop && (
                     <Backdrop
-                      showBackdrop={showBackdrop}
-                      onConfirm={backdropHandler}
+                    onClick={()=>{
+                      setshowBackdrop(showBackdrop)
+                    }}
+                    showBackdrop={showBackdrop}
                     >
                       <div
                         className={classes.verseContainer}
-                        // onClick={backdropHandler}
                       >
                         <p style={{ color: "white", zIndex: "1" }}>
                           {info[Id].verseName}
