@@ -7,9 +7,8 @@ export default function Backdrop(props) {
       {ReactDom.createPortal(
         <div
           className={`${classes.backdrop} ${
-            props.showBackdrop && classes.backdropIn
+            props.openModal && classes.backdropIn
           }`}
-        onClick={props.onClick}
         >
           {props.children}
         </div>,
@@ -21,4 +20,7 @@ export default function Backdrop(props) {
 
 /* 
 1. fixed the whitescreen issue when the translateX is used by putting an overflow:hidden in the parent div
+
+
+2. Issue - the backdrop disappear by clicking the backdrop and {props.children}. suppose to be it will only close when the close button and backdrop is click. resolved by using (e) => {e.stopPropagation()}
 */

@@ -5,20 +5,19 @@ import Title from "../../UI/title/Title";
 import ImageSlider from "../../UI/imageSlider/ImageSlider";
 
 export default function Events({ evs }) {
-  const events = useRef(null);
+  // const events = useRef(null);
 
-  const [isIntersecting, setisIntersecting] = useState(false);
-  console.log(isIntersecting);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setisIntersecting(entry.isIntersecting);
-      },
-      { threshold: ".1" }
-    );
-    observer.observe(events.current);
-    return () => observer.disconnect();
-  }, []);
+  // const [isIntersecting, setisIntersecting] = useState(false);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setisIntersecting(entry.isIntersecting);
+  //     },
+  //     { threshold: ".1" }
+  //   );
+  //   observer.observe(events.current);
+  //   return () => observer.disconnect();
+  // }, []);
 
   const churchEvents = evs;
 
@@ -31,13 +30,13 @@ export default function Events({ evs }) {
       <Title>EVENTS</Title>
       <div
         className={classes.eventsContainer}
-        style={{
-          transform: `${
-            isIntersecting ? "translateX(0px)" : "translateX(300px)"
-          }`,
-          opacity: `${isIntersecting ? "1" : "0"}`,
-        }}
-        ref={events}
+        // style={{
+        //   transform: `${
+        //     isIntersecting ? "translateX(0px)" : "translateX(300px)"
+        //   }`,
+        //   opacity: `${isIntersecting ? "1" : "0"}`,
+        // }}
+        // ref={events}
       >
         <div className={classes.column1}>
           <div className={classes.column1Container}>
@@ -74,12 +73,10 @@ export default function Events({ evs }) {
   );
 }
 
-/* requested by the member to make the big picture to enlarge upon click. decided to included as a modal in the backdrop */
-{
-  /* <div
-                  key={index}
-                  style={{ backgroundImage: `url(${pic[index]})` }}
-                ></div> */
-}
+/* requested by the member to make the big picture to enlarge upon click. decided to included as a modal in the backdrop
+
+decided to remove the entry animation; seems too much
+
+*/
 
 // https://www.youtube.com/watch?v=SK9AlIbexOE&list=LL&index=3

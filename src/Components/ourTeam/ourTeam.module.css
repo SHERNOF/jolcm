@@ -65,8 +65,8 @@
   border: 1px solid rgb(88, 87, 87);
   box-shadow: 1px 1px 20px rgba(88, 87, 87, 0.2);
   border-radius: 5px;
-  animation: verse 1s ;
-  z-index: -3;
+  animation: verse 1s ease-in-out;
+  position: relative;
 }
 
 @keyframes verse {

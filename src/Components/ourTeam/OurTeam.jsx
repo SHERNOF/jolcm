@@ -1,27 +1,14 @@
-
-import React, {  useState } from "react";
-
+import React, { useState } from "react";
 import Backdrop from "../../UI/backdrop/Backdrop";
 import Title from "../../UI/title/Title";
-
 import classes from "./ourTeam.module.css";
 import teamData from "./team.js";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function OurTeam() {
-
   const info = teamData.teamInfo;
-  const [showBackdrop, setshowBackdrop] = useState(false);
-  console.log(showBackdrop)
+  const [openModal, setopenModal] = useState(false);
   const [Id, setId] = useState();
-
-
-
-  const backdropHandler = () => {
-    // setshowBackdrop(!showBackdrop);
-    setshowBackdrop(!showBackdrop);
-    // setshowBackdrop(null);
-    console.log('backdrop container clicked')
-  };
 
   return (
     <>
@@ -37,7 +24,7 @@ export default function OurTeam() {
               `}
                   onClick={() => {
                     setId(index);
-                    setshowBackdrop(!showBackdrop);
+                    setopenModal(!openModal);
                   }}
                 >
                   <p style={{ textAlign: "center" }}>{inf.nickname}</p>
@@ -49,16 +36,29 @@ export default function OurTeam() {
                     />
                   </div>
 
-                  {showBackdrop && (
+                  {openModal && (
                     <Backdrop
-                    onClick={()=>{
-                      setshowBackdrop(showBackdrop)
-                    }}
-                    showBackdrop={showBackdrop}
+                      onClick={() => {
+                        setopenModal(!openModal);
+                      }}
+                      openModal={openModal}
                     >
                       <div
                         className={classes.verseContainer}
+                        onClick={(e) => e.stopPropagation()}
                       >
+                        <AiOutlineCloseCircle
+                          style={{
+                            position: "absolute",
+                            right: "1rem",
+                            top: "1rem",
+                            color: "rgb(88, 87, 87)",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => {
+                            setopenModal(!openModal);
+                          }}
+                        />
                         <p style={{ color: "white", zIndex: "1" }}>
                           {info[Id].verseName}
                         </p>
@@ -92,4 +92,3 @@ Alternate fix is not to use a javascript function but it was corrected in the cs
 appeared great after all.
 
 */
-

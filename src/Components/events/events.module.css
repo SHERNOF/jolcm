@@ -16,8 +16,8 @@
   height: 50vh;
   width: 100%;
   border-radius: 5px;
-  transform: translateX(300px);
-  opacity: 0;
+  /* transform: translateX(300px); */
+  /* opacity: 0; */
   transition: all 1s ease-in-out;
   width: 100%;
 }

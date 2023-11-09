@@ -23,11 +23,14 @@ export default function SignIn() {
   const [emailInValid, setemailInValid] = useState(false);
   const [password, setpassword] = useState("");
   const [passwordInValid, setpasswordInValid] = useState(false);
+  const [background, setbackground] = useState(false);
+  console.log(background);
 
   const onBlurHandler = () => {
     if (email.trim().length === 0) {
       setemailInValid(true);
     }
+    setbackground(false);
   };
 
   const passwordonBlurHandler = () => {
@@ -38,6 +41,8 @@ export default function SignIn() {
 
   const onFocusHandler = () => {
     setemailInValid(false);
+    setbackground(true);
+    console.log("focused");
   };
   const passwordonFocusHandler = () => {
     setpasswordInValid(false);
@@ -76,7 +81,7 @@ export default function SignIn() {
       <div className={classes.signIn}>
         <Label htmlFor="email">Email</Label>
         <input
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           id="email"
           type="email"
           onBlur={onBlurHandler}
@@ -100,7 +105,7 @@ export default function SignIn() {
         </p>
         <Label htmlFor="password">Password</Label>
         <input
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           id="password"
           type="password"
           name="password"
