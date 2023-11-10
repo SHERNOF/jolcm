@@ -30,3 +30,6 @@ export const SEND_MESSAGE_FAIL = "SEND_MESSAGE_FAIL";
 export const USER_LOGOUT = "USER_LOGOUT";
 
 export const SET_BACKDROP = "SET_BACKDROP";
+
+export const SET_MODAL = "SET_MODAL";
+

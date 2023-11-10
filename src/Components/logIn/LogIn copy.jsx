@@ -6,11 +6,8 @@ import Card from "../../UI/card/Card";
 import classes from "./login.module.css";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import { Backdrop } from "@mui/material";
 
 export default function LogIn() {
-  const setBackdrop = useSelector((state) => state.setBackdrop);
-  const [openModal, setopenModal] = useState(false);
   const displayLogin = useSelector((state) => state.displayLogin);
   const userInfo = useSelector((state) => state.userInfo);
   const loading = useSelector((state) => state.loading);
@@ -23,13 +20,12 @@ export default function LogIn() {
     <>
       {userInfo ? (
         ""
-      ) :
-      
-      <Card
-      className={`${classes.logInContainer} ${
-        displayLogin && classes.appear
-      }`}
-    >
+      ) : (
+        <Card
+          className={`${classes.logInContainer} ${
+            displayLogin && classes.appear
+          }`}
+        >
           <div className={classes.switchContainer}>
             <input
               type="checkbox"
@@ -38,7 +34,6 @@ export default function LogIn() {
               onClick={switchHandler}
             ></input>
           </div>
-
           {mySwitch ? (
             loading ? (
               <Loading />
@@ -50,9 +45,8 @@ export default function LogIn() {
           ) : (
             <SignIn />
           )}
-          </Card> 
-        
-      }
+        </Card>
+      )}
     </>
   );
 }

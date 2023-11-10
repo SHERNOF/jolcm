@@ -3,6 +3,7 @@ import { RxEnter, RxExit } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_LOGIN, USER_LOGOUT } from "../../store/constants";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const style = {
   fontSize: "2em",
@@ -11,10 +12,16 @@ const style = {
 };
 
 export default function LoginButton() {
+  const [openModal, setopenModal] = useState(false);
+  
+  // const setBackdrop = useSelector((state) => state.setBackdrop);
+  // console.log(setBackdrop)
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const logInHandler = () => {
     dispatch({ type: SET_LOGIN });
+    // setopenModal(!openModal)
+    // console.log('test')
   };
   const logOutHandler = () => {
     dispatch({ type: USER_LOGOUT });

@@ -24,28 +24,28 @@ export default function SignIn() {
   const [password, setpassword] = useState("");
   const [passwordInValid, setpasswordInValid] = useState(false);
   const [background, setbackground] = useState(false);
-  console.log(background);
+  
 
   const onBlurHandler = () => {
     if (email.trim().length === 0) {
       setemailInValid(true);
-    }
-    setbackground(false);
-  };
-
-  const passwordonBlurHandler = () => {
-    if (password.trim().length === 0) {
-      setpasswordInValid(true);
+      setbackground(false);
     }
   };
 
   const onFocusHandler = () => {
     setemailInValid(false);
     setbackground(true);
-    console.log("focused");
+  };
+  const passwordonBlurHandler = () => {
+    if (password.trim().length === 0) {
+      setpasswordInValid(true);
+      setbackground(false);
+    }
   };
   const passwordonFocusHandler = () => {
     setpasswordInValid(false);
+    setbackground(true);
   };
 
   const signInHandler = async (e) => {

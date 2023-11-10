@@ -21,39 +21,48 @@ export default function SignUp() {
   const [logInPasswordInValid, setlogInPasswordInValid] = useState(false);
   const [confirmPassword, setconfirmPassword] = useState("");
   const [confirmPasswordInValid, setconfirmPasswordInValid] = useState(false);
+  const [background, setbackground] = useState(false);
 
   const nameOnBlur = () => {
     if (name.trim().length === 0) {
       setnameInValid(true);
+      setbackground(false);
     }
   };
   const nameOnFocus = () => {
     setnameInValid(false);
+    setbackground(true);
   };
   const logInEmailOnBlur = () => {
     if (logInEmail.trim().length === 0) {
       setlogInEmailInValid(true);
+      setbackground(false);
     }
   };
   const logInEmailOnFocus = () => {
     setlogInEmailInValid(false);
+    setbackground(true);
   };
   const logInPasswordOnBlur = () => {
     if (logInPassword.trim().length === 0) {
       setlogInPasswordInValid(true);
+      setbackground(false);
     }
   };
   const logInPasswordOnFocus = () => {
     setlogInPasswordInValid(false);
+    setbackground(true);
   };
 
   const confirmPasswordOnBlur = () => {
     if (confirmPassword.trim().length === 0) {
       setconfirmPasswordInValid(true);
+      setbackground(false);
     }
   };
   const confirmPasswordOnFocus = () => {
     setconfirmPasswordInValid(false);
+    setbackground(true);
   };
 
   const dispatch = useDispatch();
@@ -95,7 +104,7 @@ export default function SignUp() {
       <div className={classes.signUp}>
         <Label htmlFor="name">Name</Label>
         <input
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           value={name}
           onChange={(e) => setname(e.target.value)}
           onBlur={nameOnBlur}
@@ -121,7 +130,7 @@ export default function SignUp() {
 
         <Label htmlFor="email">Email</Label>
         <input
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           value={logInEmail}
           onChange={(e) => setlogInEmail(e.target.value)}
           onBlur={logInEmailOnBlur}
@@ -148,7 +157,7 @@ export default function SignUp() {
 
         <Label htmlFor="password">Password</Label>
         <input
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           id="password"
           value={logInPassword}
           onChange={(e) => setlogInPassword(e.target.value)}
@@ -176,7 +185,7 @@ export default function SignUp() {
         <Label htmlFor="confirmPassword">Confirm Password</Label>
         <input
           id="confirmPassword"
-          className={classes.input}
+          className={`${classes.input} ${background && classes.focused}`}
           value={confirmPassword}
           onChange={(e) => setconfirmPassword(e.target.value)}
           onBlur={confirmPasswordOnBlur}

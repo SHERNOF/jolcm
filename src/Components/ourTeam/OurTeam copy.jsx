@@ -4,15 +4,13 @@ import Title from "../../UI/title/Title";
 import classes from "./ourTeam.module.css";
 import teamData from "./team.js";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { SET_MODAL } from "../../store/constants";
+import { useSelector } from "react-redux";
 
 export default function OurTeam() {
   const info = teamData.teamInfo;
 
-  const [openModal, setopenModal] = useState(false);
-  // const openModal = useSelector((state) => state.openModal)
-  // const dispatch = useDispatch()
+  // const [openModal, setopenModal] = useState(false);
+  const openModal = useSelector((state) => state.openModal)
   const [Id, setId] = useState();
 
   return (
@@ -30,7 +28,6 @@ export default function OurTeam() {
                   onClick={() => {
                     setId(index);
                     setopenModal(!openModal);
-                    // dispatch({ type: SET_MODAL })
                   }}
                 >
                   <p style={{ textAlign: "center" }}>{inf.nickname}</p>
@@ -46,7 +43,6 @@ export default function OurTeam() {
                     <Backdrop
                       onClick={() => {
                         setopenModal(!openModal);
-                        // dispatch({ type: SET_MODAL })
                       }}
                       openModal={openModal}
                     >
@@ -64,7 +60,6 @@ export default function OurTeam() {
                           }}
                           onClick={() => {
                             setopenModal(!openModal);
-                            // dispatch({ type: SET_MODAL })
                           }}
                         />
                         <p style={{ color: "white", zIndex: "1" }}>

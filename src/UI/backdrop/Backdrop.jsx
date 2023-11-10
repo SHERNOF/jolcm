@@ -1,13 +1,16 @@
+import { useSelector } from "react-redux";
 import classes from "./backdrop.module.css";
 import ReactDom from "react-dom";
 
 export default function Backdrop(props) {
+  const setBackdrop = useSelector((state) => state.setBackdrop);
   return (
     <>
       {ReactDom.createPortal(
         <div
           className={`${classes.backdrop} ${
             props.openModal && classes.backdropIn
+            
           }`}
         >
           {props.children}

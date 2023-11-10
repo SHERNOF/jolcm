@@ -16,6 +16,7 @@ import {
   SEND_MESSAGE_SUCCESS,
   SEND_MESSAGE_REQUEST,
   SEND_MESSAGE_FAIL,
+  SET_MODAL,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -24,6 +25,7 @@ import { FETCH_DATA_REQUEST } from "./constants.js";
 import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
 import { SET_BACKDROP } from "./constants.js";
+
 
 export const wheel = () => ({
   type: CHANGE_MOUSEDOWN,
@@ -106,4 +108,8 @@ export const sendMessageFail = () => ({
 
 export const logOut = () => ({
   type: USER_LOGOUT,
+});
+
+export const setModal = () => ({
+  type: SET_MODAL,
 });

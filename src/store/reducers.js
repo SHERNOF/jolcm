@@ -13,6 +13,7 @@ import {
   SEND_MESSAGE_FAIL,
   SEND_MESSAGE_REQUEST,
   SEND_MESSAGE_SUCCESS,
+  SET_MODAL,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -22,6 +23,7 @@ import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
 
 const initialState = {
+  openModal: true,
   setBackdrop: false,
   wheel: Boolean,
   displayLogin: false,
@@ -51,6 +53,7 @@ export const rootReducer = (state = initialState, action) => {
     // SET LOGIN REDUCER
     case SET_LOGIN:
       return { displayLogin: !state.displayLogin };
+      // return { setBackdrop: !state.setBackdrop };
 
     // FOR HOME PAGE (Team and Events)
 
@@ -100,6 +103,9 @@ export const rootReducer = (state = initialState, action) => {
         return { ...state, loading: false, message: action.payload };
       case SEND_MESSAGE_FAIL:
         return { ...state, loading: false, error: action.payload };
+
+        case SET_MODAL:
+      return { displayLogin: !state.openModal };
 
     default:
       return state;

@@ -25,30 +25,12 @@ export default function Admin() {
     }
   };
 
-  // useEffect(
-  //   (userId) => {
-  //     // dispatch(detailsUser(userInfo._id));
-  //     dispatch({ type: DETAILS_USER_REQUEST, payload: userId });
-  //     // const { userInfo } = state;
-  //     try {
-  //       const { data } = axios.get(`/jol/users/${userId}`, {
-  //         headers: { Authorization: `Bearer ${userInfo.token}` },
-  //       });
-  //     } catch (error) {
-  //       const message =
-  //         error.response && error.response.data.message
-  //           ? error.response.data.message
-  //           : error.message;
-  //       dispatch({ type: DETAILS_USER_FAIL, payload: message });
-  //     }
-  //   },
-  //   [dispatch, userInfo._id]
-  // );
+
 
   return (
     <div className={classes.admin}>
-      <Title>Create Event</Title>
-      <Button onClick={createHandler}>Create Event</Button>
+      {/* <Title>Create Event</Title> */}
+      {/* <Button onClick={createHandler}>Create Event</Button> */}
     </div>
   );
 }
