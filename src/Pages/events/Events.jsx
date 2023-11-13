@@ -1,15 +1,14 @@
-
-import React, { useEffect, useReducer } from 'react'
-import Container from '../../UI/container/Container'
-import Title from '../../UI/title/Title'
-import classes from './events.module.css'
-import { useSelector } from 'react-redux';
-import axios from 'axios';
-
+import React, { useEffect, useReducer } from "react";
+import Container from "../../UI/container/Container";
+import Title from "../../UI/title/Title";
+import classes from "./events.module.css";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { AiTwotoneEdit } from "react-icons/ai";
+import { MdDeleteOutline } from "react-icons/md";
 import { rootReducer } from "../../store/reducers";
 
 export default function Events() {
-
   //   useEffect(() => {
   //   const fetchData = async () => {
   //     try {
@@ -41,8 +40,6 @@ export default function Events() {
       dispatch({ type: "FETCH_DATA_REQUEST" });
       try {
         const churchEvents = await axios.get("/jol/churchEvents");
-        
-  console.log(churchEvents)
         dispatch({ type: "FETCH_DATA_SUCCESS", payload: churchEvents.data });
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
@@ -50,41 +47,49 @@ export default function Events() {
     };
     fetchchurchEvents();
   }, []);
-
-  // const date = new Date(churchEvents[0].createdAt)
-  // console.log(date)
   return (
     <Container>
-    <div className={classes.eventsContainer}>
-      <div style={{width:'100%'}}><Title>Events</Title></div>
-      <div className={classes.eventsContent}>
-        <table style={{width:'100%', fontSize:'.6em', borderCollapse:'collapse'}}>
-          <tbody>
-            <tr>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            {/* <th>Photos</th> */}
-            </tr>
-          </tbody>
-             <tbody >
-          { churchEvents.map((x, index)=>(
-              <tr key={x.index}>
-              <td>{x.eventTitle}</td>
-              <td>{x.createdAt}</td>
-              <td>Edit</td>
-              <td>Delete</td>
-              {/* <td>Test2</td> */}
+      <div className={classes.eventsContainer}>
+        <div style={{ width: "100%" }}>
+          <Title>Events</Title>
+        </div>
+        <div className={classes.eventsContent}>
+          <table
+            style={{
+              width: "100%",
+              fontSize: ".6em",
+              borderCollapse: "collapse",
+            }}
+          >
+            <tbody>
+              <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                {/* <th>Photos</th> */}
               </tr>
-              )) }
-           </tbody>
-         
-        </table>
+            </tbody>
+
+            <tbody>
+              {churchEvents.map((x, index) => (
+                <tr key={x.index}>
+                  <td>{x.eventTitle}</td>
+                  <td>{x.createdAt}</td>
+                  <td style={{ cursor: "pointer" }}>
+                    <AiTwotoneEdit />
+                  </td>
+                  <td style={{ cursor: "pointer" }}>
+                    <MdDeleteOutline />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     </Container>
-  )
+  );
 }
 
 /*

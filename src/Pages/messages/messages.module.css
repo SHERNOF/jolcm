@@ -1,34 +1,40 @@
-.messagesContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 7rem;
-    flex-direction: column;
-    border: 1px solid rgba(255, 0, 0, 0.089);
-    height: 80vh;
-    width: 100%;
+.messagessContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  flex-direction: column;
+  width: 100%;
 }
-.messagesContent {
-    height: 90%;
-    border: 1px solid rgba(255, 0, 0, 0.089);
-    width: 100%;
-    display: flex;
-    display: flex;
-    align-items: start;
-    justify-content: center;
+.messagessContent {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
-table{
-    width: 100%;
-    font-size: .6em;
-    border-collapse: collapse;
+table {
+  width: 100%;
+  font-size: 0.6em;
+  border-collapse: collapse;
 }
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+tr {
+  transition: all 0.25s;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(even):hover {
+  background-color: #eeeeee;
+}
+tr:nth-child(odd):hover {
+  background-color: #eeeeee;
+}
