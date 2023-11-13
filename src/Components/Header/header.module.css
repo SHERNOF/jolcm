@@ -46,6 +46,52 @@ nav {
   background-size: cover;
   /* margin-right: 3rem; */
 }
+.initialHolder{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border:1px solid rgb(255,255,255,.25);
+  background: rgb(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .25s;
+}
+.initialHolder:hover{
+  background: rgb(0,0,0,.95);
+  border:1px solid rgb(255,255,255,.25);
+}
+ul{
+  position:absolute;
+  top:0;
+  left:0;
+  transition: all .25s;
+  z-index: -1;
+}
+
+.list{
+  font-size: .5em;
+  text-align: start;
+  padding: .5rem;
+  width:6rem;
+  opacity: 0;
+  transition: all .25s;
+border:1px solid rgb(255,255,255,.25);
+background: rgb(0,0,0,.2);
+}
+.list.appear{
+  opacity: 1;
+}
+li:hover{
+  background: rgb(0,0,0,.5);
+  border:1px solid rgb(255,255,255,.5);
+  /* border: none; */
+  border-radius:3px;
+  color:white;
+  font-weight: lighter;
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .navContainer {
   }

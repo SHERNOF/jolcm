@@ -9,6 +9,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "./store/constants";
 import LoginButton from "./Components/logIn/LoginButton";
+import Users from "./Pages/users/Users";
+import Messages from "./Pages/messages/Messages";
+import Events from "./Pages/events/Events";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -31,7 +34,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path='/users' element={<Users />}></Route>
+          <Route path='/messages' element={<Messages />}></Route>
+          <Route path='/events' element={<Events />}></Route>
         </Routes>
 
         <LoginButton></LoginButton>

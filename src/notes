@@ -211,3 +211,15 @@ Issues encountered in deployment
 Adding the app to custom domain via heroku
 
 https://imranhsayed.medium.com/adding-your-custom-domain-to-heroku-app-cdd68d2db67f
+
+
+>>> Upload Images to Cloudinary
+
+1. Create cloudinary account (https://cloudinary.com/)
+   - in dashboard, click the copy in the app name box then paste it in BE .env
+         - CLOUDINARY_CLOUD_NAME=
+         - copy also the CLOUDINARY_API_KEY
+         - CLOUDINARY_URL
+
+2. IMPLEMENT THE UPLOAD BUTTON
+     - npm i cloudinary in BE

@@ -17,7 +17,7 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/admin";
+  const redirect = redirectInUrl ? redirectInUrl : "/";
 
   const [email, setemail] = useState("");
   const [emailInValid, setemailInValid] = useState(false);

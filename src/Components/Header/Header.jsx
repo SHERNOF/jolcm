@@ -2,11 +2,30 @@ import * as React from "react";
 import classes from "./header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import StyledLink from "../../UI/links/StyledLink";
+
+// const capabilities = ["Messages", "Events", "Users"]
+const capabilities = [
+  { 
+    cap: "Messages",
+    link:'/messages'
+  },
+  { 
+    cap: "Events",
+    link:'/events'
+  },
+  { 
+    cap: "Users",
+    link:'/users'
+  },
+]
 
 export default function Header() {
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const wheel = useSelector((state) => state.wheel);
+  const [showPop, setshowPop] = React.useState(false)
+  console.log(showPop)
 
   return (
     <nav>
@@ -23,10 +42,21 @@ export default function Header() {
         </Link>
 
         {userInfo && (
-          <h6 style={{ color: "#3776ff", fontSize: "1em" }}>
-            Good morning {userInfo.name}
-          </h6>
+          <div style={{position:'relative'}}>
+            <div className={classes.initialHolder} onMouseEnter={()=>setshowPop(!showPop)} onClick={()=>{setshowPop(!showPop)}} >
+            {userInfo.name.charAt(0)}
+            </div>
+            <ul >
+              {capabilities.map((x, index)=>(
+                <StyledLink key={index} to={`${x.link}`}>
+                  <li onClick={()=>{setshowPop(!showPop)}} className={`${classes.list} ${showPop && classes.appear}`} >{x.cap}</li>
+                </StyledLink>
+                
+              ))}
+        </ul>
+          </div>
         )}
+
       </div>
     </nav>
   );
