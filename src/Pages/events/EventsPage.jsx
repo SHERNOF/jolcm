@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import Container from "../../UI/container/Container";
 import Title from "../../UI/title/Title";
-import classes from "./events.module.css";
+import classes from "./eventsPage.module.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { AiTwotoneEdit } from "react-icons/ai";

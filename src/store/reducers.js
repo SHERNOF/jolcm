@@ -14,6 +14,12 @@ import {
   SEND_MESSAGE_REQUEST,
   SEND_MESSAGE_SUCCESS,
   SET_MODAL,
+  FETCH_MESSAGES_REQUEST,
+  FETCH_MESSAGES_SUCCESS,
+  FETCH_MESSAGES_FAILED,
+  FETCH_USERS_REQUEST,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -37,7 +43,8 @@ const initialState = {
   churchEvent: {},
   detailsUser: {},
   isAuth: true,
-  message:{}
+  messages:{},
+  usersList:{},
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -106,6 +113,29 @@ export const rootReducer = (state = initialState, action) => {
 
         case SET_MODAL:
       return { displayLogin: !state.openModal };
+
+
+      case FETCH_MESSAGES_REQUEST:
+      return { ...state, loading: true };
+      case FETCH_MESSAGES_SUCCESS:
+        return {
+          ...state,
+          messages: action.payload,
+          loading: false,
+        };
+      case FETCH_MESSAGES_FAILED:
+        return { ...state, loading: false, error: action.payload };
+
+        case FETCH_USERS_REQUEST:
+          return { ...state, loading: true };
+          case FETCH_USERS_SUCCESS:
+            return {
+              ...state,
+              usersList: action.payload,
+              loading: false,
+            };
+          case FETCH_USERS_FAILED:
+            return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

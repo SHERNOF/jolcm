@@ -4,14 +4,15 @@ import React, { useEffect } from "react";
 import Header from "./Components/Header/Header";
 import LogIn from "./Components/logIn/LogIn";
 import { useDispatch, useSelector } from "react-redux";
-import Admin from "./Pages/admin/Admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "./store/constants";
 import LoginButton from "./Components/logIn/LoginButton";
-import Users from "./Pages/users/Users";
-import Messages from "./Pages/messages/Messages";
-import Events from "./Pages/events/Events";
+
+
+import EventsPage from "./Pages/events/EventsPage";
+import MessagesPage from "./Pages/messages/MessagesPage";
+import UsersPage from "./Pages/users/UsersPage";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -34,9 +35,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/users' element={<Users />}></Route>
-          <Route path='/messages' element={<Messages />}></Route>
-          <Route path='/events' element={<Events />}></Route>
+          <Route path='/users' element={<UsersPage />}></Route>
+          <Route path='/messages' element={<MessagesPage />}></Route>
+          <Route path='/events' element={<EventsPage />}></Route>
         </Routes>
 
         <LoginButton></LoginButton>

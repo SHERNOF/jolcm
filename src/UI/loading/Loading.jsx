@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 export default function Loading(props) {
   return (
     // <Section>
-    //   <Container>
+      <Container>
     <Stack spacing={1}>
       {/* For variant="text", adjust the height via font-size */}
       <Skeleton variant="text" sx={{ fontSize: "10rem" }} />
@@ -17,7 +17,7 @@ export default function Loading(props) {
       <Skeleton variant="rectangular" width={"100%"} height={60} />
       <Skeleton variant="rounded" width={"50%"} height={60} />
     </Stack>
-    //   </Container>
+       </Container>
     // </Section>
   );
 }

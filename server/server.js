@@ -42,6 +42,7 @@ app.use("/jol/churchEvents", churchEventsRoute);
 // });
 app.use("/jol/users", userRoute);
 
+
 app.use("/jol/", messagesRoute);
 
 // *from userRoutes.js

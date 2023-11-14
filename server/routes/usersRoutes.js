@@ -6,6 +6,11 @@ import { generateToken } from "../utils.js";
 
 const userRoute = express.Router();
 
+userRoute.get('/usersList', expressAsyncHandler( async (req, res) => {
+  const usersList = await User.find()
+  res.send(usersList)
+}))
+
 userRoute.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {

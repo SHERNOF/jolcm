@@ -28,4 +28,9 @@ messagesRoute.post(
     })
 )
 
+messagesRoute.get("/messages", async (req, res) => {
+    const messages = await Messages.find();
+    res.send(messages);
+  });
+
 export default messagesRoute

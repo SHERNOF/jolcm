@@ -17,6 +17,12 @@ import {
   SEND_MESSAGE_REQUEST,
   SEND_MESSAGE_FAIL,
   SET_MODAL,
+  FETCH_MESSAGES_REQUEST,
+  FETCH_MESSAGES_SUCCESS,
+  FETCH_MESSAGES_FAILED,
+  FETCH_USERS_REQUEST,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -113,3 +119,29 @@ export const logOut = () => ({
 export const setModal = () => ({
   type: SET_MODAL,
 });
+
+export const requestMessage = () => ({
+  type: FETCH_MESSAGES_REQUEST,
+});
+
+export const successMessage = () => ({
+  type: FETCH_MESSAGES_SUCCESS,
+});
+
+export const failedMessage = () => ({
+  type: FETCH_MESSAGES_FAILED,
+});
+
+export const requestUsers =  () => ({
+  type: FETCH_USERS_REQUEST,
+});
+
+export const successUsers =  () => ({
+  type: FETCH_USERS_SUCCESS,
+});
+
+export const failedUsers =  () => ({
+  type: FETCH_USERS_FAILED,
+});
+
+
