@@ -61,3 +61,10 @@ export default function Header() {
     </nav>
   );
 }
+
+
+/*
+
+1. the pop up window is too much at the right at mobile view. 
+  solution is to change left: 0 to right:0 and left:auto of the ul
+*/

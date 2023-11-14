@@ -126,6 +126,13 @@ li:hover {
     /* border: 1px solid blue; */
     width: 90vw;
   }
+  ul{
+    left: auto;
+    right:0;
+    z-index: 1;
+    /* top: auto; */
+    /* bottom: 0; */
+  }
 }
 
 /* /imagine prompt:Subject: A hyper-realistic portrayal of a carpenter named Sergio. Sergio is in his early 40s, with a well-groomed beard, a warm smile, and the unmistakable spark of creativity in his eyes.  Setting: Sergio's workshop, an inviting and rustic space with wooden beams and large windows that allow soft, diffused light to fill the room. The workshop is adorned with handcrafted wooden furniture and shelves displaying his prized creations.  Composition: Sergio is captured in a mid-shot, standing beside a workbench adorned with an exquisite wooden sculpture that is a testament to his skill and artistry. He holds a finely crafted carving knife in one hand, delicately shaping the intricate details of the sculpture, while his other hand gently rests on the workbench, showcasing the connection he has with his craft.  Camera Equipment:  Camera: Sony Alpha a7R IV Lens: Sony FE 85mm f/1.4 GM Tripod: Vanguard Alta Pro 263AB 100 Aluminum Tripod Remote Shutter Release: Sony RMT-P1BT Wireless Remote Commander Lighting:  Main Light Source: Profoto B1X 500 AirTTL Battery-Powered Flash, fitted with a medium softbox, positioned at a 45-degree angle to the left of Sergio, casting soft, flattering light on his face and the wooden sculpture. Fill Light: A large reflector placed on the right side, bouncing light to fill in shadows and add a natural, even illumination to the scene. Camera Settings:  Aperture: f/4 to achieve a balanced depth of field, ensuring sharp focus on both Sergio and the wooden sculpture while maintaining some background detail. Shutter Speed: 1/125 sec to capture precise details without any motion blur. ISO: 200 to maintain image clarity and reduce noise in the well-lit environment. Additional Elements:  Background: The workshop's wooden interior serves as a warm and inviting backdrop, complementing the overall ambiance of the scene. Props: Various woodworking tools, such as chisels, a hand plane, and wood shavings, artfully arranged on the workbench, symbolizing Sergio's artistic process.
