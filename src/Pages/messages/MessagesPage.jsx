@@ -8,6 +8,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { rootReducer } from "../../store/reducers";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
+import { IoIosCreate } from "react-icons/io";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +36,7 @@ export default function MessagesPage() {
       try {
         const messages = await axios.get("/jol/messages");
         dispatch({ type: "FETCH_MESSAGES_SUCCESS", payload: messages.data });
-        console.log(messages)
+        console.log(messages);
       } catch (error) {
         dispatch({ type: "FETCH_MESSAGES_FAIL", payload: error.message });
       }
@@ -49,45 +50,43 @@ export default function MessagesPage() {
           <Title>Messages</Title>
         </div>
         <div className={classes.messagesContent}>
-          { loading ? (<Loading />) : error ? (<MessageBox />) : (
-             <table
-             style={{
-               width: "100%",
-               fontSize: ".6em",
-               borderCollapse: "collapse",
-             }}
-           >
-             <tbody>
-               <tr>
-                 <th>Date</th>
-                 <th>Email</th>
-                 <th>Phone</th>
-                 <th>Message</th>
-                 <th>Edit</th>
-                 <th>Delete</th>
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <MessageBox />
+          ) : (
+            <table
+              style={{
+                width: "100%",
+                fontSize: ".6em",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tbody>
+                <tr>
+                  <th>Date</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Message</th>
+                  <th>Delete</th>
+                </tr>
+              </tbody>
 
-               </tr>
-             </tbody>
- 
-             <tbody>
-               {messages.map((x, index) => (
-                 <tr key={index}>
-                   <td>{new Date(x.createdAt).toLocaleDateString()}</td>
-                   <td>{x.email}</td>
-                   <td>{x.phone}</td>
-                   <td>{x.message}</td>
-                   <td style={{ cursor: "pointer" }}>
-                     <AiTwotoneEdit />
-                   </td>
-                   <td style={{ cursor: "pointer" }}>
-                     <MdDeleteOutline />
-                   </td>
-                 </tr>
-               ))}
-             </tbody>
-           </table>
+              <tbody>
+                {messages.map((x, index) => (
+                  <tr key={index}>
+                    <td>{new Date(x.createdAt).toLocaleDateString()}</td>
+                    <td>{x.email}</td>
+                    <td>{x.phone}</td>
+                    <td>{x.message}</td>
+                    <td style={{ cursor: "pointer" }}>
+                      <MdDeleteOutline />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
-         
         </div>
       </div>
     </Container>

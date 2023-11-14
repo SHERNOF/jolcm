@@ -1,17 +1,17 @@
-import React, { useEffect, useReducer } from 'react'
-import Container from '../../UI/container/Container'
-import Title from '../../UI/title/Title'
-import Loading from '../../UI/loading/Loading'
-import MessageBox from '../../UI/messageBox/MessageBox'
-import classes from './usersPage.module.css'
-import { rootReducer } from '../../store/reducers'
-import axios from 'axios'
+import React, { useEffect, useReducer } from "react";
+import Container from "../../UI/container/Container";
+import Title from "../../UI/title/Title";
+import Loading from "../../UI/loading/Loading";
+import MessageBox from "../../UI/messageBox/MessageBox";
+import classes from "./usersPage.module.css";
+import { rootReducer } from "../../store/reducers";
+import axios from "axios";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
-
+import { IoIosCreate } from "react-icons/io";
 
 const reducer = (state, action) => {
-  switch(action.type){
+  switch (action.type) {
     case "FETCH_USERS_REQUEST":
       return { ...state, loading: true };
     case "FETCH_USERS_SUCCESS":
@@ -21,92 +21,97 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
 export default function UsersPage() {
   const [{ usersList, error, loading }, dispatch] = useReducer(rootReducer, {
-    usersList:{},
-    error:'',
-    loading: true
-  })
-  useEffect(()=>{
-    const fetchUsersList = async () =>{
-      dispatch({type: "FETCH_USERS_REQUEST"})
-      try{
-        const usersList = await axios.get('/jol/users/usersList')
-        dispatch({ type: 'FETCH_USERS_SUCCESS', payload: usersList.data })
-        console.log(usersList)
-      } catch(error){
-        dispatch({ type: 'FETCH_USERS_FAIL', payload: error.message })
+    usersList: {},
+    error: "",
+    loading: true,
+  });
+  useEffect(() => {
+    const fetchUsersList = async () => {
+      dispatch({ type: "FETCH_USERS_REQUEST" });
+      try {
+        const usersList = await axios.get("/jol/users/usersList");
+        dispatch({ type: "FETCH_USERS_SUCCESS", payload: usersList.data });
+        console.log(usersList);
+      } catch (error) {
+        dispatch({ type: "FETCH_USERS_FAIL", payload: error.message });
       }
     };
-    fetchUsersList()
-    },[])
-
+    fetchUsersList();
+  }, []);
 
   return (
     <Container>
       <div className={classes.usersContainer}>
         <div style={{ width: "100%" }}>
-          <Title>Users</Title>
+          <Title>
+            Users &nbsp;&nbsp;
+            <IoIosCreate style={{ cursor: "pointer" }} />
+          </Title>
         </div>
         <div className={classes.usersContent}>
-          { loading ? (<Loading />) : error ? (<MessageBox />) : (
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <MessageBox />
+          ) : (
             <table
-            style={{
-              width: "100%",
-              fontSize: ".6em",
-              borderCollapse: "collapse",
-            }}
-          >
-            <tbody>
-              <tr>
-                <th>name</th>
-                <th>email</th>
-                <th>isAdmin?</th>
-                <th>Date Created</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </tbody>
+              style={{
+                width: "100%",
+                fontSize: ".6em",
+                borderCollapse: "collapse",
+              }}
+            >
+              <tbody>
+                <tr>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>isAdmin?</th>
+                  <th>Date Created</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </tbody>
 
-            <tbody>
-              
-              { usersList.map((x, index)=>(
-                <tr key={index}>
-                <td>{x.name}</td>
-                <td>{x.email}</td>
-                {/* <td>{x.isAdmin}</td> */}
-                <td>
-                  <input type="checkbox" id="isAdmin" name="isAdmin" 
-                
-                value={`${x.isAdmin ? 'Admin' : ''}`}
-                // { `${ x.isAdmin ? checked : ''}` } 
-                // { `${x.isAdmin ? checked : ''}` }
-                ></input>
-                <label htmlFor='isAdmin'>{x.isAdmin ? 'Yes' : 'No' }</label>
-                
-                </td>
-                <td>{new Date(x.createdAt).toLocaleDateString()}</td>
-                <td style={{ cursor: "pointer" }}>
-                  <AiTwotoneEdit />
-                </td>
-                <td style={{ cursor: "pointer" }}>
-                  <MdDeleteOutline />
-                </td>
-              </tr>
-              ))}
-          
-            </tbody>
-          </table>
+              <tbody>
+                {usersList.map((x, index) => (
+                  <tr key={index}>
+                    <td>{x.name}</td>
+                    <td>{x.email}</td>
+                    {/* <td>{x.isAdmin}</td> */}
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="isAdmin"
+                        name="isAdmin"
+                        value={`${x.isAdmin ? "Admin" : ""}`}
+                        // { `${ x.isAdmin ? checked : ''}` }
+                        // { `${x.isAdmin ? checked : ''}` }
+                      ></input>
+                      <label htmlFor="isAdmin">
+                        {x.isAdmin ? "Yes" : "No"}
+                      </label>
+                    </td>
+                    <td>{new Date(x.createdAt).toLocaleDateString()}</td>
+                    <td style={{ cursor: "pointer" }}>
+                      <AiTwotoneEdit />
+                    </td>
+                    <td style={{ cursor: "pointer" }}>
+                      <MdDeleteOutline />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
-        
         </div>
       </div>
     </Container>
-  )
+  );
 }
-
 
 /*
 Procedure

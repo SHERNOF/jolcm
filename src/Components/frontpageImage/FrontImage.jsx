@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import JolVideo from "../jolVideo/JolVideo";
 
 const entrance = {
-  hidden: { opacity: 0, y: 3200 },
+  hidden: { opacity: 0, y: -1800 },
   visible: {
     y: 0,
     opacity: 1,
@@ -29,7 +29,7 @@ const container = {
   },
 };
 const item = {
-  initial: { opacity: 0, y: -3200, scale: 1.2 },
+  initial: { opacity: 0, y: 300, scale: 1.2 },
 
   show: {
     y: 0,

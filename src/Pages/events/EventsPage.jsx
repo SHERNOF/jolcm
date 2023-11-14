@@ -6,28 +6,10 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
+import { IoIosCreate } from "react-icons/io";
 import { rootReducer } from "../../store/reducers";
 
 export default function Events() {
-  //   useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const { data } = await axios.get(`/api/products/admin?page=${page}`, {
-  //         headers: { Authorization: `Bearer ${userInfo.token}` },
-  //       });
-  //       dispatch({ type: "FETCH_SUCCESS", payload: data });
-  //     } catch (err) {
-  //       dispatch({ type: "FETCH_FAIL", payload: getError(err) });
-  //     }
-  //   };
-  //   // fetchData();
-  //   if (successDelete) {
-  //     dispatch({ type: "DELETE_RESET" });
-  //   } else {
-  //     fetchData();
-  //   }
-  // }, [page, userInfo, successDelete]);
-
   const userInfo = useSelector((state) => state.userInfo);
   const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
     churchEvents: [],
@@ -51,7 +33,10 @@ export default function Events() {
     <Container>
       <div className={classes.eventsContainer}>
         <div style={{ width: "100%" }}>
-          <Title>Events</Title>
+          <Title>
+            Events &nbsp;&nbsp;
+            <IoIosCreate style={{ cursor: "pointer" }} />
+          </Title>
         </div>
         <div className={classes.eventsContent}>
           <table
