@@ -3,20 +3,17 @@ import React, { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import AboutUs from "../../Components/aboutUs/AboutUs";
-
 import Loading from "../../UI/loading/Loading";
-
 import Events2 from "../../Components/events/Events";
 import Footer from "../../Components/footer/Footer";
 import FrontImage from "../../Components/frontpageImage/FrontImage";
 import MainLogo from "../../Components/mainLogo/MainLogo";
 import Ministries from "../../Components/ministries/Ministries";
-
 import OurTeam from "../../Components/ourTeam/OurTeam";
-
 import { rootReducer } from "../../store/reducers";
 import Container from "../../UI/container/Container";
-import MyFooter from "../../Components/footer/MyFooter";
+import Word from "../../Components/wow/Wow";
+
 
 export default function Home() {
   const userInfo = useSelector((state) => state.userInfo);
@@ -47,6 +44,7 @@ export default function Home() {
       <FrontImage></FrontImage>
       <Container>
         <AboutUs></AboutUs>
+        <Word />
         {loading ? (
           <Loading></Loading>
         ) : error ? (
