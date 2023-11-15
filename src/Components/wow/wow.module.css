@@ -1,36 +1,39 @@
-.section{
-    display: flex;
+.section {
+  display: flex;
   align-items: center;
   justify-content: center;
-    margin: 4rem 0;
-    border: 1px solid red;
-    height: 20vh;
-    flex-direction: column;
-    padding: 2rem 10rem;
-    font-size: .7em;
-    
+  margin: 4rem 0;
+  border: 1px solid red;
+  height: 20vh;
+  flex-direction: column;
+  padding: 2rem 10rem;
+  font-size: 0.7em;
 }
-.word{
-    text-align: left;
-    width: 100%;
-    height: 20%;
+.word {
+  text-align: left;
+  width: 100%;
+  height: 10%;
 }
-.message{ 
-    border: 1px solid red;
-    /* width: 90%; */
-    text-align: left;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.6em;
-    color: black;
-    margin-left: 2rem;
+.message {
+  border: 1px solid red;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.6em;
+  color: black;
+  /* margin-left: 2rem; */
+  /* margin: 1rem 0; */
 }
-.pastor{
-    height: 20%;
-    width: 100%;
-    text-align: right;
-    font-size: .7em;
-    border: 1px solid red;
+.message p {
+  color: black;
+}
+.pastor {
+  height: 10%;
+  width: 100%;
+  text-align: right;
+  font-size: 0.7em;
+  border: 1px solid red;
+  color: black;
 }
