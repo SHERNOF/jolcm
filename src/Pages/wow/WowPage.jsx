@@ -9,6 +9,7 @@ import { rootReducer } from "../../store/reducers";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
 import { IoIosCreate } from "react-icons/io";
+import StyledLink from "../../UI/links/StyledLink";
 
 export default function WowPage() {
   const [{ wows, error, loading }, dispatch] = useReducer(rootReducer, {
@@ -17,7 +18,7 @@ export default function WowPage() {
     loading: true,
   });
 
-  const [sorted, setsorted] = useState({})
+  const [sorted, setsorted] = useState({});
 
   useEffect(() => {
     const fetchWows = async () => {
@@ -25,12 +26,6 @@ export default function WowPage() {
       try {
         const wows = await axios.get("/jol/wows");
         dispatch({ type: "FETCH_WOW_SUCCESS", payload: wows.data });
-
-        console.log(wows)
-
-        // const test = wows.data.sort((a, b)=>{a.updatedAt - b.updatedAt})
-        // console.log(test)
-
       } catch (error) {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
@@ -41,8 +36,12 @@ export default function WowPage() {
     <Container>
       <div className={classes.wowContainer}>
         <div style={{ width: "100%" }}>
-          <Title>Word of the Week &nbsp;&nbsp;
-            <IoIosCreate style={{ cursor: "pointer" }} /></Title>
+          <Title>
+            Word of the Week &nbsp;&nbsp;
+            <StyledLink to="/admin/createWow">
+              <IoIosCreate style={{ cursor: "pointer", color: "black" }} />
+            </StyledLink>
+          </Title>
         </div>
         <div className={classes.messagesContent}>
           {loading ? (
@@ -73,7 +72,7 @@ export default function WowPage() {
                   <tr key={index}>
                     <td>{new Date(x.createdAt).toLocaleDateString()}</td>
                     <td>{x.verse}</td>
-                    <td style={{textAlign:'left', width:'50%'}}>{x.wow}</td>
+                    <td style={{ textAlign: "left", width: "50%" }}>{x.wow}</td>
                     <td>{x.by}</td>
                     <td style={{ cursor: "pointer" }}>
                       <AiTwotoneEdit />
@@ -96,14 +95,16 @@ export default function WowPage() {
 Procedures:
 1. Create the Wow component
 2. Create the wow model
-3. create the wowRoutes.js specifically for wow create and retrieve and be displayed at <Home />
+3. create the wowRoutes.js specifically for wow create and retrieve and be displayed the <Wow /> at <Home />
+  i. used the const last. This is the product of retrieving the the state from the wows array
+  ii. setlast(wows.data[wows.data.length - 1])
+
 4. create the FETCH_WOW in constant, actions and reducer.js
 5. create the wow:{} state in the reducer.js
 6. Create the admin route to let only be admin able to create wow
 7. create the wowRoutes.js
 8. implement the wowRoutes.js to server.js
 7. Created the <WowPage /> to display all the wows and be able to have the create wow button  from here
-
 II. 
 1. Create the <Wow.jsx /> to display the messages in the <>>Home />
 2. 

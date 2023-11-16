@@ -9,12 +9,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CHANGE_MOUSEDOWN, CHANGE_MOUSEUP } from "./store/constants";
 import LoginButton from "./Components/logIn/LoginButton";
 
-
 import EventsPage from "./Pages/events/EventsPage";
 import MessagesPage from "./Pages/messages/MessagesPage";
 import UsersPage from "./Pages/users/UsersPage";
 import AdminRoute from "./Components/adminRoute/AdminRoute";
 import WowPage from "./Pages/wow/WowPage";
+import CreateWow from "./Pages/wow/CreateWow";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -37,11 +37,25 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/users' element={<UsersPage />}></Route>
-          <Route path='/messages' element={<MessagesPage />}></Route>
-          <Route path='/events' element={<EventsPage />}></Route>
-          <Route path='/admin/wow' 
-          element={<AdminRoute><WowPage /></AdminRoute>}/>
+          <Route path="/users" element={<UsersPage />}></Route>
+          <Route path="/messages" element={<MessagesPage />}></Route>
+          <Route path="/events" element={<EventsPage />}></Route>
+          <Route
+            path="/admin/wow"
+            element={
+              <AdminRoute>
+                <WowPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/createWow"
+            element={
+              <AdminRoute>
+                <CreateWow />
+              </AdminRoute>
+            }
+          />
         </Routes>
 
         <LoginButton></LoginButton>
