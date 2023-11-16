@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Container from "../../UI/container/Container";
 import Title from "../../UI/title/Title";
 import classes from "./wowPage.module.css";
@@ -17,13 +17,20 @@ export default function WowPage() {
     loading: true,
   });
 
+  const [sorted, setsorted] = useState({})
+
   useEffect(() => {
     const fetchWows = async () => {
       dispatch({ type: "FETCH_WOW_REQUEST" });
       try {
         const wows = await axios.get("/jol/wows");
         dispatch({ type: "FETCH_WOW_SUCCESS", payload: wows.data });
-        console.log(wows);
+
+        console.log(wows)
+
+        // const test = wows.data.sort((a, b)=>{a.updatedAt - b.updatedAt})
+        // console.log(test)
+
       } catch (error) {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
@@ -66,7 +73,7 @@ export default function WowPage() {
                   <tr key={index}>
                     <td>{new Date(x.createdAt).toLocaleDateString()}</td>
                     <td>{x.verse}</td>
-                    <td style={{textAlign:'left'}}>{x.wow}</td>
+                    <td style={{textAlign:'left', width:'50%'}}>{x.wow}</td>
                     <td>{x.by}</td>
                     <td style={{ cursor: "pointer" }}>
                       <AiTwotoneEdit />
