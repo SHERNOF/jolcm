@@ -18,6 +18,10 @@ const capabilities = [
     cap: "Users",
     link:'/users'
   },
+  { 
+    cap: "Word of the Week",
+    link:'/admin/wow'
+  },
 ]
 
 export default function Header() {

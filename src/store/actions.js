@@ -23,6 +23,9 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILED,
+  FETCH_WOW_REQUEST,
+  FETCH_WOW_SUCCESS,
+  FETCH_WOW_FAILED
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -142,6 +145,18 @@ export const successUsers =  () => ({
 
 export const failedUsers =  () => ({
   type: FETCH_USERS_FAILED,
+});
+
+export const requestWow =  () => ({
+  type: FETCH_WOW_REQUEST,
+});
+
+export const successWow =  () => ({
+  type: FETCH_WOW_SUCCESS,
+});
+
+export const failedWow =  () => ({
+  type: FETCH_WOW_FAILED,
 });
 
 

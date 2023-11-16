@@ -9,6 +9,7 @@ import seedRouter from "./routes/seedRoutes.js";
 import churchEventsRoute from "./routes/churchEventsRoutes.js";
 import userRoute from "./routes/usersRoutes.js";
 import messagesRoute from "./routes/messagesRoutes.js";
+import wowRoute from "./routes/wowRoutes.js";
 
 // 1. a connection to mongoDB
 
@@ -44,6 +45,7 @@ app.use("/jol/users", userRoute);
 
 
 app.use("/jol/", messagesRoute);
+app.use("/jol/", wowRoute);
 
 // *from userRoutes.js
 app.use((err, req, res, next) => {

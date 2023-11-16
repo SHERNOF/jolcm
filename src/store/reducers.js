@@ -20,6 +20,9 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILED,
+  FETCH_WOW_REQUEST,
+  FETCH_WOW_SUCCESS,
+  FETCH_WOW_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -45,6 +48,7 @@ const initialState = {
   isAuth: true,
   messages:{},
   usersList:{},
+  wows:{}
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -136,6 +140,17 @@ export const rootReducer = (state = initialState, action) => {
             };
           case FETCH_USERS_FAILED:
             return { ...state, loading: false, error: action.payload };
+
+            case FETCH_WOW_REQUEST:
+              return { ...state, loading: true };
+              case FETCH_WOW_SUCCESS:
+                return {
+                  ...state,
+                  wows: action.payload,
+                  loading: false,
+                };
+              case FETCH_WOW_FAILED:
+                return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

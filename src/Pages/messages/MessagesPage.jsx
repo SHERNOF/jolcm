@@ -3,25 +3,11 @@ import Container from "../../UI/container/Container";
 import Title from "../../UI/title/Title";
 import classes from "./messagesPage.module.css";
 import axios from "axios";
-import { AiTwotoneEdit } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
 import { rootReducer } from "../../store/reducers";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
-import { IoIosCreate } from "react-icons/io";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "FETCH_MESSAGES_REQUEST":
-      return { ...state, loading: true };
-    case "FETCH_MESSAGES_SUCCESS":
-      return { ...state, loading: false, messages: action.payload };
-    case "FETCH_MESSAGES_FAIL":
-      return { ...state, loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
 
 export default function MessagesPage() {
   const [{ messages, error, loading }, dispatch] = useReducer(rootReducer, {

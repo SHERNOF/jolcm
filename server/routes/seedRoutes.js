@@ -2,6 +2,7 @@ import express from "express";
 import data from "../data.js";
 import ChurchEvents from "../models/churchEventsModel.js";
 import Users from "../models/usersModel.js";
+import Wow from "../models/wowModel.js";
 
 const seedRouter = express.Router();
 seedRouter.get("/", async (req, res) => {
@@ -11,7 +12,15 @@ seedRouter.get("/", async (req, res) => {
 
   await Users.deleteMany({});
   const createdUsers = await Users.insertMany(data.users);
-  res.send({ createdEvents, createdUsers }); // this is to return the church events from data.js
+
+  await Wow.deleteMany({});
+  const createdWow = await Wow.insertMany(data.wows);
+
+  res.send({ createdEvents, createdUsers, createdWow }); // this is to return the church events from data.js
+
 });
+
+
+
 
 export default seedRouter; // <<< use this in server.js

@@ -16,7 +16,7 @@ import Word from "../../Components/wow/Wow";
 
 
 export default function Home() {
-  const userInfo = useSelector((state) => state.userInfo);
+  
   const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
     churchEvents: [],
     error: "",

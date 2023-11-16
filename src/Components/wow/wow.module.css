@@ -1,13 +1,18 @@
-.section {
+.wow {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 4rem 0;
-  border: 1px solid red;
-  height: 20vh;
+  /* border: 1px solid red; */
   flex-direction: column;
-  padding: 2rem 10rem;
+  /* padding: 2rem 10rem; */
   font-size: 0.7em;
+  width:100%
+}
+.wowContainer{
+  width: 80%;
+  /* border: 1px solid blue; */
+  
 }
 .word {
   text-align: left;
@@ -15,25 +20,21 @@
   height: 10%;
 }
 .message {
-  border: 1px solid red;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: 1.6em;
-  color: black;
-  /* margin-left: 2rem; */
-  /* margin: 1rem 0; */
+
+
+  /* border: 1px solid blue; */
 }
-.message p {
-  color: black;
-}
-.pastor {
-  height: 10%;
-  width: 100%;
-  text-align: right;
-  font-size: 0.7em;
-  border: 1px solid red;
-  color: black;
+
+
+@media(max-width:390px){
+  .wow {
+    /* border: 1px solid blue; */
+  }
+  .wowContainer{
+    width: 100%;
+    /* border: 1px solid blue; */
+    
+  }
+  .word{width: 100%; border: 1px solid green;}
+  .message{}
 }

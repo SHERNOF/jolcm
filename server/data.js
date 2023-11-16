@@ -109,5 +109,17 @@ export const data = {
       name: "Jedi",
     },
   ],
+  wows:[
+    {
+      verse:'John 1:1-4',
+      wow:'In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made. In him was life; and the life was the light of men.',
+      by:'Pastor Bong'
+    },
+    {
+      verse:'Philippians 4:13',
+      wow:'I can do all things through Christ which strengtheneth me.',
+      by:'Pastor Bong'
+    },
+  ]
 };
 export default data;
