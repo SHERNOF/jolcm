@@ -30,9 +30,6 @@ wowRoute.get("/wows", async (req, res) => {
     const wows = await Wow.find();
     res.send(wows);
   });
-  wowRoute.get("/wowLast", async (req, res) => {
-    const wows = await Wow.find();
-    res.send(wows);
-  });
+
 
 export default wowRoute

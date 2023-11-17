@@ -8,103 +8,98 @@ import classes from "./createWow.module.css";
 
 export default function CreateWow() {
   const { search } = useLocation();
-  const userInfo = useSelector((state) => state.userInfo);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectInUrl ? redirectInUrl : "/";
+  const [verse, setverse] = useState("");
+  const [verseInValid, setverseInValid] = useState(false);
+  const [wow, setwow] = useState("");
+  const [wowInValid, setwowInValid] = useState(false);
+  const [pastor, setpastor] = useState("");
+  const [pastorInValid, setpastorInValid] = useState(false);
 
-  const [email, setemail] = useState("");
-  const [emailInValid, setemailInValid] = useState(false);
-  const [password, setpassword] = useState("");
-  const [passwordInValid, setpasswordInValid] = useState(false);
-  const [background, setbackground] = useState(false);
+  const verseBlurHandler = () => {
+    if (verse.trim().length === 0) {
+      setverseInValid(true);
+    }
+  };
 
+  const verseFocusHandler = () => {
+    setverseInValid(false);
+  };
   const onBlurHandler = () => {
-    if (email.trim().length === 0) {
-      setemailInValid(true);
-      setbackground(false);
+    if (wow.trim().length === 0) {
+      setwowInValid(true);
     }
   };
-
   const onFocusHandler = () => {
-    setemailInValid(false);
-    setbackground(true);
+    setwowInValid(false);
   };
 
-  const passwordonBlurHandler = () => {
-    if (password.trim().length === 0) {
-      setpasswordInValid(true);
-      setbackground(false);
+  const pastoronBlurHandler = () => {
+    if (pastor.trim().length === 0) {
+      setpastorInValid(true);
     }
   };
 
-  const passwordonFocusHandler = () => {
-    setemailInValid(false);
-    setbackground(true);
+  const pastoronFocusHandler = () => {
+    setpastorInValid(false);
   };
+
   const createWowHandler = () => {};
 
   return (
     <Container>
       <div className={classes.createWow}>
+      <div className={classes.wowCreateTitle} >Create Word of the Week</div>
+
         <div className={classes.createWowContent}>
-          <form onSubmit={createWowHandler} className={classes.logInContent}>
-            <div className={classes.signIn}>
-              <Label style={{ color: "black" }} htmlFor="email">
-                Email
+      <form onSubmit={createWowHandler} className={classes.logInContent}>
+      <Label style={{ color: "black" }} htmlFor="wow">Verse for the Week</Label>
+              <input
+                id="verse"
+                type="verse"
+                onBlur={verseBlurHandler}
+                onFocus={verseFocusHandler}
+                onChange={(e) => setverse(e.target.value)}
+                value={verse}
+                required
+              ></input>
+              <p style={{color:!verseInValid ? 'transparent' : 'salmon'}}>
+                Please enter a valid bible verse
+              </p>
+            
+              <Label style={{ color: "black" }} htmlFor="wow">
+                Word for the Week
               </Label>
               <input
-                className={`${classes.input} ${background && classes.focused}`}
-                id="email"
-                type="email"
+                id="wow"
+                type="wow"
                 onBlur={onBlurHandler}
                 onFocus={onFocusHandler}
-                onChange={(e) => setemail(e.target.value)}
-                value={email}
+                onChange={(e) => setwow(e.target.value)}
+                value={wow}
                 required
               ></input>
-              <p
-                style={{
-                  textAlign: "left",
-                  display: "inline-block",
-                  width: "90%",
-                  fontSize: "0.6em",
-                  marginTop: "0.5rem",
-                  color: !emailInValid ? "transparent" : "orange",
-                  transition: "all .5s",
-                }}
-              >
-                Please enter a valid email
+              <p style={{color: !wowInValid ? 'transparent' : 'salmon'}}>
+                Please enter a valid message
               </p>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="pastor">Delivered By: </Label>
               <input
-                className={`${classes.input} ${background && classes.focused}`}
-                id="password"
-                type="password"
-                name="password"
+                id="pastor"
+                type="pastor"
+                name="pastor"
                 required
-                onBlur={passwordonBlurHandler}
-                onFocus={passwordonFocusHandler}
-                onChange={(e) => setpassword(e.target.value)}
-                value={password}
+                onBlur={pastoronBlurHandler}
+                onFocus={pastoronFocusHandler}
+                onChange={(e) => setpastor(e.target.value)}
+                value={pastor}
               ></input>
-              <p
-                style={{
-                  textAlign: "left",
-                  display: "inline-block",
-                  width: "90%",
-                  fontSize: "0.6em",
-                  marginTop: "0.5rem",
-                  color: !passwordInValid ? "transparent" : "orange",
-                  transition: "all .5s",
-                }}
-              >
-                Please enter a valid password
+              <p style={{color: !pastorInValid ? 'transparent' : 'salmon'}}>
+                Please enter the Pastor's name
               </p>
 
               <Button type="submit">Sign In</Button>
-            </div>
+            
           </form>
         </div>
       </div>
