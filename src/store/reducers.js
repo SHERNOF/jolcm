@@ -23,6 +23,9 @@ import {
   FETCH_WOW_REQUEST,
   FETCH_WOW_SUCCESS,
   FETCH_WOW_FAILED,
+  WOW_POST_REQUEST,
+  WOW_POST_SUCCESS,
+  WOW_POST_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -46,9 +49,10 @@ const initialState = {
   churchEvent: {},
   detailsUser: {},
   isAuth: true,
-  messages:{},
-  usersList:{},
-  wows:{}
+  messages: {},
+  usersList: {},
+  wows: {},
+  wow: {},
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -64,7 +68,7 @@ export const rootReducer = (state = initialState, action) => {
     // SET LOGIN REDUCER
     case SET_LOGIN:
       return { displayLogin: !state.displayLogin };
-      // return { setBackdrop: !state.setBackdrop };
+    // return { setBackdrop: !state.setBackdrop };
 
     // FOR HOME PAGE (Team and Events)
 
@@ -108,49 +112,59 @@ export const rootReducer = (state = initialState, action) => {
     case SET_BACKDROP:
       return { setBackdrop: !state.setBackdrop };
 
-      case SEND_MESSAGE_REQUEST:
-        return { ...state, loading: true };
-      case SEND_MESSAGE_SUCCESS:
-        return { ...state, loading: false, message: action.payload };
-      case SEND_MESSAGE_FAIL:
-        return { ...state, loading: false, error: action.payload };
+    case SEND_MESSAGE_REQUEST:
+      return { ...state, loading: true };
+    case SEND_MESSAGE_SUCCESS:
+      return { ...state, loading: false, message: action.payload };
+    case SEND_MESSAGE_FAIL:
+      return { ...state, loading: false, error: action.payload };
 
-        case SET_MODAL:
+    case SET_MODAL:
       return { displayLogin: !state.openModal };
 
-
-      case FETCH_MESSAGES_REQUEST:
+    case FETCH_MESSAGES_REQUEST:
       return { ...state, loading: true };
-      case FETCH_MESSAGES_SUCCESS:
-        return {
-          ...state,
-          messages: action.payload,
-          loading: false,
-        };
-      case FETCH_MESSAGES_FAILED:
-        return { ...state, loading: false, error: action.payload };
+    case FETCH_MESSAGES_SUCCESS:
+      return {
+        ...state,
+        messages: action.payload,
+        loading: false,
+      };
+    case FETCH_MESSAGES_FAILED:
+      return { ...state, loading: false, error: action.payload };
 
-        case FETCH_USERS_REQUEST:
-          return { ...state, loading: true };
-          case FETCH_USERS_SUCCESS:
-            return {
-              ...state,
-              usersList: action.payload,
-              loading: false,
-            };
-          case FETCH_USERS_FAILED:
-            return { ...state, loading: false, error: action.payload };
+    case FETCH_USERS_REQUEST:
+      return { ...state, loading: true };
+    case FETCH_USERS_SUCCESS:
+      return {
+        ...state,
+        usersList: action.payload,
+        loading: false,
+      };
+    case FETCH_USERS_FAILED:
+      return { ...state, loading: false, error: action.payload };
 
-            case FETCH_WOW_REQUEST:
-              return { ...state, loading: true };
-              case FETCH_WOW_SUCCESS:
-                return {
-                  ...state,
-                  wows: action.payload,
-                  loading: false,
-                };
-              case FETCH_WOW_FAILED:
-                return { ...state, loading: false, error: action.payload };
+    case FETCH_WOW_REQUEST:
+      return { ...state, loading: true };
+    case FETCH_WOW_SUCCESS:
+      return {
+        ...state,
+        wows: action.payload,
+        loading: false,
+      };
+    case FETCH_WOW_FAILED:
+      return { ...state, loading: false, error: action.payload };
+
+    case WOW_POST_REQUEST:
+      return { ...state, loading: true };
+    case WOW_POST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        wow: action.payload,
+      };
+    case WOW_POST_FAILED:
+      return { ...state, loading: false, error: action.payload };
 
     default:
       return state;

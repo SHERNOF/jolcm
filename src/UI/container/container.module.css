@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 495px) {
   .container {
     width: 95vw;
     height: 75%;

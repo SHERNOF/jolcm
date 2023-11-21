@@ -25,7 +25,10 @@ import {
   FETCH_USERS_FAILED,
   FETCH_WOW_REQUEST,
   FETCH_WOW_SUCCESS,
-  FETCH_WOW_FAILED
+  FETCH_WOW_FAILED,
+  WOW_POST_REQUEST,
+  WOW_POST_SUCCESS,
+  WOW_POST_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -34,7 +37,6 @@ import { FETCH_DATA_REQUEST } from "./constants.js";
 import { FETCH_DATA_SUCCESS } from "./constants.js";
 import { FETCH_DATA_FAILED } from "./constants.js";
 import { SET_BACKDROP } from "./constants.js";
-
 
 export const wheel = () => ({
   type: CHANGE_MOUSEDOWN,
@@ -135,28 +137,38 @@ export const failedMessage = () => ({
   type: FETCH_MESSAGES_FAILED,
 });
 
-export const requestUsers =  () => ({
+export const requestUsers = () => ({
   type: FETCH_USERS_REQUEST,
 });
 
-export const successUsers =  () => ({
+export const successUsers = () => ({
   type: FETCH_USERS_SUCCESS,
 });
 
-export const failedUsers =  () => ({
+export const failedUsers = () => ({
   type: FETCH_USERS_FAILED,
 });
 
-export const requestWow =  () => ({
+export const requestWow = () => ({
   type: FETCH_WOW_REQUEST,
 });
 
-export const successWow =  () => ({
+export const successWow = () => ({
   type: FETCH_WOW_SUCCESS,
 });
 
-export const failedWow =  () => ({
+export const failedWow = () => ({
   type: FETCH_WOW_FAILED,
 });
 
+export const requestWowPost = () => ({
+  type: WOW_POST_REQUEST,
+});
 
+export const successWowPost = () => ({
+  type: WOW_POST_SUCCESS,
+});
+
+export const failedWowPost = () => ({
+  type: WOW_POST_FAILED,
+});

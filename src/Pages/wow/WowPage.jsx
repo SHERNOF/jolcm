@@ -93,7 +93,7 @@ export default function WowPage() {
 
 /*
 Procedures:
-1. Create the Wow component
+1. Create the Wow component. This is to be render in the <Home /> to display the word of the week.
 2. Create the wow model
 3. create the wowRoutes.js specifically for wow create and retrieve and be displayed the <Wow /> at <Home />
   i. used the const last. This is the product of retrieving the the state from the wows array
@@ -104,7 +104,7 @@ Procedures:
 6. Create the admin route to let only be admin able to create wow
 7. create the wowRoutes.js
 8. implement the wowRoutes.js to server.js
-7. Created the <WowPage /> to display all the wows and be able to have the create wow button  from here
+7. Created the <WowPage /> to display all the wows and be able to have the create wow button  from here. This will appear from the Header's user initial under Word of the week tab
 II. 
 1. Create the <Wow.jsx /> to display the messages in the <>>Home />
 2. 
