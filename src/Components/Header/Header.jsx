@@ -29,8 +29,6 @@ export default function Header() {
   const dispatch = useDispatch();
   const wheel = useSelector((state) => state.wheel);
   const [showPop, setshowPop] = React.useState(false)
-  console.log(showPop)
-
   return (
     <nav>
       <div

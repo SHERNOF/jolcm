@@ -11,8 +11,6 @@ export default function Word() {
   });
 
   const [last, setlast] = useState({});
-  console.log(last);
-
   useEffect(() => {
     const fetchWows = async () => {
       dispatch({ type: "FETCH_WOW_REQUEST" });

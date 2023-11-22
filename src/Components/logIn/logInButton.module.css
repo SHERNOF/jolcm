@@ -29,7 +29,10 @@
   align-items: center;
   color: wheat;
 }
-@media (max-width: 380px) {
+@media (max-width: 38435px) {
+  .logInButton {
+    left: 90%;
+  }
   .logInButton {
     left: 90%;
   }

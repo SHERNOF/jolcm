@@ -13,15 +13,10 @@ const style = {
 
 export default function LoginButton() {
   const [openModal, setopenModal] = useState(false);
-  
-  // const setBackdrop = useSelector((state) => state.setBackdrop);
-  // console.log(setBackdrop)
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const logInHandler = () => {
     dispatch({ type: SET_LOGIN });
-    // setopenModal(!openModal)
-    // console.log('test')
   };
   const logOutHandler = () => {
     dispatch({ type: USER_LOGOUT });
@@ -37,7 +32,9 @@ export default function LoginButton() {
               <RxExit style={style} onClick={logOutHandler} />
             </Link>
           ) : (
+            <Link to={"/"} style={{ color: "white" }}>
             <RxEnter style={style} onClick={logInHandler} />
+            </Link>
           )}
         </div>
       </div>

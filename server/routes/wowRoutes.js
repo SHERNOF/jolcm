@@ -2,7 +2,7 @@ import express from "express";
 import Wow from "../models/wowModel.js";
 import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
-import { generateToken } from "../utils.js";
+import { generateToken, isAdmin } from "../utils.js";
 
 
 
@@ -10,6 +10,7 @@ const wowRoute = express.Router()
 
 wowRoute.post(
     '/wow',
+    isAdmin,
     expressAsyncHandler(async(req, res)=>{
         const wow = new Wow({
             verse: req.body.verse,

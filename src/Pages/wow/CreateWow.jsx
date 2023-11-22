@@ -15,7 +15,7 @@ import axios from "axios";
 export default function CreateWow() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const userInfo = useSelector((state)=>{state.userInfo})
   const { search } = useLocation();
 
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -78,7 +78,8 @@ export default function CreateWow() {
           verse,
           wow,
           by,
-        });
+        },
+        );
         dispatch({ type: WOW_POST_SUCCESS, payload: data });
         localStorage.setItem("wow", JSON.stringify(data));
         navigate(redirect || "/");
