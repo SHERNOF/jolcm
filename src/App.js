@@ -53,7 +53,7 @@ function App() {
             element={
               <AdminRoute>
                 <CreateWow />
-              </AdminRoute>
+               </AdminRoute>
             }
           />
         </Routes>

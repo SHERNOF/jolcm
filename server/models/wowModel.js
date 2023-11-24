@@ -5,6 +5,8 @@ const wowSchema = new mongoose.Schema(
         verse:{ type: String, required: true},
         wow:{ type: String, required: true},
         by:{ type: String, required: true},
+        dateShared:{ type: String, required: true},
+
     },
     {
         timestamps: true

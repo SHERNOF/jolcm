@@ -10,12 +10,13 @@ const wowRoute = express.Router()
 
 wowRoute.post(
     '/wow',
-    isAdmin,
+    // isAdmin,
     expressAsyncHandler(async(req, res)=>{
         const wow = new Wow({
             verse: req.body.verse,
             wow: req.body.wow,
             by: req.body.by,
+            dateShared: req.body.dateShared,
         })
         const createdWow = await wow.save()
         res.send({
@@ -23,6 +24,7 @@ wowRoute.post(
             verse: createdWow.verse,
             wow: createdWow.wow,
             by: createdWow.by,
+            dateShared: createdWow.dateShared,
         })
     })
 )

@@ -29,7 +29,7 @@ export default function CreateWow() {
   const [byInValid, setbyInValid] = useState(false);
   const [dateShared, setdateShared] = useState("");
   const [dateSharedInValid, setdateSharedInValid] = useState(false);
-  
+  // console.log(typeof dateShared)
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -60,15 +60,15 @@ export default function CreateWow() {
   };
 
   
-  const dateSharedonBlurHandler = () => {
-    if (dateShared.trim().length === 0) {
-      setdateSharedInValid(true);
-    }
-  };
+  // const dateSharedonBlurHandler = () => {
+  //   if (dateShared.trim().length === 0) {
+  //     setdateSharedInValid(true);
+  //   }
+  // };
 
-  const dateSharedonFocusHandler = () => {
-    setdateSharedInValid(false);
-  };
+  // const dateSharedonFocusHandler = () => {
+  //   setdateSharedInValid(false);
+  // };
 
 
   const createWowHandler = async (e) => {
@@ -78,7 +78,7 @@ export default function CreateWow() {
         verse.trim().length !== 0 &&
         wow.trim().length !== 0 &&
         by.trim().length !== 0 
-        && dateShared.trim().length !== 0 
+        // && dateShared.trim().length !== 0 
       ) {
         dispatch({
           type: WOW_POST_REQUEST,
@@ -86,7 +86,7 @@ export default function CreateWow() {
             verse,
             wow,
             by,
-            dateShared
+            // dateShared
           },
         }
         
@@ -95,12 +95,12 @@ export default function CreateWow() {
           verse,
           wow,
           by,
-          dateShared
+          // dateShared
         }
         ,{ headers: { Authorization: `Bearer ${userInfo.token}` } }
         );
         dispatch({ type: WOW_POST_SUCCESS, payload: data });
-        localStorage.setItem("wow", JSON.stringify(data));
+        // localStorage.setItem("wow", JSON.stringify(data));
         navigate(redirect || "/");
         console.log(data);
       }
@@ -109,10 +109,10 @@ export default function CreateWow() {
       dispatch({ type: WOW_POST_FAILED, payload: getError(error) });
       alert(error);
     }
-    setverse("");
-    setwow("");
-    setby("");
-    setdateShared("");
+    // setverse("");
+    // setwow("");
+    // setby("");
+    // setdateShared("");
     console.log("test");
   };
 
@@ -171,7 +171,7 @@ export default function CreateWow() {
               Please enter the Pastor's name
             </p>
 
-            <Label htmlFor="dateShared">Date Shared: </Label>
+            {/* <Label htmlFor="dateShared">Date Shared: </Label>
             <input
               id="dateShared"
               type="date"
@@ -184,7 +184,7 @@ export default function CreateWow() {
             ></input>
             <p style={{ color: !dateSharedInValid ? "transparent" : "salmon" }}>
               Please enter the date the message was shared
-            </p>
+            </p> */}
 
             <Button type="submit">Create</Button>
           </form>

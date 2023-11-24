@@ -59,6 +59,7 @@ export default function WowPage() {
               <tbody>
                 <tr>
                   <th>Date</th>
+                  <th>Date Delivered</th>
                   <th>Verse</th>
                   <th>Word of the Week</th>
                   <th>Pastor</th>
@@ -71,6 +72,7 @@ export default function WowPage() {
                 {wows.map((x, index) => (
                   <tr key={index}>
                     <td>{new Date(x.createdAt).toLocaleDateString()}</td>
+                    <td>{x.dateShared}</td>
                     <td>{x.verse}</td>
                     <td style={{ textAlign: "left", width: "50%" }}>{x.wow}</td>
                     <td>{x.by}</td>
@@ -108,6 +110,11 @@ Procedures:
 II. 
 1. Create the <Wow.jsx /> to display the messages in the <>>Home />
 2. 
+
+
+
+III. Encountered Error
+1. Implementation of isAdmin. It seems that it doesn't recognize yet the isAdmin state as it resulted to axios error 401 unauthorized. temporarily disabled the function
 
 
 */
