@@ -16,7 +16,7 @@ import { getError } from "../../utils";
 export default function CreateWow() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userInfo = useSelector((state)=>state.userInfo)
+  const userInfo = useSelector((state) => state.userInfo);
   const { search } = useLocation();
 
   const redirectInUrl = new URLSearchParams(search).get("redirect");
@@ -29,7 +29,6 @@ export default function CreateWow() {
   const [byInValid, setbyInValid] = useState(false);
   const [dateShared, setdateShared] = useState("");
   const [dateSharedInValid, setdateSharedInValid] = useState(false);
-  
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -59,7 +58,6 @@ export default function CreateWow() {
     setbyInValid(false);
   };
 
-  
   const dateSharedonBlurHandler = () => {
     if (dateShared.trim().length === 0) {
       setdateSharedInValid(true);
@@ -70,34 +68,35 @@ export default function CreateWow() {
     setdateSharedInValid(false);
   };
 
-
   const createWowHandler = async (e) => {
     e.preventDefault();
     try {
       if (
         verse.trim().length !== 0 &&
         wow.trim().length !== 0 &&
-        by.trim().length !== 0 
-        && dateShared.trim().length !== 0 
+        by.trim().length !== 0 &&
+        dateShared.trim().length !== 0
       ) {
         dispatch({
           type: WOW_POST_REQUEST,
+
           payload: {
             verse,
             wow,
             by,
-            dateShared
+            dateShared,
           },
-        }
-        
-        );
-        const { data } = await axios.post("/jol/wow", {
-          verse,
-          wow,
-          by,
-          dateShared
-        }
-        ,{ headers: { Authorization: `Bearer ${userInfo.token}` } }
+        });
+        const { data } = await axios.post(
+          "/jol/wow",
+          {
+            verse,
+            wow,
+            by,
+            dateShared,
+          },
+
+          { headers: { Authorization: `Bearer ${userInfo.token}` } }
         );
         dispatch({ type: WOW_POST_SUCCESS, payload: data });
         localStorage.setItem("wow", JSON.stringify(data));

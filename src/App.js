@@ -15,6 +15,7 @@ import UsersPage from "./Pages/users/UsersPage";
 import AdminRoute from "./Components/adminRoute/AdminRoute";
 import WowPage from "./Pages/wow/WowPage";
 import CreateWow from "./Pages/wow/CreateWow";
+import EditCreateWow from "./Pages/wow/EditCreateWow";
 
 function App() {
   const displayLogin = useSelector((state) => state.displayLogin);
@@ -41,7 +42,7 @@ function App() {
           <Route path="/messages" element={<MessagesPage />}></Route>
           <Route path="/events" element={<EventsPage />}></Route>
           <Route
-            path="/admin/wow"
+            path="/jol/wow"
             element={
               <AdminRoute>
                 <WowPage />
@@ -49,11 +50,19 @@ function App() {
             }
           />
           <Route
-            path="/admin/createWow"
+            path="/jol/wow/:id"
+            element={
+              <AdminRoute>
+                <EditCreateWow />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/jol/createWow"
             element={
               <AdminRoute>
                 <CreateWow />
-               </AdminRoute>
+              </AdminRoute>
             }
           />
         </Routes>

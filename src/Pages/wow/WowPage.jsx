@@ -10,6 +10,7 @@ import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
 import { IoIosCreate } from "react-icons/io";
 import StyledLink from "../../UI/links/StyledLink";
+import { useNavigate } from "react-router-dom";
 
 export default function WowPage() {
   const [{ wows, error, loading }, dispatch] = useReducer(rootReducer, {
@@ -18,6 +19,7 @@ export default function WowPage() {
     loading: true,
   });
 
+  const navigate = useNavigate();
   const [sorted, setsorted] = useState({});
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function WowPage() {
         <div style={{ width: "100%" }}>
           <Title>
             Word of the Week &nbsp;&nbsp;
-            <StyledLink to="/admin/createWow">
+            <StyledLink to="/jol/createWow">
               <IoIosCreate style={{ cursor: "pointer", color: "black" }} />
             </StyledLink>
           </Title>
@@ -77,7 +79,9 @@ export default function WowPage() {
                     <td style={{ textAlign: "left", width: "50%" }}>{x.wow}</td>
                     <td>{x.by}</td>
                     <td style={{ cursor: "pointer" }}>
-                      <AiTwotoneEdit />
+                      <AiTwotoneEdit
+                        onClick={() => navigate(`/jol/wow/${x._id}`)}
+                      />
                     </td>
                     <td style={{ cursor: "pointer" }}>
                       <MdDeleteOutline />
@@ -112,9 +116,53 @@ II.
 2. 
 
 
+III. Edit function
+1. Create the 
+    wowRoute.get("/wow/:id", async (req, res) => {
+    const wow = await Wow.findById(req.params.id);
+    if (wow) {
+      res.send(wow);
+    } else {
+      res.status(404).send({ message: "Wow not found..." });
+    }
+  });
 
-III. Encountered Error
+  
+
+  this is to be use to get the data of the Wow that was clicked in the <WowPage /> the data will be display now in the <EditCreateWow /> by useEffect
+
+    useEffect(() => {
+    const fetchWow = async () => {
+      dispatch({ type: "FETCH_WOW_REQUEST" });
+      try {
+        const { data } = await axios.get(`/jol/${wowId}`);
+        console.log(data);
+        setverse(data.verse);
+        setwow(data.wow);
+        setby(data.by);
+        setdateShared(data.dateShared);
+        dispatch({ type: "FETCH_WOW_SUCCESS", payload: data.data });
+      } catch (error) {
+        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+      }
+    };
+    fetchWow();
+  }, [wowId]);
+
+  2. create the editWowHandler() at the <EditCreateWow />
+
+  Implement the following routing in the server.js
+
+  app.use("/jol/wow/:id", wowRoute);
+  app.use("/jol/:id", wowRoute);
+
+
+
+Encountered Error
 1. Implementation of isAdmin. It seems that it doesn't recognize yet the isAdmin state as it resulted to axios error 401 unauthorized. temporarily disabled the function
+
+2. Error 500 in doing the put method after editing the Wow. Issue is a typo error:
+used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
 
 
 */

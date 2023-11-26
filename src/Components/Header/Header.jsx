@@ -6,29 +6,29 @@ import StyledLink from "../../UI/links/StyledLink";
 
 // const capabilities = ["Messages", "Events", "Users"]
 const capabilities = [
-  { 
+  {
     cap: "Messages",
-    link:'/messages'
+    link: "/messages",
   },
-  { 
+  {
     cap: "Events",
-    link:'/events'
+    link: "/events",
   },
-  { 
+  {
     cap: "Users",
-    link:'/users'
+    link: "/users",
   },
-  { 
+  {
     cap: "Word of the Week",
-    link:'/admin/wow'
+    link: "/jol/wow",
   },
-]
+];
 
 export default function Header() {
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const wheel = useSelector((state) => state.wheel);
-  const [showPop, setshowPop] = React.useState(false)
+  const [showPop, setshowPop] = React.useState(false);
   return (
     <nav>
       <div
@@ -44,26 +44,36 @@ export default function Header() {
         </Link>
 
         {userInfo && (
-          <div style={{position:'relative'}}>
-            <div className={classes.initialHolder} onMouseEnter={()=>setshowPop(!showPop)} onClick={()=>{setshowPop(!showPop)}} >
-            {userInfo.name.charAt(0)}
+          <div style={{ position: "relative" }}>
+            <div
+              className={classes.initialHolder}
+              onMouseEnter={() => setshowPop(!showPop)}
+              onClick={() => {
+                setshowPop(!showPop);
+              }}
+            >
+              {userInfo.name.charAt(0)}
             </div>
-            <ul >
-              {capabilities.map((x, index)=>(
+            <ul>
+              {capabilities.map((x, index) => (
                 <StyledLink key={index} to={`${x.link}`}>
-                  <li onClick={()=>{setshowPop(!showPop)}} className={`${classes.list} ${showPop && classes.appear}`} >{x.cap}</li>
+                  <li
+                    onClick={() => {
+                      setshowPop(!showPop);
+                    }}
+                    className={`${classes.list} ${showPop && classes.appear}`}
+                  >
+                    {x.cap}
+                  </li>
                 </StyledLink>
-                
               ))}
-        </ul>
+            </ul>
           </div>
         )}
-
       </div>
     </nav>
   );
 }
-
 
 /*
 

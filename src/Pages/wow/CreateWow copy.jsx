@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Button from "../../UI/button/Button";
 import Container from "../../UI/container/Container";
 import Label from "../../UI/label/Label";
@@ -9,6 +9,9 @@ import {
   WOW_POST_REQUEST,
   WOW_POST_SUCCESS,
   WOW_POST_FAILED,
+  FETCH_WOW_REQUEST,
+  FETCH_DATA_FAILED,
+  FETCH_WOW_SUCCESS,
 } from "../../store/constants";
 import axios from "axios";
 import { getError } from "../../utils";
@@ -32,6 +35,9 @@ export default function CreateWow() {
   // console.log(typeof dateShared)
 
   const verseBlurHandler = () => {
+    const params = useParams()
+    const { id: wowId } = params
+    console.log(params);
     if (verse.trim().length === 0) {
       setverseInValid(true);
     }
@@ -70,6 +76,23 @@ export default function CreateWow() {
   //   setdateSharedInValid(false);
   // };
 
+  useEffect(()=>{
+    const fetchWow = async () =>{
+      try {
+        dispatch({ type: FETCH_WOW_REQUEST })
+        const { data } = await axios.get(`/admin/wow/${wowId}`)
+        console.log(data)
+        setverse(data.verse)
+        setwow(data.wow)
+        setby(data.by)
+        dispatch({ type: FETCH_WOW_SUCCESS })
+      }catch(err){
+        dispatch({ type: FETCH_DATA_FAILED, payload: getError(err) })
+      }
+    },
+    fetchWow();
+  },[wowId])
+
 
   const createWowHandler = async (e) => {
     e.preventDefault();
@@ -100,19 +123,17 @@ export default function CreateWow() {
         ,{ headers: { Authorization: `Bearer ${userInfo.token}` } }
         );
         dispatch({ type: WOW_POST_SUCCESS, payload: data });
-        // localStorage.setItem("wow", JSON.stringify(data));
         navigate(redirect || "/");
         console.log(data);
       }
     } catch (error) {
-      // dispatch({ type: WOW_POST_FAILED, payload: error.message });
       dispatch({ type: WOW_POST_FAILED, payload: getError(error) });
       alert(error);
     }
-    // setverse("");
-    // setwow("");
-    // setby("");
-    // setdateShared("");
+    setverse("");
+    setwow("");
+    setby("");
+    setdateShared("");
     console.log("test");
   };
 
