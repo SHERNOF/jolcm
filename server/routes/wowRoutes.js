@@ -50,12 +50,28 @@ wowRoute.put(
       wow.wow = req.body.wow;
       wow.by = req.body.by;
       wow.dateShared = req.body.dateShared;
-      res.send({ message: "Product Updated" });
+      res.send({ message: "Wow Updated" });
       await wow.save();
     } else {
       res.status(404).send({ message: "Wow Not Found" });
     }
   })
 );
+
+wowRoute.delete(
+    "/del/:id",
+    // isAuth,
+    // isAdmin,
+    expressAsyncHandler(async (req, res) => {
+      const wow = await Wow.findById(req.params.id);
+      console.log(wow)
+      if (wow) {
+        await wow.deleteOne();
+        res.send({ message: "Wow Deleted" });
+      } else {
+        res.status(404).send({ message: "Wow Not Found" });
+      }
+    })
+  );
 
 export default wowRoute;

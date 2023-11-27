@@ -26,6 +26,10 @@ import {
   WOW_POST_REQUEST,
   WOW_POST_SUCCESS,
   WOW_POST_FAILED,
+  WOW_DELETE_REQUEST,
+  WOW_DELETE_SUCCESS,
+  WOW_DELETE_FAILED,
+  WOW_DELETE_RESET,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -53,6 +57,8 @@ const initialState = {
   usersList: {},
   wows: {},
   wow: {},
+  loadingDelete: false,
+  successDelete: false
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -165,6 +171,21 @@ export const rootReducer = (state = initialState, action) => {
       };
     case WOW_POST_FAILED:
       return { ...state, loading: false, error: action.payload };
+
+
+      case WOW_DELETE_REQUEST:
+        return { ...state, loadingDelete: true, successDelete: false };
+      case WOW_DELETE_SUCCESS:
+        return {
+          ...state,
+          loadingDelete: false,
+          successDelete: true
+        };
+      case WOW_DELETE_FAILED:
+        return { ...state, loadingDelete: false, successDelete: false };
+
+        case WOW_DELETE_RESET:
+          return { ...state, loadingDelete: false, successDelete: false };
 
     default:
       return state;

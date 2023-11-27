@@ -47,6 +47,7 @@ app.use("/jol/", messagesRoute);
 app.use("/jol/", wowRoute);
 app.use("/jol/wow/:id", wowRoute);
 app.use("/jol/:id", wowRoute);
+app.use("/jol/del/:id", wowRoute);
 
 // *from userRoutes.js
 app.use((err, req, res, next) => {

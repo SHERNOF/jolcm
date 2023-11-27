@@ -11,16 +11,21 @@ import MessageBox from "../../UI/messageBox/MessageBox";
 import { IoIosCreate } from "react-icons/io";
 import StyledLink from "../../UI/links/StyledLink";
 import { useNavigate } from "react-router-dom";
+import { WOW_DELETE_FAILED, WOW_DELETE_RESET, WOW_DELETE_SUCCESS } from "../../store/constants";
+import { getError } from "../../utils";
+import { a } from "@react-spring/web";
 
 export default function WowPage() {
-  const [{ wows, error, loading }, dispatch] = useReducer(rootReducer, {
+  const [{ wows, error, loading, wow, userInfo, loadingDelete, successDelete }, dispatch] = useReducer(rootReducer, {
     messages: {},
     error: "",
     loading: true,
+    wow: {},
+    userInfo:{},
+    loadingDelete:false,
+    successDelete:false
   });
-
   const navigate = useNavigate();
-  const [sorted, setsorted] = useState({});
 
   useEffect(() => {
     const fetchWows = async () => {
@@ -32,8 +37,33 @@ export default function WowPage() {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
     };
-    fetchWows();
-  }, []);
+
+    if(successDelete){
+      dispatch({ type: WOW_DELETE_RESET })
+    } else{
+      fetchWows()
+    }
+  }, [successDelete]);
+
+  const deleteHandler = async (wow) => {
+    console.log(wow._id)
+    
+    if(window.confirm('Are you sure you want to delete?')) {
+      try{
+     await axios.delete(`/jol/del/${wow._id}`, 
+     
+     // {headers: { Authorization: `Bearer ${userInfo.token}` }}
+     );
+     dispatch({ type: WOW_DELETE_SUCCESS });
+     console.log(wow._id)
+        
+      }catch(err){
+        dispatch({ type: WOW_DELETE_FAILED, payload: getError(err)})
+        alert(err)
+      }
+    }
+  }
+
   return (
     <Container>
       <div className={classes.wowContainer}>
@@ -45,6 +75,7 @@ export default function WowPage() {
             </StyledLink>
           </Title>
         </div>
+        { loadingDelete && <Loading />}
         <div className={classes.messagesContent}>
           {loading ? (
             <Loading />
@@ -72,7 +103,7 @@ export default function WowPage() {
 
               <tbody>
                 {wows.map((x, index) => (
-                  <tr key={index}>
+                  <tr key={x._id}>
                     <td>{new Date(x.createdAt).toLocaleDateString()}</td>
                     <td>{x.dateShared}</td>
                     <td>{x.verse}</td>
@@ -84,7 +115,9 @@ export default function WowPage() {
                       />
                     </td>
                     <td style={{ cursor: "pointer" }}>
-                      <MdDeleteOutline />
+                      <MdDeleteOutline 
+                      onClick={() => deleteHandler(x)}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -100,23 +133,61 @@ export default function WowPage() {
 /*
 Procedures:
 1. Create the Wow component. This is to be render in the <Home /> to display the word of the week.
-2. Create the wow model
-3. create the wowRoutes.js specifically for wow create and retrieve and be displayed the <Wow /> at <Home />
-  i. used the const last. This is the product of retrieving the the state from the wows array
-  ii. setlast(wows.data[wows.data.length - 1])
+2. Create the wowModel.js
 
-4. create the FETCH_WOW in constant, actions and reducer.js
-5. create the wow:{} state in the reducer.js
-6. Create the admin route to let only be admin able to create wow
-7. create the wowRoutes.js
-8. implement the wowRoutes.js to server.js
-7. Created the <WowPage /> to display all the wows and be able to have the create wow button  from here. This will appear from the Header's user initial under Word of the week tab
+
+3. create the wowRoutes.js specifically for wow create 
+
+  wowRoute.post(
+  "/wow",
+  // isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const wow = new Wow({
+      verse: req.body.verse,
+      wow: req.body.wow,
+      by: req.body.by,
+      dateShared: req.body.dateShared,
+    });
+    const createdWow = await wow.save();
+    res.send({
+      _id: createdWow._id,
+      verse: createdWow.verse,
+      wow: createdWow.wow,
+      by: createdWow.by,
+      dateShared: createdWow.dateShared,
+    });
+  })
+);
+
+and retrieve and be displayed the <Wow /> at <Home />
+
+  wowRoute.get("/wows", async (req, res) => {
+    const wows = await Wow.find();
+    res.send(wows);
+  });
+
+This use setlast(wows.data[wows.data.length - 1]) state to display only the latest post
+
+This route utilizes the whole wow posts and all are displayed in this <WowPage />
+
+  wowRoute.get("/wows", async (req, res) => {
+  const wows = await Wow.find();
+  res.send(wows);
+});
+
+4. implement the wowRoutes.js to server.js
+
+5. create the FETCH_WOW (request, success and failed )in constant, actions and reducer.js
+6. create the wow:{} state in the reducer.js. This is to be use in the <Wow />
+7. Create the admin route to let only be admin able to create wow
+
+
+
 II. 
-1. Create the <Wow.jsx /> to display the messages in the <>>Home />
-2. 
+1. Create the <Wow.jsx /> to display the messages in the <Home />
 
 
-III. Edit function
+III. Implememnt the Edit function in the <WowPage />
 1. Create the 
     wowRoute.get("/wow/:id", async (req, res) => {
     const wow = await Wow.findById(req.params.id);
@@ -127,7 +198,8 @@ III. Edit function
     }
   });
 
-  
+2. Implement app.use("/jol/wow/:id", wowRoute); in server.js
+3. Create the <EditCreateWow />. this is similar to >CreateWow /> it just use the put instead of post
 
   this is to be use to get the data of the Wow that was clicked in the <WowPage /> the data will be display now in the <EditCreateWow /> by useEffect
 
@@ -157,12 +229,34 @@ III. Edit function
   app.use("/jol/:id", wowRoute);
 
 
+  IV. Implement the delete function at <WowPage /.
+
+
 
 Encountered Error
 1. Implementation of isAdmin. It seems that it doesn't recognize yet the isAdmin state as it resulted to axios error 401 unauthorized. temporarily disabled the function
 
 2. Error 500 in doing the put method after editing the Wow. Issue is a typo error:
 used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
+
+3. Error 500 during record delete
+  -  parameter supplied is worng. Initially  onClick={() => deleteHandler(wow)}, it should be onClick={() => deleteHandler(x)} as x is the result of map()
+  - at
+
+        wowRoute.delete(
+    "/del/:id",
+    expressAsyncHandler(async (req, res) => {
+      const wow = await Wow.findById(req.params.id);
+      console.log(wow)
+      if (wow) {
+        await wow.deleteOne(); <<< initially typed as await product.deleteOne()
+        res.send({ message: "Wow Deleted" });
+      } else {
+        res.status(404).send({ message: "Wow Not Found" });
+      }
+    })
+  );
+
 
 
 */

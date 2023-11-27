@@ -29,6 +29,9 @@ import {
   WOW_POST_REQUEST,
   WOW_POST_SUCCESS,
   WOW_POST_FAILED,
+  WOW_DELETE_REQUEST,
+  WOW_DELETE_SUCCESS,
+  WOW_DELETE_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -161,14 +164,17 @@ export const failedWow = () => ({
   type: FETCH_WOW_FAILED,
 });
 
-export const requestWowPost = () => ({
-  type: WOW_POST_REQUEST,
+export const requestWowDelete = () => ({
+  type: WOW_DELETE_REQUEST,
 });
 
-export const successWowPost = () => ({
-  type: WOW_POST_SUCCESS,
+export const successWowDelete = () => ({
+  type: WOW_DELETE_SUCCESS,
 });
 
-export const failedWowPost = () => ({
-  type: WOW_POST_FAILED,
+export const failedWowDelete = () => ({
+  type: WOW_DELETE_FAILED,
+});
+export const resetWowDelete = () => ({
+  type: WOW_DELETE_RESET,
 });

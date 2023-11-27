@@ -220,7 +220,7 @@ export default function EditCreateWow() {
                 Please enter the date the message was shared
               </p>
 
-              <Button type="submit">Create</Button>
+              <Button type="submit">UPDATE</Button>
             </form>
           )}
         </div>
