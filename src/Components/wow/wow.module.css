@@ -3,16 +3,12 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 0 2rem 0;
-  /* border: 1px solid red; */
   flex-direction: column;
-  /* padding: 2rem 10rem; */
   font-size: 0.7em;
   width:100%
 }
 .wowContainer{
   width: 80%;
-  /* border: 1px solid blue; */
-  
 }
 .word {
   text-align: left;
@@ -20,9 +16,6 @@
   height: 10%;
 }
 .message {
-
-
-  /* border: 1px solid blue; */
 }
 
 
@@ -34,9 +27,7 @@
   }
   .word{
     width:
-     /* 100%; border: 1px solid green; */
   }
   .message{
-    /* text-align: left; */
   }
 }

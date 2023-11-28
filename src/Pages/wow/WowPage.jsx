@@ -13,7 +13,6 @@ import StyledLink from "../../UI/links/StyledLink";
 import { useNavigate } from "react-router-dom";
 import { WOW_DELETE_FAILED, WOW_DELETE_RESET, WOW_DELETE_SUCCESS } from "../../store/constants";
 import { getError } from "../../utils";
-import { a } from "@react-spring/web";
 
 export default function WowPage() {
   const [{ wows, error, loading, wow, userInfo, loadingDelete, successDelete }, dispatch] = useReducer(rootReducer, {
