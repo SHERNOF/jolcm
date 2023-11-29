@@ -11,18 +11,25 @@ import MessageBox from "../../UI/messageBox/MessageBox";
 import { IoIosCreate } from "react-icons/io";
 import StyledLink from "../../UI/links/StyledLink";
 import { useNavigate } from "react-router-dom";
-import { WOW_DELETE_FAILED, WOW_DELETE_RESET, WOW_DELETE_SUCCESS } from "../../store/constants";
+import {
+  WOW_DELETE_FAILED,
+  WOW_DELETE_RESET,
+  WOW_DELETE_SUCCESS,
+} from "../../store/constants";
 import { getError } from "../../utils";
 
 export default function WowPage() {
-  const [{ wows, error, loading, wow, userInfo, loadingDelete, successDelete }, dispatch] = useReducer(rootReducer, {
+  const [
+    { wows, error, loading, wow, userInfo, loadingDelete, successDelete },
+    dispatch,
+  ] = useReducer(rootReducer, {
     messages: {},
     error: "",
     loading: true,
     wow: {},
-    userInfo:{},
-    loadingDelete:false,
-    successDelete:false
+    userInfo: {},
+    loadingDelete: false,
+    successDelete: false,
   });
   const navigate = useNavigate();
 
@@ -37,31 +44,31 @@ export default function WowPage() {
       }
     };
 
-    if(successDelete){
-      dispatch({ type: WOW_DELETE_RESET })
-    } else{
-      fetchWows()
+    if (successDelete) {
+      dispatch({ type: WOW_DELETE_RESET });
+    } else {
+      fetchWows();
     }
   }, [successDelete]);
 
   const deleteHandler = async (wow) => {
-    console.log(wow._id)
-    
-    if(window.confirm('Are you sure you want to delete?')) {
-      try{
-     await axios.delete(`/jol/del/${wow._id}`, 
-     
-     // {headers: { Authorization: `Bearer ${userInfo.token}` }}
-     );
-     dispatch({ type: WOW_DELETE_SUCCESS });
-     console.log(wow._id)
-        
-      }catch(err){
-        dispatch({ type: WOW_DELETE_FAILED, payload: getError(err)})
-        alert(err)
+    console.log(wow._id);
+
+    if (window.confirm("Are you sure you want to delete?")) {
+      try {
+        await axios.delete(
+          `/jol/del/${wow._id}`
+
+          // {headers: { Authorization: `Bearer ${userInfo.token}` }}
+        );
+        dispatch({ type: WOW_DELETE_SUCCESS });
+        console.log(wow._id);
+      } catch (err) {
+        dispatch({ type: WOW_DELETE_FAILED, payload: getError(err) });
+        alert(err);
       }
     }
-  }
+  };
 
   return (
     <Container>
@@ -74,7 +81,7 @@ export default function WowPage() {
             </StyledLink>
           </Title>
         </div>
-        { loadingDelete && <Loading />}
+        {loadingDelete && <Loading />}
         <div className={classes.messagesContent}>
           {loading ? (
             <Loading />
@@ -114,9 +121,7 @@ export default function WowPage() {
                       />
                     </td>
                     <td style={{ cursor: "pointer" }}>
-                      <MdDeleteOutline 
-                      onClick={() => deleteHandler(x)}
-                      />
+                      <MdDeleteOutline onClick={() => deleteHandler(x)} />
                     </td>
                   </tr>
                 ))}
@@ -229,6 +234,10 @@ III. Implememnt the Edit function in the <WowPage />
 
 
   IV. Implement the delete function at <WowPage /.
+
+  V. Implement the comment section for each wow
+    1. comment button will only be active if user is logged in.
+  
 
 
 

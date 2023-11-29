@@ -4,11 +4,14 @@ import axios from "axios";
 import { rootReducer } from "../../store/reducers";
 import { useSelector } from "react-redux";
 import { AiTwotoneEdit } from "react-icons/ai";
+import Container from "../../UI/container/Container";
+import { IoIosSave } from "react-icons/io";
 
 export default function Word() {
   const [verse, setverse] = useState("");
+  const [inputVisible, setinputVisible] = useState(false);
   const [verseInValid, setverseInValid] = useState(false);
-  const  userInfo = useSelector((state)=> state.userInfo)
+  const userInfo = useSelector((state) => state.userInfo);
   const [{ wows, error, loading }, dispatch] = useReducer(rootReducer, {
     messages: {},
     error: "",
@@ -39,61 +42,112 @@ export default function Word() {
     };
     fetchWows();
   }, []);
-  const createCommentHandler = () =>{}
+  const createCommentHandler = () => {};
   return (
-    <>
     <div className={classes.wow}>
       <div className={classes.wowContainer}>
-
         <div className={classes.word}>
-          <p style={{ fontSize: "1.1em", color: 'rgb(0,0,0,.5)' }}>Words to Ponder by {last.by} :</p>
+          <p style={{ fontSize: "1.1em", color: "rgb(0,0,0,.5)" }}>
+            Words to Ponder by {last.by} :
+          </p>
         </div>
 
         <div className={classes.message}>
-          <h6 style={{ fontSize: "1em", fontStyle: "italic", width:'100%', 
-          // border:'1px solid green',
-          textAlign:'left',
-          color: 'rgb(0,0,0,.5)',
-          }}>
+          <h6>
             {/* {last.verse} : {last.wow}  */}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sequi qui nam itaque reiciendis vel? Delectus aliquid voluptatem minima inventore nesciunt quos sit dolorum animi dicta, itaque adipisci quas. Laboriosam, recusandae maxime. Iusto consequatur blanditiis assumenda necessitatibus voluptatem doloribus repudiandae consequuntur et, distinctio doloremque, sed vitae voluptate asperiores voluptatibus natus.
-
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sequi
+            qui nam itaque reiciendis vel? Delectus aliquid voluptatem minima
+            inventore nesciunt quos sit dolorum animi dicta, itaque adipisci
+            quas. Laboriosam, recusandae maxime. Iusto consequatur blanditiis
+            assumenda necessitatibus voluptatem doloribus repudiandae
+            consequuntur et, distinctio doloremque, sed vitae voluptate
+            asperiores voluptatibus natus.
           </h6>
-          <div style={{ width:'100%', 
-          textAlign:'left', 
-        // border:'1px solid blue',
-        }}>
-          <AiTwotoneEdit   type='submit' style={{color: 'rgb(0,0,0,.5)', }}/> <span >Comment</span>
+          <div className={classes.iconContainer}>
+            {userInfo && (
+              <AiTwotoneEdit
+                onClick={() => setinputVisible(true)}
+                type="submit"
+                style={{ color: "rgb(0,0,0,.5)" }}
+              />
+              //  <span>Comment</span>
+            )}
+            {inputVisible && (
+              <form
+                style={{
+                  // border: "1px solid rgb(0,0,0,.5)",
+                  display: "flex",
+                  // alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <input
+                  style={{
+                    height: "2rem",
+                    width: "90%",
+                    // position: "relative",
+                    margin: "auto",
+                    // border: "none",
+                  }}
+                  placeholder="Comment"
+                  type="text"
+                ></input>
+
+                <IoIosSave
+                  type="submit"
+                  style={{
+                    // position: "absolute",
+                    fontSize: "1.5rem",
+                    padding: "7px",
+
+                    cursor: "pointer",
+                    width: "10%",
+                    // border: "1px solid red",
+                  }}
+                />
+              </form>
+            )}
           </div>
         </div>
 
         <div className={classes.commentContainer}>
-
-          {/* <div className={classes.createComment}> */}
-            {/* <AiTwotoneEdit type='submit'/> */}
-          {/* </div> */}
-
           <div className={classes.commentsList}>
-                <div className={classes.comments}>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repudiandae veritatis repellat.</p>
-                  <h6>Sherwin</h6>
-                </div>
+            <div className={classes.comments}>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                repudiandae veritatis repellat.
+              </p>
+              <h6>Sherwin</h6>
+            </div>
 
-                <div className={classes.comments}>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem repellat expedita perferendis, distinctio dolor, praesentium ipsam in quo vitae, ducimus quis tempora nobis doloremque quae.</p>
-                  <h6>Neil</h6>
-                </div>
+            <div className={classes.comments}>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Exercitationem repellat expedita perferendis, distinctio dolor,
+                praesentium ipsam in quo vitae, ducimus quis tempora nobis
+                doloremque quae.
+              </p>
+              <h6>Neil</h6>
+            </div>
 
-                <div className={classes.comments}>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repudiandae veritatis repellat.</p>
-                  <h6>Angie</h6>
-                </div>
+            <div className={classes.comments}>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                repudiandae veritatis repellat.
+              </p>
+              <h6>Angie</h6>
+            </div>
+
+            <div className={classes.comments}>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                repudiandae veritatis repellat.
+              </p>
+              <h6>Angie</h6>
+            </div>
           </div>
-
         </div>
-
       </div>
     </div>
-    </>
   );
 }
