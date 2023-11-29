@@ -1,0 +1,36 @@
+.wow {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  margin: 0 0 2rem 0;
+  flex-direction: column;
+  font-size: 0.7em;
+  width:100%;
+  border: 1px solid salmon;
+  height: auto;
+}
+.wow .wowContainer{
+  width: 100%;
+}
+.wow .wowContainer .word {
+  text-align: left;
+  width: 100%;
+  /* height: 10%; */
+}
+.wow .wowContainer .message {
+  border: 1px solid green;
+}
+
+
+@media(max-width:430px){
+  .wow {
+  }
+  .wowContainer{
+    width: 100%;
+  }
+  .word{
+    width:
+  }
+  .message{
+  }
+}

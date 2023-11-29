@@ -41,45 +41,59 @@ export default function Word() {
   }, []);
   const createCommentHandler = () =>{}
   return (
+    <>
     <div className={classes.wow}>
       <div className={classes.wowContainer}>
+
         <div className={classes.word}>
-          <h5 style={{ fontSize: "1.1em" }}>Words to Ponder by {last.by} :</h5>
+          <p style={{ fontSize: "1.1em", color: 'rgb(0,0,0,.5)' }}>Words to Ponder by {last.by} :</p>
         </div>
+
         <div className={classes.message}>
-          <h5 style={{ fontSize: "1.2em", fontStyle: "italic" }}>
-            {last.verse} : {last.wow}
-          </h5>
-            {/* <div
-             style={{display:'flex', alignItems:'flex-start', justifyContent:'flex-start', flexDirection:'column', border:'1px solid red',  }}
-             >
-              <form onSubmit={createCommentHandler} className={classes.logInContent} > 
-              <div style={{width:'20rem', border:'1px solid blue', }}>
-                  <input
-                  id="verse"
-                  type="verse"
-                  onBlur={verseBlurHandler}
-                  onFocus={verseFocusHandler}
-                  onChange={(e) => setverse(e.target.value)}
-                  value={verse}
-                  required
-                  placeholder="Comment"
-                  style={{height:'3rem', width:'100%',  position:'relative' }}/>
-                  </div>
+          <h6 style={{ fontSize: "1em", fontStyle: "italic", width:'100%', 
+          // border:'1px solid green',
+          textAlign:'left',
+          color: 'rgb(0,0,0,.5)',
+          }}>
+            {/* {last.verse} : {last.wow}  */}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sequi qui nam itaque reiciendis vel? Delectus aliquid voluptatem minima inventore nesciunt quos sit dolorum animi dicta, itaque adipisci quas. Laboriosam, recusandae maxime. Iusto consequatur blanditiis assumenda necessitatibus voluptatem doloribus repudiandae consequuntur et, distinctio doloremque, sed vitae voluptate asperiores voluptatibus natus.
 
-                  {/* <p style={{ color: !verseInValid ? "transparent" : "salmon" }}>Please enter a valid bible verse</p> */}
-                  <div style={{border:'1px solid red', position:'absolute', zIndex:'1'}}><AiTwotoneEdit type='submit'/></div>
-                  
-              </form>
-            </div> */}
-           
-   
+          </h6>
+          <div style={{ width:'100%', 
+          textAlign:'left', 
+        // border:'1px solid blue',
+        }}>
+          <AiTwotoneEdit   type='submit' style={{color: 'rgb(0,0,0,.5)', }}/> <span >Comment</span>
+          </div>
+        </div>
 
+        <div className={classes.commentContainer}>
+
+          {/* <div className={classes.createComment}> */}
+            {/* <AiTwotoneEdit type='submit'/> */}
+          {/* </div> */}
+
+          <div className={classes.commentsList}>
+                <div className={classes.comments}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repudiandae veritatis repellat.</p>
+                  <h6>Sherwin</h6>
+                </div>
+
+                <div className={classes.comments}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem repellat expedita perferendis, distinctio dolor, praesentium ipsam in quo vitae, ducimus quis tempora nobis doloremque quae.</p>
+                  <h6>Neil</h6>
+                </div>
+
+                <div className={classes.comments}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repudiandae veritatis repellat.</p>
+                  <h6>Angie</h6>
+                </div>
+          </div>
 
         </div>
-          
-        
+
       </div>
     </div>
+    </>
   );
 }
