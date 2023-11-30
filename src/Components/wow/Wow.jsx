@@ -68,26 +68,25 @@ export default function Word() {
               <AiTwotoneEdit
                 onClick={() => setinputVisible(true)}
                 type="submit"
-                style={{ color: "rgb(0,0,0,.5)" }}
+                className={classes.editButton}
               />
               //  <span>Comment</span>
             )}
-            {inputVisible && (
+            { (userInfo && inputVisible) &&  (
               <form
                 style={{
-                  // border: "1px solid rgb(0,0,0,.5)",
                   display: "flex",
-                  // alignItems: "center",
                   justifyContent: "center",
+                  alignItems:'center',
+                  position:'relative',
                 }}
               >
                 <input
                   style={{
-                    height: "2rem",
-                    width: "90%",
-                    // position: "relative",
+                    height: "5rem",
+                    borderRadius:'5px',
+                    width: "100%",
                     margin: "auto",
-                    // border: "none",
                   }}
                   placeholder="Comment"
                   type="text"
@@ -95,15 +94,8 @@ export default function Word() {
 
                 <IoIosSave
                   type="submit"
-                  style={{
-                    // position: "absolute",
-                    fontSize: "1.5rem",
-                    padding: "7px",
-
-                    cursor: "pointer",
-                    width: "10%",
-                    // border: "1px solid red",
-                  }}
+                  className={classes.saveButton}
+                  onClick={()=> console.log('test')}
                 />
               </form>
             )}
@@ -112,6 +104,7 @@ export default function Word() {
 
         <div className={classes.commentContainer}>
           <div className={classes.commentsList}>
+            Comments
             <div className={classes.comments}>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
