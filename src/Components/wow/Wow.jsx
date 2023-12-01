@@ -3,13 +3,14 @@ import classes from "./wow.module.css";
 import axios from "axios";
 import { rootReducer } from "../../store/reducers";
 import { useSelector } from "react-redux";
-import { AiTwotoneEdit } from "react-icons/ai";
+import { FaMessage } from "react-icons/fa6";
 import Container from "../../UI/container/Container";
 import { IoIosSave } from "react-icons/io";
 
 export default function Word() {
   const [verse, setverse] = useState("");
   const [inputVisible, setinputVisible] = useState(false);
+  const [iconVisible, seticonVisible] = useState(true);
   const [verseInValid, setverseInValid] = useState(false);
   const userInfo = useSelector((state) => state.userInfo);
   const [{ wows, error, loading }, dispatch] = useReducer(rootReducer, {
@@ -27,6 +28,10 @@ export default function Word() {
   const verseFocusHandler = () => {
     setverseInValid(false);
   };
+  const iconHandler = () => {
+    setinputVisible(true)
+    seticonVisible(false)
+  }
 
   const [last, setlast] = useState({});
   useEffect(() => {
@@ -64,39 +69,30 @@ export default function Word() {
             asperiores voluptatibus natus.
           </h6>
           <div className={classes.iconContainer}>
-            {userInfo && (
-              <AiTwotoneEdit
-                onClick={() => setinputVisible(true)}
+            {(userInfo && iconVisible) && (
+              <FaMessage
+                onClick={iconHandler}
                 type="submit"
-                className={classes.editButton}
+                className={classes.createCommentButton}
               />
-              //  <span>Comment</span>
             )}
             { (userInfo && inputVisible) &&  (
               <form
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems:'center',
-                  position:'relative',
+             
                 }}
               >
                 <input
-                  style={{
-                    height: "5rem",
-                    borderRadius:'5px',
-                    width: "100%",
-                    margin: "auto",
-                  }}
                   placeholder="Comment"
                   type="text"
                 ></input>
-
+                <i>
                 <IoIosSave
                   type="submit"
                   className={classes.saveButton}
                   onClick={()=> console.log('test')}
                 />
+                </i>
               </form>
             )}
           </div>
@@ -104,7 +100,9 @@ export default function Word() {
 
         <div className={classes.commentContainer}>
           <div className={classes.commentsList}>
-            Comments
+            
+            <span style={{marginBottom:'1rem'}}>Comments</span>
+            
             <div className={classes.comments}>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius

@@ -104,7 +104,6 @@ export default function CreateWow() {
         console.log(data);
       }
     } catch (error) {
-      // dispatch({ type: WOW_POST_FAILED, payload: error.message });
       dispatch({ type: WOW_POST_FAILED, payload: getError(error) });
       alert(error);
     }
