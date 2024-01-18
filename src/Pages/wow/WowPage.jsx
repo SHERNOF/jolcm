@@ -266,5 +266,58 @@ used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
   );
 
 
+  **Encountered issue**
+  
+  I cannot get the ._id of the latest wow as the previous setup captures all the wows and just filtered and get the latest in the Front End
+
+
+  previous setup
+  wowRoute.get("/wows", async (req, res) => {
+  const Wows = await Wow.find();
+  res.send(wows);
+  console.log(wows)
+});
+
+
+  useEffect(() => {
+    const fetchWows = async () => {
+      dispatch({ type: "FETCH_WOW_REQUEST" });
+      try {
+        const wows = await axios.get("/jol/wows");
+        dispatch({ type: "FETCH_WOW_SUCCESS", payload: wows.data });
+        setlast(wows.data[wows.data.lenghth - 1]);
+      } catch (error) {
+        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+      }
+    };
+    fetchWows();
+  }, []);
+  
+  *** Current Set up ***
+
+  wowRoute.get("/latestWow", async (req, res) => {
+  const latestWow = await Wow.find({}).sort({$natural:-1}).limit(1);
+  res.send(latestWow);
+  console.log(latestWow)
+});
+
+ useEffect(() => {
+    const fetchWows = async () => {
+      dispatch({ type: "FETCH_WOW_REQUEST" });
+      try {
+        const latestWow = await axios.get("/jol/latestWow");
+        console.log(latestWow)
+        dispatch({ type: "FETCH_WOW_SUCCESS", payload: latestWow.data });
+        setlatest(latestWow.data[0]);
+        console.log(latestWow.data[0].by)
+      } catch (error) {
+        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+      }
+    };
+    fetchWows();
+  }, []);
+
+  this set up filtered the latest wow from the backend and I can get the specific _id in which is to be use for saving the comments
+
 
 */

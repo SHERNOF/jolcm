@@ -5,9 +5,10 @@ import bcrypt from "bcryptjs";
 import { generateToken, isAdmin } from "../utils.js";
 
 const wowRoute = express.Router();
-wowRoute.get("/wows", async (req, res) => {
-  const wows = await Wow.find();
-  res.send(wows);
+wowRoute.get("/latestWow", async (req, res) => {
+  const latestWow = await Wow.find({}).sort({$natural:-1}).limit(1);
+  res.send(latestWow);
+  console.log(latestWow)
 });
 
 wowRoute.post(
@@ -40,10 +41,12 @@ wowRoute.get("/:id", async (req, res) => {
 });
 
 wowRoute.put(
-  "/:id",
+  "/:id/comments",
   // isAdmin,
   expressAsyncHandler(async (req, res) => {
-    const wowId = req.params.id;
+    // const wowId = req.params.id;
+    const wowId = await Wow.find({}).sort({$natural:-1}).limit(1);
+    console.log(wowId)
     const wow = await Wow.findById(wowId);
     if (wow) {
       wow.verse = req.body.verse;
