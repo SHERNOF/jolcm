@@ -13,7 +13,7 @@ export default function Word() {
   const [iconVisible, seticonVisible] = useState(true);
   const [verseInValid, setverseInValid] = useState(false);
   const [latest, setlatest] = useState({});
-  const [wowId, setwowId] = useState({});
+  // const [wowId, setwowId] = useState({});
   const userInfo = useSelector((state) => state.userInfo);
   const [{ latestWow, error, loading }, dispatch] = useReducer(rootReducer, {
     messages: {},
@@ -41,9 +41,8 @@ export default function Word() {
         const latestWow = await axios.get("/jol/latestWow");
         dispatch({ type: "FETCH_WOW_SUCCESS", payload: latestWow.data });
         setlatest(latestWow.data[0]);
-        setwowId(latestWow.data[0]._id);
-        console.log(latestWow.data[0])
-        // console.log(latestWow.data[0]._id)
+        // setwowId(latestWow.data[0]._id);
+        console.log(latestWow)
       } catch (error) {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
@@ -59,39 +58,40 @@ export default function Word() {
 
 
   const createCommentHandler = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // if (!comment || !rating) {
     //   ctxDispatch(
     //     setSnackbar(true, "error", "Please enter comment and rating")
     //   );
     //   return;
-    }
-    try {
-      const { data } = await axios.post(
-        `/api/products/${product._id}/comments`,
-        { rating, comment, name: userInfo.name },
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
-      );
-      dispatch({
-        type: "CREATE_SUCCESS",
-      });
-      ctxDispatch(
-        setSnackbar(true, "success", "Review submitted successfully")
-      );
-      product.reviews.unshift(data.review);
-      product.numReviews = data.numReviews;
-      product.rating = data.rating;
-      dispatch({ type: "REFRESH_PRODUCT", payload: product });
-      window.scrollTo({
-        behavior: "smooth",
-        top: reviewsRef.current.offsetTop,
-      });
-    } catch (error) {
-      ctxDispatch(setSnackbar(true, "error", getError(error)));
-      dispatch({ type: "CREATE_FAIL" });
-    }
+    // }
+    // try {
+    //   const { data } = await axios.post(
+    //     `/api/products/${product._id}/comments`,
+    //     { rating, comment, name: userInfo.name },
+    //     {
+    //       headers: { Authorization: `Bearer ${userInfo.token}` },
+    //     }
+    //   );
+    //   dispatch({
+    //     type: "CREATE_SUCCESS",
+    //   });
+    //   ctxDispatch(
+    //     setSnackbar(true, "success", "Review submitted successfully")
+    //   );
+    //   product.reviews.unshift(data.review);
+    //   product.numReviews = data.numReviews;
+    //   product.rating = data.rating;
+    //   dispatch({ type: "REFRESH_PRODUCT", payload: product });
+    //   window.scrollTo({
+    //     behavior: "smooth",
+    //     top: reviewsRef.current.offsetTop,
+    //   });
+    // } catch (error) {
+    //   ctxDispatch(setSnackbar(true, "error", getError(error)));
+    //   dispatch({ type: "CREATE_FAIL" });
+    // }
+    console.log(latest._id)
   };
   return (
     <div className={classes.wow}>
@@ -100,6 +100,7 @@ export default function Word() {
           <p style={{ fontSize: "1.1em", color: "rgb(0,0,0,.5)" }}>
             Words to Ponder by {latest.by} :
           </p>
+          
         </div>
 
         <div className={classes.message}>
@@ -129,7 +130,7 @@ export default function Word() {
                 <IoIosSave
                   type="submit"
                   className={classes.saveButton}
-                  onClick={()=> console.log('test')}
+                  onClick={createCommentHandler}
                 />
                 </i>
               </form>

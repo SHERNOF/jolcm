@@ -5,12 +5,15 @@ import bcrypt from "bcryptjs";
 import { generateToken, isAdmin } from "../utils.js";
 
 const wowRoute = express.Router();
+
+// get the latest wow to be displayed at home page
 wowRoute.get("/latestWow", async (req, res) => {
   const latestWow = await Wow.find({}).sort({$natural:-1}).limit(1);
   res.send(latestWow);
   console.log(latestWow)
 });
 
+// create a wow
 wowRoute.post(
   "/wow",
   // isAdmin,
@@ -31,17 +34,17 @@ wowRoute.post(
     });
   })
 );
-wowRoute.get("/:id", async (req, res) => {
-  const wowId = await Wow.findById(req.params.id);
-  if (wowId) {
-    res.send(wowId);
-  } else {
-    res.status(404).send({ message: "Wow not found..." });
-  }
-});
+// wowRoute.get("/:id", async (req, res) => {
+//   const wowId = await Wow.findById(req.params.id);
+//   if (wowId) {
+//     res.send(wowId);
+//   } else {
+//     res.status(404).send({ message: "Wow not found..." });
+//   }
+// });
 
 wowRoute.put(
-  "/:id/comments",
+  "/:id",
   // isAdmin,
   expressAsyncHandler(async (req, res) => {
     // const wowId = req.params.id;
