@@ -32,6 +32,11 @@ import {
   WOW_DELETE_REQUEST,
   WOW_DELETE_SUCCESS,
   WOW_DELETE_FAILED,
+  WOW_DELETE_RESET,
+  WOW_REFRESH,
+  WOW_COMMENT_SUCCESS,
+  WOW_COMMENT_FAILED,
+  WOW_COMMENT_RESET,
 } from "./constants.js";
 import { CHANGE_MOUSEUP } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
@@ -177,4 +182,19 @@ export const failedWowDelete = () => ({
 });
 export const resetWowDelete = () => ({
   type: WOW_DELETE_RESET,
+});
+
+export const wowRefresh = () => ({
+  type: WOW_REFRESH,
+});
+
+export const commentSuccess = () => ({
+  type: WOW_COMMENT_SUCCESS,
+});
+
+export const commentFailed = () => ({
+  type: WOW_COMMENT_FAILED,
+});
+export const commentReset = () => ({
+  type: WOW_COMMENT_RESET,
 });

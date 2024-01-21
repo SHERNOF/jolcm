@@ -6,11 +6,16 @@ import { generateToken, isAdmin } from "../utils.js";
 
 const wowRoute = express.Router();
 
+// get and display all wows in WowPage
+wowRoute.get("/wows", async (req, res) => {
+  const wows = await Wow.find();
+  res.send(wows);
+});
+
 // get the latest wow to be displayed at home page
 wowRoute.get("/latestWow", async (req, res) => {
-  const latestWow = await Wow.find({}).sort({$natural:-1}).limit(1);
+  const latestWow = await Wow.find({}).sort({ $natural: -1 }).limit(1);
   res.send(latestWow);
-  console.log(latestWow)
 });
 
 // create a wow
@@ -34,22 +39,47 @@ wowRoute.post(
     });
   })
 );
-// wowRoute.get("/:id", async (req, res) => {
-//   const wowId = await Wow.findById(req.params.id);
-//   if (wowId) {
-//     res.send(wowId);
-//   } else {
-//     res.status(404).send({ message: "Wow not found..." });
-//   }
-// });
+
+wowRoute.post(
+  "/:id/comments",
+  // isAuth,
+  expressAsyncHandler(async (req, res) => {
+    // const wowId = req.params.id;
+    const wowId = await Wow.find({}).sort({ $natural: -1 }).limit(1);
+    const wow = await Wow.findById(wowId);
+    // console.log(wow);
+    // if (wow) {
+    //   if (wow.reviews.find((x) => x.name === req.user.name)) {
+    //     return res
+    //       .status(400)
+    //       .send({ message: "You already submitted a review" });
+    //   }
+
+    const comment = {
+      name: req.user.name,
+      comment: req.body.comment,
+    };
+    console.log(comment);
+    wow.comments.push(comment);
+
+    const updatedWow = await wow.save();
+    res.status(201).send({
+      message: "Comment Created",
+      comment: updatedWow.comments[updatedWow.comments.length - 1],
+    });
+    // } else {
+    //   res.status(404).send({ message: "wow Not Found" });
+    // }
+  })
+);
 
 wowRoute.put(
   "/:id",
   // isAdmin,
   expressAsyncHandler(async (req, res) => {
     // const wowId = req.params.id;
-    const wowId = await Wow.find({}).sort({$natural:-1}).limit(1);
-    console.log(wowId)
+    const wowId = await Wow.find({}).sort({ $natural: -1 }).limit(1);
+    console.log(wowId);
     const wow = await Wow.findById(wowId);
     if (wow) {
       wow.verse = req.body.verse;
@@ -65,19 +95,19 @@ wowRoute.put(
 );
 
 wowRoute.delete(
-    "/del/:id",
-    // isAuth,
-    // isAdmin,
-    expressAsyncHandler(async (req, res) => {
-      const wow = await Wow.findById(req.params.id);
-      console.log(wow)
-      if (wow) {
-        await wow.deleteOne();
-        res.send({ message: "Wow Deleted" });
-      } else {
-        res.status(404).send({ message: "Wow Not Found" });
-      }
-    })
-  );
+  "/del/:id",
+  // isAuth,
+  // isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const wow = await Wow.findById(req.params.id);
+    console.log(wow);
+    if (wow) {
+      await wow.deleteOne();
+      res.send({ message: "Wow Deleted" });
+    } else {
+      res.status(404).send({ message: "Wow Not Found" });
+    }
+  })
+);
 
 export default wowRoute;

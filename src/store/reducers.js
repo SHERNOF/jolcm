@@ -30,6 +30,9 @@ import {
   WOW_DELETE_SUCCESS,
   WOW_DELETE_FAILED,
   WOW_DELETE_RESET,
+  WOW_REFRESH,
+  WOW_COMMENT_FAILED,
+  WOW_COMMENT_SUCCESS,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -58,7 +61,7 @@ const initialState = {
   wows: {},
   wow: {},
   loadingDelete: false,
-  successDelete: false
+  successDelete: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -172,20 +175,28 @@ export const rootReducer = (state = initialState, action) => {
     case WOW_POST_FAILED:
       return { ...state, loading: false, error: action.payload };
 
+    case WOW_DELETE_REQUEST:
+      return { ...state, loadingDelete: true, successDelete: false };
+    case WOW_DELETE_SUCCESS:
+      return {
+        ...state,
+        loadingDelete: false,
+        successDelete: true,
+      };
+    case WOW_DELETE_FAILED:
+      return { ...state, loadingDelete: false, successDelete: false };
 
-      case WOW_DELETE_REQUEST:
-        return { ...state, loadingDelete: true, successDelete: false };
-      case WOW_DELETE_SUCCESS:
-        return {
-          ...state,
-          loadingDelete: false,
-          successDelete: true
-        };
-      case WOW_DELETE_FAILED:
-        return { ...state, loadingDelete: false, successDelete: false };
+    case WOW_DELETE_RESET:
+      return { ...state, loadingDelete: false, successDelete: false };
 
-        case WOW_DELETE_RESET:
-          return { ...state, loadingDelete: false, successDelete: false };
+    case WOW_REFRESH:
+      return { ...state, wow: action.payload };
+    // case CREATE_REQUEST:
+    //   return { ...state, loadingCreateReview: true };
+    case WOW_COMMENT_SUCCESS:
+      return { ...state, loadingCreateComment: false };
+    case WOW_COMMENT_FAILED:
+      return { ...state, loadingCreateComment: false };
 
     default:
       return state;
