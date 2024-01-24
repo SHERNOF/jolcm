@@ -25,7 +25,7 @@ export default function Word() {
       wow: [],
       latestWow:{},
     });
-    console.log(userInfo.name)
+    console.log(latestWow.comments)
 
 
   const verseBlurHandler = () => {
@@ -140,11 +140,13 @@ export default function Word() {
             <span style={{ marginBottom: "1rem" }}>Comments</span>
 
             <div className={classes.comments}>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                repudiandae veritatis repellat.
+              { latestWow.comments.map((comment)=>(
+                <p key={comment._id}>
+                {comment.comment}
               </p>
-              <h6>Sherwin</h6>
+              ))}
+              
+              {/* <h6>Sherwin</h6> */}
             </div>
           </div>
         </div>
