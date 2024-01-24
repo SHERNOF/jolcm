@@ -8,24 +8,25 @@ import Container from "../../UI/container/Container";
 import { IoIosSave } from "react-icons/io";
 
 export default function Word() {
-  const [comment, setcomment] = useState("");
 
+
+  const [comment, setcomment] = useState("");
   const [verse, setverse] = useState("");
   const [inputVisible, setinputVisible] = useState(false);
   const [iconVisible, seticonVisible] = useState(true);
   const [verseInValid, setverseInValid] = useState(false);
-  const [latest, setlatest] = useState({});
-  // const [wowId, setwowId] = useState({});
+
   const userInfo = useSelector((state) => state.userInfo);
-  const [{ wow, latestWow, error, loading, loadingCreateComment }, dispatch] =
+  const [{ wow, wows, latestWow, error, loading, loadingCreateComment }, dispatch] =
     useReducer(rootReducer, {
       messages: {},
       error: "",
       loading: true,
       wow: [],
+      latestWow:{},
     });
-  // console.log(userInfo);
-  // console.log(comment);
+    console.log(userInfo.name)
+
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -37,27 +38,26 @@ export default function Word() {
     setverseInValid(false);
   };
 
+
+
+  const iconHandler = () => {
+    setinputVisible(true);
+    seticonVisible(false);
+  };
+
   useEffect(() => {
     const fetchWows = async () => {
       dispatch({ type: "FETCH_WOW_REQUEST" });
       try {
-        const latestWow = await axios.get("/jol/latestWow");
-        dispatch({ type: "FETCH_WOW_SUCCESS", payload: latestWow.data });
-        setlatest(latestWow.data[0]);
-        // setwowId(latestWow.data[0]._id);
-        console.log(latestWow);
+        const result = await axios.get('/jol/latestWow/');
+        dispatch({ type: "FETCH_WOW_SUCCESS", payload: result.data[0] });
+
       } catch (error) {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
     };
     fetchWows();
   }, []);
-
-  const iconHandler = () => {
-    setinputVisible(true);
-    seticonVisible(false);
-    // console.log(wowId)
-  };
 
   const createCommentHandler = async (e) => {
     e.preventDefault();
@@ -69,11 +69,12 @@ export default function Word() {
     // }
     try {
       const { data } = await axios.post(
-        `/jol/wow/${latest._id}/comments`,
-        { comment, name: userInfo.name },
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
+        `/jol/wow/${latestWow._id}/comments`,
+        { comment},
+        // { comment, name: userInfo.name },
+        // {
+        //   headers: { Authorization: `Bearer ${userInfo.token}` },
+        // }
       );
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
@@ -81,9 +82,9 @@ export default function Word() {
       // ctxDispatch(
       //   setSnackbar(true, "success", "Review submitted successfully")
       // );
-      wow.comments.unshift(data.comment);
-      dispatch({ type: "WOW_REFRESH", payload: latest });
-      console.log(wow);
+      latestWow.comments.unshift(data.reaction);
+      dispatch({ type: "WOW_REFRESH", payload: latestWow });
+
       // window.scrollTo({
       //   behavior: "smooth",
       //   top: commentsRef.current.offsetTop,
@@ -98,13 +99,13 @@ export default function Word() {
       <div className={classes.wowContainer}>
         <div className={classes.word}>
           <p style={{ fontSize: "1.1em", color: "rgb(0,0,0,.5)" }}>
-            Words to Ponder by {latest.by} :
+            Words to Ponder by {latestWow.by} :
           </p>
         </div>
 
         <div className={classes.message}>
           <h6>
-            {latest.verse} : {latest.wow}
+            {latestWow.verse} : {latestWow.wow}
           </h6>
           <div className={classes.iconContainer}>
             {userInfo && iconVisible && (

@@ -15,7 +15,11 @@ wowRoute.get("/wows", async (req, res) => {
 // get the latest wow to be displayed at home page
 wowRoute.get("/latestWow", async (req, res) => {
   const latestWow = await Wow.find({}).sort({ $natural: -1 }).limit(1);
-  res.send(latestWow);
+  if (latestWow) {
+    res.send(latestWow);
+  } else {
+    res.status(404).send({ message: "Latest Wow not found..." });
+  }
 });
 
 // create a wow
@@ -44,32 +48,36 @@ wowRoute.post(
   "/:id/comments",
   // isAuth,
   expressAsyncHandler(async (req, res) => {
-    // const wowId = req.params.id;
-    const wowId = await Wow.find({}).sort({ $natural: -1 }).limit(1);
+    const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
-    // console.log(wow);
-    // if (wow) {
-    //   if (wow.reviews.find((x) => x.name === req.user.name)) {
-    //     return res
-    //       .status(400)
-    //       .send({ message: "You already submitted a review" });
-    //   }
+    console.log(wow)
+  
+    if (wow) {
+      // if (wow.comments.find((x) => x.name === req.user.name)) {
+      //   return res
+      //     .status(400)
+      //     .send({ message: "You already submitted a review" });
+      // }
+ 
+      // console.log(wow);
+      // return
 
-    const comment = {
-      name: req.user.name,
+    const reaction = {
+      // name: req.user.name,
       comment: req.body.comment,
     };
-    console.log(comment);
-    wow.comments.push(comment);
+
+    wow.comments.push(reaction);
 
     const updatedWow = await wow.save();
     res.status(201).send({
       message: "Comment Created",
       comment: updatedWow.comments[updatedWow.comments.length - 1],
     });
-    // } else {
-    //   res.status(404).send({ message: "wow Not Found" });
-    // }
+    } else {
+      res.status(404).send({ message: "wow Not Found" });
+    }
+  // }
   })
 );
 

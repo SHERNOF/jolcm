@@ -320,4 +320,8 @@ used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
   this set up filtered the latest wow from the backend and I can get the specific _id in which is to be use for saving the comments
 
 
+  Encountered issue in the reducers.js. latestWow was not defined via FETCH_WOW_SUCCESS. no need to use the setLatest
+  
+  found out that the cause of error 500 is the name:userInfo.name
+
 */

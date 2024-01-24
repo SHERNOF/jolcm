@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 
-const commentSchema = new mongoose.Schema(
+const reactionSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    // name: { type: String, required: true },
     comment: { type: String, required: true },
-    rating: { type: Number, required: true },
   },
   {
     timestamps: true,
@@ -17,7 +16,7 @@ const wowSchema = new mongoose.Schema(
     wow: { type: String, required: true },
     by: { type: String, required: true },
     dateShared: { type: String, required: true },
-    comments: [commentSchema],
+    comments: [reactionSchema],
   },
   {
     timestamps: true,

@@ -62,6 +62,7 @@ const initialState = {
   wow: {},
   loadingDelete: false,
   successDelete: false,
+  latestWow:{}
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -155,10 +156,16 @@ export const rootReducer = (state = initialState, action) => {
 
     case FETCH_WOW_REQUEST:
       return { ...state, loading: true };
+      // case FETCH_WOW_SUCCESS:
+      //   return {
+      //     ...state,
+      //     wows: action.payload,
+      //     loading: false,
+      //   };
     case FETCH_WOW_SUCCESS:
       return {
         ...state,
-        wows: action.payload,
+        latestWow: action.payload,
         loading: false,
       };
     case FETCH_WOW_FAILED:
@@ -190,7 +197,7 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, loadingDelete: false, successDelete: false };
 
     case WOW_REFRESH:
-      return { ...state, wow: action.payload };
+      return { ...state, latestWow: action.payload };
     // case CREATE_REQUEST:
     //   return { ...state, loadingCreateReview: true };
     case WOW_COMMENT_SUCCESS:

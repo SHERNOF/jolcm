@@ -45,9 +45,11 @@ app.use("/jol/users", userRoute);
 
 app.use("/jol/", messagesRoute);
 app.use("/jol/", wowRoute);
-app.use("/jol/wow", wowRoute);
-app.use("/jol/wow/:id", wowRoute);
-app.use("/jol/wow/:id/reviews", wowRoute);
+app.use("/jol/wows", wowRoute);
+app.use("/jol/wows/:id", wowRoute);
+app.use("/jol/latestWow", wowRoute);
+// app.use("/jol/wow/:id", wowRoute);
+app.use("/jol/wow/:id/comments", wowRoute);
 app.use("/jol/:id", wowRoute);
 app.use("/jol/del/:id", wowRoute);
 
