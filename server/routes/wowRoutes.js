@@ -59,20 +59,18 @@ wowRoute.post(
       //     .send({ message: "You already submitted a review" });
       // }
  
-      // console.log(wow);
-      // return
-
+ 
     const reaction = {
       // name: req.user.name,
       comment: req.body.comment,
     };
 
     wow.comments.push(reaction);
-
     const updatedWow = await wow.save();
     res.status(201).send({
       message: "Comment Created",
-      comment: updatedWow.comments[updatedWow.comments.length - 1],
+      // comment: updatedWow.comments[updatedWow.comments.length - 1],
+      reaction: updatedWow.comments[updatedWow.comments.length - 1],
     });
     } else {
       res.status(404).send({ message: "wow Not Found" });

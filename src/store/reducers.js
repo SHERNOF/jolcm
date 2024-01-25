@@ -62,7 +62,7 @@ const initialState = {
   wow: {},
   loadingDelete: false,
   successDelete: false,
-  latestWow:{}
+  latestWow:[]
 };
 
 export const rootReducer = (state = initialState, action) => {

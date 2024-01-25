@@ -6,24 +6,24 @@ import { useSelector } from "react-redux";
 import { FaMessage } from "react-icons/fa6";
 import Container from "../../UI/container/Container";
 import { IoIosSave } from "react-icons/io";
+import Loading from "../../UI/loading/Loading";
 
 export default function Word() {
 
 
   const [comment, setcomment] = useState("");
+  
   const [verse, setverse] = useState("");
   const [inputVisible, setinputVisible] = useState(false);
   const [iconVisible, seticonVisible] = useState(true);
   const [verseInValid, setverseInValid] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
-  const [{ wow, wows, latestWow, error, loading, loadingCreateComment }, dispatch] =
+  const [{  latestWow, error, loading, loadingCreateComment }, dispatch] =
     useReducer(rootReducer, {
-      messages: {},
       error: "",
       loading: true,
-      wow: [],
-      latestWow:{},
+      latestWow:[],
     });
     console.log(latestWow.comments)
 
@@ -45,19 +45,7 @@ export default function Word() {
     seticonVisible(false);
   };
 
-  useEffect(() => {
-    const fetchWows = async () => {
-      dispatch({ type: "FETCH_WOW_REQUEST" });
-      try {
-        const result = await axios.get('/jol/latestWow/');
-        dispatch({ type: "FETCH_WOW_SUCCESS", payload: result.data[0] });
 
-      } catch (error) {
-        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
-      }
-    };
-    fetchWows();
-  }, []);
 
   const createCommentHandler = async (e) => {
     e.preventDefault();
@@ -72,9 +60,9 @@ export default function Word() {
         `/jol/wow/${latestWow._id}/comments`,
         { comment},
         // { comment, name: userInfo.name },
-        // {
-        //   headers: { Authorization: `Bearer ${userInfo.token}` },
-        // }
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
       );
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
@@ -94,6 +82,22 @@ export default function Word() {
       dispatch({ type: "WOW_COMMENT_FAILED" });
     }
   };
+
+  useEffect(() => {
+    const fetchWows = async () => {
+      dispatch({ type: "FETCH_WOW_REQUEST" });
+      try {
+        const result = await axios.get('/jol/latestWow/');
+        dispatch({ type: "FETCH_WOW_SUCCESS", payload: result.data[0] });
+        
+      } catch (error) {
+        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+      }
+    };
+    fetchWows();
+  }, []);
+
+
   return (
     <div className={classes.wow}>
       <div className={classes.wowContainer}>
@@ -107,6 +111,21 @@ export default function Word() {
           <h6>
             {latestWow.verse} : {latestWow.wow}
           </h6>
+
+          <div className={classes.commentContainer}>
+          <div className={classes.commentsList}>
+            <span style={{ marginBottom: "1rem" }}>Comments</span>
+
+            <div className={classes.comments}>
+              { latestWow.comments.map((comment)=>(
+                  <p key={comment._id}>
+                {comment.comment}
+              </p>
+              ))}
+              {/* <h6>Sherwin</h6> */}
+            </div>
+          </div>
+        </div>
           <div className={classes.iconContainer}>
             {userInfo && iconVisible && (
               <FaMessage
@@ -129,27 +148,14 @@ export default function Word() {
                     className={classes.saveButton}
                     onClick={createCommentHandler}
                   />
+                  {loadingCreateComment && <Loading />}
                 </i>
               </form>
             )}
           </div>
         </div>
 
-        <div className={classes.commentContainer}>
-          <div className={classes.commentsList}>
-            <span style={{ marginBottom: "1rem" }}>Comments</span>
-
-            <div className={classes.comments}>
-              { latestWow.comments.map((comment)=>(
-                <p key={comment._id}>
-                {comment.comment}
-              </p>
-              ))}
-              
-              {/* <h6>Sherwin</h6> */}
-            </div>
-          </div>
-        </div>
+ 
       </div>
     </div>
   );

@@ -324,4 +324,18 @@ used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
   
   found out that the cause of error 500 is the name:userInfo.name
 
+/**
+  Another issue is the breakdown of the page when new comment is added. it needs to disable this code and enable agin to be fix
+
+       { latestWow.comments.map((comment)=>(
+                  <p key={comment._id}>
+                {comment.comment}
+              </p>
+
+The problem is this "comment: updatedWow.comments[updatedWow.comments.length - 1]," should be 
+reaction: updatedWow.comments[updatedWow.comments.length - 1],
+
+comment can now be add. new issue is that the app is not fetching the new latestWow to reflect the new comment / reaction
+ */
+
 */
