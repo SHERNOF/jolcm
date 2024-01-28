@@ -14,20 +14,14 @@ import { rootReducer } from "../../store/reducers";
 import Container from "../../UI/container/Container";
 import Word from "../../Components/wow/Wow";
 
-
 export default function Home() {
-  
-  const [{ churchEvents, error, loading }, dispatch] = useReducer(rootReducer, {
-    churchEvents: [],
-    error: "",
-    loading: true,
-  });
   useEffect(() => {
     const fetchchurchEvents = async () => {
       dispatch({ type: "FETCH_DATA_REQUEST" });
       try {
         const churchEvents = await axios.get("/jol/churchEvents");
         dispatch({ type: "FETCH_DATA_SUCCESS", payload: churchEvents.data });
+        console.log(churchEvents);
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
       }
@@ -35,6 +29,17 @@ export default function Home() {
     fetchchurchEvents();
   }, []);
 
+  const [
+    { churchEvents, latestWow, error, loading, loadingWowRequest },
+    dispatch,
+  ] = useReducer(rootReducer, {
+    churchEvents: [],
+    error: "",
+    loading: true,
+    latestWow: [],
+  });
+  console.log(churchEvents);
+  console.log(latestWow);
   return (
     <>
       <Helmet>
@@ -44,7 +49,15 @@ export default function Home() {
       <FrontImage></FrontImage>
       <Container>
         <AboutUs></AboutUs>
+
+        {/* {loading ? (
+          <Loading></Loading>
+        ) : error ? (
+          <div>{error}</div>
+        ) : ( */}
         <Word />
+        {/* )} */}
+
         {loading ? (
           <Loading></Loading>
         ) : error ? (

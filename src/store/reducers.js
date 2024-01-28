@@ -33,6 +33,9 @@ import {
   WOW_REFRESH,
   WOW_COMMENT_FAILED,
   WOW_COMMENT_SUCCESS,
+  FETCH_WOWS_REQUEST,
+  FETCH_WOWS_SUCCESS,
+  FETCH_WOWS_FAILED,
 } from "./constants.js";
 import { CHANGE_MOUSEDOWN } from "./constants.js";
 import { SET_LOGIN } from "./constants.js";
@@ -62,7 +65,7 @@ const initialState = {
   wow: {},
   loadingDelete: false,
   successDelete: false,
-  latestWow:[]
+  latestWow: [],
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -154,21 +157,16 @@ export const rootReducer = (state = initialState, action) => {
     case FETCH_USERS_FAILED:
       return { ...state, loading: false, error: action.payload };
 
-    case FETCH_WOW_REQUEST:
+    case FETCH_WOWS_REQUEST:
       return { ...state, loading: true };
-      // case FETCH_WOW_SUCCESS:
-      //   return {
-      //     ...state,
-      //     wows: action.payload,
-      //     loading: false,
-      //   };
-    case FETCH_WOW_SUCCESS:
+    case FETCH_WOWS_SUCCESS:
       return {
         ...state,
-        latestWow: action.payload,
+        wows: action.payload,
         loading: false,
       };
-    case FETCH_WOW_FAILED:
+
+    case FETCH_WOWS_FAILED:
       return { ...state, loading: false, error: action.payload };
 
     case WOW_POST_REQUEST:
@@ -196,10 +194,26 @@ export const rootReducer = (state = initialState, action) => {
     case WOW_DELETE_RESET:
       return { ...state, loadingDelete: false, successDelete: false };
 
+    case FETCH_WOW_REQUEST:
+      return { ...state, loading: true };
+
+    case FETCH_WOW_SUCCESS:
+      return {
+        ...state,
+        latestWow: action.payload,
+        loading: false,
+      };
+
+    case FETCH_WOW_FAILED:
+      return { ...state, loading: false, error: action.payload };
+
     case WOW_REFRESH:
-      return { ...state, latestWow: action.payload };
-    // case CREATE_REQUEST:
-    //   return { ...state, loadingCreateReview: true };
+      return {
+        ...state,
+        latestWow: action.payload,
+        loadingCreateComment: false,
+      };
+
     case WOW_COMMENT_SUCCESS:
       return { ...state, loadingCreateComment: false };
     case WOW_COMMENT_FAILED:

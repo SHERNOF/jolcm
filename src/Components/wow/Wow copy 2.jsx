@@ -8,7 +8,7 @@ import { IoIosSave } from "react-icons/io";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
 
-export default function Word() {
+export default function Word({ latestWow }) {
   const [comment, setcomment] = useState("");
 
   const [verse, setverse] = useState("");
@@ -18,14 +18,20 @@ export default function Word() {
 
   const userInfo = useSelector((state) => state.userInfo);
   const [
-    { latestWow, error, loading, loadingWowRequest, loadingCreateComment },
+    {
+      // latestWow,
+      error,
+      loading,
+      loadingWowRequest,
+      loadingCreateComment,
+    },
     dispatch,
   ] = useReducer(rootReducer, {
     error: "",
     loading: true,
-    latestWow: [],
+    // latestWow: [],
   });
-  // console.log(latestWow.comments);
+  console.log(latestWow.comments);
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -42,19 +48,19 @@ export default function Word() {
     seticonVisible(false);
   };
 
-  useEffect(() => {
-    const fetchLatestWow = async () => {
-      dispatch({ type: "FETCH_WOW_REQUEST" });
-      try {
-        const latestWow = await axios.get(`/jol/latestWow/`);
-        dispatch({ type: "FETCH_WOW_SUCCESS", payload: latestWow.data[0] });
-        console.log(latestWow);
-      } catch (error) {
-        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
-      }
-    };
-    fetchLatestWow();
-  }, []);
+  // useEffect(() => {
+  //   const fetchLatestWow = async () => {
+  //     dispatch({ type: "FETCH_WOW_REQUEST" });
+  //     try {
+  //       const result = await axios.get(`/jol/latestWow/`);
+  //       dispatch({ type: "FETCH_WOW_SUCCESS", payload: result.data[0] });
+  //       console.log(result);
+  //     } catch (error) {
+  //       dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+  //     }
+  //   };
+  //   fetchLatestWow();
+  // }, []);
 
   const createCommentHandler = async (e) => {
     e.preventDefault();
@@ -79,7 +85,7 @@ export default function Word() {
       // ctxDispatch(
       //   setSnackbar(true, "success", "Review submitted successfully")
       // );
-      latestWow.comments.unshift(data.reaction);
+      latestWow.comments.push(data.reaction);
       dispatch({ type: "WOW_REFRESH", payload: latestWow });
       setcomment("");
       // setinputVisible(false);
@@ -97,7 +103,7 @@ export default function Word() {
 
   return (
     <div className={classes.wow}>
-      {loading ? (
+      {loadingWowRequest ? (
         <Loading />
       ) : error ? (
         <MessageBox />
@@ -118,14 +124,18 @@ export default function Word() {
               <div className={classes.commentsList}>
                 <span style={{ marginBottom: "1rem" }}>Comments</span>
 
+                {/* {loadingCreateComment ? (
+                <Loading />
+              ) : error ? (
+                <MessageBox />
+              ) : ( */}
                 <div className={classes.comments}>
                   {latestWow.comments.map((x) => (
-                    <div key={x._id}>
-                      <p>{x.comment}</p>
-                    </div>
+                    <p key={x._id}>{x.comment}</p>
                   ))}
                   {/* <h6>Sherwin</h6> */}
                 </div>
+                {/* )} */}
               </div>
             </div>
             <div className={classes.iconContainer}>

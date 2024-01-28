@@ -2,7 +2,7 @@ import express from "express";
 import Wow from "../models/wowModel.js";
 import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
-import { generateToken, isAdmin } from "../utils.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const wowRoute = express.Router();
 
@@ -50,34 +50,40 @@ wowRoute.post(
   expressAsyncHandler(async (req, res) => {
     const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
-    console.log(wow)
-  
+    console.log(wow);
+
     if (wow) {
       // if (wow.comments.find((x) => x.name === req.user.name)) {
       //   return res
       //     .status(400)
       //     .send({ message: "You already submitted a review" });
       // }
- 
- 
-    const reaction = {
-      // name: req.user.name,
-      comment: req.body.comment,
-    };
 
-    wow.comments.push(reaction);
-    const updatedWow = await wow.save();
-    res.status(201).send({
-      message: "Comment Created",
-      // comment: updatedWow.comments[updatedWow.comments.length - 1],
-      reaction: updatedWow.comments[updatedWow.comments.length - 1],
-    });
+      const reaction = {
+        // name: req.user.name,
+        comment: req.body.comment,
+      };
+
+      wow.comments.push(reaction);
+      const updatedWow = await wow.save();
+      res.status(201).send({
+        message: "Comment Created",
+        // comment: updatedWow.comments[updatedWow.comments.length - 1],
+        reaction: updatedWow.comments[updatedWow.comments.length - 1],
+      });
     } else {
-      res.status(404).send({ message: "wow Not Found" });
+      res.status(404).send({ message: "Wow Not Found" });
     }
-  // }
   })
 );
+// wowRoute.get("/latestWow/comments", async (req, res) => {
+//   const comments = await Wow.findOne({ comments: req.params.comments });
+//   if (comments) {
+//     res.send(comments);
+//   } else {
+//     res.status(404).send({ message: "Product not found..." });
+//   }
+// });
 
 wowRoute.put(
   "/:id",

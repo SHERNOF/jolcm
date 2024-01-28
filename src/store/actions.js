@@ -23,16 +23,19 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILED,
-  FETCH_WOW_REQUEST,
-  FETCH_WOW_SUCCESS,
-  FETCH_WOW_FAILED,
   WOW_POST_REQUEST,
   WOW_POST_SUCCESS,
   WOW_POST_FAILED,
+  FETCH_WOWS_REQUEST,
+  FETCH_WOWS_SUCCESS,
+  FETCH_WOWS_FAILED,
   WOW_DELETE_REQUEST,
   WOW_DELETE_SUCCESS,
   WOW_DELETE_FAILED,
   WOW_DELETE_RESET,
+  FETCH_WOW_REQUEST,
+  FETCH_WOW_SUCCESS,
+  FETCH_WOW_FAILED,
   WOW_REFRESH,
   WOW_COMMENT_SUCCESS,
   WOW_COMMENT_FAILED,
@@ -157,16 +160,16 @@ export const failedUsers = () => ({
   type: FETCH_USERS_FAILED,
 });
 
-export const requestWow = () => ({
-  type: FETCH_WOW_REQUEST,
+export const requestWows = () => ({
+  type: FETCH_WOWS_REQUEST,
 });
 
-export const successWow = () => ({
-  type: FETCH_WOW_SUCCESS,
+export const successWows = () => ({
+  type: FETCH_WOWS_SUCCESS,
 });
 
-export const failedWow = () => ({
-  type: FETCH_WOW_FAILED,
+export const failedWows = () => ({
+  type: FETCH_WOWS_FAILED,
 });
 
 export const requestWowDelete = () => ({
@@ -182,6 +185,18 @@ export const failedWowDelete = () => ({
 });
 export const resetWowDelete = () => ({
   type: WOW_DELETE_RESET,
+});
+
+export const requestWow = () => ({
+  type: FETCH_WOW_REQUEST,
+});
+
+export const successWow = () => ({
+  type: FETCH_WOW_SUCCESS,
+});
+
+export const failedWow = () => ({
+  type: FETCH_WOW_FAILED,
 });
 
 export const wowRefresh = () => ({

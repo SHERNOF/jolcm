@@ -35,17 +35,17 @@ export default function WowPage() {
 
   useEffect(() => {
     const fetchWows = async () => {
-      dispatch({ type: "FETCH_WOW_REQUEST" });
+      dispatch({ type: "FETCH_WOWS_REQUEST" });
       try {
         const wows = await axios.get("/jol/wows");
-        dispatch({ type: "FETCH_WOW_SUCCESS", payload: wows.data });
+        dispatch({ type: "FETCH_WOWS_SUCCESS", payload: wows.data });
       } catch (error) {
-        dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
+        dispatch({ type: "FETCH_WOWS_FAIL", payload: error.message });
       }
     };
 
     if (successDelete) {
-      dispatch({ type: WOW_DELETE_RESET });
+      dispatch({ type: "WOW_DELETE_RESET" });
     } else {
       fetchWows();
     }
@@ -337,5 +337,3 @@ reaction: updatedWow.comments[updatedWow.comments.length - 1],
 
 comment can now be add. new issue is that the app is not fetching the new latestWow to reflect the new comment / reaction
  */
-
-*/
