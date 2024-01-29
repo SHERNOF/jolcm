@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import classes from "./wow.module.css";
 import axios from "axios";
 import { rootReducer } from "../../store/reducers";
@@ -7,8 +7,10 @@ import { FaMessage } from "react-icons/fa6";
 import { IoIosSave } from "react-icons/io";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
+import { Button } from "@mui/material";
 
 export default function Word() {
+  let reactionsRef = useRef();
   const [comment, setcomment] = useState("");
 
   const [verse, setverse] = useState("");
@@ -25,7 +27,7 @@ export default function Word() {
     loading: true,
     latestWow: [],
   });
-  // console.log(latestWow.comments);
+  
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -64,11 +66,12 @@ export default function Word() {
     //   );
     //   return;
     // }
+    console.log('test')
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
-        { comment },
-        // { comment, name: userInfo.name },
+        // { comment },
+        { comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
@@ -84,10 +87,10 @@ export default function Word() {
       setcomment("");
       // setinputVisible(false);
 
-      // window.scrollTo({
-      //   behavior: "smooth",
-      //   top: commentsRef.current.offsetTop,
-      // });
+      window.scrollTo({
+        behavior: "smooth",
+        top: reactionsRef.current.offsetTop,
+      });
     } catch (error) {
       // ctxDispatch(setSnackbar(true, "error", getError(error)));
       dispatch({ type: "WOW_COMMENT_FAILED" });
@@ -116,46 +119,75 @@ export default function Word() {
 
             <div className={classes.commentContainer}>
               <div className={classes.commentsList}>
-                <span style={{ marginBottom: "1rem" }}>Comments</span>
+                {/* <span style={{ marginBottom: "1rem" }}>Comments</span> */}
 
-                <div className={classes.comments}>
-                  {latestWow.comments.map((x) => (
-                    <div key={x._id}>
-                      <p>{x.comment}</p>
-                    </div>
-                  ))}
-                  {/* <h6>Sherwin</h6> */}
-                </div>
-              </div>
-            </div>
-            <div className={classes.iconContainer}>
-              {userInfo && iconVisible && (
+                <div className={classes.iconContainer}>
+              {/* {userInfo && iconVisible && (
                 <FaMessage
                   onClick={iconHandler}
                   type="submit"
                   className={classes.createCommentButton}
                 />
-              )}
-              {userInfo && inputVisible && (
-                <form style={{}}>
+              )} */}
+            
+              {userInfo && 
+              // inputVisible && 
+              (
+                <form onSubmit={createCommentHandler}>
+                    <div  style={{
+                  width:'100%',
+                  height:'5rem',
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  // border:'1px solid green',
+                  borderRadius:'5px'
+                }}>
                   <input
                     placeholder="Comment"
                     type="text"
                     value={comment}
                     onChange={(e) => setcomment(e.target.value)}
+                    style={{width:'90%', height:'4rem', borderRadius:'5px'}}
                   ></input>
-                  <i>
-                    <IoIosSave
-                      type="submit"
-                      className={classes.saveButton}
-                      onClick={createCommentHandler}
+
+  
+                  <div style={{width:'10%', height:'4rem', display:'flex', justifyContent:'flex-start', alignItems:'center', }}>
+                  <button   type="submit" disabled={loading} style={{
+                    border:'none',
+                    background:'none',
+                    }}>  
+                  <IoIosSave
+                     className={classes.saveButton}
+                      type="submit" 
                     />
-                  </i>
+                  </button>
+                  </div>
+                  {loading && <Loading />}
+                  </div>
                 </form>
               )}
+              </div>
+              
+
+                <div className={classes.comments}>
+                  <h4  style={{marginTop:'2rem', textAlign: 'left'}} ref={reactionsRef}>Reactions</h4>
+                  <div>
+                    {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
+                  </div>
+                  {latestWow.comments.map((x) => (
+                    <div key={x._id}>
+                      <p>{x.comment}</p>
+                      <h6>{x.name}</h6>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
             </div>
           </div>
-        </div>
+   
       )}
     </div>
   );

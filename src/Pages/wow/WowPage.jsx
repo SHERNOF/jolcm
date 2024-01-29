@@ -331,9 +331,42 @@ used await axios.put(`/jol/:id', instead of await axios.put(`/jol/${wowId}`,
                   <p key={comment._id}>
                 {comment.comment}
               </p>
+The problem is that the loading state was not used thus the FE loaded without the promise being received yet
+
+Issue - the information submitted did not save to mongoDb
 
 The problem is this "comment: updatedWow.comments[updatedWow.comments.length - 1]," should be 
 reaction: updatedWow.comments[updatedWow.comments.length - 1],
 
-comment can now be add. new issue is that the app is not fetching the new latestWow to reflect the new comment / reaction
+Next issue is the app breakdown when the userInfo.name is included in the data to be send to mngoDb and is giving a 
+Path 'name' is required. 
+
+         {userInfo && inputVisible && (
+                <form style={{}}>
+                  <input
+                    placeholder="Comment"
+                    type="text"
+                    value={comment}
+                    onChange={(e) => setcomment(e.target.value)}
+                  ></input>
+                  <i>
+                    <IoIosSave
+                      type="submit"
+                      className={classes.saveButton}
+                      onClick={createCommentHandler}
+                    />
+                  </i>
+                </form>
+              )}
+
+Found out that the createCommentHandler is not assigned to the form.
+Problem still persist but was resolved when I re-typed the reactionSchema
+comments: [reactionSchema],
+
+in wowModel.js
+
+Whhheeewww, this was resolved after days of debugging but learned a lot in terms of FE-BE data transmission
+
+
+
  */

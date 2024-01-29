@@ -31,14 +31,14 @@
   color: rgb(0, 0, 0, 0.5);
 }
 
-.message form{     
+/* .message form{     
   display: flex;
   justify-content: center;
   align-items:center;
   position:relative;
-}
+} */
 
-.message form input{
+/* .message form input{
   
   height: 5rem;
   border-radius:5px;
@@ -47,17 +47,19 @@
   margin-bottom:2rem;
   display: inline-block;
   vertical-align: middle;
-}
+} */
 
 .message form  .saveButton{
-  position: absolute;
   font-size:2rem;
   cursor: pointer;
+  /* height: 5rem; */
+  /* position: absolute; */
   /* right: 0; */
 /* bottom: 25%; */
 /* top: 50%; */
 /* transform: translate(50%, 0); */
-border: 1px solid red;
+/* width: 10%; */
+/* border: 1px solid red; */
 
 }
 .wow .wowContainer .commentContainer {
