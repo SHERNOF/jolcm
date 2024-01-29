@@ -89,7 +89,7 @@ export default function Word() {
 
       window.scrollTo({
         behavior: "smooth",
-        top: reactionsRef.current.offsetTop,
+        bottom: reactionsRef.current.offsetBottom,
       });
     } catch (error) {
       // ctxDispatch(setSnackbar(true, "error", getError(error)));
@@ -135,8 +135,8 @@ export default function Word() {
               (
                 <form onSubmit={createCommentHandler}>
                     <div  style={{
-                  width:'100%',
-                  height:'5rem',
+                  width:'40%',
+                  height:'8rem',
                   display:'flex',
                   alignItems:'center',
                   justifyContent:'center',
@@ -148,7 +148,7 @@ export default function Word() {
                     type="text"
                     value={comment}
                     onChange={(e) => setcomment(e.target.value)}
-                    style={{width:'90%', height:'4rem', borderRadius:'5px'}}
+                    style={{width:'90%', height:'90%', borderRadius:'5px', fontSize:'.8em'}}
                   ></input>
 
   
@@ -176,9 +176,11 @@ export default function Word() {
                     {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
                   </div>
                   {latestWow.comments.map((x) => (
-                    <div key={x._id}>
+                    <div key={x._id} style={{border:'none', height:'auto', width:'auto', background:'rgba(0,0,0, .05)', borderRadius:'.5px', marginBottom:'.75rem', borderRadius:'10px', paddingLeft:'1rem'}}>
                       <p>{x.comment}</p>
-                      <h6>{x.name}</h6>
+                      <p style={{
+                        // marginTop:'-3rem'
+                        }}>{x.name}</p>
                     </div>
                   ))}
                 </div>

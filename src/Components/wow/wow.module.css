@@ -5,6 +5,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  border: 1px solid green;
 }
 .wow .wowContainer {
   width: 90%;
@@ -77,11 +78,14 @@
 }
 .comments {
   width: 100%;
+  /* border: 1px solid red; */
+  margin-bottom: 2rem;
 }
 .comments p {
   width: 100%;
   color: black;
   font-size: 0.9em;
+  
 }
 .comments h6 {
   margin-top: -0.5rem;
