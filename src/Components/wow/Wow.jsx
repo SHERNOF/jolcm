@@ -8,6 +8,12 @@ import { IoIosSave } from "react-icons/io";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
 import { Button } from "@mui/material";
+import TextInput from "../../UI/textInput/TextInput";
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import DirectionsIcon from '@mui/icons-material/Directions';
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -116,80 +122,55 @@ export default function Word() {
             <h6>
               {latestWow.verse} : {latestWow.wow}
             </h6>
+          </div>
 
             <div className={classes.commentContainer}>
-              <div className={classes.commentsList}>
-                {/* <span style={{ marginBottom: "1rem" }}>Comments</span> */}
-
-                <div className={classes.iconContainer}>
-              {/* {userInfo && iconVisible && (
-                <FaMessage
-                  onClick={iconHandler}
-                  type="submit"
-                  className={classes.createCommentButton}
-                />
-              )} */}
-            
-              {userInfo && 
-              // inputVisible && 
-              (
-                <form onSubmit={createCommentHandler}>
-                    <div  style={{
-                  width:'40%',
-                  height:'8rem',
-                  display:'flex',
-                  alignItems:'center',
-                  justifyContent:'center',
-                  // border:'1px solid green',
-                  borderRadius:'5px'
-                }}>
-                  <input
-                    placeholder="Comment"
-                    type="text"
-                    value={comment}
-                    onChange={(e) => setcomment(e.target.value)}
-                    style={{width:'90%', height:'90%', borderRadius:'5px', fontSize:'.8em'}}
-                  ></input>
-
-  
-                  <div style={{width:'10%', height:'4rem', display:'flex', justifyContent:'flex-start', alignItems:'center', }}>
-                  <button   type="submit" disabled={loading} style={{
-                    border:'none',
-                    background:'none',
-                    }}>  
-                  <IoIosSave
-                     className={classes.saveButton}
-                      type="submit" 
+              <div className={classes.createComment}>
+                
+                  <Paper
+                    component="form"
+                    onSubmit={createCommentHandler} 
+                    sx={{ 
+                      p: '10px 4px', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      width: 'auto'
+                    }}
+                  >
+                    <InputBase
+                      sx={{ width:'90%' }}
+                      placeholder="Comments"
+                      inputProps={{ 'aria-label': 'Comments' }}
+                      value={comment}
+                      onChange={(e) => setcomment(e.target.value)}
                     />
-                  </button>
-                  </div>
-                  {loading && <Loading />}
-                  </div>
-                </form>
-              )}
+
+                    <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                    <IconButton color="primary" sx={{  width:'10%' }} aria-label="directions" type="submit" >
+                      <IoIosSave
+                        style={{  fontSize:'1.5rem'}}
+                        />
+                    </IconButton>
+                  </Paper>
+                  {loading && <Loading />}        
               </div>
+
               
 
-                <div className={classes.comments}>
-                  <h4  style={{marginTop:'2rem', textAlign: 'left'}} ref={reactionsRef}>Reactions</h4>
-                  <div>
-                    {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
-                  </div>
-                  {latestWow.comments.map((x) => (
-                    <div key={x._id} style={{border:'none', height:'auto', width:'auto', background:'rgba(0,0,0, .05)', borderRadius:'.5px', marginBottom:'.75rem', borderRadius:'10px', paddingLeft:'1rem'}}>
-                      <p>{x.comment}</p>
-                      <p style={{
-                        // marginTop:'-3rem'
-                        }}>{x.name}</p>
-                    </div>
-                  ))}
+              <div className={classes.comments}>
+                <h4  style={{marginTop:'2rem', textAlign: 'left'}} ref={reactionsRef}>Reactions</h4>
+                <div>
+                  {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
                 </div>
+                {latestWow.comments.map((x) => (
+                  <div key={x._id} className={classes.commentsList}>
+                    <div >{x.comment}</div> 
+                    <div >{x.name}</div>
+                  </div>
+                ))}
               </div>
-            </div>
-            
-            </div>
           </div>
-   
+        </div>
       )}
     </div>
   );
