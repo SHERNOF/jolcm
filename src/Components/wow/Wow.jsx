@@ -1,19 +1,21 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { Fragment, useEffect, useReducer, useRef, useState } from "react";
 import classes from "./wow.module.css";
 import axios from "axios";
 import { rootReducer } from "../../store/reducers";
 import { useSelector } from "react-redux";
-import { FaMessage } from "react-icons/fa6";
 import { IoIosSave } from "react-icons/io";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
-import { Button } from "@mui/material";
-import TextInput from "../../UI/textInput/TextInput";
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import DirectionsIcon from '@mui/icons-material/Directions';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -112,66 +114,113 @@ export default function Word() {
         <MessageBox />
       ) : (
         <div className={classes.wowContainer}>
-          <div className={classes.word}>
-            <p style={{ fontSize: "1.1em", color: "rgb(0,0,0,.5)" }}>
-              Words to Ponder by {latestWow.by} :
-            </p>
-          </div>
 
-          <div className={classes.message}>
-            <h6>
-              {latestWow.verse} : {latestWow.wow}
-            </h6>
-          </div>
+          <div className={classes.column1}>
+            <div style={{ 
+                width:'100%', 
+                // border:'1px solid blue',  
+                height:'20%', 
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'flex-start'
+              }}>
+              <h6 style={{  color: "rgb(0,0,0,.5)",  }}>
+                Words to Ponder - by {latestWow.by}
+              </h6>
+            </div>
+
+            <div style={{width:'100%', 
+                height:'80%', 
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                // border:'1px solid blue',  
+                // flexDirection:'column'
+              }}>
+
+                <h6 style={{ maxWidth:'90%', lineHeight:'2', textAlign:'left'}}>
+                  {latestWow.verse} <br></br>   {latestWow.wow}
+                </h6>
+
+                
+
+              </div>
+
+        </div>
+
+        <div className={classes.column2}>
+
+            <div className={classes.createComment}>
+                <Paper
+                  component="form"
+                  onSubmit={createCommentHandler} 
+                  sx={{ 
+                    p: '10px 4px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    width: 'auto'
+                  }}
+                >
+                  <InputBase
+                    sx={{ width:'90%' }}
+                    placeholder="Comments"
+                    inputProps={{ 'aria-label': 'Comments' }}
+                    value={comment}
+                    onChange={(e) => setcomment(e.target.value)}
+                  />
+
+                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                  <IconButton color="primary" sx={{  width:'10%' }} aria-label="directions" type="submit" >
+                    <IoIosSave
+                      style={{  fontSize:'1.5rem'}}
+                      />
+                  </IconButton>
+                </Paper>
+                {loading && <Loading />}        
+
+            </div>
 
             <div className={classes.commentContainer}>
-              <div className={classes.createComment}>
-                
-                  <Paper
-                    component="form"
-                    onSubmit={createCommentHandler} 
-                    sx={{ 
-                      p: '10px 4px', 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      width: 'auto'
-                    }}
-                  >
-                    <InputBase
-                      sx={{ width:'90%' }}
-                      placeholder="Comments"
-                      inputProps={{ 'aria-label': 'Comments' }}
-                      value={comment}
-                      onChange={(e) => setcomment(e.target.value)}
-                    />
+            
+                <h6  style={{marginTop:'2rem', textAlign: 'left', border:'1px solid red'}} ref={reactionsRef}>Reactions</h6>
+                {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
 
-                    <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                    <IconButton color="primary" sx={{  width:'10%' }} aria-label="directions" type="submit" >
-                      <IoIosSave
-                        style={{  fontSize:'1.5rem'}}
-                        />
-                    </IconButton>
-                  </Paper>
-                  {loading && <Loading />}        
-              </div>
+                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }}>
 
-              
+                    <ListItem alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary="Brunch this weekend?"
+                        secondary={
+                          <Fragment>
+                            <Typography
+                              sx={{ display: 'inline' }}
+                              component="span"
+                              variant="body2"
+                              color="text.primary"
+                            >
+                              Ali Connors
+                            </Typography>
+                            {" — I'll be in your neighborhood doing errands this…"}
+                          </Fragment>
+                        }
+                      />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
 
-              <div className={classes.comments}>
-                <h4  style={{marginTop:'2rem', textAlign: 'left'}} ref={reactionsRef}>Reactions</h4>
-                <div>
-                  {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
-                </div>
-                {latestWow.comments.map((x) => (
-                  <div key={x._id} className={classes.commentsList}>
-                    <div >{x.comment}</div> 
-                    <div >{x.name}</div>
-                  </div>
-                ))}
-              </div>
+                </List>
+
+            </div>  
+
           </div>
         </div>
+
+         
       )}
     </div>
   );
 }
+
+                

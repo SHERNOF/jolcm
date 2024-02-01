@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { Helmet } from "react-helmet-async";
-import { useSelector } from "react-redux";
 import AboutUs from "../../Components/aboutUs/AboutUs";
 import Loading from "../../UI/loading/Loading";
 import Events2 from "../../Components/events/Events";
@@ -49,15 +48,7 @@ export default function Home() {
       <FrontImage></FrontImage>
       <Container>
         <AboutUs></AboutUs>
-
-        {/* {loading ? (
-          <Loading></Loading>
-        ) : error ? (
-          <div>{error}</div>
-        ) : ( */}
         <Word />
-        {/* )} */}
-
         {loading ? (
           <Loading></Loading>
         ) : error ? (

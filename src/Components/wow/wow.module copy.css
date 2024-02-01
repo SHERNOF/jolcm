@@ -1,0 +1,118 @@
+.wow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  width: 100%;
+  margin-top: 5rem;
+  border: 1px solid green;
+}
+.wow .wowContainer {
+  width: 100%;
+  
+}
+.wow .wowContainer .word {
+  /* text-align: start; */
+  /* width: 100%;  */
+}
+.wow .wowContainer .message {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.message .iconContainer {
+  width: 100%;
+  text-align: left;
+}
+.message h6 {
+  font-size: 1em;
+  font-style: italic;
+  text-align: left;
+  color: rgb(0, 0, 0, 0.5);
+}
+
+.wow .wowContainer .commentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+.wow .wowContainer .commentContainer .createComment {
+  width: 50%;
+  margin-bottom: 3rem;
+  
+}
+.comments {
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 1px solid green;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: left;
+}
+.comments p {
+  width: 100%;
+  color: black;
+  font-size: 0.9em;
+  
+}
+.comments h6 {
+  margin-top: -0.5rem;
+  color: rgb(0, 0, 0, 0.5);
+  font-size: 0.9em;
+  text-align: left;
+}
+.commentsList{
+  padding:0.5rem 1rem; 
+  display:flex;
+  align-items:flex-start; 
+  flex-direction:column; 
+  justify-content:center;
+  background:rgba(0,0,0, .5);
+   border-radius:5px;
+   margin-bottom:1rem; 
+   color:  rgba(255, 255, 255, .7);
+   transition: all .2s;
+}
+
+.commentsList:hover{
+  background:rgba(0,0,0, .3);
+  color:  rgba(255, 255, 255, .9);
+}
+.wow .wowContainer .commentContainer .createComment {
+  height: 2rem;
+}
+.createCommentButton{
+  color:rgb(0,0,0,.5);
+  /* font-size: 2rem; */
+  cursor:pointer;
+  /* margin-bottom: 1rem; */
+}
+
+@media (max-width: 1024px) {
+  .wow .wowContainer .commentContainer .createComment {
+    width: 100%;
+  }
+
+}
+@media (max-width: 430px) {
+  .wow {
+    align-self: center;
+  }
+  .wowContainer {
+  }
+  .word {
+  }
+  .message {
+  }
+
+
+
+  .editButton{
+    font-size: 1.5rem;
+  }
+}
