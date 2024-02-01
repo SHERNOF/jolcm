@@ -6,16 +6,16 @@ import { useSelector } from "react-redux";
 import { IoIosSave } from "react-icons/io";
 import Loading from "../../UI/loading/Loading";
 import MessageBox from "../../UI/messageBox/MessageBox";
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -35,7 +35,6 @@ export default function Word() {
     loading: true,
     latestWow: [],
   });
-  
 
   const verseBlurHandler = () => {
     if (verse.trim().length === 0) {
@@ -74,7 +73,7 @@ export default function Word() {
     //   );
     //   return;
     // }
-    console.log('test')
+    console.log("test");
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
@@ -114,113 +113,101 @@ export default function Word() {
         <MessageBox />
       ) : (
         <div className={classes.wowContainer}>
-
           <div className={classes.column1}>
-            <div style={{ 
-                width:'100%', 
-                // border:'1px solid blue',  
-                height:'20%', 
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'flex-start'
-              }}>
-              <h6 style={{  color: "rgb(0,0,0,.5)",  }}>
+            <div
+              style={{
+                width: "100%",
+                // border:'1px solid blue',
+                height: "20%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
+            >
+              <h6 style={{ color: "rgb(0,0,0,.5)" }}>
                 Words to Ponder - by {latestWow.by}
               </h6>
             </div>
 
-            <div style={{width:'100%', 
-                height:'80%', 
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'center',
-                // border:'1px solid blue',  
+            <div
+              style={{
+                width: "100%",
+                height: "80%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                // border:'1px solid blue',
                 // flexDirection:'column'
-              }}>
+              }}
+            >
+              <h6
+                style={{ maxWidth: "90%", lineHeight: "2", textAlign: "left" }}
+              >
+                {latestWow.verse} <br></br> {latestWow.wow}
+              </h6>
+            </div>
+          </div>
 
-                <h6 style={{ maxWidth:'90%', lineHeight:'2', textAlign:'left'}}>
-                  {latestWow.verse} <br></br>   {latestWow.wow}
-                </h6>
-
-                
-
-              </div>
-
-        </div>
-
-        <div className={classes.column2}>
-
+          <div className={classes.column2}>
             <div className={classes.createComment}>
-                <Paper
-                  component="form"
-                  onSubmit={createCommentHandler} 
-                  sx={{ 
-                    p: '10px 4px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    width: 'auto'
-                  }}
+              <Paper
+                component="form"
+                onSubmit={createCommentHandler}
+                sx={{
+                  p: "10px 4px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <InputBase
+                  sx={{ width: "80%" }}
+                  placeholder="Comments"
+                  inputProps={{ "aria-label": "Comments" }}
+                  value={comment}
+                  onChange={(e) => setcomment(e.target.value)}
+                />
+
+                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                <IconButton
+                  // color="primary"
+                  sx={{ width: "15%" }}
+                  type="submit"
                 >
-                  <InputBase
-                    sx={{ width:'90%' }}
-                    placeholder="Comments"
-                    inputProps={{ 'aria-label': 'Comments' }}
-                    value={comment}
-                    onChange={(e) => setcomment(e.target.value)}
-                  />
-
-                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                  <IconButton color="primary" sx={{  width:'10%' }} aria-label="directions" type="submit" >
-                    <IoIosSave
-                      style={{  fontSize:'1.5rem'}}
-                      />
-                  </IconButton>
-                </Paper>
-                {loading && <Loading />}        
-
+                  <IoIosSave style={{ fontSize: "1.5rem" }} />
+                </IconButton>
+              </Paper>
+              {loading && <Loading />}
             </div>
 
             <div className={classes.commentContainer}>
-            
-                <h6  style={{marginTop:'2rem', textAlign: 'left', border:'1px solid red'}} ref={reactionsRef}>Reactions</h6>
-                {latestWow.comments.length === 0 && <MessageBox>Be the first to react</MessageBox>}
+              <div
+                style={{
+                  marginTop: "1rem",
+                  textAlign: "left",
+                  width: "100%",
+                  fontSize: ".8em",
+                  border: "1px solid green",
+                }}
+              >
+                Reactions
+              </div>
 
-                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }}>
+              {/* {latestWow.comments.length === 0 && (
+                <MessageBox>Be the first to react</MessageBox>
+              )} */}
 
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary="Brunch this weekend?"
-                        secondary={
-                          <Fragment>
-                            <Typography
-                              sx={{ display: 'inline' }}
-                              component="span"
-                              variant="body2"
-                              color="text.primary"
-                            >
-                              Ali Connors
-                            </Typography>
-                            {" — I'll be in your neighborhood doing errands this…"}
-                          </Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-
-                </List>
-
-            </div>  
-
+              <div className={classes.comments}>
+                {/* <ul className={classes.commentList}>
+                  <li>test2</li>
+                  <li>test</li>
+                </ul> */}
+                test <br></br>
+                test2
+              </div>
+            </div>
           </div>
         </div>
-
-         
       )}
     </div>
   );
 }
-
-                
