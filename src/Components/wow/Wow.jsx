@@ -199,15 +199,15 @@ export default function Word() {
               {latestWow.comments.map((x) => (
                 <div className={classes.comments}>
                 <div className={classes.comments1}>
-                  <div className={classes.iContainer}>{x.name.char(0)}</div>
+                  <div className={classes.iContainer}>{x.name.charAt(0)}</div>
                 </div>
 
                 <div className={classes.comments2}>
-                  <div style={{width:'100%', textAlign:'left', fontSize:'.9em'}}>
+                  <div style={{width:'100%', textAlign:'left', fontSize:'.6em'}}>
                   <span >{x.comment}</span>
                   </div>
 
-                  <div style={{width:'100%', textAlign:'left', fontSize:'.9em', borderBottom: '1px solid rgba(128,128,128, .5)'}}>
+                  <div style={{width:'100%', marginTop:'-.5rem', textAlign:'left', fontSize:'.9em', borderBottom: '1px solid rgba(128,128,128, .5)'}}>
                     <p>Test 2</p>
                   </div>
                 </div>
