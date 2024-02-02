@@ -16,6 +16,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import ListItems from "../../UI/listItems/ListItems";
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -37,7 +38,7 @@ export default function Word() {
   });
 
   const verseBlurHandler = () => {
-    if (verse.trim().length === 0) {
+    if (verse.trim().length === 128) {
       setverseInValid(true);
     }
   };
@@ -132,12 +133,11 @@ export default function Word() {
             <div
               style={{
                 width: "100%",
-                height: "80%",
+                height: "60%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                // border:'1px solid blue',
-                // flexDirection:'column'
+                // border:'1px solid green',
               }}
             >
               <h6
@@ -146,15 +146,12 @@ export default function Word() {
                 {latestWow.verse} <br></br> {latestWow.wow}
               </h6>
             </div>
-          </div>
-
-          <div className={classes.column2}>
             <div className={classes.createComment}>
               <Paper
                 component="form"
                 onSubmit={createCommentHandler}
                 sx={{
-                  p: "10px 4px",
+                  p: "4px 4px",
                   display: "flex",
                   alignItems: "center",
                 }}
@@ -178,36 +175,52 @@ export default function Word() {
               </Paper>
               {loading && <Loading />}
             </div>
+          </div>
 
+          <div className={classes.column2}>
             <div className={classes.commentContainer}>
               <div
                 style={{
-                  marginTop: "1rem",
+                  // marginTop: "1rem",
                   textAlign: "left",
                   width: "100%",
                   fontSize: ".8em",
-                  border: "1px solid green",
+                  // border: "1px solid green",
+                  padding:'1rem 1rem'
                 }}
               >
                 Reactions
               </div>
 
-              {/* {latestWow.comments.length === 0 && (
+              {latestWow.comments.length === 0 && (
                 <MessageBox>Be the first to react</MessageBox>
-              )} */}
+              )}
 
-              <div className={classes.comments}>
-                {/* <ul className={classes.commentList}>
-                  <li>test2</li>
-                  <li>test</li>
-                </ul> */}
-                test <br></br>
-                test2
-              </div>
+              {latestWow.comments.map((x) => (
+                <div className={classes.comments}>
+                <div className={classes.comments1}>
+                  <div className={classes.iContainer}>{x.name.char(0)}</div>
+                </div>
+
+                <div className={classes.comments2}>
+                  <div style={{width:'100%', textAlign:'left', fontSize:'.9em'}}>
+                  <span >{x.comment}</span>
+                  </div>
+
+                  <div style={{width:'100%', textAlign:'left', fontSize:'.9em', borderBottom: '1px solid rgba(128,128,128, .5)'}}>
+                    <p>Test 2</p>
+                  </div>
+                </div>
+      
+            </div>
+              ))}
+                  
+
             </div>
           </div>
         </div>
       )}
+      
     </div>
   );
 }

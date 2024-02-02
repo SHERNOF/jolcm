@@ -12,6 +12,7 @@ import OurTeam from "../../Components/ourTeam/OurTeam";
 import { rootReducer } from "../../store/reducers";
 import Container from "../../UI/container/Container";
 import Word from "../../Components/wow/Wow";
+import ListItems from "../../UI/listItems/ListItems";
 
 export default function Home() {
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function Home() {
       <Container>
         <AboutUs></AboutUs>
         <Word />
+        <ListItems />
         {loading ? (
           <Loading></Loading>
         ) : error ? (
