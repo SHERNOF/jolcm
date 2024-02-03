@@ -10,13 +10,6 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
-import ListItems from "../../UI/listItems/ListItems";
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -167,7 +160,7 @@ export default function Word() {
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <IconButton
                   // color="primary"
-                  sx={{ width: "15%" }}
+                  // sx={{ width: "15%" }}
                   type="submit"
                 >
                   <IoIosSave style={{ fontSize: "1.5rem" }} />
@@ -186,41 +179,54 @@ export default function Word() {
                   width: "100%",
                   fontSize: ".8em",
                   // border: "1px solid green",
-                  padding:'1rem 1rem'
+                  padding: "1rem 1rem",
                 }}
               >
                 Reactions
               </div>
-
+              {/* <div style={{ overflow: "scroll", height: "17rem" }}> */}
               {latestWow.comments.length === 0 && (
                 <MessageBox>Be the first to react</MessageBox>
               )}
 
               {latestWow.comments.map((x) => (
-                <div className={classes.comments}>
-                <div className={classes.comments1}>
-                  <div className={classes.iContainer}>{x.name.charAt(0)}</div>
-                </div>
-
-                <div className={classes.comments2}>
-                  <div style={{width:'100%', textAlign:'left', fontSize:'.6em'}}>
-                  <span >{x.comment}</span>
+                <div className={classes.comments} key={x._id}>
+                  <div className={classes.comments1}>
+                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
                   </div>
 
-                  <div style={{width:'100%', marginTop:'-.5rem', textAlign:'left', fontSize:'.9em', borderBottom: '1px solid rgba(128,128,128, .5)'}}>
-                    <p>Test 2</p>
+                  <div className={classes.comments2}>
+                    <div
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        fontSize: ".6em",
+                      }}
+                    >
+                      <span style={{ color: "rgba(128,128,128,.8)" }}>
+                        {userInfo.name}
+                      </span>
+                    </div>
+
+                    <div
+                      style={{
+                        width: "100%",
+                        marginTop: "-.5rem",
+                        textAlign: "left",
+                        fontSize: ".9em",
+                        borderBottom: "1px solid rgba(128,128,128, .5)",
+                      }}
+                    >
+                      <p style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</p>
+                    </div>
                   </div>
                 </div>
-      
-            </div>
               ))}
-                  
-
+              {/* </div> */}
             </div>
           </div>
         </div>
       )}
-      
     </div>
   );
 }

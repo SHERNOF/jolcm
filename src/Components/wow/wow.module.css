@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 100%;
   /* height: 30vh; */
 }
@@ -21,10 +21,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
   height: 100%;
 }
-.column1 .createComment{
+.column1 .createComment {
   height: 20%;
   width: 100%;
 }
@@ -39,44 +39,49 @@
   height: 100%;
 }
 
-
 .column2 .commentContainer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
 }
 
 .column2 .comments {
-  /* border: 1px solid blue; */
   height: 76px;
   width: 100%;
   display: flex;
-  border-bottom: rgba(0,0,0,.5);
-  margin-bottom: 2rem;
+  border-bottom: rgba(0, 0, 0, 0.5);
+  /* margin-bottom: 2rem; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
 }
-.column2 .comments .comments1{
+
+.column2 .comments:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.column2 .comments .comments1 {
   width: 20%;
   /* border: 1px solid red; */
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  
+  justify-content: flex-end;
+  margin-right: 0.5rem;
+  font-size: 0.5em;
 }
-.column2 .comments .comments1 .iContainer{
-  background: rgba(128,128,128, .5);
+.column2 .comments .comments1 .iContainer {
+  background: rgba(0, 0, 0, 0.3);
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.9);
-  margin-left: 4rem;
+  color: white;
 }
 
-.column2 .comments .comments2{
+.column2 .comments .comments2 {
   width: 80%;
   /* border-bottom: 1px solid rgba(0,0,0.1); */
 }
-
-

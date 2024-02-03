@@ -50,7 +50,6 @@ export default function Home() {
       <Container>
         <AboutUs></AboutUs>
         <Word />
-        <ListItems />
         {loading ? (
           <Loading></Loading>
         ) : error ? (
