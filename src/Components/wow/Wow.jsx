@@ -192,7 +192,9 @@ export default function Word() {
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>
                   <div className={classes.comments1}>
-                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
+                    <div className={classes.iContainer}>
+                      {userInfo.name.charAt(0)}
+                    </div>
                   </div>
 
                   <div className={classes.comments2}>
