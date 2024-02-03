@@ -160,7 +160,7 @@ export default function Word() {
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <IconButton
                   // color="primary"
-                  // sx={{ width: "15%" }}
+                  sx={{ marginLeft: "2rem" }}
                   type="submit"
                 >
                   <IoIosSave style={{ fontSize: "1.5rem" }} />
