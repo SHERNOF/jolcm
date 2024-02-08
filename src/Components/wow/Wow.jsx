@@ -196,10 +196,10 @@ export default function Word() {
                   <div className={classes.comments2}>
                     <div
                       style={{
-                        width: "100%",
-                        textAlign: "left",
-                        fontSize: ".6em",
-                      // border:'1px solid rgba(128,128,128,.5)'
+                      //   width: "100%",
+                      //   textAlign: "left",
+                      //   fontSize: ".6em",
+                      // // border:'1px solid rgba(128,128,128,.5)'
                       }}
                     >
                       <span style={{ color: "rgba(128,128,128,.8)" }}>
@@ -209,12 +209,12 @@ export default function Word() {
 
                     <div
                       style={{
-                        width: "100%",
-                        marginTop: "-.5rem",
-                        textAlign: "left",
-                        fontSize: ".9em",
+                        // width: "100%",
+                        // marginTop: "-.5rem",
+                        // textAlign: "left",
+                        // fontSize: ".9em",
                         // borderBottom: "1px solid rgba(128,128,128, .5)",
-                        border:'1px solid rgba(128,128,128,.5)'
+                        // border:'1px solid rgba(128,128,128,.5)'
                       }}
                     >
                       <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
@@ -222,7 +222,7 @@ export default function Word() {
                   </div>
                 </div>
               ))}
-              {/* </div> */}
+ 
             </div>
           </div>
         </div>
