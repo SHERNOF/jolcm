@@ -150,17 +150,16 @@ export default function Word() {
                 }}
               >
                 <InputBase
-                  sx={{ width: "80%" }}
+                className={classes.inputComment}
                   placeholder="Comments"
                   inputProps={{ "aria-label": "Comments" }}
                   value={comment}
                   onChange={(e) => setcomment(e.target.value)}
                 />
-
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <IconButton
-                  // color="primary"
-                  sx={{ marginLeft: "2rem" }}
+                className={classes.saveComment}
+                  sx={{  width:'20%' }}
                   type="submit"
                 >
                   <IoIosSave style={{ fontSize: "1.5rem" }} />
@@ -174,17 +173,14 @@ export default function Word() {
             <div className={classes.commentContainer}>
               <div
                 style={{
-                  // marginTop: "1rem",
                   textAlign: "left",
                   width: "100%",
                   fontSize: ".8em",
-                  // border: "1px solid green",
                   padding: "1rem 1rem",
                 }}
               >
                 Reactions
               </div>
-              {/* <div style={{ overflow: "scroll", height: "17rem" }}> */}
               {latestWow.comments.length === 0 && (
                 <MessageBox>Be the first to react</MessageBox>
               )}
@@ -203,6 +199,7 @@ export default function Word() {
                         width: "100%",
                         textAlign: "left",
                         fontSize: ".6em",
+                      // border:'1px solid rgba(128,128,128,.5)'
                       }}
                     >
                       <span style={{ color: "rgba(128,128,128,.8)" }}>
@@ -216,10 +213,11 @@ export default function Word() {
                         marginTop: "-.5rem",
                         textAlign: "left",
                         fontSize: ".9em",
-                        borderBottom: "1px solid rgba(128,128,128, .5)",
+                        // borderBottom: "1px solid rgba(128,128,128, .5)",
+                        border:'1px solid rgba(128,128,128,.5)'
                       }}
                     >
-                      <p style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</p>
+                      <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
                     </div>
                   </div>
                 </div>
@@ -232,3 +230,15 @@ export default function Word() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
