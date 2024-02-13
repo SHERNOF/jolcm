@@ -86,12 +86,6 @@ export default function Word() {
       latestWow.comments.unshift(data.reaction);
       dispatch({ type: "WOW_REFRESH", payload: latestWow });
       setcomment("");
-      // setinputVisible(false);
-
-      window.scrollTo({
-        behavior: "smooth",
-        bottom: reactionsRef.current.offsetBottom,
-      });
     } catch (error) {
       // ctxDispatch(setSnackbar(true, "error", getError(error)));
       dispatch({ type: "WOW_COMMENT_FAILED" });
