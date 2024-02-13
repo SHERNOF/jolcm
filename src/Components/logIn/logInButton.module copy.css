@@ -1,0 +1,39 @@
+.logInButton {
+  bottom: 4.5rem;
+  left: 95%;
+  z-index: 10;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  animation: all 0.5s ease-in-out;
+  color: white;
+}
+
+.iconContainer {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.logInIcon {
+  background-color: black;
+  right: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: wheat;
+}
+@media (max-width: 38435px) {
+  .logInButton {
+    left: 90%;
+  }
+  .logInButton {
+    left: 90%;
+  }
+}

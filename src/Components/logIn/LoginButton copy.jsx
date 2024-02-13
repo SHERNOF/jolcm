@@ -25,20 +25,18 @@ export default function LoginButton() {
     localStorage.removeItem("userInfo");
   };
   return (
-    <div className={classes.logInButtonContainer}>
-      <div className={classes.logInButtonContainerPadding}>
-        <div className={classes.iconContainer}>
-          <div className={classes.logInIcon}>
-            {userInfo ? (
-              <Link to={"/"} style={{ color: "white" }}>
-                <RxExit style={style} onClick={logOutHandler} />
-              </Link>
-            ) : (
-              <Link to={"/"} style={{ color: "white" }}>
-                <RxEnter style={style} onClick={logInHandler} />
-              </Link>
-            )}
-          </div>
+    <div className={classes.logInButton}>
+      <div className={classes.iconContainer}>
+        <div className={classes.logInIcon}>
+          {userInfo ? (
+            <Link to={"/"} style={{ color: "white" }}>
+              <RxExit style={style} onClick={logOutHandler} />
+            </Link>
+          ) : (
+            <Link to={"/"} style={{ color: "white" }}>
+              <RxEnter style={style} onClick={logInHandler} />
+            </Link>
+          )}
         </div>
       </div>
     </div>

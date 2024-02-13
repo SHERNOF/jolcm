@@ -139,34 +139,36 @@ export default function Word() {
                 {latestWow.verse} <br></br> {latestWow.wow}
               </h6>
             </div>
-            <div className={classes.createComment}>
-              <Paper
-                component="form"
-                onSubmit={createCommentHandler}
-                sx={{
-                  p: "4px 4px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <InputBase
-                className={classes.inputComment}
-                  placeholder="Comments"
-                  inputProps={{ "aria-label": "Comments" }}
-                  value={comment}
-                  onChange={(e) => setcomment(e.target.value)}
-                />
-                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                <IconButton
-                className={classes.saveComment}
-                  sx={{  width:'20%' }}
-                  type="submit"
+            {userInfo && (
+              <div className={classes.createComment}>
+                <Paper
+                  component="form"
+                  onSubmit={createCommentHandler}
+                  sx={{
+                    p: "4px 4px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                 >
-                  <IoIosSave style={{ fontSize: "1.5rem" }} />
-                </IconButton>
-              </Paper>
-              {loading && <Loading />}
-            </div>
+                  <InputBase
+                    className={classes.inputComment}
+                    placeholder="Comments"
+                    inputProps={{ "aria-label": "Comments" }}
+                    value={comment}
+                    onChange={(e) => setcomment(e.target.value)}
+                  />
+                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                  <IconButton
+                    className={classes.saveComment}
+                    sx={{ width: "20%" }}
+                    type="submit"
+                  >
+                    <IoIosSave style={{ fontSize: "1.5rem" }} />
+                  </IconButton>
+                </Paper>
+                {loading && <Loading />}
+              </div>
+            )}
           </div>
 
           <div className={classes.column2}>
@@ -188,41 +190,18 @@ export default function Word() {
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>
                   <div className={classes.comments1}>
-                    <div className={classes.iContainer}>
-                      {userInfo.name.charAt(0)}
-                    </div>
+                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
                   </div>
 
                   <div className={classes.comments2}>
-                    <div
-                      style={{
-                      //   width: "100%",
-                      //   textAlign: "left",
-                      //   fontSize: ".6em",
-                      // // border:'1px solid rgba(128,128,128,.5)'
-                      }}
-                    >
-                      <span style={{ color: "rgba(128,128,128,.8)" }}>
-                        {userInfo.name}
-                      </span>
-                    </div>
+                    <span style={{ color: "rgba(128,128,128,.8)" }}>
+                      {x.name}
+                    </span>
 
-                    <div
-                      style={{
-                        // width: "100%",
-                        // marginTop: "-.5rem",
-                        // textAlign: "left",
-                        // fontSize: ".9em",
-                        // borderBottom: "1px solid rgba(128,128,128, .5)",
-                        // border:'1px solid rgba(128,128,128,.5)'
-                      }}
-                    >
-                      <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
-                    </div>
+                    <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
                   </div>
                 </div>
               ))}
- 
             </div>
           </div>
         </div>
@@ -230,15 +209,3 @@ export default function Word() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

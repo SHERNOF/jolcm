@@ -3,6 +3,7 @@ import classes from "./header.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import StyledLink from "../../UI/links/StyledLink";
+import LoginButton from "../logIn/LoginButton";
 
 // const capabilities = ["Messages", "Events", "Users"]
 const capabilities = [
@@ -42,7 +43,6 @@ export default function Header() {
             alt="logo"
           ></img>
         </Link>
-
         {userInfo && (
           <div style={{ position: "relative" }}>
             <div

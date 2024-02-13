@@ -7,7 +7,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 .navContainer {
   height: 100%;
@@ -17,7 +16,6 @@ nav {
   align-items: center;
   color: white;
   transition: all 0.5s;
-  /* border: 1px solid blue; */
   width: 70vw;
 }
 
@@ -35,7 +33,6 @@ nav {
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: -6rem;
-  /* border: 1px solid red; */
 }
 .logo .navLogo {
   width: 110%;
@@ -44,7 +41,6 @@ nav {
   justify-self: center;
   margin-bottom: 1rem;
   background-size: cover;
-  /* margin-right: 3rem; */
 }
 .initialHolder {
   width: 2.5rem;
@@ -53,6 +49,7 @@ nav {
   color: white;
   border: 1px solid rgb(255, 255, 255, 0.25);
   background: rgb(0, 0, 0, 0.5);
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +72,6 @@ ul {
   left: 100%;
   transition: all 0.25s;
   padding-left: 0;
-
 }
 
 .list {
@@ -87,7 +83,7 @@ ul {
   transition: all 0.25s;
   border: 1px solid rgb(255, 255, 255, 0.25);
   background: rgb(0, 0, 0, 0.9);
-  color: rgb(255,255,255, 0.7);
+  color: rgb(255, 255, 255, 0.7);
 }
 .list.appear {
   opacity: 1;
@@ -115,7 +111,6 @@ li:hover {
   .logo {
     width: 10rem;
     height: 100%;
-
     margin-left: -3rem;
   }
   .logo .navLogo {
@@ -129,14 +124,12 @@ li:hover {
   }
   .navContainer {
     height: 100%;
-
-    /* border: 1px solid blue; */
     width: 90vw;
   }
   .initialHolder {
     width: 2rem;
     height: 2rem;
-    font-size: 0.8em;
+    font-size: 1em;
   }
   ul {
     left: auto;
@@ -149,7 +142,6 @@ li:hover {
   }
   .list {
     font-size: 0.6em;
-
   }
 }
 

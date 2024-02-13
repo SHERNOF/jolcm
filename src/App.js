@@ -35,11 +35,11 @@ function App() {
     <div className="App" onWheel={eventHandler}>
       <BrowserRouter>
         <Header></Header>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<UsersPage />}></Route>
           <Route path="/messages" element={<MessagesPage />}></Route>
+
           <Route path="/events" element={<EventsPage />}></Route>
           <Route
             path="/jol/wow"
@@ -66,7 +66,6 @@ function App() {
             }
           />
         </Routes>
-
         <LoginButton></LoginButton>
         {displayLogin && <LogIn></LogIn>}
       </BrowserRouter>
