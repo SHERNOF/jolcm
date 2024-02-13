@@ -31,6 +31,9 @@
   color: wheat;
 }
 @media (max-width: 768px) {
+  .logInButtonContainer {
+    bottom: 1.5rem;
+  }
   .logInButtonContainerPadding {
     width: 90vw;
   }
