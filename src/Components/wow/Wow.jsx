@@ -161,10 +161,10 @@ export default function Word() {
                       style={{ fontSize: "1.5rem", cursor: "pointer" }}
                     />
                   </IconButton>
-                  {/* <Button type="submit" style={{ cursor: "pointer" }}>
+                  <Button type="submit" style={{ cursor: "pointer" }}>
                     Submit
-                  </Button> */}
-                  {loadingCreateComment && <Loading />}
+                  </Button>
+                  {/* {loadingCreateComment && <Loading />} */}
                 </Paper>
               </div>
             ) : (
