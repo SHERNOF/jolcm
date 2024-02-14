@@ -154,10 +154,10 @@ export default function Word() {
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                   <IconButton
                     className={classes.saveComment}
-                    sx={{ width: "20%" }}
+                    sx={{ width: "20%", cursor:'pointer' }}
                     type="submit"
                   >
-                    <IoIosSave style={{ fontSize: "1.5rem", cursor:'pointer' }} />
+                    <IoIosSave style={{ fontSize: "1.5rem",  }} />
                   </IconButton>
                 </Paper>
                 {loading && <Loading />}
