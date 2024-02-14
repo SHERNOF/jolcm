@@ -22,6 +22,7 @@ export default function Word() {
   const [verseInValid, setverseInValid] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
+  console.log(userInfo);
   const [
     { latestWow, error, loading, loadingWowRequest, loadingCreateComment },
     dispatch,
