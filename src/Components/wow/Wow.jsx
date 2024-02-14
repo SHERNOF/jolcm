@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
+import Button from "../../UI/button/Button";
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -91,7 +92,7 @@ export default function Word() {
     } catch (error) {
       // ctxDispatch(setSnackbar(true, "error", getError(error)));
       dispatch({ type: "WOW_COMMENT_FAILED" });
-      console.log("cannot");
+      alert(error);
     }
   };
 
@@ -160,7 +161,7 @@ export default function Word() {
                   >
                     <IoIosSave  style={{ fontSize: "1.5rem", cursor:'pointer'  }} />
                   </IconButton> */}
-                  <button type="submit" style={{cursor:'pointer'}}>Submit</button>
+                  <Button type="submit" style={{cursor:'pointer'}}>Submit</Button>
                 </Paper>
                 {loading && <Loading />}
               </div>

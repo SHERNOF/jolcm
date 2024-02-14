@@ -105,6 +105,7 @@ export default function CreateWow() {
       }
     } catch (error) {
       dispatch({ type: WOW_POST_FAILED, payload: getError(error) });
+      
       alert(error);
     }
     setverse("");
