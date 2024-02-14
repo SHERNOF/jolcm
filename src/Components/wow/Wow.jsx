@@ -164,7 +164,7 @@ export default function Word() {
                   <Button type="submit" style={{ cursor: "pointer" }}>
                     Submit
                   </Button>
-                  {/* {loadingCreateComment && <Loading />} */}
+                  {loadingCreateComment && <Loading />}
                 </Paper>
               </div>
             ) : (
