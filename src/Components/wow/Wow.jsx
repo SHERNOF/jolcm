@@ -156,7 +156,7 @@ export default function Word() {
                     className={classes.saveComment}
                     type="submit"
                   >
-                    <IoIosSave style={{ fontSize: "1.5rem",  }} />
+                    {/* <IoIosSave  style={{ fontSize: "1.5rem"  }} /> */}
                   </IconButton>
                 </Paper>
                 {loading && <Loading />}

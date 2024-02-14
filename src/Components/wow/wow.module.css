@@ -33,7 +33,7 @@
 }
 .saveComment{
   width: 20%;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .column2 {
