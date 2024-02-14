@@ -154,15 +154,14 @@ export default function Word() {
                     onChange={(e) => setcomment(e.target.value)}
                   />
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                  {/* <IconButton
-                    className={classes.saveComment}
-                    type="submit"
-                  >
-                    <IoIosSave  style={{ fontSize: "1.5rem", cursor:'pointer'  }} />
-                  </IconButton> */}
-                  <Button type="submit" style={{ cursor: "pointer" }}>
+                  <IconButton className={classes.saveComment} type="submit">
+                    <IoIosSave
+                      style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                    />
+                  </IconButton>
+                  {/* <Button type="submit" style={{ cursor: "pointer" }}>
                     Submit
-                  </Button>
+                  </Button> */}
                 </Paper>
                 {loadingCreateComment && <Loading />}
               </div>
@@ -188,7 +187,7 @@ export default function Word() {
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>
                   <div className={classes.comments1}>
-                    {/* <div className={classes.iContainer}>{x.name.charAt(0)}</div> */}
+                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
                   </div>
 
                   <div className={classes.comments2}>
