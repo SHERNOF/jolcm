@@ -59,8 +59,8 @@ wowRoute.post(
       // }
 
       const reaction = {
-        comment: req.body.comment,
         name: req.user.name,
+        comment: req.body.comment,
       };
 
       wow.comments.push(reaction);
