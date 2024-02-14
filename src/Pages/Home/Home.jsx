@@ -21,7 +21,6 @@ export default function Home() {
       try {
         const churchEvents = await axios.get("/jol/churchEvents");
         dispatch({ type: "FETCH_DATA_SUCCESS", payload: churchEvents.data });
-        console.log(churchEvents);
       } catch (error) {
         dispatch({ type: "FETCH_DATA_FAIL", payload: error.message });
       }
@@ -38,8 +37,6 @@ export default function Home() {
     loading: true,
     latestWow: [],
   });
-  console.log(churchEvents);
-  console.log(latestWow);
   return (
     <>
       <Helmet>

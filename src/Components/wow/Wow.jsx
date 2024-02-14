@@ -52,7 +52,6 @@ export default function Word() {
       try {
         const latestWow = await axios.get(`/jol/latestWow/`);
         dispatch({ type: "FETCH_WOW_SUCCESS", payload: latestWow.data[0] });
-        console.log(latestWow);
       } catch (error) {
         dispatch({ type: "FETCH_WOW_FAIL", payload: error.message });
       }
@@ -135,7 +134,7 @@ export default function Word() {
                 {latestWow.verse} <br></br> {latestWow.wow}
               </h6>
             </div>
-            {userInfo && (
+            {userInfo ? (
               <div className={classes.createComment}>
                 <Paper
                   component="form"
@@ -154,17 +153,23 @@ export default function Word() {
                     onChange={(e) => setcomment(e.target.value)}
                   />
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                  <IconButton className={classes.saveComment} type="submit">
+                  <IconButton
+                    className={classes.saveComment}
+                    type="submit"
+                    disabled={loadingCreateComment}
+                  >
                     <IoIosSave
                       style={{ fontSize: "1.5rem", cursor: "pointer" }}
                     />
                   </IconButton>
                   {/* <Button type="submit" style={{ cursor: "pointer" }}>
-                    Submit
-                  </Button> */}
+    Submit
+  </Button> */}
+                  {loadingCreateComment && <Loading />}
                 </Paper>
-                {loadingCreateComment && <Loading />}
               </div>
+            ) : (
+              <MessageBox />
             )}
           </div>
 
