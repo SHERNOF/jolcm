@@ -51,6 +51,7 @@ wowRoute.post(
     const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
     console.log(wow);
+    console.log(wowId);
 
     if (wow) {
       // if (wow.comments.find((x) => x.name === req.user.name)) {
