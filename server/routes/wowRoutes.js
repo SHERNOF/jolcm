@@ -46,7 +46,7 @@ wowRoute.post(
 
 wowRoute.post(
   "/:id/comments",
-  isAuth,
+  // isAuth,
   expressAsyncHandler(async (req, res) => {
     const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
