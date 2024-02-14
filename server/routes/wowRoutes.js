@@ -1,8 +1,8 @@
 import express from "express";
 import Wow from "../models/wowModel.js";
 import expressAsyncHandler from "express-async-handler";
-import bcrypt from "bcryptjs";
-import { generateToken, isAdmin, isAuth } from "../utils.js";
+
+import { isAuth } from "../utils.js";
 
 const wowRoute = express.Router();
 
@@ -46,7 +46,7 @@ wowRoute.post(
 
 wowRoute.post(
   "/:id/comments",
-  isAuth,
+  // isAuth,
   expressAsyncHandler(async (req, res) => {
     const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
@@ -77,14 +77,6 @@ wowRoute.post(
     }
   })
 );
-// wowRoute.get("/latestWow/comments", async (req, res) => {
-//   const comments = await Wow.findOne({ comments: req.params.comments });
-//   if (comments) {
-//     res.send(comments);
-//   } else {
-//     res.status(404).send({ message: "Product not found..." });
-//   }
-// });
 
 wowRoute.put(
   "/:id",

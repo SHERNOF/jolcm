@@ -18,7 +18,7 @@ export const isAuth = (req, res, next) => {
   console.log(authorization);
   if (authorization) {
     const token = authorization.slice(7, authorization.length); // Bearer xxxxxx <<<>>> to get only the toke not included the Bearer, then verify it with jwt
-    console.log(token);
+    console.log(authorization);
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         res.status(401).send({ message: "Invalid Token" });

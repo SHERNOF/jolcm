@@ -14,6 +14,7 @@ import classes from "./signUp.module.css";
 
 export default function SignUp() {
   const [name, setname] = useState("");
+  const [isAdmin, setisAdmin] = useState(false);
   const [nameInValid, setnameInValid] = useState(false);
   const [logInEmail, setlogInEmail] = useState("");
   const [logInEmailInValid, setlogInEmailInValid] = useState(false);
@@ -69,7 +70,8 @@ export default function SignUp() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const redirectInUrl = new URLSearchParams(search).get("redirect");
-  const redirect = redirectInUrl ? redirectInUrl : "/admin";
+  // const redirect = redirectInUrl ? redirectInUrl : "/admin";
+  const redirect = redirectInUrl ? redirectInUrl : "/";
 
   const signUpHandler = async (event) => {
     event.preventDefault();
@@ -77,12 +79,13 @@ export default function SignUp() {
       if (logInEmail.trim().length !== 0 && logInPassword.trim().length !== 0) {
         dispatch({
           type: USER_SIGNUP_REQUEST,
-          payload: { name, logInEmail, logInPassword },
+          payload: { name, logInEmail, logInPassword, isAdmin },
         });
         const { data } = await axios.post("/jol/users/signup", {
           name,
           logInEmail,
           logInPassword,
+          isAdmin,
         });
 
         dispatch({ type: USER_SIGNUP_SUCCESS, payload: data });
