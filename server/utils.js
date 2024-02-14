@@ -16,7 +16,9 @@ export const generateToken = (user) => {
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {
-    const token = authorization.slice(7, authorization.length); // Bearer xxxxxx <<<>>> to get only the toke not included the Bearer, then verify it with jwt
+    // const token = authorization.slice(7, authorization.length);
+    const token = authorization;
+    // Bearer xxxxxx <<<>>> to get only the toke not included the Bearer, then verify it with jwt
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
