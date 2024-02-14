@@ -67,7 +67,7 @@ export default function Word() {
     //   );
     //   return;
     // }
-    alert('nice')
+  
     console.log("test");
     try {
       const { data } = await axios.post(
@@ -84,6 +84,7 @@ export default function Word() {
       // ctxDispatch(
       //   setSnackbar(true, "success", "Review submitted successfully")
       // );
+      alert('nice')
       latestWow.comments.unshift(data.reaction);
       dispatch({ type: "WOW_REFRESH", payload: latestWow });
       setcomment("");
