@@ -78,13 +78,13 @@ export default function Word() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
+      alert('nice')
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
       });
       // ctxDispatch(
       //   setSnackbar(true, "success", "Review submitted successfully")
       // );
-      alert('nice')
       latestWow.comments.unshift(data.reaction);
       dispatch({ type: "WOW_REFRESH", payload: latestWow });
       setcomment("");
