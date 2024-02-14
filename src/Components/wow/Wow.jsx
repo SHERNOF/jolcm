@@ -153,12 +153,13 @@ export default function Word() {
                     onChange={(e) => setcomment(e.target.value)}
                   />
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                  <IconButton
+                  {/* <IconButton
                     className={classes.saveComment}
                     type="submit"
                   >
-                    {/* <IoIosSave  style={{ fontSize: "1.5rem"  }} /> */}
-                  </IconButton>
+                    <IoIosSave  style={{ fontSize: "1.5rem", cursor:'pointer'  }} />
+                  </IconButton> */}
+                  <button type="submit">Submit</button>
                 </Paper>
                 {loading && <Loading />}
               </div>
