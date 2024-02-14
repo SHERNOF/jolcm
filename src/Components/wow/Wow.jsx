@@ -69,6 +69,7 @@ export default function Word() {
     // }
 
     console.log("test");
+    alert(`${userInfo.token}`);
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
@@ -78,7 +79,6 @@ export default function Word() {
         }
       );
       alert("nice");
-      alert(`${userInfo.token}`);
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
       });
