@@ -67,6 +67,7 @@ export default function Word() {
     //   );
     //   return;
     // }
+    alert('nice')
     console.log("test");
     try {
       const { data } = await axios.post(
