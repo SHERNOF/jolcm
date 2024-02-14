@@ -9,6 +9,7 @@ export const generateToken = (user) => {
       isAdmin: user.isAdmin,
     },
     // `${process.env.JWT_SECRET}`,
+    // process.env.JWT_SECRET,
     process.env.JWT_SECRET,
     { expiresIn: "30d" }
   );
@@ -17,8 +18,8 @@ export const generateToken = (user) => {
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {
-    // const token = authorization.slice(7, authorization.length);
-    const token = authorization;
+    const token = authorization.slice(7, authorization.length);
+    // const token = authorization;
     // Bearer xxxxxx <<<>>> to get only the toke not included the Bearer, then verify it with jwt
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
