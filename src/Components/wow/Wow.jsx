@@ -73,11 +73,11 @@ export default function Word() {
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
-        { comment }
-        // { comment, name: userInfo.name },
-        // {
-        //   headers: { Authorization: `Bearer ${userInfo.token}` },
-        // }
+        // { comment },
+        { comment, name: userInfo.name },
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
       );
       alert("nice");
       dispatch({
