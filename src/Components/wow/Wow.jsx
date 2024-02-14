@@ -160,7 +160,7 @@ export default function Word() {
                   >
                     <IoIosSave  style={{ fontSize: "1.5rem", cursor:'pointer'  }} />
                   </IconButton> */}
-                  <button type="submit" style={{cursor:'button'}}>Submit</button>
+                  <button type="submit" style={{cursor:'pointer'}}>Submit</button>
                 </Paper>
                 {loading && <Loading />}
               </div>
