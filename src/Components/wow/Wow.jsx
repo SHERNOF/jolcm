@@ -74,8 +74,8 @@ export default function Word() {
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
-        // { comment },
-        { comment, name: userInfo.name },
+        { comment },
+        // { comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
@@ -190,7 +190,7 @@ export default function Word() {
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>
                   <div className={classes.comments1}>
-                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
+                    {/* <div className={classes.iContainer}>{x.name.charAt(0)}</div> */}
                   </div>
 
                   <div className={classes.comments2}>
