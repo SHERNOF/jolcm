@@ -157,7 +157,7 @@ export default function Word() {
                     sx={{ width: "20%" }}
                     type="submit"
                   >
-                    <IoIosSave style={{ fontSize: "1.5rem" }} />
+                    <IoIosSave style={{ fontSize: "1.5rem", cursor:'pointer' }} />
                   </IconButton>
                 </Paper>
                 {loading && <Loading />}
