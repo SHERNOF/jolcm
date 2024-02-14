@@ -22,7 +22,7 @@ export default function Word() {
   const [verseInValid, setverseInValid] = useState(false);
 
   const userInfo = useSelector((state) => state.userInfo);
-  console.log(userInfo);
+  console.log(userInfo.token);
   const [
     { latestWow, error, loading, loadingWowRequest, loadingCreateComment },
     dispatch,
@@ -74,8 +74,7 @@ export default function Word() {
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
-        { comment },
-        // { comment, name: userInfo.name },
+        { comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
@@ -166,7 +165,7 @@ export default function Word() {
                     Submit
                   </Button>
                 </Paper>
-                {loading && <Loading />}
+                {loadingCreateComment && <Loading />}
               </div>
             )}
           </div>

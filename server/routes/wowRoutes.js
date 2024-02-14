@@ -46,12 +46,10 @@ wowRoute.post(
 
 wowRoute.post(
   "/:id/comments",
-  // isAuth,
+  isAuth,
   expressAsyncHandler(async (req, res) => {
     const wowId = req.params.id;
     const wow = await Wow.findById(wowId);
-    console.log(wow);
-    console.log(wowId);
 
     if (wow) {
       // if (wow.comments.find((x) => x.name === req.user.name)) {
@@ -62,7 +60,7 @@ wowRoute.post(
 
       const reaction = {
         comment: req.body.comment,
-        // name: req.user.name,
+        name: req.user.name,
       };
 
       wow.comments.push(reaction);
