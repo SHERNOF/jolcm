@@ -68,18 +68,18 @@ export default function Word() {
     //   );
     //   return;
     // }
-  
+
     console.log("test");
     try {
       const { data } = await axios.post(
         `/jol/wow/${latestWow._id}/comments`,
-        // { comment },
-        { comment, name: userInfo.name },
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
+        { comment }
+        // { comment, name: userInfo.name },
+        // {
+        //   headers: { Authorization: `Bearer ${userInfo.token}` },
+        // }
       );
-      alert('nice')
+      alert("nice");
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
       });
@@ -161,7 +161,9 @@ export default function Word() {
                   >
                     <IoIosSave  style={{ fontSize: "1.5rem", cursor:'pointer'  }} />
                   </IconButton> */}
-                  <Button type="submit" style={{cursor:'pointer'}}>Submit</Button>
+                  <Button type="submit" style={{ cursor: "pointer" }}>
+                    Submit
+                  </Button>
                 </Paper>
                 {loading && <Loading />}
               </div>

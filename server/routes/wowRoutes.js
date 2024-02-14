@@ -60,7 +60,7 @@ wowRoute.post(
       // }
 
       const reaction = {
-        name: req.user.name,
+        // name: req.user.name,
         comment: req.body.comment,
       };
 
