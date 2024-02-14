@@ -76,7 +76,7 @@ export default function Word() {
         // { comment },
         { comment, name: userInfo.name },
         {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
+          headers: { authorization: `Bearer ${userInfo.token}` },
         }
       );
       alert("nice");
