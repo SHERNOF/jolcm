@@ -6,10 +6,13 @@ import { generateToken } from "../utils.js";
 
 const userRoute = express.Router();
 
-userRoute.get('/usersList', expressAsyncHandler( async (req, res) => {
-  const usersList = await User.find()
-  res.send(usersList)
-}))
+userRoute.get(
+  "/usersList",
+  expressAsyncHandler(async (req, res) => {
+    const usersList = await User.find();
+    res.send(usersList);
+  })
+);
 
 userRoute.post(
   "/signin",
@@ -38,6 +41,7 @@ userRoute.post(
       email: req.body.logInEmail,
       name: req.body.name,
       password: bcrypt.hashSync(req.body.logInPassword, 8),
+      isAdmin: false,
     });
     const createdUser = await user.save();
     res.send({
