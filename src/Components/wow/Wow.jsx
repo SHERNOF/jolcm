@@ -76,7 +76,6 @@ export default function Word() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      alert("nice");
       dispatch({
         type: "WOW_COMMENT_SUCCESS",
       });
