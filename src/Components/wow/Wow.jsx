@@ -108,11 +108,12 @@ export default function Word() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "flex-start",
+                border: "1px solid red",
               }}
             >
-              <h6 style={{ color: "rgb(0,0,0,.5)" }}>
+              <h5 style={{ color: "rgb(0,0,0,.5)" }}>
                 Words to Ponder - by {latestWow.by}
-              </h6>
+              </h5>
             </div>
 
             <div
@@ -149,18 +150,15 @@ export default function Word() {
                     onChange={(e) => setcomment(e.target.value)}
                   />
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                    <IconButton
-                      className={classes.saveComment}
-                      type="submit"
-                      disabled={loadingCreateComment}
-                    >
-                      <IoIosSave
-                        style={{ fontSize: "1.5rem", cursor: "pointer" }}
-                      />
-                    </IconButton>
-                  {/* <Button type="submit" style={{ cursor: "pointer" }}>
-                    Submit
-                  </Button> */}
+                  <IconButton
+                    className={classes.saveComment}
+                    type="submit"
+                    disabled={loadingCreateComment}
+                  >
+                    <IoIosSave
+                      style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                    />
+                  </IconButton>
                   {loadingCreateComment && <Loading />}
                 </Paper>
               </div>
@@ -171,18 +169,10 @@ export default function Word() {
 
           <div className={classes.column2}>
             <div className={classes.commentContainer}>
-              <div
-                style={{
-                  textAlign: "left",
-                  width: "100%",
-                  fontSize: ".8em",
-                  padding: "1rem 1rem",
-                }}
-              >
-                Reactions
-              </div>
-              {latestWow.comments.length === 0 && (
-                <MessageBox>Be the first to react</MessageBox>
+              {latestWow.comments.length === 0 ? (
+                <h5 className={classes.reactions}>Be the first to react</h5>
+              ) : (
+                <h5 className={classes.reactions}>Reactions</h5>
               )}
 
               {latestWow.comments.map((x) => (

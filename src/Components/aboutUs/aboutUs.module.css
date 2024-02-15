@@ -4,7 +4,7 @@
   justify-content: center;
   margin: 4rem 0 0 0;
   overflow: hidden;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .mv {
@@ -18,12 +18,10 @@
 .jol,
 .mission,
 .vision {
-  /* border: 1px solid blue; */
-
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   transition-delay: 0.15s;
   padding: 10px;
   gap: 20px;
