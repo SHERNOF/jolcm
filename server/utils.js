@@ -22,9 +22,9 @@ export const isAuth = (req, res, next) => {
     // const token = authorization;
     // Bearer xxxxxx <<<>>> to get only the toke not included the Bearer, then verify it with jwt
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
+    jwt.verify(token, `${process.env.JWT_SECRET}`, (err, decode) => {
       if (err) {
-        res.status(401).send({ message: "Token Invalid" });
+        res.status(401).send({ message: err });
       } else {
         req.user = decode;
         next();
