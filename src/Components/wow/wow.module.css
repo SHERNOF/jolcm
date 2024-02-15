@@ -14,13 +14,35 @@
   height: 100%;
 }
 .column1 {
-  width: 50%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   height: 100%;
+
+}
+.column1 .ponder {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
+  color: rgba(0,0,0,.5);
+  margin-left: 0;
+}
+.latestWow{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-weight: bolder;
+  color: rgba(0,0,0,.5);
 }
 .column1 .createComment {
   height: 20%;
@@ -34,7 +56,7 @@
 }
 
 .column2 {
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -45,17 +67,17 @@
 .column2 .commentContainer {
   width: 100%;
   height: 100%;
-  border: 1px solid green;
-  height: 20%;
+
 }
 .column2 .commentContainer .reactions {
-  color: rgba(0, 0, 0, 0.5);
-  /* text-align: left; */
   width: 100%;
   height: 20%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  /* border: 1px solid red; */
+  color: rgba(0,0,0,.5);
+  margin-left: 0;
 }
 
 .column2 .comments {

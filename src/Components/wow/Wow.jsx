@@ -101,35 +101,18 @@ export default function Word() {
       ) : (
         <div className={classes.wowContainer}>
           <div className={classes.column1}>
-            <div
-              style={{
-                width: "100%",
-                height: "20%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                border: "1px solid red",
-              }}
-            >
-              <h5 style={{ color: "rgb(0,0,0,.5)" }}>
+            <div className={classes.ponder}>
+              <h5 style={{marginLeft:'0'}}>
                 Words to Ponder - by {latestWow.by}
               </h5>
             </div>
 
-            <div
-              style={{
-                width: "100%",
-                height: "60%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <h6
+            <div className={classes.latestWow}>
+              <h4
                 style={{ maxWidth: "90%", lineHeight: "2", textAlign: "left" }}
               >
                 {latestWow.verse} <br></br> {latestWow.wow}
-              </h6>
+              </h4>
             </div>
             {userInfo ? (
               <div className={classes.createComment}>

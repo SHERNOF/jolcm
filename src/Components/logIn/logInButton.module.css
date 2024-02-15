@@ -1,16 +1,18 @@
 .logInButtonContainer {
-  width: 100%;
+  width: 100vw;
   position: fixed;
-  bottom: 6rem;
+  bottom: 4rem;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 20;
+
 }
 .logInButtonContainerPadding {
   width: 70vw;
   text-align: right;
+
 }
 .iconContainer {
   width: 100%;
@@ -30,12 +32,13 @@
   align-items: center;
   color: wheat;
 }
-@media (max-width: 768px) {
+@media (max-width: 495px) {
   .logInButtonContainer {
-    bottom: 1.5rem;
+    bottom: 2rem;
+
   }
   .logInButtonContainerPadding {
-    width: 90vw;
+    /* width: 95vw; */
   }
   .logInIcon {
     width: 2rem;
@@ -43,4 +46,5 @@
     font-size: 0.5em;
     margin-right: 0.5rem;
   }
+  
 }

@@ -25,6 +25,7 @@ export default function LoginButton() {
     localStorage.removeItem("userInfo");
   };
   return (
+
     <div className={classes.logInButtonContainer}>
       <div className={classes.logInButtonContainerPadding}>
         <div className={classes.iconContainer}>
@@ -42,5 +43,6 @@ export default function LoginButton() {
         </div>
       </div>
     </div>
+
   );
 }
