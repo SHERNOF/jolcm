@@ -24,7 +24,7 @@ export const isAuth = (req, res, next) => {
 
     jwt.verify(token, `${process.env.JWT_SECRET}`, (err, decode) => {
       if (err) {
-        res.status(401).send({ message: err });
+        res.status(401).send({ message: 'Not Nice' });
       } else {
         req.user = decode;
         next();

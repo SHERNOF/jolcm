@@ -105,7 +105,6 @@ export default function Word() {
             <div
               style={{
                 width: "100%",
-                // border:'1px solid blue',
                 height: "20%",
                 display: "flex",
                 alignItems: "center",
@@ -124,7 +123,6 @@ export default function Word() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                // border:'1px solid green',
               }}
             >
               <h6
