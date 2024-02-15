@@ -152,7 +152,7 @@ export default function Word() {
                     onChange={(e) => setcomment(e.target.value)}
                   />
                   <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                    {/* <IconButton
+                    <IconButton
                       className={classes.saveComment}
                       type="submit"
                       disabled={loadingCreateComment}
@@ -160,10 +160,10 @@ export default function Word() {
                       <IoIosSave
                         style={{ fontSize: "1.5rem", cursor: "pointer" }}
                       />
-                    </IconButton> */}
-                  <Button type="submit" style={{ cursor: "pointer" }}>
+                    </IconButton>
+                  {/* <Button type="submit" style={{ cursor: "pointer" }}>
                     Submit
-                  </Button>
+                  </Button> */}
                   {loadingCreateComment && <Loading />}
                 </Paper>
               </div>

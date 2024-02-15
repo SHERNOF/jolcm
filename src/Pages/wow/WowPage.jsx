@@ -368,5 +368,7 @@ in wowModel.js
 Whhheeewww, this was resolved after days of debugging but learned a lot in terms of FE-BE data transmission
 
 Create wow button is not working in mobile devices - add cursor: pointer in the css of <ISSSave />
+          - found out that the button is not the issue but its the jwt token failed to verify the token.
+          - done a lot of trying to fix this; the fix is by making the process.env.JWT_SECRET to `${process.env.JWT_SECRET}`
 
  */
