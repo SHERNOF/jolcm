@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Button from "../../UI/button/Button";
+import ModeCommentIcon from '@mui/icons-material/ModeComment';
 
 export default function Word() {
   let reactionsRef = useRef();
@@ -107,13 +107,28 @@ export default function Word() {
               </h5>
             </div>
 
-            <div className={classes.latestWow}>
+            <div className={classes.latestWow}> 
               <h4
                 style={{ maxWidth: "90%", lineHeight: "2", textAlign: "left" }}
               >
-                {latestWow.verse} <br></br> {latestWow.wow}
-              </h4>
+                {latestWow.verse} <br></br> {latestWow.wow} <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical"/> <span style={{fontSize:'.7em'}}>Comment</span> <ModeCommentIcon sx={{fontSize:'.8em'}}/>
+                
+                {/* <div className={classes.commentVisible}><ModeCommentIcon /><span>Comment</span></div> */}
+              </h4> <br></br>
+              {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> <ModeCommentIcon /><span>Comment</span> */}
+              
             </div>
+       
+          </div>
+
+          <div className={classes.column2}>
+            <div className={classes.commentContainer}>
+              {latestWow.comments.length === 0 ? (
+                <h5 className={classes.reactions}>Be the first to react</h5>
+              ) : (
+                <h5 className={classes.reactions}>Reactions</h5>
+              )}
+
             {userInfo ? (
               <div className={classes.createComment}>
                 <Paper
@@ -148,15 +163,6 @@ export default function Word() {
             ) : (
               <MessageBox />
             )}
-          </div>
-
-          <div className={classes.column2}>
-            <div className={classes.commentContainer}>
-              {latestWow.comments.length === 0 ? (
-                <h5 className={classes.reactions}>Be the first to react</h5>
-              ) : (
-                <h5 className={classes.reactions}>Reactions</h5>
-              )}
 
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>
