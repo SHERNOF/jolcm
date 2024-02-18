@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import classes from "./wow.module.css";
 import axios from "axios";
 import { rootReducer } from "../../store/reducers";
@@ -10,10 +10,10 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import ModeCommentIcon from "@mui/icons-material/ModeComment";
+import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 
 export default function Word() {
-  let reactionsRef = useRef();
   const [comment, setcomment] = useState("");
 
   const [verse, setverse] = useState("");
@@ -44,6 +44,7 @@ export default function Word() {
   const iconHandler = () => {
     setinputVisible(true);
     seticonVisible(false);
+    console.log("test");
   };
 
   useEffect(() => {
@@ -102,67 +103,77 @@ export default function Word() {
         <div className={classes.wowContainer}>
           <div className={classes.column1}>
             <div className={classes.ponder}>
-              <h5 style={{marginLeft:'0'}}>
+              <h5 style={{ marginLeft: "0" }}>
                 Words to Ponder - by {latestWow.by}
               </h5>
             </div>
 
-            <div className={classes.latestWow}> 
+            <div className={classes.latestWow}>
               <h4
-                style={{ maxWidth: "90%", lineHeight: "2", textAlign: "left" }}
+                style={{
+                  minWidth: "90%",
+                  lineHeight: "2",
+                  textAlign: "left",
+                  margin: "0",
+                  fontSize: ".8em",
+                }}
               >
-                {latestWow.verse} <br></br> {latestWow.wow} <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical"/> <span style={{fontSize:'.7em'}}>Comment</span> <ModeCommentIcon sx={{fontSize:'.8em'}}/>
-                
-                {/* <div className={classes.commentVisible}><ModeCommentIcon /><span>Comment</span></div> */}
-              </h4> <br></br>
-              {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> <ModeCommentIcon /><span>Comment</span> */}
-              
+                {latestWow.verse} <br></br> {latestWow.wow}{" "}
+              </h4>
+              {userInfo && iconVisible && (
+                <span onClick={iconHandler}>
+                  <ModeCommentOutlinedIcon sx={{ fontSize: ".9em" }} /> Comment
+                </span>
+              )}
             </div>
-       
           </div>
 
           <div className={classes.column2}>
             <div className={classes.commentContainer}>
               {latestWow.comments.length === 0 ? (
-                <h5 className={classes.reactions}>Be the first to react</h5>
+                <MessageBox>Be the first to react</MessageBox>
               ) : (
                 <h5 className={classes.reactions}>Reactions</h5>
               )}
 
-            {userInfo ? (
-              <div className={classes.createComment}>
-                <Paper
-                  component="form"
-                  onSubmit={createCommentHandler}
-                  sx={{
-                    p: "4px 4px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <InputBase
-                    className={classes.inputComment}
-                    placeholder="Comments"
-                    inputProps={{ "aria-label": "Comments" }}
-                    value={comment}
-                    onChange={(e) => setcomment(e.target.value)}
-                  />
-                  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                  <IconButton
-                    className={classes.saveComment}
-                    type="submit"
-                    disabled={loadingCreateComment}
+              {inputVisible && (
+                <div className={classes.createComment}>
+                  <Paper
+                    component="form"
+                    onSubmit={createCommentHandler}
+                    sx={{
+                      p: "4px 4px",
+                      display: "flex",
+                      alignItems: "center",
+                      marginTop: "1rem",
+                      borderRadius: "20px",
+                    }}
                   >
-                    <IoIosSave
-                      style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                    <InputBase
+                      className={classes.inputComment}
+                      placeholder="Comments"
+                      inputProps={{ "aria-label": "Comments" }}
+                      value={comment}
+                      onChange={(e) => setcomment(e.target.value)}
+                      sx={{ marginLeft: "1rem", fontSize: ".5em" }}
                     />
-                  </IconButton>
-                  {loadingCreateComment && <Loading />}
-                </Paper>
-              </div>
-            ) : (
-              <MessageBox />
-            )}
+                    <Divider
+                      sx={{ height: 28, m: 0.5 }}
+                      orientation="vertical"
+                    />
+                    <IconButton
+                      className={classes.saveComment}
+                      type="submit"
+                      disabled={loadingCreateComment}
+                    >
+                      <IoIosSave
+                        style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                      />
+                    </IconButton>
+                    {loadingCreateComment && <Loading />}
+                  </Paper>
+                </div>
+              )}
 
               {latestWow.comments.map((x) => (
                 <div className={classes.comments} key={x._id}>

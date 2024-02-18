@@ -20,7 +20,6 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
-
 }
 .column1 .ponder {
   width: 100%;
@@ -29,23 +28,29 @@
   align-items: center;
   justify-content: flex-start;
   /* border: 1px solid red; */
-  color: rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   margin-left: 0;
 }
-.column1 .latestWow{
+.column1 .latestWow {
   width: 100%;
   height: 60%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   /* border: 1px solid red; */
   margin-bottom: 1rem;
   font-style: italic;
   font-weight: bolder;
-  color: rgba(0,0,0,.5);
-  /* flex-direction: column; */
+  color: rgba(0, 0, 0, 0.5);
+  flex-direction: column;
 }
-.column1 .latestWow .commentVisible{
+.column1 .latestWow span {
+  font-size: 0.6em;
+  text-align: left;
+  min-width: 90%;
+  cursor: pointer;
+}
+.column1 .latestWow .commentVisible {
   border: 1px solid red;
   width: 100%;
   text-align: left;
@@ -73,7 +78,6 @@
 .column2 .commentContainer {
   width: 100%;
   height: 100%;
-
 }
 .column2 .commentContainer .reactions {
   width: 100%;
@@ -82,7 +86,7 @@
   align-items: center;
   justify-content: flex-start;
   /* border: 1px solid red; */
-  color: rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   margin-left: 0;
 }
 
@@ -139,8 +143,13 @@
 }
 
 @media (max-width: 900px) {
+  .wow {
+    width: 100%;
+  }
   .wowContainer {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .column1 {
     width: 100%;
