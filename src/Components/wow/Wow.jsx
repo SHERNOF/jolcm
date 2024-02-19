@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import classes from "./wow.module.css";
 import axios from "axios";
 import { rootReducer } from "../../store/reducers";
@@ -10,7 +10,6 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 
 export default function Word() {

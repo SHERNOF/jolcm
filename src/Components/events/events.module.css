@@ -18,8 +18,7 @@
   border-radius: 5px;
   transition: all 1s ease-in-out;
   width: 100%;
-  border: 1px solid rgba(0,0,0, .5);
-  
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .column1 {
   display: flex;
@@ -38,7 +37,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 5px;
-
 }
 .eventsLineup {
   position: relative;
@@ -47,8 +45,6 @@
   margin-bottom: 1rem;
   border-radius: 5px;
   cursor: pointer;
- 
-
 }
 .eventImage {
   height: 100%;
@@ -108,9 +104,9 @@
   }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 430px) {
   .events {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
   .eventsContainer {
     flex-direction: column;
