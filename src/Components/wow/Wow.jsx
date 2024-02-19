@@ -86,6 +86,8 @@ export default function Word() {
       latestWow.comments.unshift(data.reaction);
       dispatch({ type: "WOW_REFRESH", payload: latestWow });
       setcomment("");
+      setinputVisible(false);
+      seticonVisible(true);
     } catch (error) {
       // ctxDispatch(setSnackbar(true, "error", getError(error)));
       dispatch({ type: "WOW_COMMENT_FAILED" });
@@ -125,17 +127,6 @@ export default function Word() {
                   <ModeCommentOutlinedIcon sx={{ fontSize: ".9em" }} /> Comment
                 </span>
               )}
-            </div>
-          </div>
-
-          <div className={classes.column2}>
-            <div className={classes.commentContainer}>
-              {latestWow.comments.length === 0 ? (
-                <MessageBox>Be the first to react</MessageBox>
-              ) : (
-                <h5 className={classes.reactions}>Reactions</h5>
-              )}
-
               {inputVisible && (
                 <div className={classes.createComment}>
                   <Paper
@@ -147,6 +138,7 @@ export default function Word() {
                       alignItems: "center",
                       marginTop: "1rem",
                       borderRadius: "20px",
+                      maxWidth: "90%",
                     }}
                   >
                     <InputBase
@@ -173,6 +165,16 @@ export default function Word() {
                     {loadingCreateComment && <Loading />}
                   </Paper>
                 </div>
+              )}
+            </div>
+          </div>
+
+          <div className={classes.column2}>
+            <div className={classes.commentContainer}>
+              {latestWow.comments.length === 0 ? (
+                <MessageBox>Be the first to react</MessageBox>
+              ) : (
+                <h5 className={classes.reactions}>Reactions</h5>
               )}
 
               {latestWow.comments.map((x) => (
