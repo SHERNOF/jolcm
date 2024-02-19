@@ -186,7 +186,6 @@ export default function Word() {
                     <span style={{ color: "rgba(128,128,128,.8)" }}>
                       {x.name}
                     </span>
-
                     <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
                   </div>
                 </div>

@@ -95,7 +95,6 @@
   height: 76px;
   width: 100%;
   display: flex;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +142,7 @@
   margin-bottom: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 430px) {
   .wow {
     width: 100%;
   }
@@ -158,16 +157,28 @@
   .column2 {
     width: 100%;
   }
+  .column2 .comments {
+    margin-bottom: 0;
+    margin-top: -1rem;
+  }
   .column2 .comments .comments1 {
     align-items: center;
     justify-content: center;
     font-size: 1.5em;
   }
   .column2 .comments .comments2 span {
-    font-size: 1em;
+    margin-left: -0.5rem;
+  }
+
+  .column2 .comments .comments2 span {
+    font-size: 1.2em;
   }
   .column2 .comments .comments2 :nth-child(2) {
-    font-size: 1em;
-    margin-bottom: 0.5rem;
+    font-size: 1.5em;
+  }
+  .column2 .comments .comments1 .iContainer {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8em;
   }
 }
