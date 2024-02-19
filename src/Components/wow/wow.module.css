@@ -58,6 +58,7 @@
 .column1 .createComment {
   height: 10%;
   width: 100%;
+  transition: all 0.5s ease-in-out;
 }
 .inputComment {
   width: 80%;
