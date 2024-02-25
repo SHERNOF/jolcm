@@ -49,9 +49,10 @@
   text-align: left;
   min-width: 90%;
   cursor: pointer;
+
+  width: 100%;
 }
 .column1 .latestWow .commentVisible {
-  border: 1px solid red;
   width: 100%;
   text-align: left;
 }

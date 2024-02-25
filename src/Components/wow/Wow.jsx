@@ -110,7 +110,7 @@ export default function Word() {
             </div>
 
             <div className={classes.latestWow}>
-              <h4
+              <h5
                 style={{
                   minWidth: "90%",
                   lineHeight: "2",
@@ -119,8 +119,8 @@ export default function Word() {
                   fontSize: ".8em",
                 }}
               >
-                {latestWow.verse} <br></br>{" "}
-              </h4>
+                {latestWow.verse}
+              </h5>
               {userInfo && iconVisible && (
                 <span onClick={iconHandler}>
                   <ModeCommentOutlinedIcon sx={{ fontSize: ".9em" }} /> Comment
