@@ -105,7 +105,7 @@ export default function Word() {
           <div className={classes.column1}>
             <div className={classes.ponder}>
               <h5 style={{ marginLeft: "0" }}>
-                Words to Ponder - by {latestWow.by}
+                {latestWow.wow} - by {latestWow.by}
               </h5>
             </div>
 
@@ -119,7 +119,7 @@ export default function Word() {
                   fontSize: ".8em",
                 }}
               >
-                {latestWow.verse} <br></br> {latestWow.wow}{" "}
+                {latestWow.verse} <br></br>{" "}
               </h4>
               {userInfo && iconVisible && (
                 <span onClick={iconHandler}>
