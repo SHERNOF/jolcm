@@ -16,4 +16,12 @@ code {
     monospace;
 }
 
-
+@font-face {
+  font-family: "Quandor";
+  src: local("Quandor Ultra Oblique"), local("Quandor-Ultra-Oblique"),
+    url("./Quandor/Quandor-UltraOblique.woff2") format("woff2"),
+    url("./Quandor/Quandor-UltraOblique.woff") format("woff"),
+    url("./Quandor/Quandor-UltraOblique.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

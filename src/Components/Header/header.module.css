@@ -107,7 +107,7 @@ li:hover {
     background-image: url("../../../public/pics/JOLblack.svg");
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 490px) {
   .logo {
     width: 10rem;
     height: 100%;

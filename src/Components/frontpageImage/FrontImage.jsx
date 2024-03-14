@@ -63,9 +63,13 @@ export default function FrontImage({ isMed }) {
       className={classes.videoContainer}
     >
       <div className={classes.overlay}></div>
-
       <div className={classes.imageContainer}>
-        {showVideo && <JolVideo autoplay></JolVideo>}
+        {/* {showVideo && <JolVideo autoplay></JolVideo>} */}
+        <div className={classes.contained}>
+          <img alt="announcement" src="./announcements/em1.png" />
+          <div className={classes.verse}>JUDE 1:2</div>
+          <span>May GOD give youmore and more mercy, peace and love</span>
+        </div>
       </div>
 
       <motion.div
@@ -74,21 +78,22 @@ export default function FrontImage({ isMed }) {
         animate="show"
         className={classes.titleContainer}
       >
-        <AnimatePresence>
-          {showTitle && (
-            <motion.div
-              variants={item}
-              exit={{
-                opacity: 0,
-                y: 1200,
-                transition: { delay: 1, duration: 1 },
-              }}
-            >
-              <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
-              <h2 className={classes.subTitle}>WELCOME HOME</h2>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* <AnimatePresence> */}
+        {/* {showTitle && ( */}
+        <motion.div
+          variants={item}
+          exit={{
+            opacity: 0,
+            y: -1200,
+            transition: { delay: 0.5, duration: 1 },
+          }}
+        >
+          <h1 className={classes.title}>JOY OF LIFE CHRISTIAN MINISTRY</h1>
+          <p className={classes.subTitle1}>19th Year</p>
+          <p className={classes.subTitle2}>Anniversary</p>
+        </motion.div>
+        {/* )} */}
+        {/* </AnimatePresence> */}
       </motion.div>
     </motion.div>
   );

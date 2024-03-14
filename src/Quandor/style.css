@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Quandor';
+    src: local('Quandor Ultra Oblique'), local('Quandor-Ultra-Oblique'),
+        url('Quandor-UltraOblique.woff2') format('woff2'),
+        url('Quandor-UltraOblique.woff') format('woff'),
+        url('Quandor-UltraOblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
