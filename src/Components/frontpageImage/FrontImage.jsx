@@ -68,7 +68,7 @@ export default function FrontImage({ isMed }) {
         <div className={classes.contained}>
           <img alt="announcement" src="./announcements/em1.png" />
           <div className={classes.verse}>JUDE 1:2</div>
-          <span>May GOD give youmore and more mercy, peace and love</span>
+          <span>May GOD give you more and more mercy, peace and love</span>
         </div>
       </div>
 

@@ -11,6 +11,7 @@ import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
+import Title from "../../UI/title/Title";
 
 export default function Word() {
   const [comment, setcomment] = useState("");
@@ -96,6 +97,7 @@ export default function Word() {
 
   return (
     <div className={classes.wow}>
+      <Title>WORDS TO PONDER</Title>
       {loading ? (
         <Loading />
       ) : error ? (
@@ -103,28 +105,19 @@ export default function Word() {
       ) : (
         <div className={classes.wowContainer}>
           <div className={classes.column1}>
-            <div className={classes.ponder}>
-              <h5 style={{ marginLeft: "0" }}>
+            <div className={classes.containerHeader}>
+              <h5>
                 {latestWow.wow} - by {latestWow.by}
               </h5>
             </div>
 
             <div className={classes.latestWow}>
-              <h5
-                style={{
-                  minWidth: "90%",
-                  lineHeight: "2",
-                  textAlign: "left",
-                  margin: "0",
-                  fontSize: ".8em",
-                }}
-              >
-                {latestWow.verse}
-              </h5>
+              <span>{latestWow.verse}</span>
               {userInfo && iconVisible && (
-                <span onClick={iconHandler}>
-                  <ModeCommentOutlinedIcon sx={{ fontSize: ".9em" }} /> Comment
-                </span>
+                <h6 onClick={iconHandler}>
+                  <ModeCommentOutlinedIcon style={{ fontStyle: ".4em" }} />{" "}
+                  Comment
+                </h6>
               )}
               {inputVisible && (
                 <div className={classes.createComment}>
@@ -169,28 +162,27 @@ export default function Word() {
           </div>
 
           <div className={classes.column2}>
-            <div className={classes.commentContainer}>
+            <div className={classes.containerReaction}>
               {latestWow.comments.length === 0 ? (
-                <MessageBox>Be the first to react</MessageBox>
+                <h5>Be the first to react</h5>
               ) : (
-                <h5 className={classes.reactions}>Reactions</h5>
+                <h5>Reactions</h5>
               )}
-
-              {latestWow.comments.map((x) => (
-                <div className={classes.comments} key={x._id}>
-                  <div className={classes.comments1}>
-                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
-                  </div>
-
-                  <div className={classes.comments2}>
-                    <span style={{ color: "rgba(128,128,128,.8)" }}>
-                      {x.name}
-                    </span>
-                    <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
-                  </div>
-                </div>
-              ))}
             </div>
+            {latestWow.comments.map((x) => (
+              <div className={classes.comments} key={x._id}>
+                <div className={classes.comments1}>
+                  <div className={classes.iContainer}>{x.name.charAt(0)}</div>
+                </div>
+
+                <div className={classes.comments2}>
+                  <span style={{ color: "rgba(128,128,128,.8)" }}>
+                    {x.name}
+                  </span>
+                  <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}
