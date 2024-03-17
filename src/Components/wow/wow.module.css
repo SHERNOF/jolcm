@@ -112,7 +112,7 @@
 }
 
 .comments:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
 }
 .comments .comments1 {
@@ -184,10 +184,10 @@
   .column1 .latestWow span {
     max-width: 80%;
     line-height: 1.2;
-    text-align: center;
+    text-align: justify;
     margin-top: 1rem;
-    font-size: 1.5em;
-    align-self: center;
+    font-size: 1.1em;
+    /* align-self: center; */
   }
   .column1 .latestWow h6 {
     max-width: 80%;

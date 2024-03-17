@@ -32,6 +32,39 @@ export const data = {
   ],
   churchEvents: [
     {
+      eventNumber: 14,
+      eventTitle: "Joy of Life Family",
+      pictures: [
+        "../jol/21.jpg",
+        "../jol/22.jpg",
+        "../jol/23.jpg",
+        "../jol/24.jpg",
+        "../jol/25.jpg",
+        "../jol/26.jpg",
+        "../jol/27.jpg",
+        "../jol/28.jpg",
+        "../jol/29.jpg",
+        "../jol/30.jpg",
+        "../jol/31.jpg",
+        "../jol/32.jpg",
+        "../jol/33.jpg",
+        "../jol/34.jpg",
+        "../jol/35.jpg",
+        "../jol/36.jpg",
+        "../jol/37.jpg",
+        "../jol/38.jpg",
+        "../jol/39.jpg",
+        "../jol/40.jpg",
+        "../jol/41.jpg",
+        "../jol/42.jpg",
+        "../jol/43.jpg",
+        "../jol/44.jpg",
+        "../jol/45.jpg",
+        "../jol/46.jpg",
+        "../jol/47.jpg",
+      ],
+    },
+    {
       eventNumber: 15,
       eventTitle: "Filipino Fiesta 2023",
       pictures: [
@@ -55,6 +88,7 @@ export const data = {
         "../fiesta/18.jpeg",
       ],
     },
+
     {
       eventNumber: 16,
       eventTitle: "Baptism 2023 Year Celebration 2022",
@@ -109,17 +143,19 @@ export const data = {
       name: "Jedi",
     },
   ],
-  wows:[
+  wows: [
     {
-      verse:'John 1:1-4',
-      wow:'In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made. In him was life; and the life was the light of men.',
-      by:'Pastor Bong'
+      verse: "John 1:1-4",
+      wow: "In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made. In him was life; and the life was the light of men.",
+      by: "Pastor Bong",
+      dateShared: "October 7, 1978",
     },
     {
-      verse:'Philippians 4:13',
-      wow:'I can do all things through Christ which strengtheneth me.',
-      by:'Pastor Bong'
+      verse: "Philippians 4:13",
+      wow: "I can do all things through Christ which strengtheneth me.",
+      by: "Pastor Bong",
+      dateShared: "April 6, 1980",
     },
-  ]
+  ],
 };
 export default data;

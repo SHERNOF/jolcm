@@ -97,94 +97,98 @@ export default function Word() {
 
   return (
     <div className={classes.wow}>
-      <Title>WORDS TO PONDER</Title>
       {loading ? (
         <Loading />
       ) : error ? (
         <MessageBox />
       ) : (
-        <div className={classes.wowContainer}>
-          <div className={classes.column1}>
-            <div className={classes.containerHeader}>
-              <h5>
-                {latestWow.wow} - by {latestWow.by}
-              </h5>
+        <>
+          <Title>
+            <div style={{ fontSize: "1.2em" }}>
+              {latestWow.wow} - by {latestWow.by}
             </div>
-
-            <div className={classes.latestWow}>
-              <span>{latestWow.verse}</span>
-              {userInfo && iconVisible && (
-                <h6 onClick={iconHandler}>
-                  <ModeCommentOutlinedIcon style={{ fontStyle: ".4em" }} />{" "}
-                  Comment
-                </h6>
-              )}
-              {inputVisible && (
-                <div className={classes.createComment}>
-                  <Paper
-                    component="form"
-                    onSubmit={createCommentHandler}
-                    sx={{
-                      p: "4px 4px",
-                      display: "flex",
-                      alignItems: "center",
-                      marginTop: "1rem",
-                      borderRadius: "20px",
-                      maxWidth: "90%",
-                    }}
-                  >
-                    <InputBase
-                      className={classes.inputComment}
-                      placeholder="Comments"
-                      inputProps={{ "aria-label": "Comments" }}
-                      value={comment}
-                      onChange={(e) => setcomment(e.target.value)}
-                      sx={{ marginLeft: "1rem", fontSize: ".5em" }}
-                    />
-                    <Divider
-                      sx={{ height: 28, m: 0.5 }}
-                      orientation="vertical"
-                    />
-                    <IconButton
-                      className={classes.saveComment}
-                      type="submit"
-                      disabled={loadingCreateComment}
+            <div style={{ marginLeft: "auto", marginRight: "1rem" }}>
+              <h6>{latestWow.dateShared}</h6>
+            </div>
+            {/* </div> */}
+          </Title>
+          <div className={classes.wowContainer}>
+            <div className={classes.column1}>
+              <div className={classes.latestWow}>
+                <span>{latestWow.verse}</span>
+                {userInfo && iconVisible && (
+                  <h6 onClick={iconHandler}>
+                    <ModeCommentOutlinedIcon style={{ fontStyle: ".4em" }} />{" "}
+                    Comment
+                  </h6>
+                )}
+                {inputVisible && (
+                  <div className={classes.createComment}>
+                    <Paper
+                      component="form"
+                      onSubmit={createCommentHandler}
+                      sx={{
+                        p: "4px 4px",
+                        display: "flex",
+                        alignItems: "center",
+                        marginTop: "1rem",
+                        borderRadius: "20px",
+                        maxWidth: "90%",
+                      }}
                     >
-                      <IoIosSave
-                        style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                      <InputBase
+                        className={classes.inputComment}
+                        placeholder="Comments"
+                        inputProps={{ "aria-label": "Comments" }}
+                        value={comment}
+                        onChange={(e) => setcomment(e.target.value)}
+                        sx={{ marginLeft: "1rem", fontSize: ".5em" }}
                       />
-                    </IconButton>
-                    {loadingCreateComment && <Loading />}
-                  </Paper>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className={classes.column2}>
-            <div className={classes.containerReaction}>
-              {latestWow.comments.length === 0 ? (
-                <h5>Be the first to react</h5>
-              ) : (
-                <h5>Reactions</h5>
-              )}
-            </div>
-            {latestWow.comments.map((x) => (
-              <div className={classes.comments} key={x._id}>
-                <div className={classes.comments1}>
-                  <div className={classes.iContainer}>{x.name.charAt(0)}</div>
-                </div>
-
-                <div className={classes.comments2}>
-                  <span style={{ color: "rgba(128,128,128,.8)" }}>
-                    {x.name}
-                  </span>
-                  <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
-                </div>
+                      <Divider
+                        sx={{ height: 28, m: 0.5 }}
+                        orientation="vertical"
+                      />
+                      <IconButton
+                        className={classes.saveComment}
+                        type="submit"
+                        disabled={loadingCreateComment}
+                      >
+                        <IoIosSave
+                          style={{ fontSize: "1.5rem", cursor: "pointer" }}
+                        />
+                      </IconButton>
+                      {loadingCreateComment && <Loading />}
+                    </Paper>
+                  </div>
+                )}
               </div>
-            ))}
+            </div>
+
+            <div className={classes.column2}>
+              <div className={classes.containerReaction}>
+                {latestWow.comments.length === 0 ? (
+                  <h5>Be the first to react</h5>
+                ) : (
+                  <h5>Reactions</h5>
+                )}
+              </div>
+              {latestWow.comments.map((x) => (
+                <div className={classes.comments} key={x._id}>
+                  <div className={classes.comments1}>
+                    <div className={classes.iContainer}>{x.name.charAt(0)}</div>
+                  </div>
+
+                  <div className={classes.comments2}>
+                    <span style={{ color: "rgba(128,128,128,.8)" }}>
+                      {x.name}
+                    </span>
+                    <span style={{ color: "rgba(0,0,0,.9)" }}>{x.comment}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
