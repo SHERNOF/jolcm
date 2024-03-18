@@ -25,7 +25,6 @@
   width: 100%;
   color: rgba(0, 0, 0, 0.5);
 }
-
 .containerHeader h5 {
   width: 100%;
   text-align: left;
@@ -86,7 +85,6 @@
   flex-direction: column;
   height: 100%;
 }
-
 .containerReaction {
   width: 100%;
   color: rgba(0, 0, 0, 0.5);
@@ -98,6 +96,7 @@
   margin: 0;
   border-bottom: 1rem;
   font-size: 0.8em;
+  margin-left: 1rem;
 }
 
 .comments {
