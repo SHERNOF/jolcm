@@ -50,7 +50,7 @@
   min-width: 90%;
   text-align: left;
   margin: 1rem 0;
-  font-size: 0.9em;
+  font-size: 0.7em;
 }
 .column1 .latestWow h6 {
   font-size: 0.6em;
@@ -185,7 +185,7 @@
     line-height: 1.2;
     text-align: justify;
     margin-top: 1rem;
-    font-size: 1.1em;
+    font-size: 0.9em;
     /* align-self: center; */
   }
   .column1 .latestWow h6 {
