@@ -119,7 +119,7 @@ export default function Word() {
                 {userInfo && iconVisible && (
                   <h6 onClick={iconHandler}>
                     <ModeCommentOutlinedIcon style={{ fontStyle: ".4em" }} />{" "}
-                    Comment
+                    Comments
                   </h6>
                 )}
                 {inputVisible && (
